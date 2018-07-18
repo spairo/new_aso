@@ -1,0 +1,475 @@
+
+<div class="animated fadeIn" ng-controller="DetailBlotterNotesController as main">
+  <div class="breadcrumb"><a nav="#!/">Home  &sol;</a><a nav="#!/blotter-notas-estructuradas/consulta">Blotter Notas Estructuradas &sol;</a><span class="selected">Detalle de emisi&oacute;n</span>
+  </div>
+  <h1>Datos de la venta
+    <div class="blotter-detail"><span ng-style="{'color': main.details.semaforo.color }">Sugerencia de {{ main.details.semaforo.nombreSemaforo }}</span>
+      <div class="traffic-light tooltip" ng-style="{'background-color': main.details.semaforo.color}">
+        <div class="content" ng-if="main.details.semaforo.comentario !== null"><span>{{ main.details.semaforo.comentario }}</span></div>
+      </div>
+    </div>
+  </h1>
+  <div class="strip">
+    <div class="col-4">
+      <label>Vendedor:</label><span>{{ main.details.vendedor.nombre }}</span>
+    </div>
+    <div class="col-3">
+      <label>Grupo:</label><span>{{ main.details.vendedor.grupo }}</span>
+    </div>
+    <div class="col-3">
+      <label>Fecha de creaci&oacute;n:</label><span>{{ main.details.vendedor.fecha | date:"dd/MM/yyyy h:mma" }}</span>
+    </div>
+    <div class="col-2 pr-0"><i class="edit" ng-click="main.edit = !main.edit; main.request.datos = global.copy(main.details.datos); main.request.activos = global.copy(main.details.activos); main.request.franquicias = global.copy(main.details.franquicias); main.request.vendedor = global.copy(main.details.vendedor); main.referenceSelected();" ng-show="!main.edit"></i><i class="cancel" ng-click="main.edit = !main.edit; main.deactButton();" ng-show="main.edit &amp;&amp; main.iconPipeline"></i><i class="preview tooltip" ng-click="main.reviewEmission(main.details.datos[1], main.details.datos[18].nuCatalogo);" ng-show="main.iconPipeline">
+        <div class="content">
+          <div class="txt">Resumen del Deal</div>
+        </div></i><i class="copy tooltip" ng-click="main.duplicateDeal.open(); main.clone.datos = global.copy(main.details.datos); main.clone.encabezados = global.copy(main.details.encabezados); main.clone.activos = global.copy(main.details.activos); main.cloneDefault(main.clone);" ng-show="main.iconPipeline">
+        <div class="content">
+          <div class="txt">Duplicar Deal</div>
+        </div></i>
+    </div>
+  </div>
+  <form name="main.editEmission" novalidate="novalidate">
+    <div class="panel">
+      <div class="block" ng-repeat="section in main.sections | orderBy:'nuCatalogo' | filter: {'txComentario': 'BOX'}">
+        <div class="title" ng-class="{'wrapper': main.edit}" ng-if="section.nuCatalogo !== 35">{{ section.txCatalogo }}</div>
+        <hr ng-if="section.nuCatalogo === 35 &amp;&amp; main.edit"/>
+        <div class="container">
+          <div class="field" ng-class="{edit: main.edit}" ng-if="field.seccion === section.nuCatalogo" ng-repeat="field in main.details.encabezados | orderBy:'ordenAlta'">
+            <div class="info">
+              <div class="col-1 mr-10" ng-if="field.id === 44 &amp;&amp; !main.edit"><a href="{{global.server}}/archivo?id={{main.details.datos[field.id].nuCatalogo}}&amp;categoria=documentoPayOff"><i class="pay-off tooltip">
+                    <div class="content">
+                      <div class="txt">Ver documento</div>
+                    </div></i></a></div>
+              <div class="col-1 mr-15" ng-if="field.id === 39 &amp;&amp; !main.edit"><i class="status tooltip" ng-click="main.historicalStatusModal.open(); main.historicalStatusEmission(main.details.datos[1]);">
+                  <div class="content">
+                    <div class="txt">Histórico estatus</div>
+                  </div></i>
+              </div>
+              <label for="{{ field.etiqueta }}" ng-class="{'detail': !main.edit}">{{ field.propiedad }}:</label>
+              <div ng-show="!main.edit"><span ng-if="field.tipo === 'AREA' || field.tipo === 'TEXT' || field.tipo === 'NUMBER'">{{ main.details.datos[field.id] || "-" }}</span>
+                <div ng-if="field.tipo === 'SELECT'"><span ng-if="main.details.datos[field.id].txCatalogo === ''">-</span><span ng-if="main.details.datos[field.id].txCatalogo !== ''">{{ main.details.datos[field.id].txCatalogo || "-" }}</span></div><span ng-if="field.tipo === 'DATE'">{{ main.details.datos[field.id] || "-" | date:"dd/MM/yyyy" }}</span><span ng-if="field.tipo === 'CURRENCY'">{{ main.details.datos[field.id] | currency:undefined:main.details.datos[field.id].countDecimals() }}</span><span ng-if="field.tipo === 'PORCENT'">{{ main.details.datos[field.id] }}%</span>
+                <div ng-if="field.tipo === 'SWITCH'">
+                  <div class="toggle">
+                    <input id="{{ main.details.datos[field.id] }}" type="checkbox" disabled="disabled" ng-model="main.details.datos[field.id]"/>
+                    <label for="{{ main.details.datos[field.id] }}">
+                      <div class="toggle-switch" data-checked="Sí" data-unchecked="No"></div>
+                    </label>
+                  </div>
+                </div>
+                <div ng-if="field.tipo === 'MODAL'"><a class="link" ng-click="main.referenceActiveModal.open(); main.detailReference = true;">{{ (main.details.activos | filter:{'status': 1}).length }} activos</a></div>
+              </div>
+              <div ng-show="main.edit">
+                <input ng-model="main.request.datos[field.id]" type="{{ field.tipo }}" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-disabled="section.nuCatalogo === 35" ng-if="(field.tipo === 'NUMBER' || field.tipo === 'TEXT') &amp;&amp; field.id !== 23 &amp;&amp; field.id !==91" ng-required="{{ field.required }}"/>
+                <input ng-model="main.request.datos[field.id]" type="{{ field.tipo }}" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-if="(field.tipo === 'TEXT') &amp;&amp; field.id === 91" ng-required="{{ field.required }}" ng-disabled="field.id === 91"/>
+                <input ng-model="main.request.datos[field.id]" type="number" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" min="0" name="{{ field.etiqueta }}" ng-if="field.id === 23" ng-required="{{ field.required }}" restrict-input="numbers"/>
+                <input currency-input="currency-input" field="main.request.datos[field.id]" placeholder="$" type="text" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-disabled="section.nuCatalogo === 35" ng-if="field.tipo === 'CURRENCY'" ng-required="{{ field.required }}"/>
+                <input ng-model="main.request.datos[field.id]" placeholder="%" type="number" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-if="field.id === 30" ng-keyup="main.request.datos[83] = main.request.datos[30]" ng-required="{{ field.required }}"/>
+                <input ng-model="main.request.datos[field.id]" placeholder="%" type="number" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-if="field.tipo === 'PORCENT' &amp;&amp; field.id !== 30" ng-required="{{ field.required }}"/>
+                <textarea id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-if="field.tipo === 'AREA'" ng-model="main.request.datos[field.id]" ng-required="{{ field.required }}"></textarea>
+                <div class="input-error" ng-if="main.editEmission.$submitted" ng-messages="main.editEmission[field.etiqueta].$error" ng-show="field.tipo !== 'SELECT' &amp;&amp; field.tipo !== 'SWITCH' &amp;&amp; field.tipo !== 'DATE'"><span ng-message="required">Este campo es requerido</span>
+                </div>
+                <div ng-if="field.tipo === 'SELECT'">
+                  <input ng-model="main.request.datos[field.id]" type="hidden" name="{{ field.etiqueta }}" ng-required="{{ field.required }}"/>
+                  <dropdown label="txCatalogo" model="main.request.datos[18]" on-update="main.salesAreaSelected(main.request.datos[18].nuCatalogo);" ng-if="field.id === 18" options="main[18]" selected="0"></dropdown>
+                  <dropdown label="txCatalogo" model="main.request.datos[39]" on-update="main.estatusEmission(main.details.datos[39].nuCatalogo)" ng-if="field.id === 39" options="main[39]" selected="0"></dropdown>
+                  <dropdown label="txCatalogo" model="main.request.datos[40]" on-update="main.salesGroupSelected(main.request.datos[40].nuCatalogo); " ng-if="field.id === 40" options="main[40]" selected="0" on-open="main.subcalls(40);"></dropdown>
+                  <dropdown label="txCatalogo" model="main.request.datos[44]" on-update="main.payoffSelected(main.request.datos[14].nuCatalogo);" on-open="main.subcalls(44);" ng-if="field.id === 44" options="main[44]" selected="0"></dropdown>
+                  <dropdown label="txCatalogo" model="main.request.datos[14]" on-update="main.subyacenteSelected(main.request.datos[14].nuCatalogo); main.referenceSelected();" ng-if="field.id === 14" options="main[14]" selected="0"></dropdown>
+                  <dropdown label="txCatalogo" model="main.request.datos[field.id]" ng-if="(field.id === 32)" options="main[field.id]" selected="0"></dropdown>
+                  <dropdown label="txCatalogo" model="main.request.datos[field.id]" ng-if="(field.id === 69)" options="main[field.id]" selected="0" on-open="main.subcalls(69);"></dropdown>
+                  <dropdown label="txCatalogo" model="main.request.datos[field.id]" ng-if="(field.id === 17)" options="main[field.id]" selected="0" on-open="main.subcalls(17);"></dropdown>
+                  <dropdown label="txCatalogo" model="main.request.datos[field.id]" ng-disabled="section.nuCatalogo === 35" ng-show="field.id !== 14 &amp;&amp; field.id !== 17 &amp;&amp; field.id !== 18 &amp;&amp; field.id !== 32 &amp;&amp; field.id !== 39 &amp;&amp; field.id !== 40 &amp;&amp; field.id !== 44 &amp;&amp; field.id !== 69" options="main[field.id]"></dropdown>
+                  <div class="input-error" ng-if="main.editEmission.$submitted" ng-messages="main.editEmission[field.etiqueta].$error"><span ng-message="required">Este campo es requerido</span>
+                  </div>
+                </div>
+                <div ng-if="field.tipo === 'DATE'">
+                  <input ng-model="main.request.datos[field.id]" type="hidden" name="{{ field.etiqueta }}" ng-required="{{ field.required }}"/>
+                  <div ng-if="section.nuCatalogo !== 35">
+                    <div class="col-10">
+                      <input date-input="date-input" ng-model="main.request.datos[field.id]" type="date"/>
+                    </div>
+                    <div class="col-2"><i class="calendar date-picker" ng-model="main.request.datos[field.id]"></i>
+                    </div>
+                  </div>
+                  <div ng-if="section.nuCatalogo === 35">
+                    <div class="col-10">
+                      <input date-input="date-input" disabled="true" ng-model="main.request.datos[field.id]" type="date"/>
+                    </div>
+                    <div class="col-2"><i class="calendar off"></i>
+                    </div>
+                  </div>
+                  <div class="input-error" ng-if="main.editEmission.$submitted" ng-messages="main.editEmission[field.etiqueta].$error"><span ng-message="required">Este campo es requerido</span>
+                  </div>
+                </div>
+                <div ng-if="field.tipo === 'SWITCH'">
+                  <div class="toggle">
+                    <input id="{{ field.id }}" type="checkbox" name="{{ field.etiqueta }}" ng-disabled="section.nuCatalogo === 35" ng-model="main.request.datos[field.id]" ng-required="{{ field.required }}"/>
+                    <label for="{{ field.id }}">
+                      <div class="toggle-switch" data-checked="Sí" data-unchecked="No"></div>
+                    </label>
+                  </div>
+                  <div class="input-error" ng-if="main.editEmission.$submitted" ng-messages="main.editEmission[field.etiqueta].$error"><span ng-message="required">Este campo es requerido</span>
+                  </div>
+                </div>
+                <div ng-if="field.tipo === 'MODAL'"><a class="link" ng-click="main.referenceActiveModal.open(); main.detailReference = false;" ng-if="!main.request.activos.length">+ Agregar</a><a class="link" ng-click="main.referenceActiveModal.open(); main.detailReference = false;" ng-if="main.request.activos.length">{{ (main.request.activos | filter:{'status': 1}).length }} activos</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="block" ng-show="!main.edit &amp;&amp; main.tipo == 1">
+        <div class="title">DOCUMENTOS</div>
+        <div class="container">
+          <div class="field">
+            <div class="info docs">
+              <div class="col-1 mr-10"><i class="docs" ng-click="main.availableDocs.open()"></i>
+              </div>
+              <label>Documentos vinculados:</label><span>{{ main.docs.length }}</span>
+            </div>
+          </div>
+          <div class="field" ng-hide="!main.details.datos[35]">
+            <button class="btn-large m-t-10" id="comprobanteBtn" ng-click="main.receiptPayment.open()">Comprobante de pago</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="tabs">
+      <li ng-class="{current: main.activeTab === section.txCatalogo}" ng-click="main.activeTab = section.txCatalogo" ng-repeat="section in main.sections | orderBy:'nuCatalogo' | filter: {'txComentario': 'TAB'}">{{ section.txCatalogo }}</li>
+      <li class="last view"></li>
+    </ul>
+    <div class="content-tab" ng-show="main.activeTab === 'NEGOCIACIÓN'">
+      <div class="container">
+        <div class="field" ng-class="{edit: main.edit}" ng-if="field.seccion === 21" ng-repeat="field in main.details.encabezados | orderBy:'ordenAlta'">
+          <div class="info">
+            <label for="{{ field.etiqueta }}" ng-class="{'detail': !main.edit}">{{ field.propiedad }} :</label>
+            <div ng-show="!main.edit"><span ng-if="field.tipo === 'TEXT' || field.tipo === 'NUMBER'">{{ main.details.datos[field.id] || "-" }}</span>
+              <div ng-if="field.tipo === 'SELECT'"><span ng-if="main.details.datos[field.id].txCatalogo === ''">-</span><span ng-if="main.details.datos[field.id].txCatalogo !== ''">{{ main.details.datos[field.id].txCatalogo || "-" }}</span></div><span ng-if="field.tipo === 'DATE'">{{ main.details.datos[field.id] || "-" | date:"dd/MM/yyyy" }}</span><span ng-if="field.tipo === 'CURRENCY'">{{ main.details.datos[field.id] | currency:undefined:main.details.datos[field.id].countDecimals() }}</span><span ng-if="field.tipo === 'PORCENT'">{{ main.details.datos[field.id] }}%</span>
+              <div ng-if="field.tipo === 'SWITCH'">
+                <div class="toggle">
+                  <input id="{{ main.details.datos[field.id] }}" type="checkbox" disabled="disabled" ng-model="main.details.datos[field.id]"/>
+                  <label for="{{ main.details.datos[field.id] }}">
+                    <div class="toggle-switch" data-checked="Sí" data-unchecked="No"></div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div ng-show="main.edit">
+              <input ng-model="main.request.datos[field.id]" type="{{ field.tipo }}" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-if="field.tipo === 'NUMBER' || field.tipo === 'TEXT'" ng-required="{{ field.required }}"/>
+              <input currency-input="currency-input" field="main.request.datos[field.id]" placeholder="$" type="text" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-if="field.tipo === 'CURRENCY'" ng-required="{{ field.required }}"/>
+              <input ng-model="main.request.datos[field.id]" placeholder="%" type="number" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-if="field.tipo === 'PORCENT'" ng-required="{{ field.required }}"/>
+              <div class="input-error" ng-if="main.editEmission.$submitted" ng-messages="main.editEmission[field.etiqueta].$error" ng-show="field.tipo !== 'SELECT' &amp;&amp; field.tipo !== 'SWITCH' &amp;&amp; field.tipo !== 'DATE'"><span ng-message="required">Este campo es requerido</span>
+              </div>
+              <div ng-if="field.tipo === 'SELECT'">
+                <input ng-model="main.request.datos[field.id]" type="hidden" name="{{ field.etiqueta }}" ng-required="{{ field.required }}"/>
+                <dropdown label="txCatalogo" model="main.request.datos[25]" ng-if="field.id === 25" options="main[25]" selected="0"></dropdown>
+                <dropdown label="txCatalogo" model="main.request.datos[95]" ng-if="field.id === 95" options="main[95]" selected="0"></dropdown>
+                <dropdown label="txCatalogo" model="main.request.datos[94]" ng-if="field.id === 94" options="main[11]" selected="0"></dropdown>
+                <dropdown label="txCatalogo" model="main.request.datos[field.id]" ng-if="field.id !== 25 &amp;&amp; field.id !== 82 &amp;&amp; field.id !== 95 &amp;&amp; field.id !== 94" options="main[field.id]"></dropdown>
+                <div class="input-error" ng-if="main.editEmission.$submitted" ng-messages="main.editEmission[field.etiqueta].$error"><span ng-message="required">Este campo es requerido</span>
+                </div>
+              </div>
+              <div ng-if="field.tipo === 'DATE'">
+                <input ng-model="main.request.datos[field.id]" type="hidden" name="{{ field.etiqueta }}" ng-required="{{ field.required }}"/>
+                <div>
+                  <div class="col-10">
+                    <input date-input="date-input" ng-model="main.request.datos[field.id]" type="date"/>
+                  </div>
+                  <div class="col-2"><i class="calendar date-picker" ng-model="main.request.datos[field.id]"></i>
+                  </div>
+                </div>
+                <div class="input-error" ng-if="main.editEmission.$submitted" ng-messages="main.editEmission[field.etiqueta].$error"><span ng-message="required">Este campo es requerido</span>
+                </div>
+              </div>
+              <div ng-if="field.tipo === 'SWITCH'">
+                <div class="toggle">
+                  <input id="{{ field.id }}" type="checkbox" name="{{ field.etiqueta }}" ng-model="main.request.datos[field.id]" ng-required="{{ field.required }}"/>
+                  <label for="{{ field.id }}">
+                    <div class="toggle-switch" data-checked="Sí" data-unchecked="No"></div>
+                  </label>
+                </div>
+                <div class="input-error" ng-if="main.editEmission.$submitted" ng-messages="main.editEmission[field.etiqueta].$error"><span ng-message="required">Este campo es requerido</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <div class="info">
+            <label for="ts" ng-class="{'detail': !main.edit}">TS/DICI</label>
+            <div ng-show="!main.edit"><a class="file" href="{{global.server}}/archivo?id={{main.id}}&amp;categoria=53" ng-if="main.docts.name" target="_blank">{{main.docts.name}}</a><span ng-if="!main.docts.name">No existen archivos</span></div>
+            <div ng-show="main.edit">
+              <div ng-if="main.docts.name">
+                <div class="col-11"><a class="file" href="{{global.server}}/archivo?id={{main.id}}&amp;categoria=53" target="_blank">{{main.docts.name}}</a></div>
+                <div class="col-1">
+                  <input-file class="icon" model="main.ts.file"></input-file>
+                </div>
+              </div>
+              <input-file model="main.ts.file" ng-if="!main.docts.name"></input-file>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-tab" ng-show="main.activeTab === 'CALENDARIOS'">
+      <div class="row mb-20" ng-show="main.edit">
+        <div class="col-4"></div>
+        <div class="col-3">
+          <label class="mb-10">Cargar archivo CSV</label>
+          <input-file model="main.cal.file"></input-file>
+        </div>
+        <div class="col-4">
+          <button class="btn-large mt-20" ng-click="main.submitCalendar();" ng-disabled="!main.cal.file" ng-show="main.edit" type="button">Guardar Calendario</button>
+        </div>
+      </div>
+      <hr class="ml-20 mr-20" ng-show="main.edit"/>
+      <div class="message" ng-if="!main.calendar.encabezado">No existen calendarios de fechas registradas</div>
+      <div class="table-scroll vertical ml-30 mr-30">
+        <table>
+          <thead>
+            <tr class="default">
+              <th class="default" ng-repeat="header in main.calendar.encabezado | orderBy:'id'">{{ header.etiqueta }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-init="rowIndex = $index" ng-repeat="row in main.calendar.datos[main.calendarDataRange] track by $index">
+              <td ng-repeat="column in main.calendar.encabezado | orderBy:'id'">{{ main.calendar.datos[column.id][rowIndex] }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="content-tab" ng-show="main.activeTab === 'FRANQUICIA'">
+      <div class="row mb-20" ng-show="main.edit">
+        <div class="col-4"></div>
+        <div class="col-3">
+          <label class="mb-10">Cargar archivo CSV</label>
+          <input-file model="main.franchis.file"></input-file>
+        </div>
+        <div class="col-5">
+          <button class="btn-large mt-20" ng-click="main.submitFranch();" ng-disabled="!main.franchis.file" ng-show="main.edit" type="button">Guardar Franquicia</button>
+        </div>
+      </div>
+      <hr ng-show="main.edit"/>
+      <div class="col-3 col-tab">
+        <div class="title">Utilidad Bancomer</div>
+        <div class="row mb-20" ng-repeat="field in main.details.franquicias.encabezados">
+          <div class="col-6 align-right">
+            <label for="uB{{$index}}" ng-class="{'detail': !main.edit}">{{ field.etiqueta }}:</label>
+          </div>
+          <div class="col-5"><span ng-show="!main.edit">{{ main.details.franquicias.datos.utilidadbancomer[field.id] | currency }}</span>
+            <input currency-input="currency-input" field="main.request.franquicias.datos.utilidadbancomer[field.id]" placeholder="$" type="text" id="uB{{$index}}" ng-show="main.edit"/>
+          </div>
+        </div>
+        <div class="row mb-25">
+          <div class="col-6 align-right">
+            <label for="uBfT" ng-class="{'detail': !main.edit}"><strong>Total</strong></label>
+          </div>
+          <div class="col-5"><span ng-show="!main.edit"> {{ main.details.datos[20] | currency }}</span>
+            <input currency-input="currency-input" field="main.request.datos[20]" placeholder="$" type="text" disabled="disabled" id="uBfT" ng-show="main.edit" ng-value="main.request.datos[20] = main.sumMap(main.request.franquicias.datos.utilidadbancomer)"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 col-tab">
+        <div class="title">Utilidad cliente</div>
+        <div class="row mb-20" ng-repeat="field in main.details.franquicias.encabezados">
+          <div class="col-6 align-right">
+            <label for="uC{{$index}}" ng-class="{'detail': !main.edit}">{{ field.etiqueta }}:</label>
+          </div>
+          <div class="col-5"><span ng-show="!main.edit">{{ main.details.franquicias.datos.utilidadcliente[field.id] | currency }}</span>
+            <input currency-input="currency-input" field="main.request.franquicias.datos.utilidadcliente[field.id]" placeholder="$" type="text" id="uC{{$index}}" ng-show="main.edit"/>
+          </div>
+        </div>
+        <div class="row mb-25">
+          <div class="col-6 align-right">
+            <label for="uCfT" ng-class="{'detail': !main.edit}"><strong>Total</strong></label>
+          </div>
+          <div class="col-5"><span ng-show="!main.edit">{{main.details.datos[21] | currency }}</span>
+            <input currency-input="currency-input" field="main.request.datos[21]" placeholder="$" type="text" disabled="disabled" id="uCfT" ng-show="main.edit" ng-value="main.request.datos[21] = main.sumMap(main.request.franquicias.datos.utilidadcliente)"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 col-tab">
+        <div class="title">Markup</div>
+        <div class="row mb-20" ng-repeat="field in main.details.franquicias.encabezados">
+          <div class="col-6 align-right">
+            <label for="mU{{$index}}" ng-class="{'detail': !main.edit}">{{ field.etiqueta }}:</label>
+          </div>
+          <div class="col-5"><span ng-show="!main.edit">{{ main.details.franquicias.datos.markup[field.id] | currency }}</span>
+            <input currency-input="currency-input" field="main.request.franquicias.datos.markup[field.id]" placeholder="$" type="text" id="mU{{$index}}" ng-show="main.edit"/>
+          </div>
+        </div>
+        <div class="row mb-25">
+          <div class="col-6 align-right">
+            <label for="mUfT" ng-class="{'detail': !main.edit}"><strong>Total</strong></label>
+          </div>
+          <div class="col-5"><span ng-show="!main.edit">{{ main.details.datos[43] | currency }}</span>
+            <input currency-input="currency-input" field="main.request.datos[43]" placeholder="$" type="text" disabled="disabled" id="mUfT" ng-show="main.edit" ng-value="main.request.datos[43] = main.sumMap(main.request.franquicias.datos.markup)"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 col-tab">
+        <div class="title">Deal Murex</div>
+        <div class="row mb-20" ng-repeat="field in main.details.franquicias.encabezados">
+          <div class="col-6 align-right">
+            <label for="dM{{$index}}" ng-class="{'detail': !main.edit}">{{ field.etiqueta }}:</label>
+          </div>
+          <div class="col-5"><span ng-show="!main.edit">{{ main.details.franquicias.datos.dealmurex[field.id] }}</span>
+            <input ng-model="main.request.franquicias.datos.dealmurex[field.id]" type="number" id="dM{{$index}}" ng-show="main.edit"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-tab" ng-show="main.activeTab === 'COSTOS'">
+      <div class="container">
+        <div class="field" ng-class="{edit: main.edit}" ng-if="field.seccion === 25" ng-repeat="field in main.details.encabezados | orderBy:'ordenAlta'">
+          <div class="info">
+            <label for="{{ field.etiqueta }}" ng-class="{'detail': !main.edit}">{{ field.propiedad }} :</label>
+            <div ng-show="!main.edit"><span ng-if="field.tipo === 'TEXT' || field.tipo === 'NUMBER'">{{ main.details.datos[field.id] || "-" }}</span>
+              <div ng-if="field.tipo === 'SELECT'"><span ng-if="main.details.datos[field.id].txCatalogo === ''">-</span><span ng-if="main.details.datos[field.id].txCatalogo !== ''">{{ main.details.datos[field.id].txCatalogo || "-" }}</span></div><span ng-if="field.tipo === 'DATE'">{{ main.details.datos[field.id] || "-" | date:"dd/MM/yyyy" }}</span><span ng-if="field.tipo === 'CURRENCY'">{{ main.details.datos[field.id] | currency:undefined:main.details.datos[field.id].countDecimals() }}</span><span ng-if="field.tipo === 'PORCENT'">{{ main.details.datos[field.id] }}%</span>
+              <div ng-if="field.tipo === 'SWITCH'">
+                <div class="toggle">
+                  <input id="{{ main.details.datos[field.id] }}" type="checkbox" disabled="disabled" ng-model="main.details.datos[field.id]"/>
+                  <label for="{{ main.details.datos[field.id] }}">
+                    <div class="toggle-switch" data-checked="Sí" data-unchecked="No"></div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div ng-show="main.edit">
+              <input ng-model="main.request.datos[field.id]" type="{{ field.tipo }}" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-if="field.tipo === 'NUMBER' || field.tipo === 'TEXT'" ng-required="{{ field.required }}"/>
+              <input currency-input="currency-input" field="main.request.datos[field.id]" placeholder="$" type="text" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-if="field.tipo === 'CURRENCY'" ng-required="{{ field.required }}"/>
+              <input ng-model="main.request.datos[field.id]" placeholder="%" type="number" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-if="field.tipo === 'PORCENT'" ng-required="{{ field.required }}"/>
+              <div class="input-error" ng-if="main.editEmission.$submitted" ng-messages="main.editEmission[field.etiqueta].$error" ng-show="field.tipo !== 'SELECT' &amp;&amp; field.tipo !== 'SWITCH' &amp;&amp; field.tipo !== 'DATE'"><span ng-message="required">Este campo es requerido</span>
+              </div>
+              <div ng-if="field.tipo === 'SELECT'">
+                <input ng-model="main.request.datos[field.id]" type="hidden" name="{{ field.etiqueta }}" ng-required="{{ field.required }}"/>
+                <dropdown label="txCatalogo" model="main.request.datos[25]" ng-if="field.id === 25" options="main[25]" selected="0"></dropdown>
+                <dropdown label="txCatalogo" model="main.request.datos[95]" ng-if="field.id === 95" options="main[95]" selected="0"></dropdown>
+                <dropdown label="txCatalogo" model="main.request.datos[94]" ng-if="field.id === 94" options="main[11]" selected="0"></dropdown>
+                <dropdown label="txCatalogo" model="main.request.datos[field.id]" ng-if="field.id !== 25 &amp;&amp; field.id !== 82 &amp;&amp; field.id !== 95 &amp;&amp; field.id !== 94" options="main[field.id]"></dropdown>
+                <div class="input-error" ng-if="main.editEmission.$submitted" ng-messages="main.editEmission[field.etiqueta].$error"><span ng-message="required">Este campo es requerido</span>
+                </div>
+              </div>
+              <div ng-if="field.tipo === 'DATE'">
+                <input ng-model="main.request.datos[field.id]" type="hidden" name="{{ field.etiqueta }}" ng-required="{{ field.required }}"/>
+                <div>
+                  <div class="col-10">
+                    <input date-input="date-input" ng-model="main.request.datos[field.id]" type="date"/>
+                  </div>
+                  <div class="col-2"><i class="calendar date-picker" ng-model="main.request.datos[field.id]"></i>
+                  </div>
+                </div>
+                <div class="input-error" ng-if="main.editEmission.$submitted" ng-messages="main.editEmission[field.etiqueta].$error"><span ng-message="required">Este campo es requerido</span>
+                </div>
+              </div>
+              <div ng-if="field.tipo === 'SWITCH'">
+                <div class="toggle">
+                  <input id="{{ field.id }}" type="checkbox" name="{{ field.etiqueta }}" ng-model="main.request.datos[field.id]" ng-required="{{ field.required }}"/>
+                  <label for="{{ field.id }}">
+                    <div class="toggle-switch" data-checked="Sí" data-unchecked="No"></div>
+                  </label>
+                </div>
+                <div class="input-error" ng-if="main.editEmission.$submitted" ng-messages="main.editEmission[field.etiqueta].$error"><span ng-message="required">Este campo es requerido</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-tab" ng-show="main.activeTab === 'ÍCONOS'">
+      <div class="container">
+        <div class="field" ng-class="{edit: main.edit}" ng-if="field.seccion === 78" ng-repeat="field in main.details.encabezados | orderBy:'ordenAlta'">
+          <div class="info">
+            <div ng-show="!main.edit">
+              <div class="ml-15" ng-if="field.id === 82"><img alt="Deuda / Alta complejidad / Largo Plazo" ng-if="main.details.datos[87].cdCatalogo === 'DEU' &amp;&amp; main.details.datos[82].cdCatalogo === 'A' &amp;&amp; main.details.datos[52] === 'LP'" src="./assets/icons/caracteristicas/ico_lp_alta_deuda.svg"/><img alt="Deuda / Alta complejidad / Corto Plazo" ng-if="main.details.datos[87].cdCatalogo === 'DEU' &amp;&amp; main.details.datos[82].cdCatalogo === 'A' &amp;&amp; main.details.datos[52] === 'CP'" src="./assets/icons/caracteristicas/ico_cp_alta_deuda.svg"/><img alt="Divisas / Alta complejidad / Largo Plazo" ng-if="main.details.datos[87].cdCatalogo === 'DIV' &amp;&amp; main.details.datos[82].cdCatalogo === 'A' &amp;&amp; main.details.datos[52] === 'LP'" src="./assets/icons/caracteristicas/ico_lp_alta_divisas.svg"/><img alt="Divisas / Alta complejidad / Corto Plazo" ng-if="main.details.datos[87].cdCatalogo === 'DIV' &amp;&amp; main.details.datos[82].cdCatalogo === 'A' &amp;&amp; main.details.datos[52] === 'CP'" src="./assets/icons/caracteristicas/ico_cp_alta_divisas.svg"/><img alt="Renta / Alta complejidad / Largo Plazo" ng-if="main.details.datos[87].cdCatalogo === 'RV' &amp;&amp; main.details.datos[82].cdCatalogo === 'A' &amp;&amp; main.details.datos[52] === 'LP'" src="./assets/icons/caracteristicas/ico_lp_alta_renta.svg"/><img alt="Renta / Alta complejidad / Corto Plazo" ng-if="main.details.datos[87].cdCatalogo === 'RV' &amp;&amp; main.details.datos[82].cdCatalogo === 'A' &amp;&amp; main.details.datos[52] === 'CP'" src="./assets/icons/caracteristicas/ico_cp_alta_renta.svg"/><img alt="Deuda / Mediana complejidad / Largo Plazo" ng-if="main.details.datos[87].cdCatalogo === 'DEU' &amp;&amp; main.details.datos[82].cdCatalogo === 'M' &amp;&amp; main.details.datos[52] === 'LP'" src="./assets/icons/caracteristicas/ico_lp_media_deuda.svg"/><img alt="Deuda / Mediana complejidad / Corto Plazo" ng-if="main.details.datos[87].cdCatalogo === 'DEU' &amp;&amp; main.details.datos[82].cdCatalogo === 'M' &amp;&amp; main.details.datos[52] === 'CP'" src="./assets/icons/caracteristicas/ico_cp_media_deuda.svg"/><img alt="Divisas / Mediana complejidad / Largo Plazo" ng-if="main.details.datos[87].cdCatalogo === 'DIV' &amp;&amp; main.details.datos[82].cdCatalogo === 'M' &amp;&amp; main.details.datos[52] === 'LP'" src="./assets/icons/caracteristicas/ico_lp_media_divisas.svg"/><img alt="Divisas / Mediana complejidad / Corto Plazo" ng-if="main.details.datos[87].cdCatalogo === 'DIV' &amp;&amp; main.details.datos[82].cdCatalogo === 'M' &amp;&amp; main.details.datos[52] === 'CP'" src="./assets/icons/caracteristicas/ico_cp_media_divisas.svg"/><img alt="Renta / Mediana complejidad / Largo Plazo" ng-if="main.details.datos[87].cdCatalogo === 'RV' &amp;&amp; main.details.datos[82].cdCatalogo === 'M' &amp;&amp; main.details.datos[52] === 'LP'" src="./assets/icons/caracteristicas/ico_lp_media_renta.svg"/><img alt="Renta / Mediana complejidad / Corto Plazo" ng-if="main.details.datos[87].cdCatalogo === 'RV' &amp;&amp; main.details.datos[82].cdCatalogo === 'M' &amp;&amp; main.details.datos[52] === 'CP'" src="./assets/icons/caracteristicas/ico_cp_media_renta.svg"/><img alt="Deuda / Baja complejidad / Largo Plazo" ng-if="main.details.datos[87].cdCatalogo === 'DEU' &amp;&amp; main.details.datos[82].cdCatalogo === 'B' &amp;&amp; main.details.datos[52] === 'LP'" src="./assets/icons/caracteristicas/ico_lp_baja_deuda.svg"/><img alt="Deuda / Baja complejidad / Corto Plazo" ng-if="main.details.datos[87].cdCatalogo === 'DEU' &amp;&amp; main.details.datos[82].cdCatalogo === 'B' &amp;&amp; main.details.datos[52] === 'CP'" src="./assets/icons/caracteristicas/ico_cp_baja_deuda.svg"/><img alt="Divisas / Baja complejidad / Largo Plazo" ng-if="main.details.datos[87].cdCatalogo === 'DIV' &amp;&amp; main.details.datos[82].cdCatalogo === 'B' &amp;&amp; main.details.datos[52] === 'LP'" src="./assets/icons/caracteristicas/ico_lp_baja_divisas.svg"/><img alt="Divisas / Baja complejidad / Corto Plazo" ng-if="main.details.datos[87].cdCatalogo === 'DIV' &amp;&amp; main.details.datos[82].cdCatalogo === 'B' &amp;&amp; main.details.datos[52] === 'CP'" src="./assets/icons/caracteristicas/ico_cp_baja_divisas.svg"/><img alt="Renta / Baja complejidad / Largo Plazo" ng-if="main.details.datos[87].cdCatalogo === 'RV' &amp;&amp; main.details.datos[82].cdCatalogo === 'B' &amp;&amp; main.details.datos[52] === 'LP'" src="./assets/icons/caracteristicas/ico_lp_baja_renta.svg"/><img alt="Renta / Baja complejidad / Corto Plazo" ng-if="main.details.datos[87].cdCatalogo === 'RV' &amp;&amp; main.details.datos[82].cdCatalogo === 'B' &amp;&amp; main.details.datos[52] === 'CP'" src="./assets/icons/caracteristicas/ico_cp_baja_renta.svg"/><img alt="Deuda / Muy baja complejidad / Largo Plazo" ng-if="main.details.datos[87].cdCatalogo === 'DEU' &amp;&amp; main.details.datos[82].cdCatalogo === 'MB' &amp;&amp; main.details.datos[52] === 'LP'" src="./assets/icons/caracteristicas/ico_lp_muybaja_deuda.svg"/><img alt="Deuda / Muy baja complejidad / Corto Plazo" ng-if="main.details.datos[87].cdCatalogo === 'DEU' &amp;&amp; main.details.datos[82].cdCatalogo === 'MB' &amp;&amp; main.details.datos[52] === 'CP'" src="./assets/icons/caracteristicas/ico_cp_muybaja_deuda.svg"/><img alt="Divisas / Muy baja complejidad / Largo Plazo" ng-if="main.details.datos[87].cdCatalogo === 'DIV' &amp;&amp; main.details.datos[82].cdCatalogo === 'MB' &amp;&amp; main.details.datos[52] === 'LP'" src="./assets/icons/caracteristicas/ico_lp_muybaja_divisas.svg"/><img alt="Divisas / Muy baja complejidad / Corto Plazo" ng-if="main.details.datos[87].cdCatalogo === 'DIV' &amp;&amp; main.details.datos[82].cdCatalogo === 'MB' &amp;&amp; main.details.datos[52] === 'CP'" src="./assets/icons/caracteristicas/ico_cp_muybaja_divisas.svg"/><img alt="Renta / Muy baja complejidad / Largo Plazo" ng-if="main.details.datos[87].cdCatalogo === 'RV' &amp;&amp; main.details.datos[82].cdCatalogo === 'MB' &amp;&amp; main.details.datos[52] === 'LP'" src="./assets/icons/caracteristicas/ico_lp_muybaja_renta.svg"/><img alt="Renta / Muy baja complejidad / Corto Plazo" ng-if="main.details.datos[87].cdCatalogo === 'RV' &amp;&amp; main.details.datos[82].cdCatalogo === 'MB' &amp;&amp; main.details.datos[52] === 'CP'" src="./assets/icons/caracteristicas/ico_cp_muybaja_renta.svg"/></div><img alt="Protección Capital" ng-if="field.id === 83 &amp;&amp; main.details.datos[83] === 100" src="./assets/icons/caracteristicas/ico_capitalvencimiento.svg"/><img alt="Protección Capital" ng-if="field.id === 83 &amp;&amp; main.details.datos[83] &lt; 100" src="./assets/icons/caracteristicas/ico_capitalprotegido.svg"/><span class="capital" ng-if="field.id === 83">{{ main.details.datos[83] }}%</span><img alt="Volatilidad" ng-if="field.id === 84 &amp;&amp; main.details.datos[84]" src="./assets/icons/caracteristicas/ico_volatilidad.svg"/><img alt="Liquidez" ng-if="field.id === 85 &amp;&amp; main.details.datos[85]" src="./assets/icons/caracteristicas/ico_liquidez.svg"/>
+              <div ng-if="field.id === 86"><span class="bpp" ng-if="main.details.datos[86].cdCatalogo === 'GF'">GF</span><span class="bpp" ng-if="main.details.datos[86].cdCatalogo === 'C'">C</span><span class="bpp" ng-if="main.details.datos[86].cdCatalogo === 'PC'">PC</span></div>
+              <label class="ml-3" ng-class="{'detail': !main.edit}">{{ field.propiedad }}</label>
+            </div>
+            <div ng-show="main.edit">
+              <label for="{{ field.etiqueta }}" ng-class="{'detail': !main.edit}">{{ field.propiedad }}:</label>
+              <input ng-model="main.request.datos[field.id]" type="{{ field.tipo }}" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-disabled="field.id === 83" ng-if="field.tipo === 'NUMBER' || field.tipo === 'TEXT'" ng-required="{{ field.required }}"/>
+              <input currency-input="currency-input" field="main.request.datos[field.id]" placeholder="$" type="text" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-if="field.tipo === 'CURRENCY'" ng-required="{{ field.required }}"/>
+              <input ng-model="main.request.datos[field.id]" placeholder="%" type="number" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-if="field.tipo === 'PORCENT'" ng-required="{{ field.required }}"/>
+              <div class="input-error" ng-if="main.editEmission.$submitted" ng-messages="main.editEmission[field.etiqueta].$error" ng-show="field.tipo !== 'SELECT' &amp;&amp; field.tipo !== 'SWITCH' &amp;&amp; field.tipo !== 'DATE'"><span ng-message="required">Este campo es requerido</span>
+              </div>
+              <div ng-if="field.tipo === 'SELECT'">
+                <input ng-model="main.request.datos[field.id]" type="hidden" name="{{ field.etiqueta }}" ng-required="{{ field.required }}"/>
+                <dropdown label="txCatalogo" model="main.request.datos[82]" ng-if="field.id === 82" options="main[82]" selected="0"></dropdown>
+                <dropdown label="txCatalogo" model="main.request.datos[field.id]" ng-if="field.id !== 82" options="main[field.id]"></dropdown>
+                <div class="input-error" ng-if="main.editEmission.$submitted" ng-messages="main.editEmission[field.etiqueta].$error"><span ng-message="required">Este campo es requerido</span>
+                </div>
+              </div>
+              <div ng-if="field.tipo === 'DATE'">
+                <input ng-model="main.request.datos[field.id]" type="hidden" name="{{ field.etiqueta }}" ng-required="{{ field.required }}"/>
+                <div>
+                  <div class="col-10">
+                    <input date-input="date-input" ng-model="main.request.datos[field.id]" type="date"/>
+                  </div>
+                  <div class="col-2"><i class="calendar date-picker" ng-model="main.request.datos[field.id]"></i>
+                  </div>
+                </div>
+                <div class="input-error" ng-if="main.editEmission.$submitted" ng-messages="main.editEmission[field.etiqueta].$error"><span ng-message="required">Este campo es requerido</span>
+                </div>
+              </div>
+              <div ng-if="field.tipo === 'SWITCH'">
+                <div class="toggle">
+                  <input id="{{ field.id }}" type="checkbox" name="{{ field.etiqueta }}" ng-model="main.request.datos[field.id]" ng-required="{{ field.required }}"/>
+                  <label for="{{ field.id }}">
+                    <div class="toggle-switch" data-checked="Sí" data-unchecked="No"></div>
+                  </label>
+                </div>
+                <div class="input-error" ng-if="main.editEmission.$submitted" ng-messages="main.editEmission[field.etiqueta].$error"><span ng-message="required">Este campo es requerido</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-15 mb-15 align-center">
+      <div class="col-12">
+        <button class="btn" ng-click="main.edit = !main.edit; main.deactButton(); main.referenceSelected(); main.request.datos = global.copy(main.details.datos); main.request.activos = global.copy(main.details.activos); main.request.franquicias = global.copy(main.details.franquicias); main.request.vendedor = global.copy(main.details.vendedor);" ng-show="!main.edit" type="button">Editar</button>
+        <div ng-show="main.edit">
+          <button class="btn-delete mr-15" ng-click="main.deleteEmission.open()" type="button">Eliminar</button>
+          <button class="btn mr-15" ng-click="(main.editEmission.$valid &amp;&amp; !main.submitEmission()) || global.Messages.broadcast({ title: 'Error', message: 'Los datos del formulario son incorrectos.' })" ng-if="main.tipo === '1'" type="submit">Guardar cambios</button>
+          <button class="btn mr-15" ng-click="main.submitEmission(); main.closeDeal = false;" ng-if="main.tipo === '2'" type="button">Guardar cambios</button>
+          <button class="btn mr-15" ng-click="(main.editEmission.$valid &amp;&amp; !main.submitEmission()) || global.Messages.broadcast({ title: 'Error', message: 'Los datos del formulario son incorrectos.' }); main.request.estatus = 1;" ng-if="main.tipo === '2'" type="submit">Cerrar Deal</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="disclaimer">
+    <div class="txt">
+      <p class="strong">Disclaimer:</p>
+      <p ng-bind-html="global.sysDisclaimer"></p>
+    </div>
+  </div>
+  <modal name="main.availableDocs" size="'docs'">
+    <ng-include src="'app/blotter/commons/modal/available-docs.html'"></ng-include>
+  </modal>
+  <modal name="main.changeStatus" on-close="main.estatus = null" size="'small-big'">
+    <ng-include src="'app/blotter/commons/modal/change-status.html'"></ng-include>
+  </modal>
+  <modal name="main.deleteEmission" size="'small'">
+    <ng-include src="'app/blotter/commons/modal/delete-emission.html'"></ng-include>
+  </modal>
+  <modal name="main.duplicateDeal" on-close="main.clone = {}; main.activeClone = 'Fechas'; main.activeStep = 0;" size="'large'">
+    <ng-include src="'app/blotter/commons/modal/duplicate-deal.html'"></ng-include>
+  </modal>
+  <modal name="main.historicalStatusModal" size="'medium'">
+    <ng-include src="'app/blotter/commons/modal/historical-status.html'"></ng-include>
+  </modal>
+  <modal name="main.receiptPayment" size="'small-big'">
+    <ng-include src="'app/blotter/commons/modal/receipt-payment.html'"></ng-include>
+  </modal>
+  <modal name="main.referenceActiveModal" on-close="main.showListActive = false;" size="'large-medium'">
+    <ng-include src="'app/blotter/commons/modal/reference-active.html'"></ng-include>
+  </modal>
+  <modal name="main.referenceActiveCloneModal" on-close="main.showListActive = false;" size="'large-medium'">
+    <ng-include src="'app/blotter/commons/modal/reference-active-clone.html'"></ng-include>
+  </modal>
+  <modal name="main.reviewDetail" on-close="main.copyInternal = false;" size="'copy-review'">
+    <ng-include src="'app/blotter/commons/modal/review-detail.html'"></ng-include>
+  </modal>
+</div>

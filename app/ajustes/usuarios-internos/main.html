@@ -1,0 +1,35 @@
+
+<div class="animated fadeIn" ng-controller="usuariosInternosController as main">
+  <div class="breadcrumb"><a nav="#!/">Home  &sol;</a><a nav="#!/usuarios-internos">Administraci&oacute;n de Usuarios &sol;</a><span class="selected">Usuarios Internos</span>
+  </div>
+  <h1>
+  </h1>
+  <h1 class="detail">Consulta o registra usuarios</h1>
+  <div class="col-12 mb-20">
+    <button class="btn btn-large" ng-click="main.addUser.open()">Nuevo usuario</button>
+  </div>
+  <div class="col-2">
+    <div class="squareUsr sqGray">
+      <h3>Nueva Área</h3>
+      <button class="btn btn-copy mt-60" ng-click="main.addArea.open()">Agregar</button>
+    </div>
+  </div>
+  <div class="col-2" ng-repeat="area in main.Area">
+    <div class="squareUsr pt-15" style="border-color: {{area.color}};" ng-click="main.detail(area.nuCatalogo);"><i class="edit iconEditArea" ng-click="$event.stopPropagation(); main.editArea.open(); main.editAreas(area.nuCatalogo);"></i>
+      <div class="circleUsr" style="background-color:{{area.color}};"><i class="{{area.icon}} mt-20"></i>
+        <div class="sm-circle" ng-if="area.admin"><i class="user"></i>
+        </div>
+      </div>
+      <h3 class="mt-40">{{area.txCatalogo}}</h3><span class="txt13 m-t-10 dBlock">{{area.noUsuarios}} usuarios</span>
+    </div>
+  </div>
+  <modal name="main.addArea" size="'large'">
+    <ng-include src="'app/ajustes/usuarios-internos/modal/new-area.html'"></ng-include>
+  </modal>
+  <modal name="main.editArea" size="'medium'">
+    <ng-include src="'app/ajustes/usuarios-internos/modal/edit-area.html'"></ng-include>
+  </modal>
+  <modal name="main.addUser" size="'medium'">
+    <ng-include src="'app/ajustes/usuarios-internos/modal/new-user.html'"></ng-include>
+  </modal>
+</div>

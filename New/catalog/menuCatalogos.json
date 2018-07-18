@@ -1,0 +1,93 @@
+[
+	{
+		"nuCatalogo": 65,
+		"cdCatalogo": "NEW_MENU_CATALOGOS",
+		"txCatalogo": "Divisa de Emisión",
+		"stActivo": true,
+		"nuNivel": 1
+	},
+	{
+		"nuCatalogo": 66,
+		"cdCatalogo": "NEW_MENU_CATALOGOS",
+		"txCatalogo": "Divisa de Liquidación",
+		"stActivo": true,
+		"nuNivel": 1
+	},
+	{
+		"nuCatalogo": 67,
+		"cdCatalogo": "NEW_MENU_CATALOGOS",
+		"txCatalogo": "Calendarios",
+		"stActivo": true,
+		"nuNivel": 1
+	},
+	{
+		"nuCatalogo": 68,
+		"cdCatalogo": "NEW_MENU_CATALOGOS",
+		"txCatalogo": "Área de Ventas",
+		"stActivo": true,
+		"nuNivel": 1
+	},
+	{
+		"nuCatalogo": 69,
+		"cdCatalogo": "NEW_MENU_CATALOGOS",
+		"txCatalogo": "Subyacente",
+		"stActivo": true,
+		"nuNivel": 1
+	},
+	{
+		"nuCatalogo": 70,
+		"cdCatalogo": "NEW_MENU_CATALOGOS",
+		"txCatalogo": "Pay Off",
+		"stActivo": true,
+		"nuNivel": 3
+	},
+	{
+		"nuCatalogo": 71,
+		"cdCatalogo": "NEW_MENU_CATALOGOS",
+		"txCatalogo": "Activos Referencia",
+		"stActivo": true,
+		"nuNivel": 3
+	},
+	{
+		"nuCatalogo": 75,
+		"cdCatalogo": "NEW_MENU_CATALOGOS",
+		"txCatalogo": "Grupo de Ventas",
+		"stActivo": true,
+		"nuNivel": 0
+	},
+	{
+		"nuCatalogo": 76,
+		"cdCatalogo": "NEW_MENU_CATALOGOS",
+		"txCatalogo": "Clientes",
+		"stActivo": true,
+		"nuNivel": 0
+	},
+	{
+		"nuCatalogo": 72,
+		"cdCatalogo": "NEW_MENU_CATALOGOS",
+		"txCatalogo": "Mesas",
+		"stActivo": true,
+		"nuNivel": 1
+	},
+	{
+		"nuCatalogo": 73,
+		"cdCatalogo": "NEW_MENU_CATALOGOS",
+		"txCatalogo": "Comercialización",
+		"stActivo": true,
+		"nuNivel": 1
+	},
+	{
+		"nuCatalogo": 74,
+		"cdCatalogo": "NEW_MENU_CATALOGOS",
+		"txCatalogo": "Negocio",
+		"stActivo": true,
+		"nuNivel": 1
+	},
+	{
+		"nuCatalogo": 77,
+		"cdCatalogo": "NEW_MENU_CATALOGOS",
+		"txCatalogo": "Eventos",
+		"stActivo": true,
+		"nuNivel": 1
+	}
+]

@@ -1,0 +1,7 @@
+
+<div class="select"><a ng-bind="dropdown.model{{ dropdown.label }} || 'Selecciona'" ng-class="{'disabled': dropdown.disabled, 'open': dropdown.opened, 'selected': dropdown.model}" ng-click="dropdown.opened = !dropdown.opened; dropdown.onOpen();" tabindex="0"></a>
+  <ul ng-click="dropdown.opened = false; dropdown.onUpdate();" ng-show="dropdown.opened &amp;&amp; !dropdown.disabled">
+    <input ng-click="$event.stopPropagation();" ng-model="dropdown.filterLabel" ng-show="dropdown.label === '.txCatalogo' &amp;&amp; dropdown.options.length &gt;= 10" type="search"/>
+    <li ng-bind="option{{ dropdown.label }}" ng-click="dropdown.model = option;" ng-init="$first &amp;&amp; dropdown.fill(); dropdown.overwrite = true;" ng-repeat="option in dropdown.options | filter:{ 'txCatalogo':dropdown.filterLabel }:false"></li>
+  </ul>
+</div>

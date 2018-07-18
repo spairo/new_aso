@@ -1,0 +1,242 @@
+[
+  {
+		"nombreGrafica": "Distribución de vencimiento",
+    "idGrafica": 8,
+    "encabezadosCanasta": null,
+    "valoresCanasta": null,
+    "monto": 122010313030,
+    "encabezados": [
+      "2017",
+      "2018",
+      "2019",
+      "2020",
+      "2021",
+      "2022"
+    ],
+    "valores": [
+      "10",
+      "45",
+      "30",
+      "5",
+      "5",
+      "5"
+    ],
+    "colores": [
+      "#89D1F3",
+      "#009EE5",
+      "#094fa4",
+      "#86C82D",
+      "#FDBD2C",
+      "#F6891E"
+    ],
+    "nombrePortafolio": "Cierres Recientes",
+		"disclaimer" : "La información contenida en el presente documento y, en su caso, en sus anexos (en adelante, el ''Documento'') tiene carácter puramente ilustrativo y ha sido elaborada por BBVA Bancomer S.A., Institución de Banca Múltiple, Grupo Financiero BBVA Bancomer (''BBVA Bancomer''). Este Documento contiene información general a la fecha del mismo. BBVA Bancomer no asume compromiso alguno de comunicar cambios ni de actualizar el contenido del presente Documento. Los precios y niveles presentados son indicativos y están sujetos a los movimientos del mercado, se refieren al pasado sin considerarse como indicadores fidedignos de resultados futuros, constando las condiciones finales de la operación en el contrato. El receptor deberá remitirse a los estados de cuenta y/o documentos de venta para conocer a detalle la operación. Las estimaciones aquí presentadas sugieren el comportamiento del producto al vencimiento y distan de las condiciones a las que estaría sujeta la operación en caso de una amortización anticipada. <br> El receptor de este Documento debe ser consciente de que: <br> (i) Con carácter previo a la toma de una decisión de inversión, debe ser plenamente consciente y no albergar duda alguna sobre el funcionamiento del producto o instrumento objeto de este Documento, así como de las obligaciones y riesgos que asumiría con su contratación. Si el receptor tuviera alguna duda de cualquiera de estos aspectos, no deberá contratar la operación hasta que dichas dudas hayan sido resueltas. <br> (ii) Las transacciones en productos o instrumentos financieros como el presentado en este Documento pueden implicar grandes riesgos y no son adecuados para todos los inversores. De hecho, el precio de los valores o instrumentos o los resultados de las inversiones pueden fluctuar en contra del interés del inversor, pudiendo dar lugar a pérdidas de importe muy elevado (superiores incluso a la inversión inicial si dicho desembolso ha existido), siendo necesario en estos casos hacer aportaciones adicionales para cubrir la totalidad de dichas pérdidas. BBVA Bancomer no asume responsabilidad alguna por cualquier pérdida, directa o indirecta, que pudiera resultar del uso de este Documento o de su contenido. <br> (iii) Ni el presente Documento ni su contenido constituyen por parte de BBVA Bancomer una oferta o invitación de venta susceptible de aceptación o adhesión por parte del receptor, ni de realización o cancelación de inversiones. <br> (iv) El envío de este Documento no debe en ningún caso entenderse como un servicio de asesoramiento en materia de servicios de inversión, puesto que no contiene una recomendación personalizada para invertir, ni para hacer ninguna operación como la descrita en este Documento. En ningún caso puede considerarse que por la recepción del presente Documento BBVA Bancomer esté calificando o presentando el producto como idóneo para el receptor, puesto que no ha tenido en cuenta las circunstancias personales de éste (sus objetivos específicos de inversión, su posición financiera o su perfil de riesgo) en su elaboración. <br> (v) BBVA Bancomer o cualquier otra entidad del Grupo BBVA, así como sus respectivos directores o empleados, pueden tener una posición en cualquiera de los valores o instrumentos a los que se refiere el presente Documento, directa o indirectamente, o en cualesquiera otros relacionados con los mismos; pueden negociar con dichos valores o instrumentos, por cuenta propia o ajena, proporcionar servicios de asesoramiento u otros servicios al emisor de dichos valores o instrumentos, a empresas relacionadas con los mismos o a sus accionistas, directivos o empleados y pueden tener intereses o llevar a cabo cualesquiera transacciones en dichos valores o instrumentos o inversiones relacionadas con los mismos, con carácter previo o posterior a la elaboración del presente Documento, en la medida permitida por la ley aplicable. <br> (vi) Los empleados de otros departamentos de BBVA Bancomer u otra entidad del Grupo BBVA pueden proporcionar comentarios de mercado, verbalmente o por escrito, o estrategias de inversión a los receptores que reflejen opiniones contrarias a las expresadas en el presente Documento; asimismo BBVA Bancomer o cualquier otra entidad del Grupo BBVA puede adoptar decisiones de inversión por cuenta propia que sean inconsistentes con lo contenido en el presente Documento. <br> (vii) Ninguna parte de este Documento puede ser (a) copiada, fotocopiada o duplicada en ningún modo, forma o medio, (b) redistribuida, (c) divulgada, citada, comunicada (d) ni entregada a ninguna otra persona o entidad sujeta a la legislación o jurisdicción de aquellos países en que la misma pudiera estar prohibida, limitada o sujeta a requisitos de autorización, registro o comunicación de cualquier tipo. <br> (viii) Además de los pagos inherentes al producto descrito en el Documento, existe la posibilidad de que surjan otros costos para el cliente, incluido el pago de impuestos, como consecuencia de transacciones vinculadas al instrumento sobre el que versa este Documento y que no se paguen a través de BBVA Bancomer ni sean estipulados por BBVA Bancomer. <br> Fuente: Grupo Financiero BBVA Bancomer, Valuación Operativa y Referencias de Mercado S.A. de C.V. <br> Las cifras que se presentan en esta gráfica se refieren al pasado sin que pueda considerarse que los resultados pasados sean un indicador fidedigno de resultados futuros. <br> Sin perjuicio de la importancia que pueda tener el conocimiento y análisis de estos informes, el Cliente debe ser consciente al revisarlos de que estas previsiones no son un indicador fidedigno de resultados futuros y, por tanto, la evolución del producto estructurado y activos de referencia sea finalmente distinta a la prevista en los referidos informes."
+  },
+  {
+    "nombreGrafica": "Precio",
+    "encabezadosCanasta": null,
+    "valoresCanasta": null,
+    "monto": 0,
+    "encabezados": [],
+    "valores": [],
+    "colores": [],
+    "nombrePortafolio": "Cierres Recientes"
+  },
+  {
+    "nombreGrafica": "Subyacente",
+    "encabezadosCanasta": null,
+    "valoresCanasta": null,
+    "monto": 122010313030,
+    "encabezados": [
+      "IRD",
+      "CURR",
+      "EQD",
+      "MIX"
+    ],
+    "valores": [
+      "15",
+      "30",
+      "45",
+      "10"
+    ],
+    "colores": [
+      "#89D1F3",
+      "#009EE5",
+      "#094fa4",
+      "#86C82D"
+    ],
+    "nombrePortafolio": "Cierres Recientes"
+  },
+  {
+    "nombreGrafica": "Distribución por perfil",
+    "encabezadosCanasta": null,
+    "valoresCanasta": null,
+    "monto": 122010313030,
+    "encabezados": [
+      "Deuda",
+      "Divisa",
+      "Renta Variable"
+    ],
+    "valores": [
+      "15",
+      "55",
+      "30"
+    ],
+    "colores": [
+      "#89D1F3",
+      "#009EE5",
+      "#094fa4"
+    ],
+    "nombrePortafolio": "Cierres Recientes"
+  },
+  {
+    "nombreGrafica": "Geografía",
+    "encabezadosCanasta": [
+      "México",
+      "EUA",
+      "Alemania",
+      "Brasil",
+      "Australia",
+      "Colombia",
+      "Corea del Sur",
+      "España",
+      "Hong Kong",
+      "Italia",
+      "Europa"
+    ],
+    "valoresCanasta": [
+      "5.05",
+      "5.05",
+      "5.05",
+      "5.05",
+      "5.05",
+      "5.05",
+      "5.05",
+      "5.05",
+      "5.05",
+      "5.05",
+      "5.05"
+    ],
+    "monto": 122010313030,
+    "encabezados": [
+      "EUA",
+      "México",
+      "_Multi_"
+    ],
+    "valores": [
+      "33.33",
+      "11.11",
+      55.56
+    ],
+    "colores": [
+      "#89D1F3",
+      "#009EE5",
+      "#094fa4"
+    ],
+    "nombrePortafolio": "Cierres Recientes"
+  },
+  {
+    "nombreGrafica": "Plazo",
+    "encabezadosCanasta": null,
+    "valoresCanasta": null,
+    "monto": 122010313030,
+    "encabezados": [
+      "LP"
+    ],
+    "valores": [
+      "100"
+    ],
+    "colores": [
+      "#89D1F3"
+    ],
+    "nombrePortafolio": "Cierres Recientes"
+  },
+  {
+    "nombreGrafica": "Activo de referencia",
+    "encabezadosCanasta": [
+      "Grupo México, S.A.B. de C.V.",
+      "Wal-Mart de México, S.A.B. de C.V.",
+      "EUA",
+      "Alemania",
+      "SPDR S&P Oil & Gas Exploration and Production",
+      "Índice de Precios y Cotizaciones®",
+      "México",
+      "Brasil",
+      "Financial Select Sector Index",
+      "Índice S&P 500®",
+      "TIIE 91d",
+      "Iberdrola18 MXN/TIIE 28d",
+      "Mabe19 USD/TIIE 28d",
+      "Europa",
+      "USD/MXN"
+    ],
+    "valoresCanasta": [
+      "3.7",
+      "3.7",
+      "3.7",
+      "3.7",
+      "3.7",
+      "3.7",
+      "3.7",
+      "3.7",
+      "3.7",
+      "3.7",
+      "3.7",
+      "3.7",
+      "3.7",
+      "3.7",
+      "3.7"
+    ],
+    "monto": 122010313030,
+    "encabezados": [
+      "SPDR S&P Oil & Gas Exploration and Production",
+      "Banco Bradesco S.A.",
+      "TIIE 28d",
+      "Mabe19 USD/TIIE 28d",
+      "Índice S&P 500®",
+      "Apple Computer Inc.",
+      "Basket"
+    ],
+    "valores": [
+      "5.56",
+      "5.56",
+      "5.56",
+      "5.56",
+      "16.67",
+      "5.56",
+      55.56
+    ],
+    "colores": [
+      "#89D1F3",
+      "#009EE5",
+      "#094fa4",
+      "#86C82D",
+      "#FDBD2C",
+      "#F6891E",
+      "#D8D8D8"
+    ],
+    "nombrePortafolio": "Cierres Recientes"
+  },
+  {
+    "nombreGrafica": "Tailor-made vs Campaña",
+    "encabezadosCanasta": null,
+    "valoresCanasta": null,
+    "monto": 122010313030,
+    "encabezados": [
+      "NA",
+      "Campaña",
+      "Tailor-made"
+    ],
+    "valores": [
+      "20",
+      "35",
+      "45"
+    ],
+    "colores": [
+      "#89D1F3",
+      "#009EE5",
+      "#094fa4"
+    ],
+    "nombrePortafolio": "Cierres Recientes"
+  }
+]

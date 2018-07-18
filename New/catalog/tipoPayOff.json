@@ -1,0 +1,16 @@
+[
+	{
+		"nuCatalogo": 7,
+		"cdCatalogo": null,
+		"txCatalogo": "Vanilla",
+		"txComentario": null,
+		"stActivo": null
+	},
+	{
+		"nuCatalogo": 2,
+		"cdCatalogo": null,
+		"txCatalogo": "Opción 2",
+		"txComentario": null,
+		"stActivo": null
+	}
+]

@@ -1,0 +1,38 @@
+
+<h1>Cambiar estatus</h1>
+<div class="row mt-15">
+  <div class="col-2 mt-20 align-center"><i class="warning"></i>
+  </div>
+  <div class="col-12">
+    <p>El estatus de la emisi&oacute;n cambiar&aacute; a {{ main.request.datos[39].txCatalogo }}. Esta acci&oacute;n no se podr&aacute; deshacer.</p>
+  </div>
+</div>
+<form name="main.historicalStatus" ng-submit="main.historicalStatus.$valid &amp;&amp; main.submitEmission()" novalidate="novalidate">
+  <div class="row mt-15">
+    <div class="col-8"> 
+      <label for="comments">Comentarios</label>
+      <textarea id="comments" name="comments" ng-model="main.estatus.txComentario" required="required"></textarea>
+      <div class="input-error" ng-if="main.historicalStatus.$submitted" ng-messages="main.historicalStatus.comments.$error"><span ng-message="required">Este campo es requerido</span>
+      </div>
+    </div>
+    <div class="col-4">
+      <label>Fecha</label>
+      <input ng-model="main.estatus.dtCambioEstatusUsuario" type="hidden" name="dtCambioEstatusUsuario" required="required"/>
+      <div>
+        <div class="col-10">
+          <input date-input="date-input" ng-model="main.estatus.dtCambioEstatusUsuario" type="date"/>
+        </div>
+        <div class="col-2"><i class="calendar date-picker" ng-model="main.estatus.dtCambioEstatusUsuario"></i>
+        </div>
+      </div>
+      <div class="input-error" ng-if="main.historicalStatus.$submitted" ng-messages="main.historicalStatus.dtCambioEstatusUsuario.$error"><span ng-message="required">Este campo es requerido</span>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-20 align-center">
+    <div class="col-12">
+      <button class="btn mr-15" ng-click="main.changeStatus.close();" type="button">Regresar</button>
+      <button class="btn-delete large" type="submit">{{ main.nameButtonStatus }} emisión</button>
+    </div>
+  </div>
+</form>

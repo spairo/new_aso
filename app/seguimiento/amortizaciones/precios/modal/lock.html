@@ -1,0 +1,44 @@
+
+<h1>Bloqueo</h1>
+<h3 class="title-view txt14">¿Deseas bloquear las Estrategias seleccionadas?</h3>
+<p class="txt14">Los Banqueros podrán volver a solicitar amortizaciones después del horario indicado</p>
+<div class="row">
+  <div class="col-3 mt-5">
+    <input ng-click="$event.stopPropagation();" id="restofDay" name="horarioBloqueo" ng-model="main.blockHours" ng-value="false" txt="Resto del día" type="radio" ng-change="main.restDay(true)"/>
+    <label class="radio" for="restofDay" ng-click="$event.stopPropagation();"></label>
+    <label class="txt" for="restofDay">Resto del día</label>
+  </div>
+  <div class="col-5 mt-5">
+    <input ng-click="$event.stopPropagation();" id="defineHour" name="horarioBloqueo" ng-model="main.blockHours" ng-value="true" txt="Definir Horario (hh:mm)" type="radio"/>
+    <label class="radio" for="defineHour" ng-click="$event.stopPropagation();"></label>
+    <label class="txt" for="defineHour">Definir Horario (hh:mm)</label>
+  </div>
+  <div class="col-4">
+    <div class="col-5">
+      <input class="txt24" ng-model="main.horas" placeholder="23" type="number" min="1" max="23"/>
+    </div>
+    <div class="col-1 mt-5"><span class="txtBold m-l-5">:</span></div>
+    <div class="col-5 m-l-10">
+      <input class="txt24" ng-model="main.minutos" placeholder="59" type="number" min="1" max="59"/>
+    </div>
+  </div>
+</div>
+<div class="row mt-20 mb-20">
+  <div class="col-12"><span class="mTitles">Motivo del bloqueo (opcional)</span></div>
+</div>
+<div class="row mt-20 mb-20">
+  <div class="col-12">
+    <div class="alert-info"><span class="alert-i small">El texto ingresado aparecerá a los Banqueros como información adicional.</span></div>
+  </div>
+</div>
+<div class="row mt-20 mb-20">
+  <div class="col-12">
+    <textarea id="{{  }}" maxlength="{{  }}" name="{{  }}" ng-model="main.lockComment" ng-required="{{  }}"></textarea>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 txtCenter">
+    <button class="btn-copy mr-10" ng-click="main.lockSt.close()">Cancelar</button>
+    <button class="btn-delete ml-10" ng-click="main.recordIndicativos()">Bloquear</button>
+  </div>
+</div>

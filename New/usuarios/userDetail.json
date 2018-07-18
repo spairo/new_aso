@@ -1,0 +1,29 @@
+{
+	"ID" : 123,
+	"userID": "M12345",
+	"group": [
+		{
+			"nbGroup" : "Corporativo",
+			"check" : true
+		},
+		{
+			"nbGroup" : "Institucionales",
+			"check" : true
+		},
+		{
+			"nbGroup" : "Banca Patrimonial y Privada",
+			"check" : false
+		}
+	],
+	"area": "Institucionales",
+	"assets" : [
+		{
+				"nbAsset" : "RCC",
+				"check" : false
+		},
+		{
+				"nbAsset" : "Equity",
+				"check" : true
+		}
+	]
+}

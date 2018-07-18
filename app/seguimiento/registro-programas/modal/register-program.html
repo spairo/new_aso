@@ -1,0 +1,201 @@
+
+<form name="main.registerProgram" ng-submit="main.registerProgram.$valid &amp;&amp; main.submitProgram()" novalidate="novalidate">
+  <h1>{{ main.registerModal.meta.title }}</h1>
+  <div class="scroll modal-large">
+    <div class="row">
+      <div class="col-8">
+        <div class="title">Datos del registro</div>
+      </div>
+      <div class="col-4">
+        <div class="toggle">
+          <input id="toggle" type="checkbox" ng-model="main.request.stActivo"/>
+          <label for="toggle">
+            <div class="toggle-switch" data-checked="Activo" data-unchecked="Inactivo"></div>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-10">
+      <div class="col-7">
+        <label for="nameProgram">Nombre del programa</label>
+        <input ng-model="main.request.nbVehiculo" type="text" id="nameProgram" maxlength="25" name="nameProgram" required="required"/>
+        <div class="input-error" ng-if="main.registerProgram.$submitted" ng-messages="main.registerProgram.nameProgram.$error"><span ng-message="required">Este campo es requerido</span>
+        </div>
+      </div>
+      <div class="col-1">
+        <div class="box-color tooltip" ng-model="main.request.nbColor" ng-style="{'background-color': main.request.nbColor}">
+          <div class="content colors"><a ng-repeat="color in main.colors track by $index" ng-click="main.selected(color.txCatalogo, color.nuCatalogo, color.cdCatalogo)">
+              <div class="box" ng-style="{'background-color': color.txCatalogo}"></div></a></div>
+        </div>
+      </div>
+      <div class="col-4">
+        <label>Tipo</label>
+        <input ng-model="main.request.cdCatalogo" type="hidden" name="producto" required="required"/>
+        <dropdown label="txCatalogo" model="main.request.cdCatalogo" ng-if="main.registerModal.opened" options="main.products"></dropdown>
+        <div class="input-error" ng-if="main.registerProgram.$submitted" ng-messages="main.registerProgram.producto.$error"><span ng-message="required">Este campo es requerido</span>
+        </div>
+      </div>
+    </div>
+    <div class="title">Condiciones</div>
+    <div class="row mb-10">
+      <div class="col-4">
+        <label for="mount">Monto autorizado emisi&oacute;n {{main.validationError}}</label>
+        <div class="col-9">
+          <input currency-input="currency-input" field="main.request.ctMontoAutorizado" placeholder="$" type="text" id="mount" name="mount" ng-disabled="main.request.stMontoAutorizado" required="required"/>
+          <div class="input-error" ng-if="main.registerProgram.$submitted" ng-messages="main.registerProgram.mount.$error"><span ng-message="required" ng-if="!main.validationError">Este campo es requerido</span>
+          </div>
+        </div>
+        <div class="col-3 pr-0 mt-5">
+          <input ng-click="$event.stopPropagation();" id="authorizedMountNA" name="authorizedMountNA" ng-change="main.initMountDisable('ctMontoAutorizado', main.request.stMontoAutorizado)" ng-model="main.request.stMontoAutorizado" txt="NA" type="checkbox" value="authorizedMountNA"/>
+          <label class="checkbox" for="authorizedMountNA" ng-click="$event.stopPropagation();"></label>
+          <label class="txt" for="authorizedMountNA">NA</label>
+        </div>
+      </div>
+      <div class="col-4">
+        <label for="currency">Moneda</label>
+        <input ng-model="main.request.cdMoneda" type="hidden" name="currency" required="required"/>
+        <dropdown label="txCatalogo" model="main.request.cdMoneda" ng-if="main.registerModal.opened" options="main.currency"></dropdown>
+        <div class="input-error" ng-if="main.registerProgram.$submitted" ng-messages="main.registerProgram.currency.$error"><span ng-message="required">Este campo es requerido</span>
+        </div>
+      </div>
+      <div class="col-4">
+        <label for="authorizedEmission">Número autorizado emisiones</label>
+        <div class="col-9">
+          <input ng-model="main.request.ctEmsnAutorizada" type="number" id="authorizedEmission" name="authorizedEmission" ng-disabled="main.request.stEmsnAutorizada" required="required"/>
+          <div class="input-error" ng-if="main.registerProgram.$submitted" ng-messages="main.registerProgram.authorizedEmission.$error"><span ng-message="required">Este campo es requerido</span>
+          </div>
+        </div>
+        <div class="col-3 pr-0 mt-5">
+          <input ng-click="$event.stopPropagation();" id="authorizedEmissionNA" name="authorizedEmissionNA" ng-change="main.initMountDisable('ctEmsnAutorizada', main.request.stEmsnAutorizada)" ng-model="main.request.stEmsnAutorizada" txt="NA" type="checkbox" value="authorizedEmissionNA"/>
+          <label class="checkbox" for="authorizedEmissionNA" ng-click="$event.stopPropagation();"></label>
+          <label class="txt" for="authorizedEmissionNA">NA</label>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-10">
+      <div class="col-4">
+        <label>Inicio de acta</label>
+        <input ng-model="main.request.dtInicio" type="hidden" name="dtInicio" required="required"/>
+        <div name="dtInicio">
+          <div class="col-10">
+            <input date-input="date-input" ng-model="main.request.dtInicio" type="date"/>
+          </div>
+          <div class="col-2"><i class="calendar date-picker" ng-model="main.request.dtInicio"></i>
+          </div>
+        </div>
+        <div class="input-error" ng-if="main.registerProgram.$submitted" ng-messages="main.registerProgram.dtInicio.$error"><span ng-message="required">Este campo es requerido</span>
+        </div>
+      </div>
+      <div class="col-4">
+        <label>Inicio de colocaci&oacute;n</label>
+        <input ng-model="main.request.dtInicioColocacion" type="hidden" name="dtInicioColocacion" required="required"/>
+        <div name="dtInicioColocacion">
+          <div class="col-10">
+            <input date-input="date-input" ng-model="main.request.dtInicioColocacion" type="date"/>
+          </div>
+          <div class="col-2"><i class="calendar date-picker" ng-model="main.request.dtInicioColocacion"></i>
+          </div>
+        </div>
+        <div class="input-error" ng-if="main.registerProgram.$submitted" ng-messages="main.registerProgram.dtInicioColocacion.$error"><span ng-message="required">Este campo es requerido</span>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-10">
+      <div class="col-4">
+        <label>Vencimiento de acta</label>
+        <input ng-model="main.request.dtVencimiento" type="hidden" name="dtVencimiento" required="required"/>
+        <div name="dtVencimiento">
+          <div class="col-10">
+            <input date-input="date-input" ng-model="main.request.dtVencimiento" type="date"/>
+          </div>
+          <div class="col-2"><i class="calendar date-picker" ng-model="main.request.dtVencimiento"></i>
+          </div>
+        </div>
+        <div class="input-error" ng-if="main.registerProgram.$submitted" ng-messages="main.registerProgram.dtVencimiento.$error"><span ng-message="required">Este campo es requerido</span>
+        </div>
+      </div>
+      <div class="col-4">
+        <label>Vencimiento de colocaci&oacute;n</label>
+        <input ng-model="main.request.dtFinColocacion" type="hidden" name="dtFinColocacion" required="required"/>
+        <div name="dtFinColocacion">
+          <div class="col-10">
+            <input date-input="date-input" ng-model="main.request.dtFinColocacion" type="date"/>
+          </div>
+          <div class="col-2"><i class="calendar date-picker" ng-model="main.request.dtFinColocacion"></i>
+          </div>
+        </div>
+        <div class="input-error" ng-if="main.registerProgram.$submitted" ng-messages="main.registerProgram.dtFinColocacion.$error"><span ng-message="required">Este campo es requerido</span>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-10">
+      <div class="col-12">
+        <label for="exchangeRate">Criterio tipos de cambio</label>
+        <textarea id="exchangeRate" ng-model="main.request.txCriterio"></textarea>
+      </div>
+    </div>
+    <div class="title">Alertas</div>
+    <div class="row mb-10">
+      <div class="col-4">
+        <label for="lagDays">Lag d&iacute;as</label>
+        <input ng-model="main.request.nuLagDias" type="number" id="lagDays"/>
+      </div>
+      <div class="col-4">
+        <label for="firstAlert">Primera alerta</label>
+        <div class="col-10">
+          <input ng-model="main.request.pcPrimeraAlerta" placeholder="%" type="text" id="firstAlert" maxlength="3" name="firstAlert"/>
+          <div class="input-error" ng-if="main.registerProgram.$submitted" ng-messages="main.registerProgram.firstAlert.$error">
+          </div>
+        </div>
+        <div class="col-2"><i class="range tooltip">
+            <div class="content range">
+              <rzslider rz-slider-model="main.request.pcPrimeraAlerta" rz-slider-options="main.slideOptions"></rzslider>
+            </div></i>
+        </div>
+      </div>
+      <div class="col-4">
+        <label for="secondAlert">Segunda alerta</label>
+        <div class="col-10">
+          <input ng-model="main.request.pcSegundaAlerta" placeholder="%" type="text" id="firstAlert" maxlength="3" name="secondAlert"/>
+        </div>
+        <div class="col-2"><i class="range tooltip">
+            <div class="content range">
+              <rzslider rz-slider-model="main.request.pcSegundaAlerta" rz-slider-options="main.slideOptions"></rzslider>
+            </div></i>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-10">
+      <div class="col-4">
+        <label>Acta de programa</label>
+        <div ng-if="main.request.nbArchivo">
+          <div class="col-11"><a class="file" href="{{global.server}}/archivo?id={{main.request.nuVehiculo}}&amp;categoria=programa" target="_blank">{{ main.request.nbArchivo }}</a></div>
+          <div class="col-1">
+            <input-file class="icon" model="main.file.file"></input-file>
+          </div>
+        </div>
+        <input-file model="main.file.file" ng-if="!main.request.nbArchivo"></input-file>
+      </div>
+      <div class="col-4">
+        <label>Seguimiento en dashboard</label>
+        <div class="col-12">
+          <div class="col-4">
+            <input ng-click="$event.stopPropagation();" id="dashboardY" name="dashboard" ng-model="main.request.stSeguimientoDashboard" ng-value="true" txt="Si" type="radio"/>
+            <label class="radio" for="dashboardY" ng-click="$event.stopPropagation();"></label>
+            <label class="txt" for="dashboardY">Si</label>
+          </div>
+          <div class="col-4">
+            <input ng-click="$event.stopPropagation();" id="dashboardN" name="dashboard" ng-model="main.request.stSeguimientoDashboard" ng-value="false" txt="No" type="radio"/>
+            <label class="radio" for="dashboardN" ng-click="$event.stopPropagation();"></label>
+            <label class="txt" for="dashboardN">No</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-15 align-center">
+    <div class="col-12">
+      <button class="btn">{{ main.registerModal.meta.submitLabel }}</button>
+    </div>
+  </div>
+</form>

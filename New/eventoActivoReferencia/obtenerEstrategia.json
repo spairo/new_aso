@@ -1,0 +1,36 @@
+[
+	{
+		"idActivoST": 1,
+		"nuActivo": 12,
+		"nbActivo": "TIIE 182d",
+		"idEstrategia": 2886,
+		"nbEstrategia": "ST-M4780",
+		"nuEvento": 1,
+		"nbEvento": "Dividendo en Acciones",
+		"imFactor": 1.1,
+		"imStrike": 99.8,
+		"imStrikeNew": 109.78,
+		"fhActualizacion": null,
+		"user": "XM01AOJ",
+		"status": 1,
+		"fhEvento": 1484460000000,
+		"bandera": false
+	},
+	{
+		"idActivoST": 1,
+		"nuActivo": 12,
+		"nbActivo": "TIIE 182d",
+		"idEstrategia": 2886,
+		"nbEstrategia": "ST-M4780",
+		"nuEvento": 1,
+		"nbEvento": "Dividendo en Acciones",
+		"imFactor": 1.1,
+		"imStrike": 99.8,
+		"imStrikeNew": 109.78,
+		"fhActualizacion": null,
+		"user": "XM01AOJ",
+		"status": 1,
+		"fhEvento": 1484460000000,
+		"bandera": false
+	}
+]

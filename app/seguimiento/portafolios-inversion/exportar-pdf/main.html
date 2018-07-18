@@ -1,0 +1,107 @@
+
+<div class="animated fadeIn" ng-controller="ExportPdfController as main">
+  <div class="breadcrumb"><a nav="#!/">Home  &sol;</a><a nav="#!/portafolios-inversion">Portafolios de inversi&oacute;n &sol;</a><span class="selected">Exportar an&aacute;lisis a PDF</span>
+  </div>
+  <h1>
+  </h1>
+  <div class="actions align-right mb-20 not"><span>Incluir listado de emisiones</span>
+    <input ng-click="main.showList = !main.showList" id="includeList" name="includeList" ng-model="main.trueList" type="checkbox" value="includeList"/>
+    <label class="checkbox" for="includeList" ng-click="$event.stopPropagation();"></label><i class="print tooltip m-b-5" ng-click="main.printPdf();">
+      <div class="content">
+        <div class="txt">Imprimir</div>
+      </div></i><i class="views-graphics m-b-8 tooltip views" ng-class="{'simple on': main.showView === 'simple', 'double on': main.showView === 'double', 'mosaic on': main.showView === 'mosaic'}" ng-init="main.showView = 'mosaic'">
+      <div class="content"><i class="views-graphics simple" ng-class="{on: main.showView === 'simple'}" ng-click="main.showView = 'simple'"></i><i class="views-graphics double" ng-class="{on: main.showView === 'double'}" ng-click="main.showView = 'double'"></i><i class="views-graphics mosaic" ng-class="{on: main.showView === 'mosaic'}" ng-click="main.showView = 'mosaic'"></i>
+      </div></i>
+  </div>
+  <h1 class="print">Portafolio Cliente {{main.graphics[0].nombrePortafolio}}</h1>
+  <div class="grid-box" ng-class="{simple: main.showView === 'simple', double: main.showView === 'double'}" ng-show="item.active" ng-init="item.active = true;" ng-repeat="item in main.graphics"><i class="close not" ng-click="item.active = false;"></i>
+    <div class="title-graphic">{{ item.nombreGrafica }}</div><span class="title-amount">Monto vivo total de portafolio</span><span class="amount">{{ item.monto | currency:undefined:0 }} MXN</span>
+    <div class="graphics-print" ng-if="item.idGrafica === 8">
+      <canvas class="chart chart-bar" id="bar" chart-data="item.valores" chart-labels="item.encabezados" chart-series="item.encabezados" chart-colors="item.colores"></canvas>
+    </div>
+    <div class="graphics-print" ng-if="item.idGrafica !== 8">
+      <canvas class="chart chart-pie" id="pie" chart-data="item.valores" chart-labels="item.encabezados" chart-colors="item.colores" chart-options="options"></canvas>
+    </div>
+    <div class="categories">
+      <div class="grid" ng-repeat="color in item.colores">
+        <div class="square" ng-style="{'background-color': color}"></div><span>{{ item.encabezados[$index] }}<strong> - ({{ item.valores[$index] }}%)</strong></span>
+      </div>
+    </div>
+  </div>
+  <div class="grid-box mb-20 not" ng-class="{simple: main.showView === 'simple', double: main.showView === 'double'}">
+    <div ng-show="!main.addGraphic">
+      <button class="btn-add big ml-50" ng-click="main.addGraphic = true;">+</button><span class="add-graphic">Agregar gráfica</span>
+    </div>
+    <div class="overflow" ng-show="main.addGraphic">
+      <div class="select-graphic" ng-class="{inactive: name.active}" ng-click="name.active = !name.active;" ng-repeat="name in main.graphics">
+        <div class="container-icon"><i class="position" ng-class="{selected: !name.active}"></i>
+        </div><span>{{ name.nombreGrafica }}</span>
+      </div>
+    </div>
+    <div class="align-center mt-15" ng-show="main.addGraphic">
+      <button class="btn-delete" ng-click="main.addGraphic = false;">Cancelar</button>
+    </div>
+  </div>
+  <div class="clear float-left mt-55" ng-show="main.showList">
+    <h1 class="print">Portafolio Cliente {{main.chart.nombrePortafolio}}</h1>
+    <div class="table-wrap print">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Status</th>
+            <th>Serie</th>
+            <th>Pay-off</th>
+            <th>Activo</th>
+            <th>Precio estrategia</th>
+            <th>Rendimiento estrategia</th>
+            <th>Fecha de vencimiento</th>
+            <th>Última Actualización</th>
+            <th>Plazo</th>
+            <th>Subyacente</th>
+            <th>Complejidad</th>
+            <th>Protección de capital</th>
+            <th>Volatilidad</th>
+            <th>Liquidez</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="inversion in main.portfolio" ng-init="inversion.activosString = main.getActivosConcat(inversion.activos)" ng-class="{ grayBackg : inversion.estatus === 4 || inversion.estatus === 5 || inversion.estatus === 6 }">
+            <td class="hasTooltip">
+              <div class="traffic-light tooltip" ng-style="{'background-color': inversion.semaforo.color}" ng-if="inversion.estatus === 1 || inversion.estatus === 3">
+                <div class="content" ng-if="inversion.semaforo.comentario !== null"><span>{{ inversion.semaforo.comentario }}</span></div>
+              </div>
+            </td>
+            <td ng-if="inversion.estatus === 1 || inversion.estatus === 3">Viva</td>
+            <td ng-if="inversion.estatus === 7">Cerrada</td>
+            <td ng-if="inversion.estatus === 4">Vencida</td>
+            <td ng-if="inversion.estatus === 5">Amortizada</td>
+            <td ng-if="inversion.estatus === 6">Cancelada</td>
+            <td>{{ inversion.cdSerie }}</td>
+            <td>{{ inversion.tpPayoff }}</td>
+            <td>{{ inversion.activosString }}</td>
+            <td><span ng-class="{green: inversion.diferencia &gt; 0, magenta: inversion.diferencia &lt; 0}">{{ inversion.imPrecio }}</span></td>
+            <td><span ng-class="{green: inversion.diferencia &gt; 0, magenta: inversion.diferencia &lt; 0}"><span ng-if="inversion.diferencia &gt; 0">+</span><span>{{ inversion.diferencia }}%</span></span></td>
+            <td><span ng-class="{expiration: main.expirateDay}">{{ main.calculateDays(inversion.fhVencimiento) | date:"dd/MM/yyyy" }}</span></td>
+            <td>{{ inversion.fhPrecio | date:"dd/MM/yyyy"}}</td>
+            <td>{{ inversion.detallePayOff.plazo }}</td>
+            <td>{{ inversion.subyacente }}</td>
+            <td>{{ inversion.detallePayOff.nbComplejidad }}</td>
+            <td>{{ inversion.detallePayOff.capitalProtegido }}%</td>
+            <td><span ng-if="inversion.detallePayOff.volatilidad">Sí</span><span ng-if="!inversion.detallePayOff.volatilidad">No</span></td>
+            <td><span ng-if="inversion.detallePayOff.liquidez">Sí</span><span ng-if="!inversion.detallePayOff.liquidez">No</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="disclaimerPrint">Consultar Disclaimer al final del documento.</p>
+  <div class="disclaimer">
+    <div class="txt">
+      <p class="strong">Disclaimer:
+        <p class="disclaimerScreen" ng-bind-html="global.sysDisclaimer"></p>
+        <p ng-bind-html="main.disclaimer"></p>
+      </p>
+    </div>
+  </div>
+</div>

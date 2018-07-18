@@ -1,0 +1,46 @@
+
+<div class="instruction">Verifica que los datos modificados sean correctos.</div>
+<div class="panel">
+  <div class="title-step mt-10">Claves</div>
+  <div class="fields auto">
+    <div class="container-field" ng-if="field.id !== 19" ng-repeat="field in main.clone.encabezados | orderBy:'ordenAlta' | filter:{seccion:18}">
+      <div class="info">
+        <label for="{{ field.etiqueta }}">{{ field.propiedad }}:</label><span>{{ main.clone.datos[field.id] || "-" }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="title-step mt-10" ng-if="(main.clone.encabezados|filter:{seccion:19, clone: true}).length !== 0">Fechas</div>
+  <div class="fields auto" ng-if="(main.clone.encabezados|filter:{seccion:19, clone: true}).length !== 0">
+    <div class="container-field" ng-repeat="field in main.clone.encabezados | orderBy:'ordenAlta' | filter:{seccion:19, clone: true}">
+      <div class="info">
+        <label for="{{ field.etiqueta }}">{{ field.propiedad }}:</label><span>{{ main.clone.datos[field.id] || "-" | date:"dd/MM/yyyy" }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="title-step mt-10" ng-if="(main.clone.encabezados|filter:{seccion:20, clone: true}).length !== 0">Detalle</div>
+  <div class="fields auto" ng-if="(main.clone.encabezados|filter:{seccion:20, clone: true}).length !== 0">
+    <div class="container-field" ng-repeat="field in main.clone.encabezados | orderBy:'ordenAlta' | filter:{seccion:20, clone: true}">
+      <div class="info">
+        <label for="{{ field.etiqueta }}">{{ field.propiedad }}:</label><span ng-if="field.tipo === 'TEXT' || field.tipo === 'NUMBER'">{{ main.clone.datos[field.id] || "-" }}</span>
+        <div ng-if="field.tipo === 'SELECT'"><span ng-if="main.clone.datos[field.id].txCatalogo === ''">-</span><span ng-if="main.clone.datos[field.id].txCatalogo !== ''">{{ main.clone.datos[field.id].txCatalogo || "-" }}</span></div><span ng-if="field.tipo === 'DATE'">{{ main.clone.datos[field.id] || "-" | date:"dd/MM/yyyy" }}</span><span ng-if="field.tipo === 'CURRENCY'">{{ main.clone.datos[field.id] | currency:undefined:main.clone.datos[field.id].countDecimals() }}</span><span ng-if="field.tipo === 'PORCENT'">{{ main.clone.datos[field.id] }}%</span>
+        <div ng-if="field.tipo === 'SWITCH'">
+          <div class="toggle">
+            <input id="{{ main.clone.datos[field.id] }}" type="checkbox" disabled="disabled" ng-model="main.clone.datos[field.id]"/>
+            <label for="{{ main.clone.datos[field.id] }}">
+              <div class="toggle-switch" data-checked="Sí" data-unchecked="No"></div>
+            </label>
+          </div>
+        </div>
+        <div ng-if="field.tipo === 'MODAL'"><a class="link" ng-click="main.referenceActiveCloneModal.open(); main.detailReference = true;">{{ (main.clone.activos | filter:{'status': 1}).length }} activos</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-15">
+  <div class="col-6 align-right">
+    <button class="btn" ng-click="main.activeStep = 1">Regresar</button>
+  </div>
+  <div class="col-6 align-left">
+    <button class="btn" ng-disabled="main.clone.datos[2] === '' &amp;&amp; main.clone.datos[3] === ''" ng-click="main.clone.estrategiaOriginal.nuEstrategia = main.clone.datos[1]; main.clone.estatus = 1; main.clone.accion = 1; main.submitClone();">Finalizar</button>
+  </div>
+</div>

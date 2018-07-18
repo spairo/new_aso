@@ -1,0 +1,26 @@
+[
+	{
+		"nuCatalogo": 1,
+		"cdCatalogo": "NEW_PAY-OFF",
+		"txCatalogo": "Dual Peso - Dolar",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 2,
+		"cdCatalogo": "NEW_PAY-OFF",
+		"txCatalogo": "Otro 1",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 3,
+		"cdCatalogo": "NEW_PAY-OFF",
+		"txCatalogo": "Otro 2",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 4,
+		"cdCatalogo": "NEW_PAY-OFF",
+		"txCatalogo": "Otro 3",
+		"stActivo": true
+	}
+]

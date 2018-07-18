@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+  version="2.1">
+  <tlib-version>1.0</tlib-version>
+    <short-name>ctarea</short-name>
+    <uri>http://ArqSpring/controlTareas</uri>
+    
+   <function>
+      <name>getIdTarea</name>
+      <function-class>com.bbva.jee.arq.spring.core.contexto.TaglibControlTareas</function-class>
+      <function-signature>java.lang.String getIdTarea()</function-signature>
+  </function>
+  
+   <function>
+      <name>getEstadoControlTarea</name>
+      <function-class>com.bbva.jee.arq.spring.core.contexto.TaglibControlTareas</function-class>
+      <function-signature>java.lang.String getEstadoControlTarea()</function-signature>
+  </function>
+  
+   <function>
+      <name>isControlTareasActivo</name>
+      <function-class>com.bbva.jee.arq.spring.core.contexto.TaglibControlTareas</function-class>
+      <function-signature>java.lang.String isControlTareasActivo()</function-signature>
+  </function>
+  
+    <function>
+      <name>isWindowNameActivo</name>
+      <function-class>com.bbva.jee.arq.spring.core.contexto.TaglibControlTareas</function-class>
+      <function-signature>java.lang.String isWindowNameActivo()</function-signature>
+  </function>
+   <function>
+      <name>getArqSpringIdTarea</name>
+      <function-class>com.bbva.jee.arq.spring.core.contexto.TaglibControlTareas</function-class>
+      <function-signature>java.lang.String getArqSpringIdTarea()</function-signature>
+  </function>
+  
+   <function>
+      <name>generarNuevoId</name>
+      <function-class>com.bbva.jee.arq.spring.core.contexto.TaglibControlTareas</function-class>
+      <function-signature>java.lang.String generarNuevoId()</function-signature>
+  </function>
+  
+  
+  <function>
+      <name>getAjaxTimeout</name>
+      <function-class>com.bbva.jee.arq.spring.core.contexto.TaglibControlTareas</function-class>
+      <function-signature>java.lang.Integer getAjaxTimeout()</function-signature>
+  </function>
+  
+</taglib>

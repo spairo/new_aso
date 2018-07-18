@@ -1,0 +1,81 @@
+
+<h1>Resumen de registro de emisi&oacute;n</h1>
+<div ng-if="main.currentFrame === 0">
+  <div class="title-big">Resumen 	&Aacute;reas Internas</div>
+  <div class="instructions">Este es el resumen de la emisi&oacute;n, copia y pega el texto en el cuerpo de tu correo</div>
+  <div class="alert mb-0" ng-show="main.copyInternal"><span>Texto copiado en portapapeles</span></div>
+  <div class="review">
+    <div class="col-12" id="reviewInternal">
+      <div class="info" ng-repeat="field in main.review.resumenAreasInternas">
+        <p ng-if="field.nuOrden === 1"><strong>{{ field.valor }}</strong></p>
+        <div class="col-4" ng-if="field.nuOrden !== 1">
+          <label>{{ field.nbEtiqueta }}:</label>
+        </div>
+        <div class="col-8" ng-if="field.nuOrden !== 1"><span ng-if="field.tpValor === 'TEXT' || field.tpValor === 'NUMBER'">{{ field.valor }}</span><span ng-if="field.tpValor === 'CURRENCY'">{{ field.valor | currency:undefined:field.valor.countDecimals() }}</span><span ng-if="field.tpValor === 'DATE'">{{ field.valor | date:"dd/MM/yyyy" }}</span><span ng-if="field.tpValor === 'PORCENT'">{{ field.valor }}%</span></div>
+      </div><br/>
+      <p ng-if="!main.review.activos.length">No existen activos.</p>
+      <table ng-if="main.review.activos.length">
+        <thead>
+          <tr>
+            <th>Activo de referencia</th>
+            <th>Spot</th>
+          </tr>
+        </thead>
+        <tbody ng-repeat="activo in main.review.activos | filter:{'status': 1} track by $index">
+          <tr class="no-hover">
+            <td>{{ activo.nbActivo }}</td>
+            <td>{{ activo.imStrike }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row mt-15 align-center">
+    <div class="col-12">
+      <button class="btn" ng-click="main.currentFrame = 1">Continuar</button>
+      <button class="btn-copy" style="margin-left: 10px;" clipboard="clipboard" data-clipboard-target="#reviewInternal" ng-click="main.copyInternal = true">Copiar texto</button>
+    </div>
+  </div>
+</div>
+<div ng-if="main.currentFrame === 1">
+  <div class="title-big">Resumen Cliente</div>
+  <div class="instructions">Este es el resumen de la emisi&oacute;n, copia y pega el texto en el cuerpo de tu correo</div>
+  <div class="alert mb-0" ng-show="main.copyCustomer"><span>Texto copiado en portapapeles</span></div>
+  <div class="review">
+    <div class="col-12" id="copyCustomer">
+      <div class="info" ng-repeat="field in main.review.resumenClientes">
+        <p ng-if="field.nuOrden === 1">{{ field.valor }}</p>
+        <div class="col-4" ng-if="field.nuOrden !== 1">
+          <label>{{ field.nbEtiqueta }}:</label>
+        </div>
+        <div class="col-8" ng-if="field.nuOrden !== 1"><span ng-if="field.tpValor === 'TEXT' || field.tpValor === 'NUMBER'">{{ field.valor }}</span><span ng-if="field.tpValor === 'CURRENCY'">{{ field.valor | currency:undefined:field.valor.countDecimals() }}</span><span ng-if="field.tpValor === 'DATE'">{{ field.valor | date:"dd/MM/yyyy" }}</span><span ng-if="field.tpValor === 'PORCENT'">{{ field.valor }}%</span></div>
+      </div><br/><br/>
+      <p ng-if="!main.review.activos.length">No existen activos.</p>
+      <table ng-if="main.review.activos.length">
+        <thead>
+          <tr>
+            <th>Activo de referencia</th>
+            <th>Spot</th>
+          </tr>
+        </thead>
+        <tbody ng-repeat="activo in main.review.activos | filter:{'status': 1} track by $index">
+          <tr class="no-hover">
+            <td>{{ activo.nbActivo }}</td>
+            <td>{{ activo.imStrike }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row mt-15 align-center">
+    <div class="col-12"><a nav="#!/{{main.modalMeta.reviewDetail.tag}}/consulta">
+        <button class="btn mr-15">Ir a blotter</button></a><a nav="#!/{{main.modalMeta.reviewDetail.tag}}/alta-emision">
+        <button class="btn-large">Alta nueva emisión</button></a><a>
+        <button class="btn-copy" style="margin-left: 10px;" clipboard="clipboard" data-clipboard-target="#copyCustomer" ng-click="main.copyCustomer = true">Copiar texto</button></a></div>
+  </div>
+</div>
+<div class="dots-container">
+  <ul class="dots">
+    <li ng-class="{ current: main.currentFrame === $index }" ng-click="main.currentFrame = $index" ng-repeat="dot in [0, 1]"></li>
+  </ul>
+</div>

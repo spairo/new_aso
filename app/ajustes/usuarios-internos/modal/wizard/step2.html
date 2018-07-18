@@ -1,0 +1,27 @@
+
+<div class="instruction">Selecciona los permisos que deseas otrogar al área</div>
+<div ng-repeat="permiss in main.permissions">
+  <div class="accordion">
+    <div class="title-accordion border-bottom " ng-click="accordionC.opened = !accordionC.opened">
+      <h2>{{permiss.area}}</h2><i class="plus" ng-class="border-bottom "></i>
+    </div>
+    <ul class="datalist auto border-bottom" ng-show="accordionC.opened">
+      <li ng-repeat="track in permiss.permission">
+        <div class="mr-5">
+          <input ng-click="$event.stopPropagation();" id="tabPrograms" name="tabPrograms" ng-model="main.newAreaRegister.admin" type="checkbox"/>
+          <label class="checkbox" for="tabPrograms" ng-click="$event.stopPropagation();"></label>
+        </div><span>{{track.name}}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="col-12">
+  <div class="row mt-30 align-center">
+    <div class="col-6">
+      <button class="btn float-right" ng-click="main.activeStep = 0; main.nextStep = 0" type="button">Regresar</button>
+    </div>
+    <div class="col-6">
+      <button class="btn float-left" ng-click="main.changeStatus.close();" type="button">Registrar</button>
+    </div>
+  </div>
+</div>

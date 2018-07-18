@@ -1,0 +1,38 @@
+[
+	{
+		"nuCatalogo": 1,
+		"cdCatalogo": "TGRM019_REA",
+		"txCatalogo": "Especialistas",
+		"noUsuarios" : 11,
+		"color" : "#F6891E",
+		"icon" : "specialist",
+		"admin" : true
+	},
+	{
+		"nuCatalogo": 2,
+		"cdCatalogo": "TGRM019_REA",
+		"txCatalogo": "Estructuracion",
+		"noUsuarios" : 12,
+		"color" : "#86C82D",
+		"icon" : "structuring",
+		"admin" : false
+	},
+	{
+		"nuCatalogo": 3,
+		"cdCatalogo": "TGRM019_REA",
+		"txCatalogo": "Valores",
+		"noUsuarios" : 13,
+		"color" : "#094FA4",
+		"icon" : "values",
+		"admin" : false
+	},
+	{
+		"nuCatalogo": 4,
+		"cdCatalogo": "TGRM019_REA",
+		"txCatalogo": "Ventas",
+		"noUsuarios" : 14,
+		"color" : "#89D1F3",
+		"icon" : "sales",
+		"admin" : true
+	}
+]

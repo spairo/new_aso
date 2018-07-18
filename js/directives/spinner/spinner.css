@@ -1,0 +1,1 @@
+.overlay-spinner{background:$color('shadow','white');cursor:pointer;height:500%;left:0;position:absolute;top:0;width:100%;z-index:99;}.overlay-spinner .spinner{height:80px;width:80px;}.overlay-spinner .spinner img{height:80px;margin-left:-40px;position:absolute;right:50%;top:10%;width:80px}

@@ -1,0 +1,58 @@
+
+<div class="title">Edición de usuario</div>
+<form name="main.historicalStatus" ng-submit="main.historicalStatus.$valid &amp;&amp; main.submitEmission()" novalidate="novalidate">
+  <h4>Información de usuario</h4>
+  <div class="row mt-15">
+    <div class="col-8">
+      <label for="comments">ID Usuario</label>
+      <input ng-model="main.userDetail.userID" name="comments" required="required"/>
+      <div class="input-error" ng-if="main.historicalStatus.$submitted" ng-messages="main.historicalStatus.comments.$error"><span ng-message="required">Este campo es requerido</span>
+      </div>
+    </div>
+    <div class="col-4">
+      <label>Area Global Market</label>
+      <dropdown label="txCatalogo" model="main.userDetail.area" options="main.Area"></dropdown>
+      <div class="input-error" ng-if="main.historicalStatus.$submitted" ng-messages="main.historicalStatus.dtCambioEstatusUsuario.$error"><span ng-message="required">Este campo es requerido</span>
+      </div>
+    </div>
+  </div>
+  <h4>Asignación de permisos</h4>
+  <div class="row mt-15">
+    <div class="col-8">
+      <label>Grupo</label>
+      <input class="search" ng-model="main[main.userDetail.group].filterSearch" type="search"/>
+      <div class="filter-search" ng-show="main[main.userDetail.group].filterSearch">
+        <ul>
+          <li ng-repeat="item in main.userDetail.group | filter:main[main.userDetail.group].filterSearch">
+            <input ng-click="$event.stopPropagation();" id="{{$index}}" name="{{item.nbGroup}}" ng-model="item.check" txt="{{ item.nbGroup }}" type="checkbox" value="{{item.check}}"/>
+            <label class="checkbox" for="{{$index}}" ng-click="$event.stopPropagation();"></label>
+            <label class="txt" for="{{$index}}">{{ item.nbGroup }}</label>
+          </li>
+        </ul>
+      </div>
+      <div class="input-error" ng-if="main.historicalStatus.$submitted" ng-messages="main.historicalStatus.dtCambioEstatusUsuario.$error"><span ng-message="required">Este campo es requerido</span>
+      </div>
+    </div>
+    <div class="col-4">
+      <label for="comments">Asset class</label>
+      <div class="row mb-15">
+        <input ng-click="$event.stopPropagation();" id="main.userDetail.assets[1].nbAsset" ng-model="main.userDetail.assets[1].check" txt="{{main.userDetail.assets[1].nbAsset}}" type="checkbox"/>
+        <label class="checkbox" for="main.userDetail.assets[1].nbAsset" ng-click="$event.stopPropagation();"></label>
+        <label class="txt" for="main.userDetail.assets[1].nbAsset">{{main.userDetail.assets[1].nbAsset}}</label>
+      </div>
+      <div class="row mb-15">
+        <input ng-click="$event.stopPropagation();" id="main.userDetail.assets[0].nbAsset" ng-model="main.userDetail.assets[0].check" txt="{{main.userDetail.assets[0].nbAsset}}" type="checkbox"/>
+        <label class="checkbox" for="main.userDetail.assets[0].nbAsset" ng-click="$event.stopPropagation();"></label>
+        <label class="txt" for="main.userDetail.assets[0].nbAsset">{{main.userDetail.assets[0].nbAsset}}</label>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-20 align-center">
+    <div class="col-6">
+      <button class="btn btn-delete float-right" ng-click="main.changeStatus.close();" type="button">Eliminar</button>
+    </div>
+    <div class="col-6">
+      <button class="btn float-left" ng-click="main.changeStatus.close();" type="button">Guardar</button>
+    </div>
+  </div>
+</form>

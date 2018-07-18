@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
+
+    <!-- <diskStore path="java.io.tmpdir"/>  -->
+
+    <defaultCache eternal="true" maxElementsInMemory="100" overflowToDisk="false" />
+    <!--  <cache name="miCache" maxElementsInMemory="50" eternal="true" overflowToDisk="false"/>
+    -->
+	<!-- Para habilitar la cache de GPO, descomentar -->
+	<!--  <cache name="cacheGpoPerfil" maxElementsInMemory="10000" maxElementsOnDisk="1000"
+           eternal="false" overflowToDisk="true" timeToLiveSeconds="86400"memoryStoreEvictionPolicy="LRU" />    
+	-->
+
+</ehcache>

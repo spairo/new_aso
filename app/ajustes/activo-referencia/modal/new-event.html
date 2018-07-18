@@ -1,0 +1,63 @@
+
+<form name="main.registerEvent" ng-submit="main.calculateFactor()" novalidate="novalidate">
+  <h1>Registrar evento</h1>
+  <div class="row mt-20 mb-20">
+    <div class="col-3">
+      <label>Activo de referencia:</label>
+      <dropdown label="txCatalogo" model="main.newRegister.active" ng-if="main.active" options="main.active"></dropdown>
+    </div>
+    <div class="col-3">
+      <label>Evento:</label>
+      <dropdown label="txCatalogo" model="main.newRegister.event" ng-if="main.event" options="main.event"></dropdown>
+    </div>
+    <div class="col-2">
+      <label>Fecha:</label>
+      <div>
+        <div class="col-10">
+          <input date-input="date-input" ng-model="main.request.fhEvento" type="date"/>
+        </div>
+        <div class="col-2"><i class="calendar date-picker" ng-model="main.request.fhEvento"></i>
+        </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <label>Factor de ajuste:</label>
+      <input ng-model="main.request.imFactor" type="number" ng-change="main.adjustmentFactor = []"/>
+    </div>
+    <div class="col-2 mt-20">
+      <button class="btn" ng-disabled="((!main.request.imFactor || !main.newRegister.active || !main.newRegister.event || !main.request.fhEvento) &amp;&amp; !main.adjustmentFactor.length) || main.adjustmentFactor.length" type="submit">Calcular</button>
+    </div>
+  </div>
+</form>
+<div class="scroll-vertical-small size-350">
+  <div class="title-table">Estrategias implicadas<span class="ml-5" ng-if="main.adjustmentFactor.length">({{ main.adjustmentFactor.length }})</span></div>
+  <table>
+    <thead>
+      <tr>
+        <th class="default">
+          <input ng-click="$event.stopPropagation();" id="SelectAll" name="SelectAll" ng-change="main.updateAll()" ng-if="main.adjustmentFactor.length" ng-model="main.selectAll" type="checkbox" value="SelectAll"/>
+          <label class="checkbox" for="SelectAll" ng-click="$event.stopPropagation();"></label>
+        </th>
+        <th class="default">Estrategia</th>
+        <th class="default">Spot existente</th>
+        <th class="default">Spot con ajuste</th>
+      </tr>
+    </thead>
+    <tbody ng-if="main.request.imFactor">
+      <tr class="no-hover" ng-repeat="ajuste in main.adjustmentFactor">
+        <td class="icons">
+          <input ng-click="$event.stopPropagation();" id="{{$index}}_{{ ajuste.bandera }}" name="{{$index}}_{{ ajuste.bandera }}" ng-change="main.selectAll = false" ng-model="ajuste.bandera" type="checkbox" value="{{$index}}_{{ ajuste.bandera }}"/>
+          <label class="checkbox" for="{{$index}}_{{ ajuste.bandera }}" ng-click="$event.stopPropagation();"></label>
+        </td>
+        <td>{{ ajuste.nbEstrategia }}</td>
+        <td>{{ ajuste.imStrike }}</td>
+        <td class="amount">{{ ajuste.imStrikeNew }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="row align-center">
+  <div class="col-12">
+    <button class="btn" ng-click="main.registerEvents()" ng-disabled="!main.adjustmentFactor.length" type="button">Registrar</button>
+  </div>
+</div>

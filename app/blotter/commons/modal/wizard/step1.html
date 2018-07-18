@@ -1,0 +1,78 @@
+
+<div class="instruction">Selecciona los datos que quieres editar.</div>
+<div class="col-4">
+  <div class="data-title">Datos a editar</div>
+  <div class="sidebar-selection">
+    <div class="col-5">
+      <ul class="selection">
+        <li ng-class="{activeWizard: main.activeClone === 'Fechas'}" ng-click="main.activeClone = 'Fechas'"><a>Fechas</a></li>
+        <li ng-class="{activeWizard: main.activeClone === 'Detalle'}" ng-click="main.activeClone = 'Detalle'"><a>Detalle</a></li>
+        <li ng-class="{activeWizard: main.activeClone === 'Calendarios'}" ng-click="main.activeClone = 'Calendarios'"><a>Calendarios</a></li>
+      </ul>
+    </div>
+    <div class="col-7 pr-0">
+      <div class="list-options" ng-show="main.activeClone === 'Fechas'">
+        <div class="row mt-10 mb-10" ng-repeat="check in main.clone.encabezados | filter:{clone: true, seccion:19}">
+          <input ng-click="check.clone = false; main.selectRestore = false;" id="{{check.id}}" name="{{check.id}}" txt="{{check.propiedad}}" type="checkbox" value="{{check.id}}"/>
+          <label class="checkbox" for="{{check.id}}" ng-click="$event.stopPropagation();"></label>
+          <label class="txt" for="{{check.id}}">{{check.propiedad}}</label>
+        </div>
+      </div>
+      <div class="list-options" ng-show="main.activeClone === 'Detalle'">
+        <div class="row mt-10 mb-10" ng-repeat="check in main.clone.encabezados | filter:{clone: true, seccion:20}">
+          <div class="checking" ng-if="check.id !== 35">
+            <input ng-click="main.emptyClone(check.id, check.clone, check.tipo); main.mixed(check.id, check.clone); check.clone = false; main.selectRestore = false;" id="{{check.id}}" name="{{check.id}}" txt="{{check.propiedad}}" type="checkbox" value="{{check.id}}"/>
+            <label class="checkbox" for="{{check.id}}" ng-click="$event.stopPropagation();"></label>
+            <label class="txt" for="{{check.id}}">{{check.propiedad}}</label>
+          </div>
+          <div class="checking" ng-if="check.id === 35">
+            <input ng-click="check.clone = false; main.selectRestore = false;" id="facturas" name="facturas" txt="{{check.propiedad}}" type="checkbox" value="facturas"/>
+            <label class="checkbox" for="facturas" ng-click="$event.stopPropagation();"></label>
+            <label class="txt" for="facturas">{{check.propiedad}}</label>
+          </div>
+        </div>
+      </div>
+      <div class="list-options" ng-show="main.activeClone === 'Calendarios'">
+        <div class="row mt-10 mb-10" ng-if="!main.clone.estrategiaOriginal.calendario">
+          <input ng-click="$event.stopPropagation();" id="cloneCal" name="cloneCal" ng-change="main.cloneCal(main.calendario)" ng-model="main.calendario" txt="Calendarios" type="checkbox" value="cloneCal"/>
+          <label class="checkbox" for="cloneCal" ng-click="$event.stopPropagation();"></label>
+          <label class="txt" for="cloneCal">Calendarios</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-8 pr-0">
+  <div class="data-title">Datos a duplicar</div>
+  <div class="show-selection">
+    <ul ng-if="selected.seccion === 19 || selected.seccion === 20" ng-repeat="selected in main.clone.encabezados | orderBy:'ordenAlta'">
+      <div class="col-4 pr-0 mb-10" ng-if="selected.id !== 16 &amp;&amp; selected.id !== 19 &amp;&amp; selected.id !== 39 &amp;&amp; !selected.clone &amp;&amp; selected.visibleInterfaz === true">
+        <div class="checking" ng-if="selected.id !== 35">
+          <input ng-click="main.emptyClone(selected.id, selected.clone); main.mixed(selected.id, selected.clone); selected.clone = true; main.selectRestore = false;" checked="checked" id="{{selected.id}}" name="{{selected.id}}" txt="{{selected.propiedad}}" type="checkbox" value="{{selected.id}}"/>
+          <label class="checkbox" for="{{selected.id}}" ng-click="$event.stopPropagation();"></label>
+          <label class="txt" for="{{selected.id}}">{{selected.propiedad}}</label>
+        </div>
+        <div class="checking" ng-if="selected.id === 35">
+          <input ng-click="selected.clone = true; main.selectRestore = false;" checked="checked" id="facturas" name="facturas" txt="{{selected.propiedad}}" type="checkbox" value="facturas"/>
+          <label class="checkbox" for="facturas" ng-click="$event.stopPropagation();"></label>
+          <label class="txt" for="facturas">{{selected.propiedad}}</label>
+        </div>
+      </div>
+    </ul>
+    <ul ng-if="main.clone.estrategiaOriginal.calendario">
+      <div class="col-4 pr-0 mb-10">
+        <input ng-click="$event.stopPropagation();" id="cloneCal" name="cloneCal" ng-change="main.cloneCal(main.calendario)" ng-model="main.calendario" txt="Calendarios" type="checkbox" value="cloneCal"/>
+        <label class="checkbox" for="cloneCal" ng-click="$event.stopPropagation();"></label>
+        <label class="txt" for="cloneCal">Calendarios</label>
+      </div>
+    </ul>
+  </div>
+</div>
+<div class="col-12 pr-0 mt-5 align-right">
+  <div class="restore">Restaurar selección predeterminada</div>
+  <input ng-click="main.clone.datos = global.copy(main.details.datos); main.clone.encabezados = global.copy(main.details.encabezados); main.clone.activos = []; main.cloneDefault(main.clone);" id="selectRestore" name="selectRestore" ng-model="main.selectRestore" type="checkbox"/>
+  <label class="checkbox" for="selectRestore" ng-click="$event.stopPropagation();"></label>
+</div>
+<div class="col-12 align-center mt-10">
+  <button class="btn" ng-click="main.activeStep = 1; main.nextStep = 1">Siguiente</button>
+</div>

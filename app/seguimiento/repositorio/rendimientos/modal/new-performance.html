@@ -1,0 +1,15 @@
+
+<form name="main.uploadPerform" ng-submit="main.uploadPerform.$valid &amp;&amp; main.registerPerform();" novalidate="novalidate">
+  <h1>Actualizar rendimientos</h1>
+  <div class="row mt-25">
+    <div class="col-12">
+      <label>Archivo csv</label>
+      <input-file model="main.request.file"></input-file>
+    </div>
+  </div>
+  <div class="row align-center">
+    <div class="col-12 mt-30">
+      <button class="btn" ng-disabled="!main.request.file">Cargar</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,18 @@
+[
+	{
+		"nuCatalogo": 1,
+		"cdCatalogo": "NEW_CLIENTES",
+		"txCatalogo": "Banregio",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 2,
+		"cdCatalogo": "NEW_CLIENTES",
+		"txCatalogo": "Invex"
+	},
+	{
+		"nuCatalogo": 3,
+		"cdCatalogo": "NEW_CLIENTES",
+		"txCatalogo": "Seguros GNP"
+	}
+]

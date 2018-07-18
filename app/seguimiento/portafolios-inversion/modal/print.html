@@ -1,0 +1,18 @@
+
+<h1>Aviso</h1>
+<div class="row mt-20 align-center">
+  <div class="col-2 mt-20"><i class="print"></i>
+  </div>
+  <div class="col-9 message">
+    <p>Se recomienda imprimir en papel tamaño carta (Letter) con m&aacute;rgenes predeterminados.</p>
+  </div>
+</div>
+<div class="row mt-25 align-center">
+  <div class="col-12">
+    <button class="btn-large" ng-click="main.closePrintModal()">Continuar</button>
+  </div>
+</div>
+<div class="row mt-15 align-center">
+  <input ng-click="main.getPrintCheck($event)" id="noMostrarCheck" type="checkbox"/>
+  <label class="checkbox" for="noMostrarCheck" ng-click="$event.stopPropagation();"></label><span>&nbsp; No volver a mostrar</span>
+</div>

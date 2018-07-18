@@ -1,0 +1,20 @@
+
+<h1>Rendimientos</h1>
+<div class="scroll-vertical-small size-350 mt-20">
+  <table>
+    <thead>
+      <tr>
+        <th>Estrategia</th>
+        <th>Fecha de ejecución</th>
+        <th>Rendimiento</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="field in main.couponsHistory">
+        <td>{{ field.strategyCode }}</td>
+        <td>{{ field.executionDate}}</td>
+        <td>{{ field.amountCreated.amount }}%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

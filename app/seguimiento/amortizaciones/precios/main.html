@@ -1,0 +1,145 @@
+
+<div class="animated fadeIn" ng-controller="preciosIndicativosController as main">
+  <div class="breadcrumb"><a nav="#!/">Home  &sol;</a><span class="selected">Amortizaciones - Precios indicativos y de ejecución</span>
+  </div>
+  <h1>
+  </h1>
+  <h1 class="detail">Amortizaciones - Precios indicativos y de ejecución</h1>
+  <div class="col-12">
+    <ul class="tabs portfolio">
+      <li class="tabPrecios" ng-click="main.activeTab = 'indicativos';" ng-class="{current: main.activeTab === 'indicativos'}"><span style="text-overflow: clip; width: 145px;">Precios Indicativos</span></li>
+      <li class="tabPrecios" ng-click="main.activeTab = 'ejecucion';" ng-class="{current: main.activeTab === 'ejecucion'}"><span style="text-overflow: clip; width: 145px;">Precios de Ejecuci&oacute;n</span></li>
+      <li class="last" style="width:calc(100% - (180 * 2px));"></li>
+    </ul>
+  </div>
+  <div ng-show="main.activeTab === 'indicativos'">
+    <div class="indicativos-upd" ng-if="main.indicativos === ''">
+      <div class="col-12 txtCenter txtUpload"><i class="upload-csv mt-120" ng-click="main.updIndicativos.open();"></i>
+        <p class="mb-120">Envía los precios indicativos para las solicitudes de Hoy</p>
+      </div>
+    </div>
+    <div class="indicativos-body" ng-if="main.indicativos !== ''">
+      <div class="col-4 mb-10"><span class="title-view">Precios Indicativos de hoy a las a las {{ main.hours }}</span></div>
+      <div class="col-8">
+        <div class="views"><i class="filter tooltip" ng-class="{on: main.filterIndicativo}" ng-click="main.filterIndicativo = !main.filterIndicativo;">
+            <div class="content">
+              <div class="txt">Filtrar columnas</div>
+            </div></i>
+          <button class="btn edit-btn" ng-show="!showConfirm" ng-disabled="main.activeBtns" ng-click="showEdit = !showEdit; showConfirm = !showConfirm; main.thread = true;"> </button><i class="accept tooltip" ng-show="showConfirm" ng-click="main.request = global.copy(main.indicativos); main.editRecordIndicativos()">
+            <div class="content">
+              <div class="txt">Guardar cambios</div>
+            </div></i><i class="cancel-pink tooltip" ng-show="showConfirm" ng-click="showConfirm = !showConfirm; showEdit = !showEdit; main.thread = false;">
+            <div class="content">
+              <div class="txt">Cancelar</div>
+            </div></i>
+          <button class="btn-delete lock-btn" ng-disabled="main.activeBtns" ng-click="main.lockSt.open();"> </button>
+          <button class="btn unlock-btn" ng-disabled="main.activeBtns" ng-click="main.unlockSt.open();"> </button>
+          <button class="btn btn-large" ng-click="main.updIndicativos.open();">Precios indicativos</button>
+        </div>
+      </div>
+      <div class="col-12 m-l-15">
+        <div class="table-scroll ml-15">
+          <table>
+            <thead>
+              <tr>
+                <th class="default">
+                  <input ng-click="$event.stopPropagation();" id="SelectAll" name="SelectAll" ng-change="main.updateAll()" ng-if="main.indicativos.length" ng-model="main.selectAll" type="checkbox" value="SelectAll"/>
+                  <label class="checkbox" for="SelectAll" ng-click="$event.stopPropagation();"></label>
+                </th>
+                <th ng-click="main.reverse = !main.reverse; main.property = 'cdEstrategia'">cdEstrategia<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'cdEstrategia'"></span></th>
+                <th ng-click="main.reverse = !main.reverse; main.property = 'indeval'">Clave Indeval / Bancomer<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'indeval'"></span></th>
+                <th ng-click="main.reverse = !main.reverse; main.property = 'vencimiento'">Vencimiento<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'vencimiento'"></span></th>
+                <th ng-click="main.reverse = !main.reverse; main.property = 'activoReferencia'">Activo de referencia<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'activoReferencia'"></span></th>
+                <th ng-click="main.reverse = !main.reverse; main.property = 'subyacente'">Subyacente<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'subyacente'"></span></th>
+                <th ng-click="main.reverse = !main.reverse; main.property = 'pIndicativo'">Precio indicativo<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'pIndicativo'"></span></th>
+                <th ng-click="main.reverse = !main.reverse; main.property = 'montoMax'">Monto máximo<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'montoMax'"></span></th>
+                <th ng-click="main.reverse = !main.reverse; main.property = 'fLiquidacion'">Fecha de liquidación<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'fLiquidacion'"></span></th>
+                <th ng-click="main.reverse = !main.reverse; main.property = 'dLiquidacion'">Días para liquidación<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'dLiquidacion'"></span></th>
+                <th ng-click="main.reverse = !main.reverse; main.property = 'estatus'">Estatus<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'estatus'"></span></th>
+              </tr>
+              <tr class="search" ng-show="main.filterIndicativo">
+                <td></td>
+                <td>
+                  <input ng-model="main.searchIndicativo.cdEstrategia" type="search"/>
+                </td>
+                <td>
+                  <input ng-model="main.searchIndicativo.indeval" type="search"/>
+                </td>
+                <td>
+                  <input ng-model="main.searchIndicativo.vencimiento" type="date" date-input="date-input"/>
+                </td>
+                <td>
+                  <input ng-model="main.searchIndicativo.activoReferencia" type="search"/>
+                </td>
+                <td>
+                  <input ng-model="main.searchIndicativo.subyacente" type="search"/>
+                </td>
+                <td>
+                  <input ng-model="main.searchIndicativo.pIndicativo" type="search"/>
+                </td>
+                <td>
+                  <input ng-model="main.searchIndicativo.montoMax" type="search"/>
+                </td>
+                <td>
+                  <input ng-model="main.searchIndicativo.fLiquidacion" type="date" date-input="date-input"/>
+                </td>
+                <td>
+                  <input ng-model="main.searchIndicativo.dLiquidacion" type="search"/>
+                </td>
+                <td>
+                  <input ng-model="main.searchIndicativo.estatus" type="search"/>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr dir-paginate="elem in main.indicativos | orderBy:main.property:main.reverse | filter:main.searchIndicativo | itemsPerPage: 10">
+                <td class="icons">
+                  <input ng-click="$event.stopPropagation();" id="{{$index}}_{{ elem.bandera }}" name="{{$index}}_{{ elem.bandera }}" ng-change="main.selectAll = false; main.banderaChecks({{ elem.bandera }}); main.foo(elem.bandera, {{$index}});" ng-model="elem.bandera" type="checkbox" value="{{$index}}_{{ elem.bandera }}"/>
+                  <label class="checkbox" for="{{$index}}_{{ elem.bandera }}" ng-click="$event.stopPropagation();"></label>
+                </td>
+                <td>{{ elem.cdEstrategia }}</td>
+                <td>{{ elem.indeval }}</td>
+                <td>{{ elem.vencimiento | date:'dd/MM/yyyy' }}</td>
+                <td>{{ elem.activoReferencia }}</td>
+                <td>{{ elem.subyacente }}</td>
+                <td ng-show="!showEdit &amp;&amp; elem.thread === false" ng-hide="elem.bandera &amp;&amp; main.thread">{{ elem.pIndicativo }}</td>
+                <td ng-show="showEdit &amp;&amp; elem.bandera">
+                  <input ng-model="elem.pIndicativo" type="text" style="width: 100px;"/>
+                </td>
+                <td ng-show="!showEdit &amp;&amp; elem.thread === false" ng-hide="elem.bandera &amp;&amp; main.thread">{{ elem.montoMax }}</td>
+                <td ng-show="showEdit &amp;&amp; elem.bandera">
+                  <input ng-model="elem.montoMax" type="text" style="width: 100px;"/>
+                </td>
+                <td ng-show="!showEdit &amp;&amp; elem.thread === false" ng-hide="elem.bandera &amp;&amp; main.thread">{{ elem.fLiquidacion  | date:'dd/MM/yyyy' }}</td>
+                <td ng-show="showEdit &amp;&amp; elem.bandera">
+                  <input ng-model="elem.fLiquidacion" type="tedatext" date-input="date-input" style="width: 100px;"/>
+                </td>
+                <td>{{ elem.dLiquidacion }}</td>
+                <td>{{ elem.estatus }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <dir-pagination-controls boundary-links="true"></dir-pagination-controls><span class="count">{{ (main.indicativos | filter:main.searchIndicativo).length }} elementos</span>
+    <modal name="main.updIndicativos" on-close="main.indicativos.file = {};" on-success="global.reload()" size="'small'">
+      <ng-include src="'app/seguimiento/amortizaciones/precios/modal/upload-prices.html'"></ng-include>
+    </modal>
+    <modal name="main.lockSt" on-close="main.lockComment = ''" on-success="global.reload()" size="'medium'">
+      <ng-include src="'app/seguimiento/amortizaciones/precios/modal/lock.html'"></ng-include>
+    </modal>
+    <modal name="main.unlockSt" on-close="main.lockComment = ''" on-success="global.reload()" size="'small'">
+      <ng-include src="'app/seguimiento/amortizaciones/precios/modal/unlock.html'"></ng-include>
+    </modal>
+  </div>
+  <div ng-show="main.activeTab === 'ejecucion'">
+    <h1>Ejecución</h1>
+  </div>
+  <div class="disclaimer">
+    <div class="txt">
+      <p class="strong">Disclaimer:</p>
+      <p ng-bind-html="global.sysDisclaimer"></p>
+    </div>
+  </div>
+</div>

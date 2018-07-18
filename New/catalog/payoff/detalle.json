@@ -1,0 +1,74 @@
+{
+  "nuCatalogo": 5,
+  "cdCatalogo": null,
+  "txCatalogo": "Call Spread Escalonado",
+  "txComentario": "Call Spread Escalonado",
+  "stActivo": true,
+  "nodoA": null,
+	"detallePayOff": {
+		"volatilidad": true,
+		"liquidez": false,
+		"complejidad": {
+			"nuCatalogo": 0,
+			"cdCatalogo": "MB",
+			"txCatalogo": "Muy Baja",
+			"txComentario": "Alta0",
+			"stActivo": true
+		}
+	},
+  "caracteristicas": {
+    "nuevos": [],
+    "actuales": [
+      {
+        "nuCatalogo": 4,
+        "cdCatalogo": null,
+        "txCatalogo": "NA",
+        "txComentario": null,
+        "stActivo": true,
+        "nuNivel": null
+      }
+    ]
+  },
+  "tipos": {
+    "nuCatalogo": 1,
+    "cdCatalogo": null,
+    "txCatalogo": "Barrera",
+    "txComentario": null,
+    "stActivo": true,
+    "nuNivel": null
+  },
+  "proteccion": {
+    "nuevos": [],
+    "actuales": [
+      {
+        "nuCatalogo": 0,
+        "cdCatalogo": null,
+        "txCatalogo": "--",
+        "txComentario": null,
+        "stActivo": true,
+        "nuNivel": null
+      }
+    ]
+  },
+  "opciones": {
+    "nuCatalogo": 0,
+    "cdCatalogo": null,
+    "txCatalogo": "--",
+    "txComentario": null,
+    "stActivo": true,
+    "nuNivel": null
+  },
+  "payOffDocs": {
+    "nuevos": [],
+    "actuales": [
+      {
+        "nuCatalogo": 0,
+        "cdCatalogo": "",
+        "txCatalogo": "-",
+        "txComentario": "",
+        "stActivo": false,
+        "nuNivel": null
+      }
+    ]
+  }
+}

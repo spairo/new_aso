@@ -1,0 +1,345 @@
+
+<div class="animated fadeIn" ng-controller="detalleAmortizacionesController as main">
+  <div class="breadcrumb"><a nav="#!/">Home  &sol;</a><span class="selected">Amortizaciones y Liquidaciones por Cliente</span>
+  </div>
+  <h1>
+  </h1>
+  <h1 class="detail">Detalle de amortizaciones y liquidaciones</h1>
+  <div class="col-12">
+    <ul class="tabs portfolio">
+      <li class="tabPrecios" ng-click="main.activeTab = 'amortizaciones';" ng-class="{current: main.activeTab === 'amortizaciones'}"><span style="text-overflow: clip; width: 145px;">Amortizaciones</span></li>
+      <li class="tabPrecios" ng-click="main.activeTab = 'liquidaciones';" ng-class="{current: main.activeTab === 'liquidaciones'}"><span style="text-overflow: clip; width: 145px;">Liquidaciones</span></li>
+      <li class="last" style="width:calc(100% - (180 * 2px));"></li>
+    </ul>
+  </div>
+  <div ng-show="main.activeTab === 'amortizaciones'">
+    <div class="col-12 mt-10">
+      <div class="col-8">
+        <div class="alert-info"><span class="alert-i">Hoy {{ main.date | date:'dd-MMM-yyyy' }} se pactaron XX Amortizaciones por un Monto de $XXX,XXX</span></div>
+      </div>
+      <div class="col-4 m-t-48">
+        <div class="col-4 mt-5 m-l-150" ng-if="main.banqueros === true">
+          <input ng-click="$event.stopPropagation();" id="id_check" name="name_check" ng-change="main.nothing();" ng-model="main.nothing" type="checkbox" value=""/>
+          <label class="checkbox" for="id_check" ng-click="$event.stopPropagation();"></label><span class="txt12 ml-5">Ver solo mi división</span>
+        </div>
+        <div class="col-4 align-right mt-5"><span class="txt12">Ver detalle por</span></div>
+        <div class="col-4">
+          <dropdown label="txVista" model="main.detailBy.type" options="main.viewBy"></dropdown>
+        </div>
+        <div class="col-1 mt-5"><i class="filter tooltip" ng-class="{on: main.filterSubAmortizaciones}" ng-click="main.filterSubAmortizaciones = !main.filterSubAmortizaciones; main.filterAmortizaciones = !main.filterAmortizacionesBanquero; main.filterSubAmortizacionesBanquero = !main.filterSubAmortizacionesBanquero; main.filterAmortizacionesBanquero = !main.filterAmortizacionesBanquero;">
+            <div class="content">
+              <div class="txt">Filtrar</div>
+            </div></i>
+        </div>
+        <div class="col-3">
+          <button class="btn" ng-click="main.downloadReport.open()">Reportes</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 mt-10" ng-if="main.strategyView === true">
+      <div class="col-8 table-amort">
+        <table class="tableborder">
+          <thead>
+            <tr ng-show="main.filterAmortizaciones">
+              <th></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'vehiculo'">Vehículo<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'vehiculo'"></span></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'indeval'">Clave INDEVAL/Bancomer<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'indeval'"></span></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'titulos'">Títulos<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'titulos'"></span></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'precioEjecucion'">Precio de Ejección<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'precioEjecucion'"></span></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'fLiquidacion'">Fecha de Liquidación<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'fLiquidacion'"></span></th>
+            </tr>
+            <tr class="search" ng-show="main.filterAmortizaciones">
+              <td></td>
+              <td>
+                <input ng-model="main.searchAmortizaciones.vehiculo" type="search"/>
+              </td>
+              <td>
+                <input ng-model="main.searchAmortizaciones.indeval" type="search"/>
+              </td>
+              <td></td>
+              <td>
+                <input ng-model="main.searchAmortizaciones.precioEjecucion" type="search"/>
+              </td>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="singleCol" rowspan="2" tabindex="1">01</td>
+              <td class="singleDet vehicle" colspan="2">JBACOMERS 176</td>
+              <td class="singleDet titulos" rowspan="2">80,000 titulos</td>
+              <td class="singleDet ejecprice" rowspan="2">$98.91</td>
+              <td class="singleDet txtLiq">Liquida en 6 días, el 25 Feb 2017</td>
+            </tr>
+            <tr>
+              <td class="singleDet series">J1722</td>
+              <td class="singleDet"><a class="goemision" href="{{global.server}}/" target="_blank">Ver emision</a></td>
+              <td class="singleDet txtLiq">7 Clientes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-4 subtable-amort m-t-48">
+        <table>
+          <thead>
+            <tr class="trHeads">
+              <th></th>
+              <th></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'cliente'">Cliente/Contrato<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'cliente'"></span></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'sub-titulos'">Títulos<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'sub-titulos'"></span></th>
+            </tr>
+            <tr class="search" ng-show="main.filterSubAmortizaciones">
+              <td></td>
+              <td></td>
+              <td>
+                <input ng-model="main.searchSubAmortizaciones.cliente" type="search"/>
+              </td>
+              <td>
+                <input ng-model="main.searchSubAmortizaciones.titulos" type="search"/>
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="small behind">
+              <td>01</td>
+              <td><i class="info-circle tooltip">
+                  <div class="content">
+                    <div class="txt">Especialista: Luisiño</div>
+                  </div></i>
+              </td>
+              <td>65208</td>
+              <td>25,000</td>
+            </tr>
+            <tr class="small behind">
+              <td>01</td>
+              <td><i class="info-circle tooltip">
+                  <div class="content">
+                    <div class="txt">Especialista: Luisiño</div>
+                  </div></i>
+              </td>
+              <td>65208</td>
+              <td>25,000</td>
+            </tr>
+            <tr class="small behind">
+              <td>01</td>
+              <td><i class="info-circle tooltip">
+                  <div class="content">
+                    <div class="txt">Especialista: Luisiño</div>
+                  </div></i>
+              </td>
+              <td>65208</td>
+              <td>25,000</td>
+            </tr>
+            <tr class="small behind">
+              <td>01</td>
+              <td><i class="info-circle tooltip">
+                  <div class="content">
+                    <div class="txt">Especialista: Luisiño</div>
+                  </div></i>
+              </td>
+              <td>65208</td>
+              <td>25,000</td>
+            </tr>
+            <tr class="small behind">
+              <td>01</td>
+              <td><i class="info-circle tooltip">
+                  <div class="content">
+                    <div class="txt">Especialista: Luisiño</div>
+                  </div></i>
+              </td>
+              <td>65208</td>
+              <td>25,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-12 mt-10" ng-if="main.strategyView === false">
+      <div class="col-8 table-amort">
+        <table class="tableborder">
+          <thead>
+            <tr ng-show="main.filterAmortizacionesBanquero">
+              <th></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'nbBanquero'">Nombre del banquero<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'nbBanquero'"></span></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'banca'">Banca<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'banca'"></span></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'division'">División<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'division'"></span></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'monto'">Monto<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'monto'"></span></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'estrategias'">Estrategias<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'estrategias'"></span></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'clientes'">Clientes<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'clientes'"></span></th>
+            </tr>
+            <tr class="search" ng-show="main.filterAmortizacionesBanquero">
+              <td></td>
+              <td>
+                <input ng-model="main.searchAmortizacionesBanquero.nbBanquero" type="search"/>
+              </td>
+              <td>
+                <input ng-model="main.searchAmortizacionesBanquero.banca" type="search"/>
+              </td>
+              <td>
+                <input ng-model="main.searchAmortizacionesBanquero.division" type="search"/>
+              </td>
+              <td>
+                <input ng-model="main.searchAmortizacionesBanquero.monto" type="search"/>
+              </td>
+              <td></td>
+              <td ng-show="main.filterAmortizacionesBanquero"></td>
+            </tr>
+          </thead>
+          <tbody ng-repeat="detail in main.bankerdetails.amortizaciones" ng-click="main.viewDetail(detail.Id);">
+            <tr>
+              <td class="singleCol" rowspan="2" tabindex="1">{{$index}}</td>
+              <td class="singleDet banquero" rowspan="2"> {{detail.nombre}}</td>
+              <td class="singleDet">{{detail.clientes}}</td>
+              <td ng-show="main.filterAmortizacionesBanquero"></td>
+              <td class="singleDet ejecprice" rowspan="2">{{detail.monto}}</td>
+              <td ng-show="main.filterAmortizacionesBanquero"></td>
+              <td class="singleDet txtLiq">{{detail.estrategias}} estrategias</td>
+            </tr>
+            <tr>
+              <td>{{detail.ubicacion}}</td>
+              <td ng-show="main.filterAmortizacionesBanquero"></td>
+              <td ng-show="main.filterAmortizacionesBanquero"></td>
+              <td class="singleDet txtLiq"> {{detail.clientes}} clientes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-4 subtable-amort m-t-48">
+        <table>
+          <thead>
+            <tr class="trHeads">
+              <th></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'serie'">Serie<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'serie'"></span></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'cliente'">Cliente/Contrato<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'cliente'"></span></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'sub-titulos'">Títulos<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'sub-titulos'"></span></th>
+            </tr>
+            <tr class="search" ng-show="main.filterSubAmortizacionesBanquero">
+              <td></td>
+              <td>
+                <input ng-model="main.searchSubAmortizacionesBanquero.serie" type="search"/>
+              </td>
+              <td>
+                <input ng-model="main.searchSubAmortizacionesBanquero.cliente" type="search"/>
+              </td>
+              <td>
+                <input ng-model="main.searchSubAmortizacionesBanquero.titulos" type="search"/>
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="small behind" ng-repeat="view in main.viewDetail">
+              <td>{{$index}}</td>
+              <td>{{view.a}}</td>
+              <td>{{view.b}}</td>
+              <td>{{view.c}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div ng-show="main.activeTab === 'liquidaciones'">
+    <div class="col-12 mt-10">
+      <div class="col-8">
+        <div class="alert-info"><span class="alert-i">Hoy 22 Feb 2018 se ejecutan 25 Liquidaciones por un monto de $3,443,577</span></div>
+      </div>
+      <div class="col-4 m-t-48">
+        <div class="col-1 mt-5"><i class="filter tooltip" ng-class="{on: main.filterSubAmortizaciones}" ng-click="main.filterSubAmortizaciones = !main.filterSubAmortizaciones; main.filterAmortizaciones = !main.filterAmortizacionesBanquero; main.filterSubAmortizacionesBanquero = !main.filterSubAmortizacionesBanquero; main.filterAmortizacionesBanquero = !main.filterAmortizacionesBanquero;">
+            <div class="content">
+              <div class="txt">Filtrar</div>
+            </div></i>
+        </div>
+        <div class="col-3">
+          <button class="btn" ng-click="main.downloadReport.open()">Reportes</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 mt-10">
+      <div class="col-8 table-amort">
+        <table class="tableborder">
+          <thead>
+            <tr ng-show="main.filterAmortizaciones">
+              <th></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'vehiculo'">Vehículo<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'vehiculo'"></span></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'indeval'">Clave INDEVAL/Bancomer<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'indeval'"></span></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'titulos'">Títulos<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'titulos'"></span></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'precioEjecucion'">Precio de Ejección<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'precioEjecucion'"></span></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'fLiquidacion'">Fecha de Liquidación<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'fLiquidacion'"></span></th>
+            </tr>
+            <tr class="search" ng-show="main.filterAmortizaciones">
+              <td></td>
+              <td>
+                <input ng-model="main.searchAmortizaciones.vehiculo" type="search"/>
+              </td>
+              <td>
+                <input ng-model="main.searchAmortizaciones.indeval" type="search"/>
+              </td>
+              <td></td>
+              <td>
+                <input ng-model="main.searchAmortizaciones.precioEjecucion" type="search"/>
+              </td>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="singleCol" rowspan="2" tabindex="1">01</td>
+              <td class="singleDet vehicle" colspan="2">JBACOMERS 176</td>
+              <td class="singleDet titulos" rowspan="2">80,000 titulos</td>
+              <td class="singleDet ejecprice" rowspan="2">$98.91</td>
+              <td class="singleDet txtLiq">Amortizó el 16 Feb 2018</td>
+            </tr>
+            <tr>
+              <td class="singleDet series">J1722</td>
+              <td class="singleDet"><a class="goemision" href="{{global.server}}/" target="_blank">Ver emision</a></td>
+              <td class="singleDet txtLiq">7 Clientes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-4 subtable-amort m-t-48">
+        <table>
+          <thead>
+            <tr class="trHeads">
+              <th></th>
+              <th></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'cliente'">Cliente/Contrato<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'cliente'"></span></th>
+              <th ng-click="main.reverse = !main.reverse; main.property = 'sub-titulos'">Títulos<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'sub-titulos'"></span></th>
+            </tr>
+            <tr class="search" ng-show="main.filterSubAmortizaciones">
+              <td></td>
+              <td></td>
+              <td>
+                <input ng-model="main.searchSubAmortizaciones.cliente" type="search"/>
+              </td>
+              <td>
+                <input ng-model="main.searchSubAmortizaciones.titulos" type="search"/>
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="small behind">
+              <td>01</td>
+              <td><i class="info-circle tooltip">
+                  <div class="content">
+                    <div class="txt">Especialista: David Alejandro</div>
+                  </div></i>
+              </td>
+              <td>65208</td>
+              <td>25,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <modal name="main.downloadReport" size="'small'">
+    <ng-include src="'app/seguimiento/amortizaciones/detalle/modal/report.html'"></ng-include>
+  </modal>
+  <div class="disclaimer">
+    <div class="txt">
+      <p class="strong">Disclaimer:</p>
+      <p ng-bind-html="global.sysDisclaimer"></p>
+    </div>
+  </div>
+</div>

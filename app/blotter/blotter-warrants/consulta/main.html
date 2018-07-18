@@ -1,0 +1,201 @@
+
+<div class="animated fadeIn" ng-controller="BlotterWarrantsController as main">
+  <div class="breadcrumb"><a nav="#!/">Home  &sol;</a><span class="selected">Blotter Warrants</span>
+  </div>
+  <h1>
+  </h1>
+  <ul class="tabs">
+    <li ng-class="{current: main.activeTab === &quot;Blotter&quot;}" ng-click="main.activeTab = &quot;Blotter&quot;"><span>Blotter</span></li>
+    <li ng-class="{current: main.activeTab === &quot;Documentación&quot;}" ng-click="main.activeTab = &quot;Documentación&quot;"><span>Documentación</span></li>
+    <li ng-class="{current: main.activeTab === &quot;Pipeline&quot;}" ng-click="main.activeTab = &quot;Pipeline&quot;"><span>Pipeline</span></li>
+    <li class="last" style="width: calc(100% - (150 * 3px));">
+    </li>
+  </ul>
+  <div ng-show="main.activeTab === 'Blotter'">
+    <div class="views"><i class="filter tooltip" ng-class="{on: registro.filterBlotter}" ng-click="registro.filterBlotter = !registro.filterBlotter;">
+        <div class="content">
+          <div class="txt">Filtrar columnas</div>
+        </div></i><a href="http://150.100.196.115:9191/SaikuVisual/" target="_blank"><i class="analytics tooltip">
+          <div class="content">
+            <div class="txt">Ir a Analytics</div>
+          </div></i></a><i class="calculate tooltip" ng-click="main.actualizaMontos()">
+        <div class="content">
+          <div class="txt">Actualizar montos</div>
+        </div></i><a href="{{global.server}}/archivo?id=2&amp;categoria=amortizaciones&amp;producto=27&amp;usuario={{main.user}}" target="_blank"><i class="amortizations tooltip double">
+          <div class="content">
+            <div class="txt">Descargar recompra</div>
+          </div></i></a><a href="{{global.server}}/archivo?id=27&amp;categoria=reporteBlotter&amp;usuario={{main.user}}" target="_blank"><i class="download-blotter tooltip">
+          <div class="content">
+            <div class="txt">Descargar blotter</div>
+          </div></i></a>
+      <button class="btn-large" ng-click="main.regAmortization.open();">Registro de recompra</button><a nav="#!/blotter-warrants/alta-emision">
+        <button class="btn">Alta emisión</button></a>
+      <div class="options submenu">
+        <div class="title-view">Vista personalizada<span ng-if="main.restoring">*</span></div>
+        <div class="restore-view" ng-click="global.reload()" ng-if="main.restoring">Restaurar vista</div>
+        <div class="edit-view" ng-click="main.customizeView.meta = main.modalMeta.customizeBlotter; main.customizeView.open();">Editar</div>
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th ng-if="(main.blotter.encabezados | filter:{visibleUsuario: true}).length"></th>
+            <th ng-class="{default: isSelect}" ng-click="!isSelect &amp;&amp; (main.reverse = (main.propertyBlotterName === propertyBlotter ? !main.reverse : false)); !isSelect &amp;&amp; (main.propertyBlotterName = propertyBlotter);" ng-init="propertyBlotter = encabezado.id.toString(); isSelect = encabezado.tipo === 'SELECT';" ng-if="encabezado.visibleInterfaz" ng-repeat="encabezado in main.blotter.encabezados | orderBy:'ordenConsulta'" ng-show="encabezado.visibleUsuario">{{ encabezado.propiedad }}<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.propertyBlotterName === propertyBlotter"></span></th>
+          </tr>
+          <tr class="search" ng-show="registro.filterBlotter">
+            <td ng-if="(main.blotter.encabezados | filter:{visibleUsuario: true}).length"></td>
+            <td ng-if="searchCell.visibleInterfaz" ng-init="propertyBlotter = searchCell.id.toString();" ng-repeat="searchCell in main.blotter.encabezados | orderBy:'ordenConsulta'" ng-show="searchCell.visibleUsuario">
+              <input ng-model="main.searchBlotter[propertyBlotter]" type="date" date-input="date-input" ng-if="searchCell.tipo === 'DATE'"/>
+              <input ng-model="main.searchBlotter[propertyBlotter]" type="search" ng-if="searchCell.tipo !== 'SELECT' &amp;&amp; searchCell.tipo !== 'DATE' &amp;&amp; searchCell.tipo !== 'SWITCH'"/>
+              <input switch-search="switch-search" field="main.searchBlotter[propertyBlotter]" type="search" ng-if="searchCell.tipo === 'SWITCH'"/>
+              <input ng-model="main.searchBlotter[propertyBlotter].txCatalogo" type="search" ng-if="searchCell.tipo === 'SELECT'"/>
+            </td>
+          </tr>
+        </thead>
+        <tbody dir-paginate="registro in main.blotter.datos | orderBy:main.propertyBlotterName:main.reverse | filter:main.searchBlotter | itemsPerPage: 10">
+          <tr ng-click="main.viewDetail(1, registro[1])">
+            <td class="icons" ng-click="$event.stopPropagation();" ng-if="(main.blotter.encabezados | filter:{visibleUsuario: true}).length"><i class="plus" ng-class="{less: registro.opened}" ng-click="!registro.opened &amp;&amp; main.getAmortizations(registro); registro.opened = !registro.opened;"></i>
+            </td>
+            <td ng-class="{amount: encabezado.tipo === 'CURRENCY'}" ng-if="encabezado.visibleInterfaz" ng-repeat="encabezado in main.blotter.encabezados | orderBy:'ordenConsulta' track by $index" ng-show="encabezado.visibleUsuario"><span ng-if="encabezado.tipo === 'TEXT' || encabezado.tipo === 'NUMBER' || encabezado.tipo === 'MODAL'">{{ registro[encabezado.id] || "-" }}</span>
+              <div ng-if="encabezado.tipo === 'SELECT'"><span ng-if="registro[encabezado.id].txCatalogo === ''">-</span><span ng-if="registro[encabezado.id].txCatalogo !== ''">{{ registro[encabezado.id].txCatalogo || "-" }}</span></div><span ng-if="encabezado.tipo === 'DATE'">{{ registro[encabezado.id] || "-" | date:"dd/MM/yyyy" }}</span><span ng-if="encabezado.tipo === 'CURRENCY'">{{ registro[encabezado.id] | currency:undefined:registro[encabezado.id].countDecimals() }}</span><span ng-if="encabezado.tipo === 'PORCENT'">{{ registro[encabezado.id] }}%</span>
+              <div ng-if="encabezado.tipo === 'SWITCH'"><span ng-if="registro[encabezado.id] === false">N</span><span ng-if="registro[encabezado.id] === true">Y</span></div>
+            </td>
+          </tr>
+          <tr class="drop" ng-show="registro.opened">
+            <td class="drop" colspan="{{ main.blotter.encabezados.length }}"><span ng-show="!registro.amortizations.length">No hay amortizaciones</span>
+              <div class="table-wrap" ng-show="registro.amortizations.length">
+                <table>
+                  <thead>
+                    <tr>
+                      <th class="default">Fecha de amortización</th>
+                      <th class="default">Precio</th>
+                      <th class="default">No. T&iacute;tulos</th>
+                      <th class="default">Monto amortizado</th>
+                      <th class="default">Monto vivo</th>
+                      <th class="default">Fecha de liquidaci&oacute;n</th>
+                      <th class="default">Monto de liquidaci&oacute;n</th>
+                      <th class="default">Franquicia por amortizaci&oacute;n</th>
+                      <th class="default">Mesa</th>
+                      <th class="default">Deal MUREX</th>
+                      <th class="default">Vendedor</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-click="main.amortizacion = global.copy(amortization); main.editAmortizations.open()" ng-repeat="amortization in registro.amortizations track by $index">
+                      <td>{{ amortization.fhAmortizacion || "-" | date:"dd/MM/yyyy" }}</td>
+                      <td class="amount">{{ amortization.imPrecio || "-" | currency }}</td>
+                      <td>{{ amortization.nuTitulos || "-" | currency }}</td>
+                      <td class="amount">{{ amortization.ctAmortizado || "-" | currency }}</td>
+                      <td class="amount">{{ amortization.ctVivo || "-" | currency }}</td>
+                      <td>{{ amortization.fhLiquidacion || "-" | date:"dd/MM/yyyy" }}</td>
+                      <td class="amount">{{ amortization.ctLiquidado || "-" | currency }}</td>
+                      <td class="amount">{{ amortization.imMontoFranquicia || "-" | currency }}</td>
+                      <td>{{ amortization.mesa.txCatalogo || "-" }}</td>
+                      <td class="amount">{{ amortization.cdDealMurex || "-" }}</td>
+                      <td>{{ amortization.txVendedor || "-" }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <dir-pagination-controls boundary-links="true"></dir-pagination-controls><span class="count">{{ (main.blotter.datos | filter:main.searchBlotter).length }} elementos</span>
+    <div class="disclaimer">
+      <div class="txt">
+        <p class="strong">Disclaimer:</p>
+        <p ng-bind-html="global.sysDisclaimer"></p>
+      </div>
+    </div>
+  </div>
+  <div ng-show="main.activeTab === 'Documentación'">
+    <div class="row mt-20">
+      <div class="col-4">
+        <input class="search" ng-model="main.searchBlotter[2]" placeholder="Buscar Estrategia" type="search"/>
+      </div><i class="search mt-5"></i>
+    </div>
+    <div class="table-scroll mt-30">
+      <table>
+        <thead>
+          <tr>
+            <th ng-click="main.reverse = !main.reverse; main.propertyBlotterName = '2'">Estrategia<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.propertyBlotterName === '2'"></span></th>
+            <th class="default">TITULO</th>
+            <th class="default">DOC</th>
+            <th class="default">TS / DICI</th>
+            <th class="default">FACTURAS XML</th>
+            <th class="default">FACTURAS PDF</th>
+          </tr>
+        </thead>
+        <tbody dir-paginate="registro in main.blotter.datos | orderBy:main.propertyBlotterName:main.reverse | filter:main.searchBlotter | itemsPerPage: 10">
+          <tr class="no-hover">
+            <td><span>{{ registro[2] }}</span></td>
+            <td><i class="pdf"></i>
+            </td>
+            <td><i class="docs"></i>
+            </td>
+            <td><a href="{{global.server}}/archivo?id={{registro[1]}}&amp;categoria=53" target="_blank"><i class="pdf"></i></a></td>
+            <td><a href="{{global.server}}/archivo?id={{registro[1]}}&amp;categoria=51" target="_blank"><i class="xml"></i></a></td>
+            <td><a href="{{global.server}}/archivo?id={{registro[1]}}&amp;categoria=52" target="_blank"><i class="pdf"></i></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <dir-pagination-controls boundary-links="true"></dir-pagination-controls><span class="count">{{ (main.blotter.datos | filter:main.searchBlotter).length }} elementos</span>
+    <div class="disclaimer">
+      <div class="txt">
+        <p class="strong">Disclaimer:</p>
+        <p ng-bind-html="global.sysDisclaimer"></p>
+      </div>
+    </div>
+  </div>
+  <div ng-show="main.activeTab === 'Pipeline'">
+    <div class="views"><i class="filter tooltip" ng-class="{on: registro.filterPipeline}" ng-click="registro.filterPipeline = !registro.filterPipeline;">
+        <div class="content">
+          <div class="txt">Filtrar columnas</div>
+        </div></i>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th ng-class="{default: isSelect}" ng-click="!isSelect &amp;&amp; (main.reverse = (main.propertyPipelineName === propertyPipeline ? !main.reverse : false)); !isSelect &amp;&amp; (main.propertyPipelineName = propertyPipeline);" ng-init="propertyPipeline = encabezado.id.toString(); isSelect = encabezado.tipo === 'SELECT';" ng-if="encabezado.visibleInterfaz" ng-repeat="encabezado in main.pipeline.encabezados | orderBy:'ordenConsulta'" ng-show="encabezado.visibleUsuario">{{ encabezado.propiedad }}<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.propertyPipelineName === propertyPipeline"></span></th>
+          </tr>
+          <tr class="search" ng-show="registro.filterPipeline">
+            <td ng-if="searchCell.visibleInterfaz" ng-init="propertyPipeline = searchCell.id.toString();" ng-repeat="searchCell in main.pipeline.encabezados | orderBy:'ordenConsulta'" ng-show="searchCell.visibleUsuario">
+              <input ng-model="main.searchPipeline[propertyPipeline]" type="date" date-input="date-input" ng-if="searchCell.tipo === 'DATE'"/>
+              <input ng-model="main.searchPipeline[propertyPipeline]" type="search" ng-click="$event.stopPropagation();" ng-if="searchCell.tipo !== 'SELECT' &amp;&amp; searchCell.tipo !== 'DATE'"/>
+              <input ng-model="main.searchPipeline[propertyPipeline].txCatalogo" type="search" ng-click="$event.stopPropagation();" ng-if="searchCell.tipo === 'SELECT'"/>
+            </td>
+          </tr>
+        </thead>
+        <tbody dir-paginate="registro in main.pipeline.datos | orderBy:main.propertyPipelineName:main.reverse | filter:main.searchPipeline | itemsPerPage: 10" pagination-id="pipelineTable">
+          <tr ng-click="main.viewDetail(2, registro[1])" ng-show="!registro.edit">
+            <td ng-class="{amount: encabezado.tipo === 'CURRENCY'}" ng-if="encabezado.visibleInterfaz" ng-repeat="encabezado in main.pipeline.encabezados | orderBy:'ordenConsulta' track by $index" ng-show="encabezado.visibleUsuario"><span ng-if="encabezado.tipo === 'TEXT' || encabezado.tipo === 'NUMBER'">{{ registro[encabezado.id] || "-" }}</span>
+              <div ng-if="encabezado.tipo === 'SELECT'"><span ng-if="registro[encabezado.id].txCatalogo === ''">-</span><span ng-if="registro[encabezado.id].txCatalogo !== ''">{{ registro[encabezado.id].txCatalogo || "-" }}</span></div><span ng-if="encabezado.tipo === 'DATE'">{{ registro[encabezado.id] || "-" | date:"dd/MM/yyyy" }}</span><span ng-if="encabezado.tipo === 'CURRENCY'">{{ registro[encabezado.id] | currency }}</span><span ng-if="encabezado.tipo === 'PORCENT'">{{ registro[encabezado.id] }}%</span>
+              <div ng-if="encabezado.tipo === 'SWITCH'"><span ng-if="registro[encabezado.id] === false">N</span><span ng-if="registro[encabezado.id] === true">Y</span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <dir-pagination-controls boundary-links="true" pagination-id="pipelineTable"></dir-pagination-controls><span class="count">{{ (main.pipeline.datos | filter:main.searchPipeline).length }} elementos</span>
+    <div class="disclaimer">
+      <div class="txt">
+        <p class="strong">Disclaimer:</p>
+        <p ng-bind-html="global.sysDisclaimer"></p>
+      </div>
+    </div>
+  </div>
+  <modal name="main.customizeView" no-close="true" size="'large'">
+    <ng-include src="'app/blotter/commons/modal/customize-view.html'"></ng-include>
+  </modal>
+  <modal name="main.regAmortization" on-close="main.file = {};" on-success="global.reload()" size="'small'">
+    <ng-include src="'app/blotter/commons/modal/reg-amortization.html'"></ng-include>
+  </modal>
+  <modal name="main.editAmortizations" on-close="main.file = {};" on-success="global.reload()" size="'medium'">
+    <ng-include src="'app/blotter/commons/modal/edit-amortization.html'"></ng-include>
+  </modal>
+</div>

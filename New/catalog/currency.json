@@ -1,0 +1,31 @@
+[
+	{
+		"nuCatalogo": 0,
+		"cdCatalogo": "NEW_ISSUANCE_CURRENCY",
+		"txCatalogo": "-",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 7,
+		"cdCatalogo": "NEW_ISSUANCE_CURRENCY",
+		"txCatalogo": "COP",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 8,
+		"cdCatalogo": "NEW_ISSUANCE_CURRENCY",
+		"txCatalogo": "EUR",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 5,
+		"cdCatalogo": "NEW_ISSUANCE_CURRENCY",
+		"txCatalogo": "MXN",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 6,
+		"cdCatalogo": "NEW_ISSUANCE_CURRENCY",
+		"txCatalogo": "USD"
+	}
+]

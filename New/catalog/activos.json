@@ -1,0 +1,72 @@
+[
+	{
+		"nuCatalogo": 1,
+		"cdCatalogo": "NEW_ACTIVO_REFERENCIA",
+		"txCatalogo": "Opción 1",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 2,
+		"cdCatalogo": "NEW_ACTIVO_REFERENCIA",
+		"txCatalogo": "Opción 2",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 3,
+		"cdCatalogo": "NEW_ACTIVO_REFERENCIA",
+		"txCatalogo": "Opción 3",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 4,
+		"cdCatalogo": "NEW_ACTIVO_REFERENCIA",
+		"txCatalogo": "Opción 4",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 5,
+		"cdCatalogo": "NEW_ACTIVO_REFERENCIA",
+		"txCatalogo": "Opción 5",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 6,
+		"cdCatalogo": "NEW_ACTIVO_REFERENCIA",
+		"txCatalogo": "Opción 6",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 7,
+		"cdCatalogo": "NEW_ACTIVO_REFERENCIA",
+		"txCatalogo": "Opción 7",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 8,
+		"cdCatalogo": "NEW_ACTIVO_REFERENCIA",
+		"txCatalogo": "Opción 8",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 9,
+		"cdCatalogo": "NEW_ACTIVO_REFERENCIA",
+		"txCatalogo": "Opción 9",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 10,
+		"cdCatalogo": "NEW_ACTIVO_REFERENCIA",
+		"txCatalogo": "Opción 10",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 11,
+		"cdCatalogo": "NEW_ACTIVO_REFERENCIA",
+		"txCatalogo": "Opción 11"
+	},
+	{
+		"nuCatalogo": 12,
+		"cdCatalogo": "NEW_ACTIVO_REFERENCIA",
+		"txCatalogo": "Opción 12"
+	}
+]

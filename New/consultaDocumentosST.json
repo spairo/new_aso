@@ -1,0 +1,28 @@
+[
+  {
+    "lastModified": null,
+    "lastModifiedDate": null,
+    "name": "archivo.xml",
+    "id": null,
+    "estrategy": null,
+    "size": 123,
+    "type": "text/xml",
+    "file": null,
+    "nuEstrategia": 1,
+    "nuDocumento": 51,
+    "cdDocumento": "NEW_ST_TIPO_DOC"
+  },
+  {
+    "lastModified": null,
+    "lastModifiedDate": null,
+    "name": "archivo.pdf",
+    "id": null,
+    "estrategy": null,
+    "size": 123,
+    "type": "application/pdf",
+    "file": null,
+    "nuEstrategia": 1,
+    "nuDocumento": 52,
+    "cdDocumento": "NEW_ST_TIPO_DOC"
+  }
+]

@@ -1,0 +1,35 @@
+{
+	"rendimientos": [{
+		"type": "Anual",
+		"imRendDiario":1,
+		"imRendMensual":10,
+		"imRendAnual":100,
+		"imRendVida":1000,
+		"cdEstrategia": null,
+		"fhRendDiario": 1512021600000,
+		"fhRendMensual": 1512021600000,
+		"fhRendAnual": 1512626400000,
+		"fhRendVida": 1512021600000,
+		"imRendimiento": null,
+		"txComentario": null,
+		"imPrecio": null,
+		"nuPlazo": null,
+		"imFlujo": null
+	}, {
+		"type": "Efectivo",
+		"imRendDiario":1,
+		"imRendMensual":10,
+		"imRendAnual":100,
+		"imRendVida":1000,
+		"cdEstrategia": null,
+		"fhRendDiario": 1512021600000,
+		"fhRendMensual": 1512021600000,
+		"fhRendAnual": 1512626400000,
+		"fhRendVida": 1512021600000,
+		"imRendimiento": null,
+		"txComentario": null,
+		"imPrecio": null,
+		"nuPlazo": null,
+		"imFlujo": null
+	}]
+}

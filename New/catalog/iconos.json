@@ -1,0 +1,34 @@
+[
+  {
+    "nuCatalogo": 0,
+    "cdCatalogo": "NA",
+    "txCatalogo": "--",
+    "txComentario": "--",
+    "stActivo": true,
+    "nuNivel": null
+  },
+  {
+    "nuCatalogo": 0,
+    "cdCatalogo": "GF",
+    "txCatalogo": "Generación Flujo",
+    "txComentario": "Generación Flujo",
+    "stActivo": false,
+    "nuNivel": null
+  },
+  {
+    "nuCatalogo": 0,
+    "cdCatalogo": "C",
+    "txCatalogo": "Crecimiento",
+    "txComentario": "Crecimiento",
+    "stActivo": false,
+    "nuNivel": null
+  },
+  {
+    "nuCatalogo": 0,
+    "cdCatalogo": "PC",
+    "txCatalogo": "Protección de Capital",
+    "txComentario": "Protección de Capital",
+    "stActivo": false,
+    "nuNivel": null
+  }
+]

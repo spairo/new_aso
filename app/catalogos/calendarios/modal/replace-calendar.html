@@ -1,0 +1,15 @@
+
+<form name="main.replaceCal" ng-submit="main.replaceCal.$valid &amp;&amp; main.submitCal()" novalidate="novalidate">
+  <h1>Reemplazar calendario</h1>
+  <div class="row mt-20">
+    <div class="col-6">
+      <div class="title">{{main.infoCal.etiqueta}}</div>
+      <input-file class="mt-20" model="main.calendario.file"></input-file>
+    </div>
+  </div>
+  <div class="row mt-40 align-center">
+    <div class="col-12">
+      <button class="btn" ng-disabled="!main.calendario.file">Agregar</button>
+    </div>
+  </div>
+</form>

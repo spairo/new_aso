@@ -1,0 +1,23 @@
+[
+	{
+		"nuCatalogo": 3,
+		"cdCatalogo": null,
+		"txCatalogo": "CUPONADO",
+		"txComentario": null,
+		"stActivo": null
+	},
+	{
+		"nuCatalogo": 2,
+		"cdCatalogo": null,
+		"txCatalogo": "CANCELABLE",
+		"txComentario": null,
+		"stActivo": null
+	},
+	{
+		"nuCatalogo": 1,
+		"cdCatalogo": null,
+		"txCatalogo": "Opción 3",
+		"txComentario": null,
+		"stActivo": null
+	}
+]

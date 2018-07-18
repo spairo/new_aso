@@ -1,0 +1,7 @@
+
+<div class="modal" ng-show="modal.opened">
+  <div class="overlay" ng-class="{'cursor': modal.noClose}" ng-click="!modal.noClose &amp;&amp; modal.close()"></div>
+  <div class="modal-box" ng-class="modal.size"><i class="close" ng-click="modal.close()"></i>
+    <div class="modal-content" ng-transclude="ng-transclude"></div>
+  </div>
+</div>

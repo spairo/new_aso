@@ -1,0 +1,15 @@
+
+<form name="main.uploadCoupon" ng-submit="main.uploadCoupon.$valid &amp;&amp; main.registerCoupon();" novalidate="novalidate">
+  <h1>Actualizar cupones</h1>
+  <div class="row mt-25">
+    <div class="col-12">
+      <label>Archivo csv</label>
+      <input-file model="main.requestCoupon.file"></input-file>
+    </div>
+  </div>
+  <div class="row align-center">
+    <div class="col-12 mt-30">
+      <button class="btn" ng-disabled="!main.requestCoupon.file">Cargar</button>
+    </div>
+  </div>
+</form>

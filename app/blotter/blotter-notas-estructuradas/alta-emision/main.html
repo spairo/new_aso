@@ -1,0 +1,101 @@
+
+<div class="animated fadeIn" ng-controller="CreateBlotterNotesController as main">
+  <div class="breadcrumb"><a nav="#!/">Home  &sol;</a><a nav="#!/blotter-notas-estructuradas/consulta">Blotter Notas Estructuradas &sol;</a><span class="selected">Alta de emisi&oacute;n</span>
+  </div>
+  <h1>Alta de emisi&oacute;n
+  </h1>
+  <form name="main.addEmission" ng-submit="(main.addEmission.$valid &amp;&amp; !main.submitEmission()) || global.Messages.broadcast({ title: 'Error', message: 'Los datos del formulario son incorrectos.' })" novalidate="novalidate">
+    <div class="panel">
+      <div class="title border-bottom-none">Claves</div>
+      <div class="container">
+        <div class="field edit">
+          <label for="strategy">Estrategia:</label>
+          <input ng-model="main.request.datos[2]" type="text" id="strategy" maxlength="15" name="strategy" required="required"/>
+          <div class="input-error" ng-if="main.addEmission.$submitted" ng-messages="main.addEmission.strategy.$error"><span ng-message="required">Este campo es requerido</span>
+          </div>
+        </div>
+        <div class="field edit">
+          <label>Veh&iacute;culo:</label>
+          <dropdown label="txCatalogo" model="main.request.datos[19]" on-update="main.productSelected(main.request.datos[19].nuCatalogo)" ng-if="main.vehicles" options="main.vehicles"></dropdown>
+        </div>
+        <div class="field edit" ng-if="field.seccion === 18 &amp;&amp; field.id !== 2 &amp;&amp; field.id !== 19 &amp;&amp; field.id !== 91 &amp;&amp; field.visibleInterfaz" ng-show="main.fields &amp;&amp; field.visibleUsuario" ng-repeat="field in main.fields | orderBy:'ordenAlta'">
+          <label for="{{ field.etiqueta }}">{{ field.propiedad }}:</label>
+          <input ng-model="main.request.datos[field.id]" type="{{ field.tipo }}" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-if="field.tipo === 'NUMBER' || field.tipo === 'TEXT'" ng-required="{{ field.required }}"/>
+          <textarea id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-if="field.tipo === 'AREA'" ng-model="main.request.datos[field.id]" ng-required="{{ field.required }}"></textarea>
+          <div class="input-error" ng-if="main.addEmission.$submitted" ng-messages="main.addEmission[field.etiqueta].$error"><span ng-message="required">Este campo es requerido</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel" ng-show="main.fields">
+      <div class="block" ng-if="section.nuCatalogo !== 18 &amp;&amp; section.nuCatalogo !== 35" ng-repeat="section in main.sections | orderBy:'nuCatalogo' | filter: {'txComentario': 'BOX'}">
+        <div class="title wrapper">{{ section.txCatalogo }}</div>
+        <div class="container">
+          <div class="field edit" ng-if="field.seccion === section.nuCatalogo &amp;&amp; field.visibleUsuario &amp;&amp; field.visibleInterfaz &amp;&amp; field.id !== 15 &amp;&amp; field.id !== 39" ng-repeat="field in main.fields | orderBy:'ordenAlta'">
+            <label for="{{ field.etiqueta }}">{{ field.propiedad }}:</label>
+            <input ng-model="main.request.datos[field.id]" type="{{ field.tipo }}" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-if="(field.tipo === 'NUMBER' || field.tipo === 'TEXT') &amp;&amp; field.id !== 23 &amp;&amp; field.id !== 91" ng-required="{{ field.required }}"/>
+            <input ng-model="main.request.datos[field.id]" type="number" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" min="1" name="{{ field.etiqueta }}" ng-if="field.id === 23" ng-required="{{ field.required }}" restrict-input="numbers"/>
+            <input currency-input="currency-input" field="main.request.datos[field.id]" placeholder="$" type="text" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-if="field.tipo === 'CURRENCY' &amp;&amp; field.id !== 10 &amp;&amp; field.id !== 79" ng-required="{{ field.required }}"/>
+            <input currency-input="currency-input" field="main.request.datos[10]" placeholder="$" type="text" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-if="field.tipo === 'CURRENCY' &amp;&amp; field.id === 10" ng-keyup="main.amountIssued();" ng-required="{{ field.required }}"/>
+            <input currency-input="currency-input" field="main.request.datos[79]" placeholder="$" type="text" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-if="field.tipo === 'CURRENCY' &amp;&amp; field.id === 79" ng-change="main.amountIssued(main.request.datos[79]);" ng-required="{{ field.required }}"/>
+            <input ng-model="main.request.datos[field.id]" placeholder="%" type="number" id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-if="field.tipo === 'PORCENT'" ng-required="{{ field.required }}"/>
+            <textarea id="{{ field.etiqueta }}" maxlength="{{ field.longitud }}" name="{{ field.etiqueta }}" ng-if="field.tipo === 'AREA'" ng-model="main.request.datos[field.id]" ng-required="{{ field.required }}"></textarea>
+            <div class="input-error" ng-if="main.addEmission.$submitted" ng-messages="main.addEmission[field.etiqueta].$error" ng-show="field.tipo !== 'SELECT' &amp;&amp; field.tipo !== 'SWITCH' &amp;&amp; field.tipo !== 'DATE'"><span ng-message="required">Este campo es requerido</span>
+            </div>
+            <div ng-if="field.tipo === 'SELECT'">
+              <input ng-model="main.request.datos[field.id]" type="hidden" name="{{ field.etiqueta }}" ng-required="{{ field.required }}"/>
+              <dropdown label="txCatalogo" model="main.request.datos[18]" on-update="main.salesAreaSelected(main.request.datos[18].nuCatalogo)" ng-if="field.id === 18 &amp;&amp; main[18]" options="main[18]" selected="0"></dropdown>
+              <dropdown label="txCatalogo" model="main.request.datos[40]" on-update="main.salesGroupSelected(main.request.datos[40].nuCatalogo)" ng-if="field.id === 40 &amp;&amp; main[40]" options="main[40]" selected="0"></dropdown>
+              <dropdown label="txCatalogo" model="main.request.datos[44]" on-update="main.payoffSelected(main.request.datos[44].nuCatalogo)" ng-if="field.id === 44 &amp;&amp; main[44]" options="main[44]" selected="0"></dropdown>
+              <dropdown label="txCatalogo" model="main.request.datos[14]" on-update="main.subyacenteSelected(main.request.datos[14].nuCatalogo)" ng-if="field.id === 14 &amp;&amp; main[14]" options="main[14]" selected="0"></dropdown>
+              <dropdown label="txCatalogo" model="main.request.datos[field.id]" ng-if="(field.id === 11) &amp;&amp; main[field.id]" options="main[field.id]" selected="0" on-update="main.currencyChange();"></dropdown>
+              <dropdown label="txCatalogo" model="main.request.datos[field.id]" ng-if="(field.id === 17 || field.id === 42 || field.id === 63 || field.id === 69) &amp;&amp; main[field.id]" options="main[field.id]" selected="0"></dropdown>
+              <dropdown label="txCatalogo" model="main.request.datos[field.id]" ng-if="main[field.id]" ng-show="field.id !== 11 &amp;&amp; field.id !== 14 &amp;&amp; field.id !== 15 &amp;&amp; field.id !== 17 &amp;&amp; field.id !== 18 &amp;&amp; field.id !== 40 &amp;&amp; field.id !== 42 &amp;&amp; field.id !== 44 &amp;&amp; field.id !== 63 &amp;&amp; field.id !== 69" options="main[field.id]"></dropdown>
+              <div class="input-error" ng-if="main.addEmission.$submitted" ng-messages="main.addEmission[field.etiqueta].$error"><span ng-message="required">Este campo es requerido</span>
+              </div>
+            </div>
+            <div ng-if="field.tipo === 'DATE'">
+              <input ng-model="main.request.datos[field.id]" type="hidden" name="{{ field.etiqueta }}" ng-required="{{ field.required }}"/>
+              <div>
+                <div class="col-10">
+                  <input date-input="date-input" ng-model="main.request.datos[field.id]" type="date"/>
+                </div>
+                <div class="col-2"><i class="calendar date-picker" ng-model="main.request.datos[field.id]"></i>
+                </div>
+              </div>
+              <div class="input-error" ng-if="main.addEmission.$submitted" ng-messages="main.addEmission[field.etiqueta].$error"><span ng-message="required">Este campo es requerido</span>
+              </div>
+            </div>
+            <div ng-if="field.tipo === 'SWITCH'">
+              <div class="toggle">
+                <input id="{{ field.id }}" type="checkbox" name="{{ field.etiqueta }}" ng-model="main.request.datos[field.id]" ng-required="{{ field.required }}"/>
+                <label for="{{ field.id }}">
+                  <div class="toggle-switch" data-checked="Sí" data-unchecked="No"></div>
+                </label>
+              </div>
+              <div class="input-error" ng-if="main.addEmission.$submitted" ng-messages="main.addEmission[field.etiqueta].$error"><span ng-message="required">Este campo es requerido</span>
+              </div>
+            </div>
+            <div ng-if="field.tipo === 'MODAL'"><a class="link" ng-click="main.referenceActiveModal.open();" ng-if="!main.request.activos.length">+ Agregar</a><a class="link" ng-click="main.referenceActiveModal.open();" ng-if="main.request.activos.length">{{ main.request.activos.length }} activos</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-30 mb-20 align-center" ng-show="main.fields">
+      <div class="col-12"><a nav="#!/blotter-notas-estructuradas/consulta">
+          <button class="btn-delete mr-15" type="button">Cancelar</button></a>
+        <button class="btn mr-15" ng-click="main.request.tipo = 2; main.request.accion = 1; main.submitEmission();" type="button">Guardar Pipeline</button>
+        <button class="btn" ng-click="main.request.tipo = 1; main.request.accion = 1; main.request.estatus = 1;" type="submit">Registrar Deal</button>
+      </div>
+    </div>
+  </form>
+  <div class="disclaimer">
+    <div class="txt">
+      <p class="strong">Disclaimer:</p>
+      <p ng-bind-html="global.sysDisclaimer"></p>
+    </div>
+  </div>
+  <modal name="main.referenceActiveModal" on-close="main.showListActive = false; main.filterActive = ''" size="'large-medium'">
+    <ng-include src="'app/blotter/commons/modal/reference-active.html'"></ng-include>
+  </modal>
+</div>

@@ -1,0 +1,34 @@
+[
+    {
+        "nuCatalogo": 1,
+        "cdCatalogo": "",
+        "txCatalogo": "Dividendo en Acciones",
+        "txComentario": "",
+				"stActivo": true
+    },
+    {
+        "nuCatalogo": 2,
+        "cdCatalogo": "",
+        "txCatalogo": "Reverse Split",
+        "txComentario": "",
+				"stActivo": true
+    },
+    {
+        "nuCatalogo": 3,
+        "cdCatalogo": "",
+        "txCatalogo": "Spin Off",
+        "txComentario": ""
+    },
+    {
+        "nuCatalogo": 4,
+        "cdCatalogo": "",
+        "txCatalogo": "Split",
+        "txComentario": ""
+    },
+    {
+        "nuCatalogo": 5,
+        "cdCatalogo": "",
+        "txCatalogo": "Ajuste",
+        "txComentario": ""
+    }
+]

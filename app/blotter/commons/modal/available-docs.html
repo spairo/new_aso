@@ -1,0 +1,22 @@
+
+<div class="panel">
+  <div class="docs-title">Documentaci&oacute;n disponible</div>
+  <div class="ml-15 mr-15">
+    <ul class="tabs">
+      <li ng-class="{current: main.activeDoc === &quot;NEW&quot;}" ng-click="main.activeDoc = &quot;NEW&quot;"><span>NEW</span></li>
+      <li ng-class="{current: main.activeDoc === &quot;DOCS&quot;}" ng-click="main.activeDoc = &quot;DOCS&quot;"><span>DOCS</span></li>
+      <li class="last" style="width: calc(100% - (150 * 2px));">
+      </li>
+    </ul>
+    <div class="content-tab" ng-show="main.activeDoc === 'NEW'">
+      <div class="row" ng-show="!main.docs.length"><span>No existen archivos</span></div>
+      <div class="row mb-5" ng-repeat="doc in main.docs" ng-show="doc">
+        <div class="col-8"><a class="file" href="{{global.server}}/archivo?id={{doc.nuEstrategia}}&amp;categoria={{doc.nuDocumento}}" ng-if="doc.nuDocumento">{{ doc.name }}</a><a class="file" href="{{global.server}}/archivo?id={{doc.nuEstrategia}}&amp;categoria={{doc.txDocumento}}&amp;usuario={{main.usuario}}" ng-if="doc.txDocumento">{{ doc.name }}</a></div>
+        <div class="col-1"><i class="xml default" ng-if="doc.type == 'text/xml'"></i><i class="pdf default" ng-if="doc.type == 'application/pdf'"></i><i class="excel default" ng-if="doc.type == 'application/xlsx'"></i>
+        </div>
+        <div class="col-3 pr-0 mt-5"><span>({{ doc.size | filesize }})</span></div>
+      </div>
+    </div>
+    <div class="content-tab" ng-show="main.activeDoc === 'DOCS'"><span>No existen archivos</span></div>
+  </div>
+</div>

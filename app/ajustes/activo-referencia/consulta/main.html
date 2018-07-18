@@ -1,0 +1,51 @@
+
+<div class="animated fadeIn" ng-controller="ReferenceActiveController as main">
+  <div class="breadcrumb"><a nav="#!/">Home  &sol;</a><span class="selected">Eventos por activo de referencia</span>
+  </div>
+  <h1>Hist&oacute;rico de eventos
+  </h1>
+  <div class="align-right mb-20 m-t-40"><i class="filter tooltip m-b-10 mr-15" ng-class="{on: historico.filterHistorical}" ng-click="historico.filterHistorical = !historico.filterHistorical;">
+      <div class="content">
+        <div class="txt">Filtrar columnas</div>
+      </div></i>
+    <button class="btn" ng-click="main.newEvent.open();">Nuevo evento</button>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'fhActualizacion'">Fecha<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'fhActualizacion'"></span></th>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'nbEvento'">Evento<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'nbEvento'"></span></th>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'nbActivo'">Activo<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'nbActivo'"></span></th>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'imFactor'">Factor<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'imFactor'"></span></th>
+        </tr>
+        <tr class="search" ng-show="historico.filterHistorical">
+          <td>
+            <input ng-model="main.searchHistorical.fhActualizacion" type="date" date-input="date-input"/>
+          </td>
+          <td>
+            <input ng-model="main.searchHistorical.nbEvento" type="search"/>
+          </td>
+          <td>
+            <input ng-model="main.searchHistorical.nbActivo" type="search"/>
+          </td>
+          <td>
+            <input ng-model="main.searchHistorical.imFactor" type="search"/>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr dir-paginate="historico in main.historical | orderBy:main.property:main.reverse | filter:main.searchHistorical | itemsPerPage: 10" ng-click="main.viewDetail(historico.idActivoST, historico.nuActivo, historico.nuEvento)">
+          <td>{{ historico.fhActualizacion | date:'dd/MM/yyyy' }}</td>
+          <td>{{ historico.nbEvento }}</td>
+          <td>{{ historico.nbActivo }}</td>
+          <td>{{ historico.imFactor }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <dir-pagination-controls boundary-links="true"></dir-pagination-controls><span class="count">{{ (main.historical | filter:main.searchHistorical).length }} elementos</span>
+  <modal name="main.newEvent" on-close="main.request = {}; main.newRegister= {};  main.adjustmentFactor = []" size="'large'">
+    <ng-include src="'app/ajustes/activo-referencia/modal/new-event.html'"></ng-include>
+  </modal>
+</div>

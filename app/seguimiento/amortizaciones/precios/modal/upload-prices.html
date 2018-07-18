@@ -1,0 +1,29 @@
+
+<form name="main.uploadIndicativos" ng-submit="main.uploadIndicativos.$valid &amp;&amp; main.recordIndicativos();" novalidate="novalidate">
+  <h1>Actualizar precios indicativos</h1>
+  <div class="row">
+    <div class="col-3 txt12">
+      <div class="row mt-10"><span class="mTitles">Fecha</span></div>
+      <div class="row mt--10">
+        <p class="txt14">{{main.date | date:'dd-MM-yyyy'}}</p>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="row mb-10"></div><span class="mTitles">Archivo csv</span>
+      <input-file model="main.requestIndicativos.file"></input-file>
+    </div>
+    <div class="col-3 txt12">
+      <div class="row mt-35"><a class="see-more" href="{{global.server}}/" target="_blank">Descargar plantilla</a></div>
+    </div>
+  </div>
+</form>
+<div class="row">
+  <div class="col-12">
+    <div class="alert-info"><span class="alert-i"></span><span>Asegúrate que tu archivo esté separado por comas abriéndolo en un editor de texto.</span></div>
+  </div>
+  <div class="row">
+    <div class="col-12 mt-30 txtCenter">
+      <button class="btn" ng-disabled="!main.requestIndicativos.file">Cargar</button>
+    </div>
+  </div>
+</div>

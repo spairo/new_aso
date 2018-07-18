@@ -1,0 +1,32 @@
+{
+	"headerNames": [{
+			"description": "2019"
+		},
+		{
+			"description": "2020"
+		}
+	],
+	"headerValues": [{
+			"fieldValue": "85"
+		},
+		{
+			"fieldValue": "15"
+		}
+	],
+	"colors": [{
+			"name": "#89D1F3"
+		},
+		{
+			"name": "#009EE5"
+		}
+	],
+	"portfolio": {
+		"amountIssued": {
+			"amount": 3.976026100
+		},
+		"name": "Cierres Recientes",
+		"disclaimer": {
+			"description": "100"
+		}
+	}
+}

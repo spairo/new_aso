@@ -1,0 +1,23 @@
+[
+	{
+		"nuCatalogo": 1,
+		"cdCatalogo": null,
+		"txCatalogo": "B99 - 01 - Rango Acumulado Referenciado - Sin Pérdida",
+		"txComentario": null,
+		"stActivo": null
+	},
+	{
+		"nuCatalogo": 2,
+		"cdCatalogo": null,
+		"txCatalogo": "B99 - 02 - Tasa Máxima - Tasa Mínima Cancelable - Sin Pérdida",
+		"txComentario": null,
+		"stActivo": null
+	},
+	{
+		"nuCatalogo": 3,
+		"cdCatalogo": null,
+		"txCatalogo": "B99 - 03 - Call Spread - Sin Pérdida",
+		"txComentario": null,
+		"stActivo": null
+	}
+]

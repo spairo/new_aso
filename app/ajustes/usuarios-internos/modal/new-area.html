@@ -1,0 +1,83 @@
+
+<h1>Nueva Área</h1>
+<div class="controls">
+  <div class="tab" ng-click="main.activeStep = 0" style="width: 50%;"><span ng-class="{active : main.activeStep === 0}">1. Nombre de área</span>
+    <div class="step" ng-class="{active : main.activeStep === 0}"></div>
+  </div>
+  <div class="tab" ng-click="main.activeStep = 1" style="width: 50%;"><span ng-class="{active : main.activeStep === 1}">2. Permisos</span>
+    <div class="step" ng-class="{active : main.activeStep === 1}"></div>
+  </div>
+</div>
+<div class="wizard" ng-show="main.activeStep === 0">
+  <div class="instruction">Escribe el nombre de la nueva área y selecciona su ávatar</div>
+  <div class="col-1">
+    <label>Ávatar</label>
+    <div class="circleAvatar bgBlueP"><i class="sales tooltip iconAvatar">
+          <div class="content avatarToolt">
+            <div class="row">
+              <div class="avaTooltip bgGreen"><i class="structuring avaIcon"></i>
+              </div>
+              <div class="avaTooltip bgBlueB"><i class="values avaIcon"></i>
+              </div>
+              <div class="avaTooltip bgBlueP"><i class="sales avaIcon"></i>
+              </div>
+              <div class="avaTooltip bgOrange"><i class="specialist avaIcon"></i>
+              </div>
+            </div>
+          </div></i>
+    </div>
+  </div>
+  <div class="col-6">
+    <label>Nombre del área</label>
+      <input ng-model="main.newAreaRegister.namearea" name="areaName" required="required"/>
+      <div class="input-error" ng-if="main.newArea.$submitted" ng-messages="main.newArea.areaName.$error"><span ng-message="required">Este campo es requerido</span>
+      </div>
+  </div>
+  <div class="col-5">
+    <label>Permisos de usuario</label>
+    <div class="row">
+        <input ng-click="$event.stopPropagation();" id="adminChk" name="adminChk" ng-model="main.newAreaRegister.admin" txt="Administrador" type="checkbox"/>
+        <label class="checkbox" for="adminChk" ng-click="$event.stopPropagation();"></label>
+        <label class="txt" for="adminChk">Administrador</label>
+    </div>
+  </div>
+  <div class="col-12 border-top">
+    <div class="col-3">
+      <label>Basado en área</label>
+      <dropdown name="area" label="txCatalogo" model="main.newAreaRegister.area" options="main.areas"></dropdown>
+        <div class="input-error" ng-if="main.historicalStatus.$submitted" ng-messages="main.historicalStatus.area.$error"><span ng-message="required">Este campo es requerido</span>
+        </div>
+    </div>
+  </div>
+  <div class="col-12 align-center mt-20">
+      <button class="btn" ng-click="main.activeStep = 1; main.nextStep = 1">Siguiente</button>
+  </div>
+</div>
+<div class="wizard" ng-show="main.activeStep === 1">
+  <div class="instruction">Selecciona los permisos que deseas otrogar al área</div>
+  <div ng-repeat="permiss in main.permissions">
+      <div class="accordion">
+        <div class="title-accordion border-bottom " ng-click="accordionC.opened = !accordionC.opened">
+          <h2>{{permiss.area}}</h2><i class="plus" ng-class="border-bottom "></i>
+        </div>
+        <ul class="datalist auto border-bottom" ng-show="accordionC.opened">
+          <li ng-repeat="track in permiss.permission">
+            <div class="mr-5">
+                <input ng-click="$event.stopPropagation();" id="tabPrograms" name="tabPrograms" ng-model="main.newAreaRegister.admin" type="checkbox"/>
+                <label class="checkbox" for="tabPrograms" ng-click="$event.stopPropagation();"></label>
+            </div><span>{{track.name}}</span>
+          </li>
+        </ul>
+      </div>
+  </div>
+  <div class="col-12">
+    <div class="row mt-30 align-center">
+      <div class="col-6">
+          <button class="btn float-right" ng-click="main.activeStep = 0; main.nextStep = 0" type="button">Regresar</button>
+      </div>
+      <div class="col-6">
+          <button class="btn float-left" ng-click="main.changeStatus.close();" type="button">Registrar</button>
+      </div>
+    </div>
+  </div>
+</div>

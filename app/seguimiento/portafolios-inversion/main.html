@@ -1,0 +1,762 @@
+
+<div class="animated fadeIn" ng-controller="InvestmentPortfolioController as main">
+  <div class="breadcrumb"><a nav="#!/">Home  &sol;</a><span class="selected">Portafolios de inversi&oacute;n</span>
+  </div>
+  <h1>
+  </h1>
+  <h1 class="superTitle">Portafolios de inversión</h1>
+  <div class="col-12">
+    <ul class="tabs portfolio">
+      <li ng-if="main.banquero" ng-click="main.activeTab = 'banquero'; main.tabCode = 'B000'; main.portafolioBanker();" ng-class="{current: main.activeTab === 'banquero'}"><span>Mi Portafolio</span></li>
+      <li ng-click="main.activeTab = 'default'; main.tabCode = '0000'; main.portafolioDefault();" ng-class="{current: main.activeTab === 'default'}"><span>Cierres recientes</span></li>
+      <li class="add" ng-repeat="tab in main.tabs" ng-click="main.activeTab = $index; main.tabCode = tab.code; main.portafolioTab(tab.code); main.filterSubjacents();" ng-class="{current: main.activeTab === $index}"><span>{{tab.name}}</span></li>
+      <li class="last" ng-if="!main.banquero" style="width:calc(100% - (165 * {{main.tabs.length + 2}}px));"><i class="traffic-loading tooltip" ng-click="main.uploadTrafficLight.open();">
+          <div class="content">
+            <div class="txt">Registro de semáforos</div>
+          </div></i>
+      </li>
+      <li class="last" ng-if="main.banquero" style="width:calc(100% - (165 * {{main.tabs.length + 2}}px));"></li>
+    </ul>
+    <div ng-show="main.activeTab === 'banquero'">
+      <div class="col-9">
+        <div class="content-tab pt-20 pr-20 pb-20 pl-5">
+          <div class="row">
+            <div class="col-8 ml-10">
+              <h1 class="emision-list">Listado de emisiones</h1>
+            </div>
+            <div class="col-2 mt-25 align-right">
+              <label>Contrato</label>
+            </div>
+            <div class="col-2"></div>
+          </div>
+          <div class="row">
+            <div class="col-8 align-left pr-0">
+              <ul class="nav-subjacents">
+                <li ng-class="{activeTab: main.subyacenteTab === 'TODO'}" ng-click="main.subyacente = null; main.filterSubjacents();" ng-init="main.subyacenteTab = 'TODO'">TODO</li>
+                <li ng-repeat="subjacent in main.subjacents" ng-click="main.subyacenteFilter = { subyacente: subjacent.name }; main.subyacente = subjacent.name; main.updateLateral(); main.subyacenteTab = $index;" ng-class="{activeTab: main.subyacenteTab === $index}">{{subjacent.name}}</li>
+              </ul>
+            </div>
+            <div class="col-2 align-right ml-15">
+              <dropdown style="position: relative; left: 50px;" label="txCatalogo" model="main.contrat" on-update="main.contrato = main.contrat.txCatalogo; main.updateLateral(); main.updateContrat(main.contrato);" ng-if="main.contrats" options="main.contrats"></dropdown>
+            </div>
+            <div class="col-2 align-right pr-0 mr-10"><i class="filter mb-10 mr-10" ng-if="main.listed || main.portfolioT.length &gt; 20" ng-class="{on: main.filterPortfolio}" ng-click="main.filterPortfolio = !main.filterPortfolio;"></i><i class="views" ng-class="{list: main.listed}" ng-click="main.listed = !main.listed" ng-if="main.portfolioT.length &lt;= 20"></i>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 ml-15">
+              <div class="suggesting"><span class="title">Semáforo de sugerencias</span>
+                <div class="lights">
+                  <div class="col-2 mb-10" ng-repeat="light in main.lights">
+                    <div class="round" ng-style="{'background-color': light.color}"></div><span ng-style="{'color': light.color}">{{light.comentario}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 pr-0" ng-if="!main.listed &amp;&amp; main.portfolioT.length &lt;=20">
+            <div class="box-portfolio" ng-class="{defeated: !box.stActivo}" ng-init="box.activosString = main.getActivosConcat(box.activos)" ng-repeat="box in main.portfolioT | orderBy:main.sortBy.property | filter:main.subyacenteFilter" ng-click="main.detail(box.id, box.series);">
+              <div class="title-box">
+                <div class="traffic-light tooltip" ng-if="box.status === '1' || box.status === '3' || box.status === '7'" ng-style="{'background-color': box.productIndicators[0].associatedColor}">
+                  <div class="content" ng-if="box.productIndicators[0].name !== null"><span>{{ box.productIndicators[0].name }}</span></div>
+                </div><span class="serie">{{ box.series }}</span><span class="inline payoff">{{ box.paymentType }}</span><img ng-if="box.activos.length === 3" src="./assets/img/plus.png"/><span class="inline actives">{{ box.referenceAssets[0].name }}</span><span class="inline price">{{ box.referenceAssets[0].priceAmount.amount }}</span><span class="inline price">{{ box.referenceAssets[0].amountYield.amount }}%</span>
+              </div>
+              <div class="content-prices">
+                <div class="block"><i class="performance" ng-class="{down: box.priceDifference.amount &lt; 0}" ng-if="box.priceDifference.amount"></i><span class="price" ng-class="{down: box.priceDifference.amount &lt; 0, up: box.priceDifference.amount &gt; 0}">{{ box.productPrice.amount }}</span><span class="currency" ng-class="{down: box.priceDifference.amount &lt; 0, up: box.priceDifference.amount &gt; 0}">{{ box.currency.code }}</span><span class="performance" ng-class="{down: box.priceDifference.amount &lt; 0, up: box.priceDifference.amount &gt; 0}"><span ng-if="box.priceDifference.amount &gt; 0">+</span><span>{{ box.priceDifference.amount }}%</span></span>
+                </div><span class="date">Precio al {{ box.priceDate }}</span>
+              </div>
+              <div class="content-graphic" ng-class="{disabled: !box.prices.precios.length &amp;&amp; !box.prices.fechas.length}">
+                <canvas class="chart chart-line" id="line" chart-data="box.prices.precios" chart-labels="box.prices.fechas" chart-series="main.series" chart-options="main.options" chart-dataset-override="main.datasetOverride" ng-if="box.prices.precios.length &amp;&amp; box.prices.fechas.length"></canvas>
+              </div>
+              <div class="footer">
+                <div class="col-7 icons"><span>.</span><a class="tooltip"><img src="./assets/icons/caracteristicas/ico_lp_alta_deuda_gris.svg"/><span class="complex">Deuda / Alta complejidad / Largo Plazo</span></a><a class="tooltip" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'A' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_alta_deuda_gris.svg"/><span class="complex">Deuda / Alta complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'A' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_alta_divisas_gris.svg"/><span class="complex">Divisas / Alta complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'A' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_alta_divisas_gris.svg"/><span class="complex">Divisas / Alta complejidad / Corto Plazo</span></a><a class="tooltip" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'A' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_alta_renta_gris.svg"/><span class="complex">Renta / Alta complejidad / Largo Plazo</span></a><a class="tooltip" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'A' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_alta_renta_gris.svg"/><span class="complex">Renta / Alta complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'M' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_media_deuda_gris.svg"/><span class="complex">Deuda / Mediana complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'M' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_media_deuda_gris.svg"/><span class="complex">Deuda / Mediana complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'M' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_media_divisas_gris.svg"/><span class="complex">Divisas / Mediana complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'M' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_media_divisas_gris.svg"/><span class="complex">Divisas / Mediana complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'M' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_media_renta_gris.svg"/><span class="complex">Renta / Mediana complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'M' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_media_renta_gris.svg"/><span class="complex">Renta / Mediana complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'B' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_baja_deuda_gris.svg"/><span class="complex">Deuda / Baja complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'B' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_baja_deuda_gris.svg"/><span class="complex">Deuda / Baja complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'B' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_baja_divisas_gris.svg"/><span class="complex">Divisas / Baja complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'B' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_baja_divisas_gris.svg"/><span class="complex">Divisas / Baja complejidad / Corto Plazo</span></a><a class="tooltip" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'B' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_baja_renta_gris.svg"/><span class="complex">Renta / Baja complejidad / Largo Plazo</span></a><a class="tooltip" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'B' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_baja_renta_gris.svg"/><span class="complex">Renta / Baja complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'MB' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_muybaja_deuda_gris.svg"/><span class="complex">Deuda / Muy baja complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'MB' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_muybaja_deuda_gris.svg"/><span class="complex">Deuda / Muy baja complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'MB' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_muybaja_divisas_gris.svg"/><span class="complex">Divisas / Muy baja complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'MB' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_muybaja_divisas_gris.svg"/><span class="complex">Divisas / Muy baja complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'MB' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_muybaja_renta_gris.svg"/><span class="complex">Renta / Muy baja complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'MB' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_muybaja_renta_gris.svg"/><span class="complex">Renta / Muy baja complejidad / Corto Plazo</span></a><a class="tooltip simple" ng-if="box.detallePayOff.capitalProtegido === 100"><img src="./assets/icons/caracteristicas/ico_capitalvencimiento_gris.svg"/><span>Sin pérdida de capital</span></a><a class="tooltip" ng-if="box.detallePayOff.capitalProtegido &lt; 100 &amp;&amp; box.detallePayOff.capitalProtegido !== 0"><img src="./assets/icons/caracteristicas/ico_capitalprotegido_gris.svg"/><span>Protección de capital a vencimiento</span></a><a class="tooltip" ng-if="box.detallePayOff.volatilidad"><img src="./assets/icons/caracteristicas/ico_volatilidad_gris.svg"/><span>Alta volatilidad de precios</span></a><a class="tooltip simple" ng-if="box.detallePayOff.liquidez"><img src="./assets/icons/caracteristicas/ico_liquidez_gris.svg"/><span>Poca liquidez</span></a><a class="tooltip simple sbpp" ng-if="box.detallePayOff.cdCaracteristicaBpp == 'GF'">
+                    <p class="bpp">GF</p><span>Generación de flujo</span></a><a class="tooltip simple sbpp" ng-if="box.detallePayOff.cdCaracteristicaBpp == 'C'">
+                    <p class="bpp">C</p><span>Crecimiento</span></a><a class="tooltip simple sbpp" ng-if="box.detallePayOff.cdCaracteristicaBpp == 'PC'">
+                    <p class="bpp">PC</p><span>Protección de capital</span></a></div>
+                <div class="col-5 align-right pr-0"><span class="date" ng-class="{expiration: main.expirateDay}" ng-if="box.stActivo"><span class="inline" ng-if="box.status === '1' || box.status === '3' || box.status === '7'">Vence: {{ box.dueDate }}</span></span><span class="date" ng-class="{expiration: main.expirateDay}" ng-if="!box.stActivo"><span class="inline" ng-if="box.status === '4'">Venció: {{ box.dueDate }}</span><span class="inline" ng-if="box.status === '5'">Amortizó: {{ box.dueDate }}</span><span class="inline" ng-if="box.status === '6'">Canceló: {{ box.dueDate }}</span></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12" ng-if="main.listed || main.portfolioT.length &gt; 20">
+            <div class="table-scroll ml-15">
+              <table>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'estatus'">Estatus<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'estatus'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'cdSerie'">Serie {{main.contrato}}<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'cdSerie'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'tpPayoff'">Pay-off<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'tpPayoff'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'activos.nbActivo'">Activo<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'activos.nbActivo'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'imPrecio'">Precio estrategia<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'imPrecio'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'diferencia'">Rendimiento estrategia<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'diferencia'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'fhVencimiento'">Fecha de vencimiento<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'fhVencimiento'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'fhPrecio'">Última Actualización<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'fhPrecio'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'detallePayOff.plazo'">Plazo<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'detallePayOff.plazo'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'subyacente'">Subyacente<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'subyacente'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'detallePayOff.nbComplejidad'">Complejidad<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'detallePayOff.nbComplejidad'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'detallePayOff.capitalProtegido'">Protección de capital<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'detallePayOff.capitalProtegido'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'detallePayOff.volatilidad'">Volatilidad<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'detallePayOff.volatilidad'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'detallePayOff.liquidez'">Liquidez<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'detallePayOff.liquidez'"></span></th>
+                    <th ng-if="main.contrato === null" ng-click="main.reverse = !main.reverse; main.property = 'contratos.totalClientes'">Total Clientes<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'contratos.totalClientes'"></span></th>
+                    <th ng-if="main.contrato !== null" ng-click="main.reverse = !main.reverse; main.property = 'contratos.nuContrato'">Contrato<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'contratos.nuContrato'"></span></th>
+                    <th class="show-cols" ng-class="{ hide: showColumns }" ng-click="showColumns = !showColumns"><i class="show-columns" ng-class="{ hide: showColumns }"></i>
+                    </th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'contratos'" ng-show="showColumns">Titulos Custodia<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'titulosC'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'contratos'" ng-show="showColumns">Titulos Garantía<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'titulosG'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'contratos.totalTitulos'">Total Titulos<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'contratos.totalTitulos'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'contratos.montoVivo'">Monto Vivo<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'contratos.montoVivo'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'contratos.porcentajeMontoVivo'">Porcentaje Monto Vivo<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'contratos.porcentajeMontoVivo'"></span></th>
+                  </tr>
+                  <tr class="search" ng-show="main.filterPortfolio">
+                    <td></td>
+                    <td>
+                      <input switch-search="switch-search" field="main.searchPortfolio.estatus" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.series" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.tpPayoff" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.activos" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.imPrecio" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.diferencia" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.fhVencimiento" type="date" date-input="date-input"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.fhPrecio" type="date" date-input="date-input"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.detallePayOff.plazo" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.subyacente" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.detallePayOff.nbComplejidad" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.detallePayOff.capitalProtegido" type="search"/>
+                    </td>
+                    <td>
+                      <input switch-search="switch-search" field="main.searchPortfolio.detallePayOff.volatilidad" type="search"/>
+                    </td>
+                    <td>
+                      <input switch-search="switch-search" field="main.searchPortfolio.detallePayOff.liquidez" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.contratos.totalClientes" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.contratos.nuContrato" type="search"/>
+                    </td>
+                    <td ng-show="showColumns">
+                      <input ng-model="main.searchPortfolio.contratos.titulosC" type="search"/>
+                    </td>
+                    <td ng-show="showColumns">
+                      <input ng-model="main.searchPortfolio.contratos.titulosG" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.contratos.totalTitulos" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.contratos.montoVivo" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.contratos.porcentajeMontoVivo" type="search"/>
+                    </td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr dir-paginate="inversion in main.portfolioT | orderBy:main.property:main.reverse | filter:main.searchPortfolio | filter:main.subyacenteFilter | itemsPerPage: 10" ng-click="main.detail(inversion.id, inversion.series);" ng-class="{ grayBackg : inversion.status === '4' || inversion.status === '5' || inversion.status === '6' }">
+                    <td class="hasTooltip">
+                      <div class="traffic-light tooltip" ng-style="{'background-color': inversion.semaforo.color}" ng-if="inversion.estatus === 1 || inversion.estatus === 3">
+                        <div class="content" ng-if="inversion.semaforo.comentario !== null"><span>{{ inversion.semaforo.comentario }}</span></div>
+                      </div>
+                    </td>
+                    <td ng-if="inversion.status === '1' || inversion.status === '3'">Viva</td>
+                    <td ng-if="inversion.status === '7'">Cerrada</td>
+                    <td ng-if="inversion.status === '4'">Vencida</td>
+                    <td ng-if="inversion.status === '5'">Amortizada</td>
+                    <td ng-if="inversion.status === '6'">Cancelada</td>
+                    <td>{{ inversion.series }}</td>
+                    <td>{{ inversion.paymentType }}</td>
+                    <td>{{ inversion.activos.nbActivo }}</td>
+                    <td><span ng-if="inversion.imPrecio === null">-</span><span ng-class="{green: inversion.imPrecio &gt; 0, magenta: inversion.imPrecio &lt; 0}">{{ inversion.productPrice.amount }}</span></td>
+                    <td><span ng-class="{green: inversion.diferencia &gt; 0, magenta: inversion.diferencia &lt; 0}"><span ng-if="inversion.diferencia &gt; 0">+</span><span>{{ inversion.diferencia }}%</span></span></td>
+                    <td><span ng-class="{expiration: main.expirateDay}">{{ inversion.dueDate }}</span></td>
+                    <td>{{ inversion.fhPrecio | date:"dd/MM/yyyy"}}</td>
+                    <td>{{ inversion.detallePayOff.plazo }}</td>
+                    <td>{{ inversion.subyacente }}</td>
+                    <td>{{ inversion.detallePayOff.nbComplejidad }}</td>
+                    <td>{{ inversion.detallePayOff.capitalProtegido }}%</td>
+                    <td><span ng-if="inversion.detallePayOff.volatilidad">Sí</span><span ng-if="!inversion.detallePayOff.volatilidad">No</span></td>
+                    <td><span ng-if="inversion.detallePayOff.liquidez">Sí</span><span ng-if="!inversion.detallePayOff.liquidez">No</span></td>
+                    <td ng-if="main.contrato === null">{{inversion.contratos[0].totalClientes}}</td>
+                    <td ng-if="main.contrato !== null">{{inversion.contratos[0].nuContrato}}</td>
+                    <td class="show-cols"></td>
+                    <td ng-show="showColumns">{{ inversion.contratos[0].titulosC }}</td>
+                    <td ng-show="showColumns">{{ inversion.contratos[0].titulosG }}</td>
+                    <td>{{inversion.contratos[0].totalTitulos}}</td>
+                    <td>{{ inversion.contratos[0].montoVivo }}</td>
+                    <td>{{ inversion.contratos[0].porcentajeMontoVivo }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <dir-pagination-controls boundary-links="true"></dir-pagination-controls><span class="count">{{ (main.portfolioT | filter:main.searchPortfolio).length }} elementos</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 lateral">
+        <div class="panel portfolio" style="border-left: none; border-top-left-radius: border-top-right-radius: 0px; border-top: 0px;">
+          <h1 class="emision-list">Estadísticas {{main.pies.portfolio.name}}</h1>
+          <ul class="nav-graphics">
+            <li ng-class="{activeTab: main.activeTabHeader === $index}" ng-click="main.activeTabHeader = $index; main.buildPiechart(report.description, report.code);" ng-init="main.activeTabHeader = 0;" ng-repeat="report in main.report.headers | filter:{visibleUsuario: true}"><span>{{ report.name }}</span></li><i class="select" ng-class="{'up': main.showSubmenu}" ng-click="main.showSubmenu = !main.showSubmenu;"></i>
+          </ul>
+          <div class="nav-review" ng-show="main.showSubmenu">
+            <p>Solo puedes tener seleccionados hasta 3 resúmenes:</p>
+            <ul>
+              <li ng-class="{inactive : !report.visibleUsuario &amp;&amp; main.visibleResume.length === 3}" ng-repeat="report in main.report.headers | orderBy:'orderId'">
+                <input ng-click="$event.stopPropagation();" id="{{ report.description }}" name="{{ report.description }}" ng-change="main.checkVisibility(report);" ng-disabled="!report.visibleUsuario &amp;&amp; main.visibleResume.length === 3" ng-model="report.visibleUsuario" txt="{{ report.name }}" type="checkbox" value="{{ report.description }}"/>
+                <label class="checkbox" for="{{ report.description }}" ng-click="$event.stopPropagation();"></label>
+                <label class="txt" for="{{ report.description }}">{{ report.name }}</label>
+              </li>
+            </ul>
+            <div class="row align-center">
+              <div class="col-12 pr-0">
+                <button class="btn-large" ng-click="main.saveCustomize();">Guardar vista</button>
+              </div>
+            </div>
+            <div class="row mt-10 mb-15 align-center">
+              <div class="col-12 pr-0">
+                <button class="btn-large gray" ng-click="main.showSubmenu = false;">Continuar sin guardar</button>
+              </div>
+            </div>
+          </div>
+          <div class="total-amount"><span class="txt-amount">Monto vivo total de portafolio</span><span class="amount">{{main.pies.portfolio.amountIssued.amount | currency}} MXN</span></div>
+          <div class="graphics" ng-if="main.buildPie.etiqueta === 'FH_VENCIMIENTO'">
+            <canvas class="chart chart-bar" id="bar" chart-data="main.pies.valores" chart-labels="main.pies.encabezados" chart-series="main.pies.valores" chart-colors="main.pies.colores" chart-options="main.lateralOps"></canvas>
+          </div>
+          <div class="graphics" ng-if="main.buildPie.etiqueta !== 'FH_VENCIMIENTO'">
+            <canvas class="chart chart-pie" id="pie" chart-data="main.pies.valores" chart-labels="main.pies.encabezados" chart-colors="main.pies.colores"></canvas>
+          </div>
+          <div class="categories">
+            <div class="grid" ng-repeat="item in main.pies.colores">
+              <div class="square" ng-style="{'background-color': item}"><span ng-click="main.showList = !main.showList" ng-if="main.pies.encabezados[$index] === 'Basket' || main.pies.encabezados[$index] === '_Multi_'"><span ng-show="!main.showList">+</span><span class="less" ng-show="main.showList">-</span></span></div><span ng-if="main.pies.encabezados[$index] === '_Multi_'">Multiregión<strong> - ({{ main.pies.valores[$index] }}%)</strong></span><span ng-if="main.pies.encabezados[$index] !== '_Multi_'">{{ main.pies.encabezados[$index] }}<strong> - ({{ main.pies.valores[$index] }}%)</strong></span>
+              <table class="list" ng-if="main.showList &amp;&amp; (main.pies.encabezados[$index] === 'Basket' || main.pies.encabezados[$index] === '_Multi_')">
+                <tr ng-repeat="list in main.pies.encabezadosCanasta">
+                  <td>{{ list }}</td>
+                  <td><strong>{{main.pies.valoresCanasta[$index]}}%</strong></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ng-show="main.activeTab === 'default'">
+      <div class="col-9">
+        <div class="content-tab pt-20 pr-20 pb-20 pl-5">
+          <div class="row">
+            <div class="col-3 ml-10">
+              <h1 class="emision-list">Listado de emisiones</h1>
+            </div>
+            <div class="col-6 align-right"></div>
+          </div>
+          <div class="row">
+            <div class="col-8 align-left pr-0">
+              <ul class="nav-subjacents">
+                <li ng-class="{activeTab: main.subyacenteTab === 'TODO'}" ng-click="main.subyacente = null; main.filterSubjacents();" ng-init="main.subyacenteTab = 'TODO'">TODO</li>
+                <li ng-repeat="subjacent in main.subjacents" ng-click="main.subyacenteFilter = {subyacente: subjacent.name}; main.subyacente = subjacent.name; main.updateLateral(); main.subyacenteTab = $index;" ng-class="{activeTab: main.subyacenteTab === $index}">{{subjacent.name}}</li>
+              </ul>
+            </div>
+            <div class="col-2 align-right pr-0"></div>
+            <div class="col-2 align-right pr-0"><i class="filter mb-10 mr-10" ng-if="main.listed || main.portfolioT.length &gt; 20" ng-class="{on: main.filterPortfolio}" ng-click="main.filterPortfolio = !main.filterPortfolio;"></i><i class="views" ng-class="{list: main.listed}" ng-click="main.listed = !main.listed" ng-if="main.portfolioT.length &lt;= 20"></i>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 ml-15">
+              <div class="suggesting"><span class="title">Semáforo de sugerencias</span>
+                <div class="lights">
+                  <div class="col-2 mb-10" ng-repeat="light in main.lights">
+                    <div class="round" ng-style="{'background-color': light.color}"></div><span ng-style="{'color': light.color}">{{light.comentario}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 pr-0" ng-if="!main.listed &amp;&amp; main.portfolioT.length &lt;=20">
+            <div class="box-portfolio" ng-class="{defeated: !box.stActivo}" ng-init="box.activosString = main.getActivosConcat(box.activos)" ng-repeat="box in main.portfolioT | orderBy:main.sortBy.property | filter:main.subyacenteFilter" ng-click="main.detail(box.id, box.series);">
+              <div class="title-box">
+                <div class="traffic-light tooltip" ng-if="box.status === '1' || box.status === '3' || box.status === '7'" ng-style="{'background-color': box.productIndicators[0].associatedColor}">
+                  <div class="content" ng-if="box.productIndicators[0].name !== null"><span>{{ box.productIndicators[0].name }}</span></div>
+                </div><span class="serie">{{ box.series }}</span><span class="inline payoff">{{ box.paymentType }}</span><img ng-if="box.activos.length === 3" src="./assets/img/plus.png"/><span class="inline actives">{{ box.referenceAssets[0].name }}</span><span class="inline price">{{ box.referenceAssets[0].priceAmount.amount }}</span><span class="inline price">{{ box.referenceAssets[0].amountYield.amount }}%</span>
+              </div>
+              <div class="content-prices">
+                <div class="block"><i class="performance" ng-class="{down: box.priceDifference.amount &lt; 0}" ng-if="box.priceDifference.amount"></i><span class="price" ng-class="{down: box.priceDifference.amount &lt; 0, up: box.priceDifference.amount &gt; 0}">{{ box.productPrice.amount }}</span><span class="currency" ng-class="{down: box.priceDifference.amount &lt; 0, up: box.priceDifference.amount &gt; 0}">{{ box.currency.code }}</span><span class="performance" ng-class="{down: box.priceDifference.amount &lt; 0, up: box.priceDifference.amount &gt; 0}"><span ng-if="box.priceDifference.amount &gt; 0">+</span><span>{{ box.priceDifference.amount }}%</span></span>
+                </div><span class="date">Precio al {{ box.priceDate }}</span>
+              </div>
+              <div class="content-graphic" ng-class="{disabled: !box.prices.precios.length &amp;&amp; !box.prices.fechas.length}">
+                <canvas class="chart chart-line" id="line" chart-data="box.prices.precios" chart-labels="box.prices.fechas" chart-series="main.series" chart-options="main.options" chart-dataset-override="main.datasetOverride" ng-if="box.prices.precios.length &amp;&amp; box.prices.fechas.length"></canvas>
+              </div>
+              <div class="footer">
+                <div class="col-7 icons"><span>.</span><a class="tooltip"><img src="./assets/icons/caracteristicas/ico_lp_alta_deuda_gris.svg"/><span class="complex">Deuda / Alta complejidad / Largo Plazo</span></a><a class="tooltip" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'A' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_alta_deuda_gris.svg"/><span class="complex">Deuda / Alta complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'A' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_alta_divisas_gris.svg"/><span class="complex">Divisas / Alta complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'A' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_alta_divisas_gris.svg"/><span class="complex">Divisas / Alta complejidad / Corto Plazo</span></a><a class="tooltip" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'A' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_alta_renta_gris.svg"/><span class="complex">Renta / Alta complejidad / Largo Plazo</span></a><a class="tooltip" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'A' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_alta_renta_gris.svg"/><span class="complex">Renta / Alta complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'M' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_media_deuda_gris.svg"/><span class="complex">Deuda / Mediana complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'M' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_media_deuda_gris.svg"/><span class="complex">Deuda / Mediana complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'M' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_media_divisas_gris.svg"/><span class="complex">Divisas / Mediana complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'M' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_media_divisas_gris.svg"/><span class="complex">Divisas / Mediana complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'M' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_media_renta_gris.svg"/><span class="complex">Renta / Mediana complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'M' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_media_renta_gris.svg"/><span class="complex">Renta / Mediana complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'B' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_baja_deuda_gris.svg"/><span class="complex">Deuda / Baja complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'B' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_baja_deuda_gris.svg"/><span class="complex">Deuda / Baja complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'B' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_baja_divisas_gris.svg"/><span class="complex">Divisas / Baja complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'B' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_baja_divisas_gris.svg"/><span class="complex">Divisas / Baja complejidad / Corto Plazo</span></a><a class="tooltip" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'B' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_baja_renta_gris.svg"/><span class="complex">Renta / Baja complejidad / Largo Plazo</span></a><a class="tooltip" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'B' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_baja_renta_gris.svg"/><span class="complex">Renta / Baja complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'MB' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_muybaja_deuda_gris.svg"/><span class="complex">Deuda / Muy baja complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'MB' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_muybaja_deuda_gris.svg"/><span class="complex">Deuda / Muy baja complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'MB' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_muybaja_divisas_gris.svg"/><span class="complex">Divisas / Muy baja complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'MB' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_muybaja_divisas_gris.svg"/><span class="complex">Divisas / Muy baja complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'MB' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_muybaja_renta_gris.svg"/><span class="complex">Renta / Muy baja complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'MB' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_muybaja_renta_gris.svg"/><span class="complex">Renta / Muy baja complejidad / Corto Plazo</span></a><a class="tooltip simple" ng-if="box.detallePayOff.capitalProtegido === 100"><img src="./assets/icons/caracteristicas/ico_capitalvencimiento_gris.svg"/><span>Sin pérdida de capital</span></a><a class="tooltip" ng-if="box.detallePayOff.capitalProtegido &lt; 100 &amp;&amp; box.detallePayOff.capitalProtegido !== 0"><img src="./assets/icons/caracteristicas/ico_capitalprotegido_gris.svg"/><span>Protección de capital a vencimiento</span></a><a class="tooltip" ng-if="box.detallePayOff.volatilidad"><img src="./assets/icons/caracteristicas/ico_volatilidad_gris.svg"/><span>Alta volatilidad de precios</span></a><a class="tooltip simple" ng-if="box.detallePayOff.liquidez"><img src="./assets/icons/caracteristicas/ico_liquidez_gris.svg"/><span>Poca liquidez</span></a><a class="tooltip simple sbpp" ng-if="box.detallePayOff.cdCaracteristicaBpp == 'GF'">
+                    <p class="bpp">GF</p><span>Generación de flujo</span></a><a class="tooltip simple sbpp" ng-if="box.detallePayOff.cdCaracteristicaBpp == 'C'">
+                    <p class="bpp">C</p><span>Crecimiento</span></a><a class="tooltip simple sbpp" ng-if="box.detallePayOff.cdCaracteristicaBpp == 'PC'">
+                    <p class="bpp">PC</p><span>Protección de capital</span></a></div>
+                <div class="col-5 align-right pr-0"><span class="date" ng-class="{expiration: main.expirateDay}" ng-if="box.stActivo"><span class="inline" ng-if="box.status === '1' || box.status === '3' || box.status === '7'">Vence: {{ box.dueDate }}</span></span><span class="date" ng-class="{expiration: main.expirateDay}" ng-if="!box.stActivo"><span class="inline" ng-if="box.status === '4'">Venció: {{ box.dueDate }}</span><span class="inline" ng-if="box.status === '5'">Amortizó: {{ box.dueDate }}</span><span class="inline" ng-if="box.status === '6'">Canceló: {{ box.dueDate }}</span></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12" ng-if="main.listed || main.portfolioT.length &gt; 20">
+            <div class="table-scroll ml-15">
+              <table>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'estatus'">Estatus<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'estatus'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'cdSerie'">Serie {{main.contrato}}<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'cdSerie'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'tpPayoff'">Pay-off<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'tpPayoff'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'activos.nbActivo'">Activo<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'activos.nbActivo'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'imPrecio'">Precio estrategia<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'imPrecio'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'diferencia'">Rendimiento estrategia<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'diferencia'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'fhVencimiento'">Fecha de vencimiento<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'fhVencimiento'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'fhPrecio'">Última Actualización<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'fhPrecio'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'detallePayOff.plazo'">Plazo<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'detallePayOff.plazo'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'subyacente'">Subyacente<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'subyacente'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'detallePayOff.nbComplejidad'">Complejidad<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'detallePayOff.nbComplejidad'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'detallePayOff.capitalProtegido'">Protección de capital<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'detallePayOff.capitalProtegido'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'detallePayOff.volatilidad'">Volatilidad<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'detallePayOff.volatilidad'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'detallePayOff.liquidez'">Liquidez<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'detallePayOff.liquidez'"></span></th>
+                    <th ng-if="main.contrato === null" ng-click="main.reverse = !main.reverse; main.property = 'contratos.totalClientes'">Total Clientes<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'contratos.totalClientes'"></span></th>
+                    <th ng-if="main.contrato !== null" ng-click="main.reverse = !main.reverse; main.property = 'contratos.nuContrato'">Contrato<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'contratos.nuContrato'"></span></th>
+                    <th class="show-cols" ng-class="{ hide: showColumns }" ng-click="showColumns = !showColumns"><i class="show-columns" ng-class="{ hide: showColumns }"></i>
+                    </th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'contratos'" ng-show="showColumns">Titulos Custodia<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'titulosC'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'contratos'" ng-show="showColumns">Titulos Garantía<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'titulosG'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'contratos.totalTitulos'">Total Titulos<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'contratos.totalTitulos'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'contratos.montoVivo'">Monto Vivo<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'contratos.montoVivo'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'contratos.porcentajeMontoVivo'">Porcentaje Monto Vivo<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'contratos.porcentajeMontoVivo'"></span></th>
+                  </tr>
+                  <tr class="search" ng-show="main.filterPortfolio">
+                    <td></td>
+                    <td>
+                      <input switch-search="switch-search" field="main.searchPortfolio.estatus" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.series" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.tpPayoff" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.activos" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.imPrecio" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.diferencia" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.fhVencimiento" type="date" date-input="date-input"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.fhPrecio" type="date" date-input="date-input"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.detallePayOff.plazo" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.subyacente" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.detallePayOff.nbComplejidad" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.detallePayOff.capitalProtegido" type="search"/>
+                    </td>
+                    <td>
+                      <input switch-search="switch-search" field="main.searchPortfolio.detallePayOff.volatilidad" type="search"/>
+                    </td>
+                    <td>
+                      <input switch-search="switch-search" field="main.searchPortfolio.detallePayOff.liquidez" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.contratos.totalClientes" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.contratos.nuContrato" type="search"/>
+                    </td>
+                    <td ng-show="showColumns">
+                      <input ng-model="main.searchPortfolio.contratos.titulosC" type="search"/>
+                    </td>
+                    <td ng-show="showColumns">
+                      <input ng-model="main.searchPortfolio.contratos.titulosG" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.contratos.totalTitulos" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.contratos.montoVivo" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.contratos.porcentajeMontoVivo" type="search"/>
+                    </td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr dir-paginate="inversion in main.portfolioT | orderBy:main.property:main.reverse | filter:main.searchPortfolio | filter:main.subyacenteFilter | itemsPerPage: 10" ng-click="main.detail(inversion.id, inversion.series);" ng-class="{ grayBackg : inversion.status === '4' || inversion.status === '5' || inversion.status === '6' }">
+                    <td class="hasTooltip">
+                      <div class="traffic-light tooltip" ng-style="{'background-color': inversion.semaforo.color}" ng-if="inversion.estatus === 1 || inversion.estatus === 3">
+                        <div class="content" ng-if="inversion.semaforo.comentario !== null"><span>{{ inversion.semaforo.comentario }}</span></div>
+                      </div>
+                    </td>
+                    <td ng-if="inversion.status === '1' || inversion.status === '3'">Viva</td>
+                    <td ng-if="inversion.status === '7'">Cerrada</td>
+                    <td ng-if="inversion.status === '4'">Vencida</td>
+                    <td ng-if="inversion.status === '5'">Amortizada</td>
+                    <td ng-if="inversion.status === '6'">Cancelada</td>
+                    <td>{{ inversion.series }}</td>
+                    <td>{{ inversion.paymentType }}</td>
+                    <td>{{ inversion.activos.nbActivo }}</td>
+                    <td><span ng-if="inversion.imPrecio === null">-</span><span ng-class="{green: inversion.imPrecio &gt; 0, magenta: inversion.imPrecio &lt; 0}">{{ inversion.productPrice.amount }}</span></td>
+                    <td><span ng-class="{green: inversion.diferencia &gt; 0, magenta: inversion.diferencia &lt; 0}"><span ng-if="inversion.diferencia &gt; 0">+</span><span>{{ inversion.diferencia }}%</span></span></td>
+                    <td><span ng-class="{expiration: main.expirateDay}">{{ inversion.dueDate }}</span></td>
+                    <td>{{ inversion.fhPrecio | date:"dd/MM/yyyy"}}</td>
+                    <td>{{ inversion.detallePayOff.plazo }}</td>
+                    <td>{{ inversion.subyacente }}</td>
+                    <td>{{ inversion.detallePayOff.nbComplejidad }}</td>
+                    <td>{{ inversion.detallePayOff.capitalProtegido }}%</td>
+                    <td><span ng-if="inversion.detallePayOff.volatilidad">Sí</span><span ng-if="!inversion.detallePayOff.volatilidad">No</span></td>
+                    <td><span ng-if="inversion.detallePayOff.liquidez">Sí</span><span ng-if="!inversion.detallePayOff.liquidez">No</span></td>
+                    <td ng-if="main.contrato === null">{{inversion.contratos[0].totalClientes}}</td>
+                    <td ng-if="main.contrato !== null">{{inversion.contratos[0].nuContrato}}</td>
+                    <td class="show-cols"></td>
+                    <td ng-show="showColumns">{{ inversion.contratos[0].titulosC }}</td>
+                    <td ng-show="showColumns">{{ inversion.contratos[0].titulosG }}</td>
+                    <td>{{inversion.contratos[0].totalTitulos}}</td>
+                    <td>{{ inversion.contratos[0].montoVivo }}</td>
+                    <td>{{ inversion.contratos[0].porcentajeMontoVivo }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <dir-pagination-controls boundary-links="true"></dir-pagination-controls><span class="count">{{ (main.portfolioT | filter:main.searchPortfolio).length }} elementos</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 lateral">
+        <div class="panel portfolio" style="border-left: none; border-top-left-radius: border-top-right-radius: 0px; border-top: 0px;">
+          <h1 class="emision-list">Estadísticas {{main.pies.portfolio.name}}</h1>
+          <ul class="nav-graphics">
+            <li ng-class="{activeTab: main.activeTabHeader === $index}" ng-click="main.activeTabHeader = $index; main.buildPiechart(report.description, report.code);" ng-init="main.activeTabHeader = 0;" ng-repeat="report in main.report.headers | filter:{visibleUsuario: true}"><span>{{ report.name }}</span></li><i class="select" ng-class="{'up': main.showSubmenu}" ng-click="main.showSubmenu = !main.showSubmenu;"></i>
+          </ul>
+          <div class="nav-review" ng-show="main.showSubmenu">
+            <p>Solo puedes tener seleccionados hasta 3 resúmenes:</p>
+            <ul>
+              <li ng-class="{inactive : !report.visibleUsuario &amp;&amp; main.visibleResume.length === 3}" ng-repeat="report in main.report.headers | orderBy:'orderId'">
+                <input ng-click="$event.stopPropagation();" id="{{ report.description }}" name="{{ report.description }}" ng-change="main.checkVisibility(report);" ng-disabled="!report.visibleUsuario &amp;&amp; main.visibleResume.length === 3" ng-model="report.visibleUsuario" txt="{{ report.name }}" type="checkbox" value="{{ report.description }}"/>
+                <label class="checkbox" for="{{ report.description }}" ng-click="$event.stopPropagation();"></label>
+                <label class="txt" for="{{ report.description }}">{{ report.name }}</label>
+              </li>
+            </ul>
+            <div class="row align-center">
+              <div class="col-12 pr-0">
+                <button class="btn-large" ng-click="main.saveCustomize();">Guardar vista</button>
+              </div>
+            </div>
+            <div class="row mt-10 mb-15 align-center">
+              <div class="col-12 pr-0">
+                <button class="btn-large gray" ng-click="main.showSubmenu = false;">Continuar sin guardar</button>
+              </div>
+            </div>
+          </div>
+          <div class="total-amount"><span class="txt-amount">Monto vivo total de portafolio</span><span class="amount">{{main.pies.portfolio.amountIssued.amount | currency}} MXN</span></div>
+          <div class="graphics" ng-if="main.buildPie.etiqueta === 'FH_VENCIMIENTO'">
+            <canvas class="chart chart-bar" id="bar" chart-data="main.pies.valores" chart-labels="main.pies.encabezados" chart-series="main.pies.valores" chart-colors="main.pies.colores" chart-options="main.lateralOps"></canvas>
+          </div>
+          <div class="graphics" ng-if="main.buildPie.etiqueta !== 'FH_VENCIMIENTO'">
+            <canvas class="chart chart-pie" id="pie" chart-data="main.pies.valores" chart-labels="main.pies.encabezados" chart-colors="main.pies.colores"></canvas>
+          </div>
+          <div class="categories">
+            <div class="grid" ng-repeat="item in main.pies.colores">
+              <div class="square" ng-style="{'background-color': item}"><span ng-click="main.showList = !main.showList" ng-if="main.pies.encabezados[$index] === 'Basket' || main.pies.encabezados[$index] === '_Multi_'"><span ng-show="!main.showList">+</span><span class="less" ng-show="main.showList">-</span></span></div><span ng-if="main.pies.encabezados[$index] === '_Multi_'">Multiregión<strong> - ({{ main.pies.valores[$index] }}%)</strong></span><span ng-if="main.pies.encabezados[$index] !== '_Multi_'">{{ main.pies.encabezados[$index] }}<strong> - ({{ main.pies.valores[$index] }}%)</strong></span>
+              <table class="list" ng-if="main.showList &amp;&amp; (main.pies.encabezados[$index] === 'Basket' || main.pies.encabezados[$index] === '_Multi_')">
+                <tr ng-repeat="list in main.pies.encabezadosCanasta">
+                  <td>{{ list }}</td>
+                  <td><strong>{{main.pies.valoresCanasta[$index]}}%</strong></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ng-repeat="contentab in main.tabs" ng-show="main.portfolioT !== null &amp;&amp; main.activeTab === $index;">
+      <div class="col-9">
+        <div class="content-tab pt-20 pr-20 pb-20 pl-5">
+          <div class="row">
+            <div class="col-3 ml-10">
+              <h1>Listado de emisiones</h1>
+            </div>
+            <div class="col-6 align-right"></div>
+          </div>
+          <div class="row">
+            <div class="col-8 align-left pr-0">
+              <ul class="nav-subjacents">
+                <li ng-class="{activeTab: main.subyacenteTab === 'TODO'}" ng-click="main.subyacente = null; main.filterSubjacents();" ng-init="main.subyacenteTab = 'TODO'">TODO</li>
+                <li ng-repeat="subjacent in main.subjacents" ng-click="main.subyacenteFilter = {subyacente: subjacent.name}; main.subyacente = subjacent.name; main.updateLateral(); main.subyacenteTab = $index;" ng-class="{activeTab: main.subyacenteTab === $index}">{{subjacent.name}}</li>
+              </ul>
+            </div>
+            <div class="col-2 align-right pr-0"></div>
+            <div class="col-2 align-right pr-0"><i class="filter mb-10 mr-10" ng-if="main.listed || main.portfolioT.length &gt; 20" ng-class="{on: main.filterPortfolio}" ng-click="main.filterPortfolio = !main.filterPortfolio;"></i><i class="views" ng-class="{list: main.listed}" ng-click="main.listed = !main.listed" ng-if="main.portfolioT.length &lt;= 20"></i>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 ml-15">
+              <div class="suggesting"><span class="title">Semáforo de sugerencias</span>
+                <div class="lights">
+                  <div class="col-2 mb-10" ng-repeat="light in main.lights">
+                    <div class="round" ng-style="{'background-color': light.color}"></div><span ng-style="{'color': light.color}">{{light.comentario}}</span>
+                  </div>
+                </div>
+                <div class="iconography"><a ng-click="main.meaningIcons.open()">Iconografía</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 pr-0" ng-if="!main.listed &amp;&amp; main.portfolioT.length &lt;=20">
+            <div class="box-portfolio" ng-class="{defeated: !box.stActivo}" ng-init="box.activosString = main.getActivosConcat(box.activos)" ng-repeat="box in main.portfolioT | orderBy:main.sortBy.property | filter:main.subyacenteFilter" ng-click="main.detail(box.id, box.series);">
+              <div class="title-box">
+                <div class="traffic-light tooltip" ng-if="box.status === '1' || box.status === '3' || box.status === '7'" ng-style="{'background-color': box.productIndicators[0].associatedColor}">
+                  <div class="content" ng-if="box.productIndicators[0].name !== null"><span>{{ box.productIndicators[0].name }}</span></div>
+                </div><span class="serie">{{ box.series }}</span><span class="inline payoff">{{ box.paymentType }}</span><img ng-if="box.activos.length === 3" src="./assets/img/plus.png"/><span class="inline actives">{{ box.referenceAssets[0].name }}</span><span class="inline price">{{ box.referenceAssets[0].priceAmount.amount }}</span><span class="inline price">{{ box.referenceAssets[0].amountYield.amount }}%</span>
+              </div>
+              <div class="content-prices">
+                <div class="block"><i class="performance" ng-class="{down: box.priceDifference.amount &lt; 0}" ng-if="box.priceDifference.amount"></i><span class="price" ng-class="{down: box.priceDifference.amount &lt; 0, up: box.priceDifference.amount &gt; 0}">{{ box.productPrice.amount }}</span><span class="currency" ng-class="{down: box.priceDifference.amount &lt; 0, up: box.priceDifference.amount &gt; 0}">{{ box.currency.code }}</span><span class="performance" ng-class="{down: box.priceDifference.amount &lt; 0, up: box.priceDifference.amount &gt; 0}"><span ng-if="box.priceDifference.amount &gt; 0">+</span><span>{{ box.priceDifference.amount }}%</span></span>
+                </div><span class="date">Precio al {{ box.priceDate }}</span>
+              </div>
+              <div class="content-graphic" ng-class="{disabled: !box.prices.precios.length &amp;&amp; !box.prices.fechas.length}">
+                <canvas class="chart chart-line" id="line" chart-data="box.prices.precios" chart-labels="box.prices.fechas" chart-series="main.series" chart-options="main.options" chart-dataset-override="main.datasetOverride" ng-if="box.prices.precios.length &amp;&amp; box.prices.fechas.length"></canvas>
+              </div>
+              <div class="footer">
+                <div class="col-7 icons"><span>.</span><a class="tooltip"><img src="./assets/icons/caracteristicas/ico_lp_alta_deuda_gris.svg"/><span class="complex">Deuda / Alta complejidad / Largo Plazo</span></a><a class="tooltip" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'A' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_alta_deuda_gris.svg"/><span class="complex">Deuda / Alta complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'A' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_alta_divisas_gris.svg"/><span class="complex">Divisas / Alta complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'A' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_alta_divisas_gris.svg"/><span class="complex">Divisas / Alta complejidad / Corto Plazo</span></a><a class="tooltip" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'A' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_alta_renta_gris.svg"/><span class="complex">Renta / Alta complejidad / Largo Plazo</span></a><a class="tooltip" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'A' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_alta_renta_gris.svg"/><span class="complex">Renta / Alta complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'M' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_media_deuda_gris.svg"/><span class="complex">Deuda / Mediana complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'M' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_media_deuda_gris.svg"/><span class="complex">Deuda / Mediana complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'M' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_media_divisas_gris.svg"/><span class="complex">Divisas / Mediana complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'M' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_media_divisas_gris.svg"/><span class="complex">Divisas / Mediana complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'M' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_media_renta_gris.svg"/><span class="complex">Renta / Mediana complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'M' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_media_renta_gris.svg"/><span class="complex">Renta / Mediana complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'B' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_baja_deuda_gris.svg"/><span class="complex">Deuda / Baja complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'B' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_baja_deuda_gris.svg"/><span class="complex">Deuda / Baja complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'B' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_baja_divisas_gris.svg"/><span class="complex">Divisas / Baja complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'B' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_baja_divisas_gris.svg"/><span class="complex">Divisas / Baja complejidad / Corto Plazo</span></a><a class="tooltip" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'B' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_baja_renta_gris.svg"/><span class="complex">Renta / Baja complejidad / Largo Plazo</span></a><a class="tooltip" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'B' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_baja_renta_gris.svg"/><span class="complex">Renta / Baja complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'MB' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_muybaja_deuda_gris.svg"/><span class="complex">Deuda / Muy baja complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DEU' &amp;&amp; box.detallePayOff.cdComplejidad === 'MB' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_muybaja_deuda_gris.svg"/><span class="complex">Deuda / Muy baja complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'MB' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_muybaja_divisas_gris.svg"/><span class="complex">Divisas / Muy baja complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'DIV' &amp;&amp; box.detallePayOff.cdComplejidad === 'MB' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_muybaja_divisas_gris.svg"/><span class="complex">Divisas / Muy baja complejidad / Corto Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'MB' &amp;&amp; box.detallePayOff.plazo == 'LP'"><img src="./assets/icons/caracteristicas/ico_lp_muybaja_renta_gris.svg"/><span class="complex">Renta / Muy baja complejidad / Largo Plazo</span></a><a class="tooltip triple" ng-if="box.detallePayOff.grupoSubyacente.cdCatalogo === 'RV' &amp;&amp; box.detallePayOff.cdComplejidad === 'MB' &amp;&amp; box.detallePayOff.plazo == 'CP'"><img src="./assets/icons/caracteristicas/ico_cp_muybaja_renta_gris.svg"/><span class="complex">Renta / Muy baja complejidad / Corto Plazo</span></a><a class="tooltip simple" ng-if="box.detallePayOff.capitalProtegido === 100"><img src="./assets/icons/caracteristicas/ico_capitalvencimiento_gris.svg"/><span>Sin pérdida de capital</span></a><a class="tooltip" ng-if="box.detallePayOff.capitalProtegido &lt; 100 &amp;&amp; box.detallePayOff.capitalProtegido !== 0"><img src="./assets/icons/caracteristicas/ico_capitalprotegido_gris.svg"/><span>Protección de capital a vencimiento</span></a><a class="tooltip" ng-if="box.detallePayOff.volatilidad"><img src="./assets/icons/caracteristicas/ico_volatilidad_gris.svg"/><span>Alta volatilidad de precios</span></a><a class="tooltip simple" ng-if="box.detallePayOff.liquidez"><img src="./assets/icons/caracteristicas/ico_liquidez_gris.svg"/><span>Poca liquidez</span></a><a class="tooltip simple sbpp" ng-if="box.detallePayOff.cdCaracteristicaBpp == 'GF'">
+                    <p class="bpp">GF</p><span>Generación de flujo</span></a><a class="tooltip simple sbpp" ng-if="box.detallePayOff.cdCaracteristicaBpp == 'C'">
+                    <p class="bpp">C</p><span>Crecimiento</span></a><a class="tooltip simple sbpp" ng-if="box.detallePayOff.cdCaracteristicaBpp == 'PC'">
+                    <p class="bpp">PC</p><span>Protección de capital</span></a></div>
+                <div class="col-5 align-right pr-0"><span class="date" ng-class="{expiration: main.expirateDay}" ng-if="box.stActivo"><span class="inline" ng-if="box.status === '1' || box.status === '3' || box.status === '7'">Vence: {{ box.dueDate }}</span></span><span class="date" ng-class="{expiration: main.expirateDay}" ng-if="!box.stActivo"><span class="inline" ng-if="box.status === '4'">Venció: {{ box.dueDate }}</span><span class="inline" ng-if="box.status === '5'">Amortizó: {{ box.dueDate }}</span><span class="inline" ng-if="box.status === '6'">Canceló: {{ box.dueDate }}</span></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12" ng-if="main.listed || main.portfolioT.length &gt; 20">
+            <div class="table-scroll ml-15">
+              <table>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'estatus'">Estatus<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'estatus'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'cdSerie'">Serie {{main.contrato}}<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'cdSerie'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'tpPayoff'">Pay-off<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'tpPayoff'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'activos.nbActivo'">Activo<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'activos.nbActivo'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'imPrecio'">Precio estrategia<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'imPrecio'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'diferencia'">Rendimiento estrategia<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'diferencia'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'fhVencimiento'">Fecha de vencimiento<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'fhVencimiento'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'fhPrecio'">Última Actualización<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'fhPrecio'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'detallePayOff.plazo'">Plazo<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'detallePayOff.plazo'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'subyacente'">Subyacente<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'subyacente'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'detallePayOff.nbComplejidad'">Complejidad<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'detallePayOff.nbComplejidad'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'detallePayOff.capitalProtegido'">Protección de capital<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'detallePayOff.capitalProtegido'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'detallePayOff.volatilidad'">Volatilidad<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'detallePayOff.volatilidad'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'detallePayOff.liquidez'">Liquidez<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'detallePayOff.liquidez'"></span></th>
+                    <th ng-if="main.contrato === null" ng-click="main.reverse = !main.reverse; main.property = 'contratos.totalClientes'">Total Clientes<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'contratos.totalClientes'"></span></th>
+                    <th ng-if="main.contrato !== null" ng-click="main.reverse = !main.reverse; main.property = 'contratos.nuContrato'">Contrato<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'contratos.nuContrato'"></span></th>
+                    <th class="show-cols" ng-class="{ hide: showColumns }" ng-click="showColumns = !showColumns"><i class="show-columns" ng-class="{ hide: showColumns }"></i>
+                    </th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'contratos'" ng-show="showColumns">Titulos Custodia<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'titulosC'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'contratos'" ng-show="showColumns">Titulos Garantía<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'titulosG'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'contratos.totalTitulos'">Total Titulos<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'contratos.totalTitulos'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'contratos.montoVivo'">Monto Vivo<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'contratos.montoVivo'"></span></th>
+                    <th ng-click="main.reverse = !main.reverse; main.property = 'contratos.porcentajeMontoVivo'">Porcentaje Monto Vivo<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'contratos.porcentajeMontoVivo'"></span></th>
+                  </tr>
+                  <tr class="search" ng-show="main.filterPortfolio">
+                    <td></td>
+                    <td>
+                      <input switch-search="switch-search" field="main.searchPortfolio.estatus" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.series" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.tpPayoff" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.activos" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.imPrecio" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.diferencia" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.fhVencimiento" type="date" date-input="date-input"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.fhPrecio" type="date" date-input="date-input"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.detallePayOff.plazo" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.subyacente" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.detallePayOff.nbComplejidad" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.detallePayOff.capitalProtegido" type="search"/>
+                    </td>
+                    <td>
+                      <input switch-search="switch-search" field="main.searchPortfolio.detallePayOff.volatilidad" type="search"/>
+                    </td>
+                    <td>
+                      <input switch-search="switch-search" field="main.searchPortfolio.detallePayOff.liquidez" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.contratos.totalClientes" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.contratos.nuContrato" type="search"/>
+                    </td>
+                    <td ng-show="showColumns">
+                      <input ng-model="main.searchPortfolio.contratos.titulosC" type="search"/>
+                    </td>
+                    <td ng-show="showColumns">
+                      <input ng-model="main.searchPortfolio.contratos.titulosG" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.contratos.totalTitulos" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.contratos.montoVivo" type="search"/>
+                    </td>
+                    <td>
+                      <input ng-model="main.searchPortfolio.contratos.porcentajeMontoVivo" type="search"/>
+                    </td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr dir-paginate="inversion in main.portfolioT | orderBy:main.property:main.reverse | filter:main.searchPortfolio | filter:main.subyacenteFilter | itemsPerPage: 10" ng-click="main.detail(inversion.id, inversion.series);" ng-class="{ grayBackg : inversion.status === '4' || inversion.status === '5' || inversion.status === '6' }">
+                    <td class="hasTooltip">
+                      <div class="traffic-light tooltip" ng-style="{'background-color': inversion.semaforo.color}" ng-if="inversion.estatus === 1 || inversion.estatus === 3">
+                        <div class="content" ng-if="inversion.semaforo.comentario !== null"><span>{{ inversion.semaforo.comentario }}</span></div>
+                      </div>
+                    </td>
+                    <td ng-if="inversion.status === '1' || inversion.status === '3'">Viva</td>
+                    <td ng-if="inversion.status === '7'">Cerrada</td>
+                    <td ng-if="inversion.status === '4'">Vencida</td>
+                    <td ng-if="inversion.status === '5'">Amortizada</td>
+                    <td ng-if="inversion.status === '6'">Cancelada</td>
+                    <td>{{ inversion.series }}</td>
+                    <td>{{ inversion.paymentType }}</td>
+                    <td>{{ inversion.activos.nbActivo }}</td>
+                    <td><span ng-if="inversion.imPrecio === null">-</span><span ng-class="{green: inversion.imPrecio &gt; 0, magenta: inversion.imPrecio &lt; 0}">{{ inversion.productPrice.amount }}</span></td>
+                    <td><span ng-class="{green: inversion.diferencia &gt; 0, magenta: inversion.diferencia &lt; 0}"><span ng-if="inversion.diferencia &gt; 0">+</span><span>{{ inversion.diferencia }}%</span></span></td>
+                    <td><span ng-class="{expiration: main.expirateDay}">{{ inversion.dueDate }}</span></td>
+                    <td>{{ inversion.fhPrecio | date:"dd/MM/yyyy"}}</td>
+                    <td>{{ inversion.detallePayOff.plazo }}</td>
+                    <td>{{ inversion.subyacente }}</td>
+                    <td>{{ inversion.detallePayOff.nbComplejidad }}</td>
+                    <td>{{ inversion.detallePayOff.capitalProtegido }}%</td>
+                    <td><span ng-if="inversion.detallePayOff.volatilidad">Sí</span><span ng-if="!inversion.detallePayOff.volatilidad">No</span></td>
+                    <td><span ng-if="inversion.detallePayOff.liquidez">Sí</span><span ng-if="!inversion.detallePayOff.liquidez">No</span></td>
+                    <td ng-if="main.contrato === null">{{inversion.contratos[0].totalClientes}}</td>
+                    <td ng-if="main.contrato !== null">{{inversion.contratos[0].nuContrato}}</td>
+                    <td class="show-cols"></td>
+                    <td ng-show="showColumns">{{ inversion.contratos[0].titulosC }}</td>
+                    <td ng-show="showColumns">{{ inversion.contratos[0].titulosG }}</td>
+                    <td>{{inversion.contratos[0].totalTitulos}}</td>
+                    <td>{{ inversion.contratos[0].montoVivo }}</td>
+                    <td>{{ inversion.contratos[0].porcentajeMontoVivo }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <dir-pagination-controls boundary-links="true"></dir-pagination-controls><span class="count">{{ (main.portfolioT | filter:main.searchPortfolio).length }} elementos</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 lateral">
+        <div class="panel portfolio" style="border-left: none; border-top-left-radius: border-top-right-radius: 0px; border-top: 0px;">
+          <h1 class="emision-list">Estadísticas {{main.pies.portfolio.name}}</h1>
+          <ul class="nav-graphics">
+            <li ng-class="{activeTab: main.activeTabHeader === $index}" ng-click="main.activeTabHeader = $index; main.buildPiechart(report.description, report.code);" ng-init="main.activeTabHeader = 0;" ng-repeat="report in main.report.headers | filter:{visibleUsuario: true}"><span>{{ report.name }}</span></li><i class="select" ng-class="{'up': main.showSubmenu}" ng-click="main.showSubmenu = !main.showSubmenu;"></i>
+          </ul>
+          <div class="nav-review" ng-show="main.showSubmenu">
+            <p>Solo puedes tener seleccionados hasta 3 resúmenes:</p>
+            <ul>
+              <li ng-class="{inactive : !report.visibleUsuario &amp;&amp; main.visibleResume.length === 3}" ng-repeat="report in main.report.headers | orderBy:'orderId'">
+                <input ng-click="$event.stopPropagation();" id="{{ report.description }}" name="{{ report.description }}" ng-change="main.checkVisibility(report);" ng-disabled="!report.visibleUsuario &amp;&amp; main.visibleResume.length === 3" ng-model="report.visibleUsuario" txt="{{ report.name }}" type="checkbox" value="{{ report.description }}"/>
+                <label class="checkbox" for="{{ report.description }}" ng-click="$event.stopPropagation();"></label>
+                <label class="txt" for="{{ report.description }}">{{ report.name }}</label>
+              </li>
+            </ul>
+            <div class="row align-center">
+              <div class="col-12 pr-0">
+                <button class="btn-large" ng-click="main.saveCustomize();">Guardar vista</button>
+              </div>
+            </div>
+            <div class="row mt-10 mb-15 align-center">
+              <div class="col-12 pr-0">
+                <button class="btn-large gray" ng-click="main.showSubmenu = false;">Continuar sin guardar</button>
+              </div>
+            </div>
+          </div>
+          <div class="total-amount"><span class="txt-amount">Monto vivo total de portafolio</span><span class="amount">{{main.pies.portfolio.amountIssued.amount | currency}} MXN</span></div>
+          <div class="graphics" ng-if="main.buildPie.etiqueta === 'FH_VENCIMIENTO'">
+            <canvas class="chart chart-bar" id="bar" chart-data="main.pies.valores" chart-labels="main.pies.encabezados" chart-series="main.pies.valores" chart-colors="main.pies.colores" chart-options="main.lateralOps"></canvas>
+          </div>
+          <div class="graphics" ng-if="main.buildPie.etiqueta !== 'FH_VENCIMIENTO'">
+            <canvas class="chart chart-pie" id="pie" chart-data="main.pies.valores" chart-labels="main.pies.encabezados" chart-colors="main.pies.colores"></canvas>
+          </div>
+          <div class="categories">
+            <div class="grid" ng-repeat="item in main.pies.colores">
+              <div class="square" ng-style="{'background-color': item}"><span ng-click="main.showList = !main.showList" ng-if="main.pies.encabezados[$index] === 'Basket' || main.pies.encabezados[$index] === '_Multi_'"><span ng-show="!main.showList">+</span><span class="less" ng-show="main.showList">-</span></span></div><span ng-if="main.pies.encabezados[$index] === '_Multi_'">Multiregión<strong> - ({{ main.pies.valores[$index] }}%)</strong></span><span ng-if="main.pies.encabezados[$index] !== '_Multi_'">{{ main.pies.encabezados[$index] }}<strong> - ({{ main.pies.valores[$index] }}%)</strong></span>
+              <table class="list" ng-if="main.showList &amp;&amp; (main.pies.encabezados[$index] === 'Basket' || main.pies.encabezados[$index] === '_Multi_')">
+                <tr ng-repeat="list in main.pies.encabezadosCanasta">
+                  <td>{{ list }}</td>
+                  <td><strong>{{main.pies.valoresCanasta[$index]}}%</strong></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="disclaimer">
+    <div class="txt">
+      <p class="strong">Disclaimer:</p>
+      <p ng-bind-html="global.sysDisclaimer"></p>
+    </div>
+  </div>
+  <modal name="main.meaningIcons" size="'medium-large'">
+    <ng-include src="'app/seguimiento/portafolios-inversion/modal/meaning-icons.html'"></ng-include>
+  </modal>
+  <modal name="main.portfolioSetting" size="'large-large'">
+    <ng-include src="'app/seguimiento/portafolios-inversion/modal/portfolio-setting.html'"></ng-include>
+  </modal>
+  <modal name="main.uploadTrafficLight" size="'small'" on-close="main.lightfile = {}" on-success="global.reload();">
+    <ng-include src="'app/seguimiento/portafolios-inversion/modal/traffic-light-upload.html'"></ng-include>
+  </modal>
+  <modal name="main.deletePortfolio" size="'small'">
+    <ng-include src="'app/seguimiento/portafolios-inversion/modal/delete-portfolio.html'"></ng-include>
+  </modal>
+</div>

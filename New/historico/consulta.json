@@ -1,0 +1,13 @@
+[
+	{
+		"dtCambioEstatusUsuario": -61620112800000,
+		"nbEstatus": "Vivo",
+		"txComentario": "Vivo",
+		"nombreUsuario": "Berenice Patron Galeana"
+	}, {
+		"dtCambioEstatusUsuario": -61675149600000,
+		"nbEstatus": "Vencido",
+		"txComentario": "Carga Inicial",
+		"nombreUsuario": "Berenice Patron Galeana"
+	}
+]

@@ -1,0 +1,56 @@
+
+<div class="animated fadeIn" ng-controller="InflationController as main">
+  <div class="breadcrumb"><a nav="#!/">Home  &sol;</a><span class="selected">Inflaci&oacute;n</span>
+  </div>
+  <h1>Inflaci&oacute;n
+  </h1>
+  <div class="row align-right mb-20 m-t-40">
+    <div class="col-10"></div><i class="calculate tooltip m-b-10 mr-15" ng-click="main.actualizaGat();">
+      <div class="content">
+        <div class="txt">Actualiza Gat</div>
+      </div></i><i class="filter tooltip m-b-10 mr-15" ng-class="{on: historico.filterHistorical}" ng-click="historico.filterHistorical = !historico.filterHistorical;">
+      <div class="content">
+        <div class="txt">Filtrar columnas</div>
+      </div></i>
+    <button class="btn-large" ng-click="main.newInflation.open();">Actualizar Inflación</button>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'nuMes'">Mes<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'nuMes'"></span></th>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'nuAnio'">Año<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'nuAnio'"></span></th>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'pcInflacion'">Inflaci&oacute;n<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'pcInflacion'"></span></th>
+        </tr>
+        <tr class="search" ng-show="historico.filterHistorical">
+          <td>
+            <input ng-model="main.searchHistorical.nuMes" type="search"/>
+          </td>
+          <td>
+            <input ng-model="main.searchHistorical.nuAnio" type="search"/>
+          </td>
+          <td>
+            <input ng-model="main.searchHistorical.imRendimiento" type="search"/>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="no-hover" dir-paginate="historico in main.inflacion | orderBy:main.property:main.reverse | filter:main.searchHistorical | itemsPerPage: 10">
+          <td>{{ historico.nuMes }}</td>
+          <td>{{ historico.nuAnio }}</td>
+          <td>{{ historico.pcInflacion }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <dir-pagination-controls boundary-links="true"></dir-pagination-controls><span class="count">{{ (main.inflacion | filter:main.searchHistorical).length }} elementos</span>
+  <div class="disclaimer">
+    <div class="txt">
+      <p class="strong">Disclaimer:</p>
+      <p ng-bind-html="global.sysDisclaimer"></p>
+    </div>
+  </div>
+  <modal name="main.newInflation" on-close="main.request = {}" on-success="global.reload();" size="'small'">
+    <ng-include src="'app/seguimiento/repositorio/inflacion/modal/new-inflation.html'"></ng-include>
+  </modal>
+</div>

@@ -1,0 +1,125 @@
+{
+	"uploadDate": "183-07-2019",
+	"activityDetails": [
+		{
+			"strategyCode": "ST-142310",
+			"executionDate": "183-07-2019",
+			"amountCreated": {
+				"amount": 8
+			},
+			"activeCouponNumber": 0,
+			"comment": "Comentario cupones 0",
+			"priceAmount": {
+				"amount": 100.1234
+			}
+		},
+		{
+			"strategyCode": "ST-142311",
+			"executionDate": "183-07-2019",
+			"amountCreated": {
+				"amount": 9
+			},
+			"activeCouponNumber": 1,
+			"comment": "Comentario cupones 1",
+			"priceAmount": {
+				"amount": 101.1234
+			}
+		},
+		{
+			"strategyCode": "ST-142312",
+			"executionDate": "183-07-2019",
+			"amountCreated": {
+				"amount": 10
+			},
+			"activeCouponNumber": 2,
+			"comment": "Comentario cupones 2",
+			"priceAmount": {
+				"amount": 102.1234
+			}
+		},
+		{
+			"strategyCode": "ST-142313",
+			"executionDate": "183-07-2019",
+			"amountCreated": {
+				"amount": 11
+			},
+			"activeCouponNumber": 3,
+			"comment": "Comentario cupones 3",
+			"priceAmount": {
+				"amount": 103.1234
+			}
+		},
+		{
+			"strategyCode": "ST-142314",
+			"executionDate": "183-07-2019",
+			"amountCreated": {
+				"amount": 12
+			},
+			"activeCouponNumber": 4,
+			"comment": "Comentario cupones 4",
+			"priceAmount": {
+				"amount": 104.1234
+			}
+		},
+		{
+			"strategyCode": "ST-142315",
+			"executionDate": "183-07-2019",
+			"amountCreated": {
+				"amount": 13
+			},
+			"activeCouponNumber": 5,
+			"comment": "Comentario cupones 5",
+			"priceAmount": {
+				"amount": 105.1234
+			}
+		},
+		{
+			"strategyCode": "ST-142316",
+			"executionDate": "183-07-2019",
+			"amountCreated": {
+				"amount": 14
+			},
+			"activeCouponNumber": 6,
+			"comment": "Comentario cupones 6",
+			"priceAmount": {
+				"amount": 106.1234
+			}
+		},
+		{
+			"strategyCode": "ST-142317",
+			"executionDate": "183-07-2019",
+			"amountCreated": {
+				"amount": 15
+			},
+			"activeCouponNumber": 7,
+			"comment": "Comentario cupones 7",
+			"priceAmount": {
+				"amount": 107.1234
+			}
+		},
+		{
+			"strategyCode": "ST-142318",
+			"executionDate": "183-07-2019",
+			"amountCreated": {
+				"amount": 16
+			},
+			"activeCouponNumber": 8,
+			"comment": "Comentario cupones 8",
+			"priceAmount": {
+				"amount": 108.1234
+			}
+		},
+		{
+			"strategyCode": "ST-142319",
+			"executionDate": "183-07-2019",
+			"amountCreated": {
+				"amount": 17
+			},
+			"activeCouponNumber": 9,
+			"comment": "Comentario cupones 9",
+			"priceAmount": {
+				"amount": 109.1234
+			}
+		}
+	]
+}

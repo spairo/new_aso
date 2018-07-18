@@ -1,0 +1,891 @@
+[
+  {
+      "cdUsuario": null,
+      "nuPermisoUsuario": null,
+      "cdPermisoUsuario": null,
+      "idEstrategia": 6,
+      "cdSerie": "SPY611R DC021",
+      "tpPayoff": "Twin Win",
+      "imPrecio": null,
+      "fhVencimiento": null,
+      "cdDivisa": null,
+      "diferencia": null,
+      "fhPrecio": null,
+      "stActivo": null,
+      "detallePayOff": null,
+      "activos":[
+	      {
+		      "nbActivo": "SPDR S&P 500 ETF Trust",
+		      "precioActivo": 999999.00,
+		      "diferencia": null
+				}
+      ],
+			"precios": null,
+			"semaforo": null,
+			"estatusEdicion": null,
+			"selectEmission": true
+    },
+    {
+      "cdSerie": "ggg",
+      "tpPayoff": "Call Spread Escalonado",
+      "imPrecio": 0,
+      "fhVencimiento": 1492750800000,
+      "cdDivisa": "MXN",
+      "diferencia": 0,
+      "fhPrecio": null,
+      "stActivo": true,
+      "detallePayOff": {
+        "cdComplejidad": "M",
+        "nbComplejidad": "Media",
+        "capitalProtegido": 100,
+        "volatilidad": false,
+        "liquidez": true,
+        "cdCaracteristicaBpp": "GF",
+        "nbCaracteristicaBpp": "Generación Flujo",
+        "grupoSubyacente": {
+          "nuCatalogo": 0,
+          "cdCatalogo": "RV",
+          "txCatalogo": "Renta Variable",
+          "txComentario": "Renta Variable",
+          "stActivo": true,
+          "nuNivel": null
+        },
+        "plazo": "CP"
+      },
+      "activos": [
+        {
+          "nbActivo": "Otra Prueba de 1",
+          "precioActivo": 0,
+          "diferencia": 0
+        }
+      ],
+      "precios": {
+        "fecha": [],
+        "precio": []
+      },
+			"semaforo": null,
+			"estatusEdicion": null,
+			"selectEmission": true
+    },
+    {
+      "cdSerie": "S501",
+      "tpPayoff": "Pirámide",
+      "imPrecio": 0,
+      "fhVencimiento": 1483250400000,
+      "cdDivisa": "MXN",
+      "diferencia": 0,
+      "fhPrecio": null,
+      "stActivo": false,
+      "detallePayOff": {
+        "cdComplejidad": "MB",
+        "nbComplejidad": "Muy baja",
+        "capitalProtegido": 100,
+        "volatilidad": false,
+        "liquidez": false,
+        "cdCaracteristicaBpp": "null",
+        "nbCaracteristicaBpp": "null",
+        "grupoSubyacente": {
+          "nuCatalogo": 0,
+          "cdCatalogo": "DEU",
+          "txCatalogo": "Deuda",
+          "txComentario": "Deuda",
+          "stActivo": true,
+          "nuNivel": null
+        },
+        "plazo": "CP"
+      },
+      "activos": [
+        {
+          "nbActivo": "Tasa/Equity",
+          "precioActivo": 0,
+          "diferencia": 0
+        }
+      ],
+      "precios": {
+        "fecha": [],
+        "precio": []
+      },
+			"semaforo": null,
+			"estatusEdicion": null,
+			"selectEmission": true
+    },
+    {
+      "cdSerie": "DVSC-526",
+      "tpPayoff": "Call Spread Escalonado",
+      "imPrecio": 0,
+      "fhVencimiento": 1492664400000,
+      "cdDivisa": "MXN",
+      "diferencia": 0,
+      "fhPrecio": null,
+      "stActivo": true,
+      "detallePayOff": {
+        "cdComplejidad": "M",
+        "nbComplejidad": "Media",
+        "capitalProtegido": 65,
+        "volatilidad": false,
+        "liquidez": false,
+        "cdCaracteristicaBpp": "null",
+        "nbCaracteristicaBpp": "null",
+        "grupoSubyacente": {
+          "nuCatalogo": 0,
+          "cdCatalogo": "RV",
+          "txCatalogo": "Renta Variable",
+          "txComentario": "Renta Variable",
+          "stActivo": true,
+          "nuNivel": null
+        },
+        "plazo": "CP"
+      },
+      "activos": [
+        {
+          "nbActivo": "EUR/USD",
+          "precioActivo": 0,
+          "diferencia": 0
+        }
+      ],
+      "precios": {
+        "fecha": [],
+        "precio": []
+      },
+			"semaforo": null,
+			"estatusEdicion": null,
+			"selectEmission": true
+    },
+    {
+      "cdSerie": "DVSC-231",
+      "tpPayoff": "Call Spread Escalonado",
+      "imPrecio": 0,
+      "fhVencimiento": 1492664400000,
+      "cdDivisa": "MXN",
+      "diferencia": 0,
+      "fhPrecio": null,
+      "stActivo": true,
+      "detallePayOff": {
+        "cdComplejidad": "M",
+        "nbComplejidad": "Media",
+        "capitalProtegido": 100,
+        "volatilidad": false,
+        "liquidez": false,
+        "cdCaracteristicaBpp": "null",
+        "nbCaracteristicaBpp": "null",
+        "grupoSubyacente": {
+          "nuCatalogo": 0,
+          "cdCatalogo": "RV",
+          "txCatalogo": "Renta Variable",
+          "txComentario": "Renta Variable",
+          "stActivo": true,
+          "nuNivel": null
+        },
+        "plazo": "CP"
+      },
+      "activos": [
+        {
+          "nbActivo": "EUR/USD",
+          "precioActivo": 0,
+          "diferencia": 0
+        }
+      ],
+      "precios": {
+        "fecha": [],
+        "precio": []
+      },
+			"semaforo": null,
+			"estatusEdicion": null,
+			"selectEmission": true
+    },
+    {
+      "cdSerie": "DVSC58",
+      "tpPayoff": "Call Spread Escalonado",
+      "imPrecio": 0,
+      "fhVencimiento": 1492664400000,
+      "cdDivisa": "MXN",
+      "diferencia": 0,
+      "fhPrecio": null,
+      "stActivo": true,
+      "detallePayOff": {
+        "cdComplejidad": "M",
+        "nbComplejidad": "Media",
+        "capitalProtegido": 100,
+        "volatilidad": false,
+        "liquidez": false,
+        "cdCaracteristicaBpp": "null",
+        "nbCaracteristicaBpp": "null",
+        "grupoSubyacente": {
+          "nuCatalogo": 0,
+          "cdCatalogo": "RV",
+          "txCatalogo": "Renta Variable",
+          "txComentario": "Renta Variable",
+          "stActivo": true,
+          "nuNivel": null
+        },
+        "plazo": "CP"
+      },
+      "activos": [
+        {
+          "nbActivo": "EUR/USD",
+          "precioActivo": 0,
+          "diferencia": 0
+        }
+      ],
+      "precios": {
+        "fecha": [],
+        "precio": []
+      }
+    },
+    {
+      "cdSerie": "DVSC-22",
+      "tpPayoff": "Call KO Up",
+      "imPrecio": 0,
+      "fhVencimiento": 1492664400000,
+      "cdDivisa": "MXN",
+      "diferencia": 0,
+      "fhPrecio": null,
+      "stActivo": true,
+      "detallePayOff": {
+        "cdComplejidad": "M",
+        "nbComplejidad": "Media",
+        "capitalProtegido": 100,
+        "volatilidad": false,
+        "liquidez": false,
+        "cdCaracteristicaBpp": "null",
+        "nbCaracteristicaBpp": "null",
+        "grupoSubyacente": {
+          "nuCatalogo": 0,
+          "cdCatalogo": "RV",
+          "txCatalogo": "Renta Variable",
+          "txComentario": "Renta Variable",
+          "stActivo": true,
+          "nuNivel": null
+        },
+        "plazo": "CP"
+      },
+      "activos": [
+        {
+          "nbActivo": "",
+          "precioActivo": 0,
+          "diferencia": 0
+        }
+      ],
+      "precios": {
+        "fecha": [],
+        "precio": []
+      }
+    },
+    {
+      "cdSerie": "DVSC-23",
+      "tpPayoff": "Call Spread Escalonado",
+      "imPrecio": 0,
+      "fhVencimiento": 1493355600000,
+      "cdDivisa": "MXN",
+      "diferencia": 0,
+      "fhPrecio": null,
+      "stActivo": true,
+      "detallePayOff": {
+        "cdComplejidad": "MB",
+        "nbComplejidad": "Muy baja",
+        "capitalProtegido": 65,
+        "volatilidad": false,
+        "liquidez": false,
+        "cdCaracteristicaBpp": "null",
+        "nbCaracteristicaBpp": "null",
+        "grupoSubyacente": {
+          "nuCatalogo": 0,
+          "cdCatalogo": "RV",
+          "txCatalogo": "Renta Variable",
+          "txComentario": "Renta Variable",
+          "stActivo": true,
+          "nuNivel": null
+        },
+        "plazo": "CP"
+      },
+      "activos": [
+        {
+          "nbActivo": "BRL/MXN",
+          "precioActivo": 0,
+          "diferencia": 0
+        }
+      ],
+      "precios": {
+        "fecha": [],
+        "precio": []
+      }
+    },
+    {
+      "cdSerie": "589",
+      "tpPayoff": "Call Spread Escalonado",
+      "imPrecio": 0,
+      "fhVencimiento": 1483250400000,
+      "cdDivisa": "MXN",
+      "diferencia": 0,
+      "fhPrecio": null,
+      "stActivo": false,
+      "detallePayOff": {
+        "cdComplejidad": "MB",
+        "nbComplejidad": "Muy baja",
+        "capitalProtegido": 100,
+        "volatilidad": false,
+        "liquidez": false,
+        "cdCaracteristicaBpp": "null",
+        "nbCaracteristicaBpp": "null",
+        "grupoSubyacente": {
+          "nuCatalogo": 0,
+          "cdCatalogo": "RV",
+          "txCatalogo": "Renta Variable",
+          "txComentario": "Renta Variable",
+          "stActivo": true,
+          "nuNivel": null
+        },
+        "plazo": "CP"
+      },
+      "activos": [
+        {
+          "nbActivo": "GBP/USD",
+          "precioActivo": 0,
+          "diferencia": 0
+        }
+      ],
+      "precios": {
+        "fecha": [],
+        "precio": []
+      }
+    },
+    {
+      "cdSerie": "ST-PCEP20",
+      "tpPayoff": "Call KO Up",
+      "imPrecio": 99.92,
+      "fhVencimiento": 1493614800000,
+      "cdDivisa": "MXN",
+      "diferencia": -2.62,
+      "fhPrecio": 1492405200000,
+      "stActivo": true,
+      "detallePayOff": {
+        "cdComplejidad": "A",
+        "nbComplejidad": "Alta",
+        "capitalProtegido": 90,
+        "volatilidad": true,
+        "liquidez": true,
+        "cdCaracteristicaBpp": "PC",
+        "nbCaracteristicaBpp": "Protección de Capital",
+        "grupoSubyacente": {
+          "nuCatalogo": 0,
+          "cdCatalogo": "RV",
+          "txCatalogo": "Renta Variable",
+          "txComentario": "Renta Variable",
+          "stActivo": true,
+          "nuNivel": null
+        },
+        "plazo": "CP"
+      },
+      "activos": [
+        {
+          "nbActivo": "",
+          "precioActivo": 0,
+          "diferencia": 0
+        }
+      ],
+      "precios": {
+        "fecha": [
+          1492232400000,
+          1492318800000,
+          1492405200000
+        ],
+        "precio": [
+          [
+            98.26,
+            102.54,
+            99.92
+          ]
+        ]
+      }
+    },
+    {
+      "cdSerie": "cc",
+      "tpPayoff": "Call Corto",
+      "imPrecio": 100.26,
+      "fhVencimiento": 1488434400000,
+      "cdDivisa": "MXN",
+      "diferencia": 4.21,
+      "fhPrecio": 1492405200000,
+      "stActivo": false,
+      "detallePayOff": {
+        "cdComplejidad": "MB",
+        "nbComplejidad": "Muy baja",
+        "capitalProtegido": 90,
+        "volatilidad": true,
+        "liquidez": true,
+        "cdCaracteristicaBpp": "null",
+        "nbCaracteristicaBpp": "null",
+        "grupoSubyacente": {
+          "nuCatalogo": 0,
+          "cdCatalogo": "RV",
+          "txCatalogo": "Renta Variable",
+          "txComentario": "Renta Variable",
+          "stActivo": true,
+          "nuNivel": null
+        },
+        "plazo": "CP"
+      },
+      "activos": [
+        {
+          "nbActivo": "USD/MXN",
+          "precioActivo": 0,
+          "diferencia": 0
+        }
+      ],
+      "precios": {
+        "fecha": [
+          1492232400000,
+          1492318800000,
+          1492405200000
+        ],
+        "precio": [
+          [
+            104.58,
+            96.04,
+            100.26
+          ]
+        ]
+      }
+    },
+    {
+      "cdSerie": "12-78",
+      "tpPayoff": "Dual",
+      "imPrecio": 100.43,
+      "fhVencimiento": 1488434400000,
+      "cdDivisa": "MXN",
+      "diferencia": 2.4,
+      "fhPrecio": 1492405200000,
+      "stActivo": false,
+      "detallePayOff": {
+        "cdComplejidad": "A",
+        "nbComplejidad": "Alta",
+        "capitalProtegido": 80,
+        "volatilidad": true,
+        "liquidez": true,
+        "cdCaracteristicaBpp": "PC",
+        "nbCaracteristicaBpp": "Protección de Capital",
+        "grupoSubyacente": {
+          "nuCatalogo": 0,
+          "cdCatalogo": "RV",
+          "txCatalogo": "Renta Variable",
+          "txComentario": "Renta Variable",
+          "stActivo": true,
+          "nuNivel": null
+        },
+        "plazo": "CP"
+      },
+      "activos": [
+        {
+          "nbActivo": "USD/MXN",
+          "precioActivo": 0,
+          "diferencia": 0
+        }
+      ],
+      "precios": {
+        "fecha": [
+          1492232400000,
+          1492318800000,
+          1492405200000
+        ],
+        "precio": [
+          [
+            97.12,
+            98.02,
+            100.43
+          ]
+        ]
+      }
+    },
+    {
+      "cdSerie": "-",
+      "tpPayoff": "Call Corto",
+      "imPrecio": 99.25,
+      "fhVencimiento": 1488434400000,
+      "cdDivisa": "MXN",
+      "diferencia": -6.23,
+      "fhPrecio": 1492405200000,
+      "stActivo": false,
+      "detallePayOff": {
+        "cdComplejidad": "MB",
+        "nbComplejidad": "Muy baja",
+        "capitalProtegido": 90,
+        "volatilidad": true,
+        "liquidez": true,
+        "cdCaracteristicaBpp": "null",
+        "nbCaracteristicaBpp": "null",
+        "grupoSubyacente": {
+          "nuCatalogo": 0,
+          "cdCatalogo": "RV",
+          "txCatalogo": "Renta Variable",
+          "txComentario": "Renta Variable",
+          "stActivo": true,
+          "nuNivel": null
+        },
+        "plazo": "CP"
+      },
+      "activos": [
+        {
+          "nbActivo": "USD/MXN",
+          "precioActivo": 0,
+          "diferencia": 0
+        }
+      ],
+      "precios": {
+        "fecha": [
+          1492232400000,
+          1492318800000,
+          1492405200000
+        ],
+        "precio": [
+          [
+            108.68,
+            105.44,
+            99.25
+          ]
+        ]
+      }
+    },
+    {
+      "cdSerie": "12-88",
+      "tpPayoff": "Dual",
+      "imPrecio": 99.31,
+      "fhVencimiento": 1488434400000,
+      "cdDivisa": "MXN",
+      "diferencia": 0.84,
+      "fhPrecio": 1492405200000,
+      "stActivo": false,
+      "detallePayOff": {
+        "cdComplejidad": "MB",
+        "nbComplejidad": "Muy baja",
+        "capitalProtegido": 0,
+        "volatilidad": false,
+        "liquidez": false,
+        "cdCaracteristicaBpp": "null",
+        "nbCaracteristicaBpp": "null",
+        "grupoSubyacente": {
+          "nuCatalogo": 0,
+          "cdCatalogo": "RV",
+          "txCatalogo": "Renta Variable",
+          "txComentario": "Renta Variable",
+          "stActivo": true,
+          "nuNivel": null
+        },
+        "plazo": "CP"
+      },
+      "activos": [
+        {
+          "nbActivo": "USD/MXN",
+          "precioActivo": 0,
+          "diferencia": 0
+        }
+      ],
+      "precios": {
+        "fecha": [
+          1492232400000,
+          1492318800000,
+          1492405200000
+        ],
+        "precio": [
+          [
+            96.85,
+            98.47,
+            99.31
+          ]
+        ]
+      }
+    },
+    {
+      "cdSerie": "ST-PCEP19",
+      "tpPayoff": "-",
+      "imPrecio": 100.94,
+      "fhVencimiento": 1493355600000,
+      "cdDivisa": "MXN",
+      "diferencia": -0.36,
+      "fhPrecio": 1492405200000,
+      "stActivo": true,
+      "detallePayOff": {
+        "cdComplejidad": "M",
+        "nbComplejidad": "Media",
+        "capitalProtegido": 85,
+        "volatilidad": true,
+        "liquidez": true,
+        "cdCaracteristicaBpp": "GF",
+        "nbCaracteristicaBpp": "Generación Flujo",
+        "grupoSubyacente": {
+          "nuCatalogo": 0,
+          "cdCatalogo": "RV",
+          "txCatalogo": "Renta Variable",
+          "txComentario": "Renta Variable",
+          "stActivo": true,
+          "nuNivel": null
+        },
+        "plazo": "CP"
+      },
+      "activos": [
+        {
+          "nbActivo": "",
+          "precioActivo": 0,
+          "diferencia": 0
+        }
+      ],
+      "precios": {
+        "fecha": [
+          1492232400000,
+          1492318800000,
+          1492405200000
+        ],
+        "precio": [
+          [
+            98.76,
+            101.3,
+            100.94
+          ]
+        ]
+      }
+    },
+    {
+      "cdSerie": "ST-DEVPV0501",
+      "tpPayoff": "Wedding Cake RAC DKO",
+      "imPrecio": 99.65,
+      "fhVencimiento": 1489989600000,
+      "cdDivisa": "MXN",
+      "diferencia": 1.64,
+      "fhPrecio": 1492405200000,
+      "stActivo": false,
+      "detallePayOff": {
+        "cdComplejidad": "MB",
+        "nbComplejidad": "Muy baja",
+        "capitalProtegido": 91,
+        "volatilidad": false,
+        "liquidez": true,
+        "cdCaracteristicaBpp": "null",
+        "nbCaracteristicaBpp": "null",
+        "grupoSubyacente": {
+          "nuCatalogo": 0,
+          "cdCatalogo": "RV",
+          "txCatalogo": "Renta Variable",
+          "txComentario": "Renta Variable",
+          "stActivo": true,
+          "nuNivel": null
+        },
+        "plazo": "CP"
+      },
+      "activos": [
+        {
+          "nbActivo": "-",
+          "precioActivo": 0,
+          "diferencia": 0
+        }
+      ],
+      "precios": {
+        "fecha": [
+          1492232400000,
+          1492318800000,
+          1492405200000
+        ],
+        "precio": [
+          [
+            99.86,
+            98.02,
+            99.65
+          ]
+        ]
+      }
+    },
+    {
+      "cdSerie": "ST-PCEP18",
+      "tpPayoff": "-",
+      "imPrecio": 99.86,
+      "fhVencimiento": 1490594400000,
+      "cdDivisa": "MXN",
+      "diferencia": -6.2,
+      "fhPrecio": 1492405200000,
+      "stActivo": false,
+      "detallePayOff": {
+        "cdComplejidad": "MB",
+        "nbComplejidad": "Muy baja",
+        "capitalProtegido": 100,
+        "volatilidad": false,
+        "liquidez": false,
+        "cdCaracteristicaBpp": "null",
+        "nbCaracteristicaBpp": "null",
+        "grupoSubyacente": {
+          "nuCatalogo": 0,
+          "cdCatalogo": "RV",
+          "txCatalogo": "Renta Variable",
+          "txComentario": "Renta Variable",
+          "stActivo": true,
+          "nuNivel": null
+        },
+        "plazo": "CP"
+      },
+      "activos": [
+        {
+          "nbActivo": "-",
+          "precioActivo": 0,
+          "diferencia": 0
+        }
+      ],
+      "precios": {
+        "fecha": [
+          1492232400000,
+          1492318800000,
+          1492405200000
+        ],
+        "precio": [
+          [
+            97.98,
+            106.04,
+            99.86
+          ]
+        ]
+      }
+    },
+    {
+      "cdSerie": "12-9",
+      "tpPayoff": "Call - Put Spread",
+      "imPrecio": 99.64,
+      "fhVencimiento": 1490940000000,
+      "cdDivisa": "MXN",
+      "diferencia": 6.57,
+      "fhPrecio": 1492405200000,
+      "stActivo": true,
+      "detallePayOff": {
+        "cdComplejidad": "MB",
+        "nbComplejidad": "Muy baja",
+        "capitalProtegido": 100,
+        "volatilidad": false,
+        "liquidez": false,
+        "cdCaracteristicaBpp": "null",
+        "nbCaracteristicaBpp": "null",
+        "grupoSubyacente": {
+          "nuCatalogo": 0,
+          "cdCatalogo": "DIV",
+          "txCatalogo": "Divisa",
+          "txComentario": "Divisa",
+          "stActivo": true,
+          "nuNivel": null
+        },
+        "plazo": "CP"
+      },
+      "activos": [
+        {
+          "nbActivo": "Energy Select Sector Index",
+          "precioActivo": 0,
+          "diferencia": 0
+        }
+      ],
+      "precios": {
+        "fecha": [
+          1492232400000,
+          1492318800000,
+          1492405200000
+        ],
+        "precio": [
+          [
+            102.77,
+            93.09,
+            99.64
+          ]
+        ]
+      }
+    },
+    {
+      "cdSerie": "21-98",
+      "tpPayoff": "Call - Put Spread",
+      "imPrecio": 100.67,
+      "fhVencimiento": 1488434400000,
+      "cdDivisa": "MXN",
+      "diferencia": 1.01,
+      "fhPrecio": 1492405200000,
+      "stActivo": false,
+      "detallePayOff": {
+        "cdComplejidad": "MB",
+        "nbComplejidad": "Muy baja",
+        "capitalProtegido": 100,
+        "volatilidad": false,
+        "liquidez": false,
+        "cdCaracteristicaBpp": "null",
+        "nbCaracteristicaBpp": "null",
+        "grupoSubyacente": {
+          "nuCatalogo": 0,
+          "cdCatalogo": "DIV",
+          "txCatalogo": "Divisa",
+          "txComentario": "Divisa",
+          "stActivo": true,
+          "nuNivel": null
+        },
+        "plazo": "CP"
+      },
+      "activos": [
+        {
+          "nbActivo": "EUR/USD",
+          "precioActivo": 0,
+          "diferencia": 0
+        }
+      ],
+      "precios": {
+        "fecha": [
+          1492232400000,
+          1492318800000,
+          1492405200000
+        ],
+        "precio": [
+          [
+            99.47,
+            99.66,
+            100.67
+          ]
+        ]
+      }
+    },
+    {
+      "cdSerie": "21-96",
+      "tpPayoff": "Call Corto",
+      "imPrecio": 100.04,
+      "fhVencimiento": 1488434400000,
+      "cdDivisa": "MXN",
+      "diferencia": 3.26,
+      "fhPrecio": 1492405200000,
+      "stActivo": false,
+      "detallePayOff": {
+        "cdComplejidad": "MB",
+        "nbComplejidad": "Muy baja",
+        "capitalProtegido": 100,
+        "volatilidad": true,
+        "liquidez": true,
+        "cdCaracteristicaBpp": "null",
+        "nbCaracteristicaBpp": "null",
+        "grupoSubyacente": {
+          "nuCatalogo": 0,
+          "cdCatalogo": "RV",
+          "txCatalogo": "Renta Variable",
+          "txComentario": "Renta Variable",
+          "stActivo": true,
+          "nuNivel": null
+        },
+        "plazo": "CP"
+      },
+      "activos": [
+        {
+          "nbActivo": "USD/MXN",
+          "precioActivo": 0,
+          "diferencia": 0
+        }
+      ],
+      "precios": {
+        "fecha": [
+          1492232400000,
+          1492318800000,
+          1492405200000
+        ],
+        "precio": [
+          [
+            100.94,
+            96.78,
+            100.04
+          ]
+        ]
+      }
+    }
+  ]

@@ -1,0 +1,174 @@
+{
+	"resumenAreasInternas": [{
+		"nuOrden": 2,
+		"nbEtiqueta": "Estrategia",
+		"tpValor": "TEXT",
+		"valor": "ST-99848"
+	}, {
+		"nuOrden": 3,
+		"nbEtiqueta": "Clave Bancomer/Indeval",
+		"tpValor": "TEXT",
+		"valor": "S1717"
+	}, {
+		"nuOrden": 6,
+		"nbEtiqueta": "Fecha de Emisión",
+		"tpValor": "DATE",
+		"valor": "21-mayo-2017"
+	}, {
+		"nuOrden": 9,
+		"nbEtiqueta": "Monto",
+		"tpValor": "CURRENCY",
+		"valor": "25700000"
+	}, {
+		"nuOrden": 10,
+		"nbEtiqueta": "Moneda de Emisión",
+		"tpValor": "SELECT",
+		"valor": "NEW_ISSUANCE_CURRENCY"
+	}, {
+		"nuOrden": 14,
+		"nbEtiqueta": "Activo de Referencia",
+		"tpValor": "MODAL",
+		"valor": "0"
+	}, {
+		"nuOrden": 15,
+		"nbEtiqueta": "Pay-off",
+		"tpValor": "TEXT",
+		"valor": "Remains on Hold"
+	}, {
+		"nuOrden": 22,
+		"nbEtiqueta": "Vehículo",
+		"tpValor": "TEXT",
+		"valor": "JBACOMERS 17"
+	}, {
+		"nuOrden": 25,
+		"nbEtiqueta": "Tasa para cálculo GAT",
+		"tpValor": "PORCENT",
+		"valor": "9.25"
+	}, {
+		"nuOrden": 28,
+		"nbEtiqueta": "Valor Nominal ",
+		"tpValor": "CURRENCY",
+		"valor": "100"
+	}, {
+		"nuOrden": 29,
+		"nbEtiqueta": "Capital Protegido a Vencimiento",
+		"tpValor": "PORCENT",
+		"valor": "100"
+	}, {
+		"nuOrden": 31,
+		"nbEtiqueta": "SIVA",
+		"tpValor": "TEXT",
+		"valor": "67500001"
+	}, {
+		"nuOrden": 32,
+		"nbEtiqueta": "ID VALMER",
+		"tpValor": "TEXT",
+		"valor": "253"
+	}, {
+		"nuOrden": 34,
+		"nbEtiqueta": "Número de Títulos",
+		"tpValor": "CURRENCY",
+		"valor": "257000"
+	}, {
+		"nuOrden": 38,
+		"nbEtiqueta": "Precio de Colocación",
+		"tpValor": "CURRENCY",
+		"valor": "100"
+	}, {
+		"nuOrden": 44,
+		"nbEtiqueta": "Tasa GAT Real",
+		"tpValor": "PORCENT",
+		"valor": "2.1488"
+	}, {
+		"nuOrden": 48,
+		"nbEtiqueta": "Tasa GAT Nominal",
+		"tpValor": "PORCENT",
+		"valor": null
+	}, {
+		"nuOrden": 57,
+		"nbEtiqueta": "Perfil Riesgo",
+		"tpValor": "NUMBER",
+		"valor": "1"
+	}, {
+		"nuOrden": 61,
+		"nbEtiqueta": "Fecha de Vencimiento",
+		"tpValor": "DATE",
+		"valor": "22-noviembre-2017"
+	}, {
+		"nuOrden": 4,
+		"nbEtiqueta": "Clave CNBV",
+		"tpValor": "TEXT",
+		"valor": "17-17"
+	}, {
+		"nuOrden": 47,
+		"nbEtiqueta": "Clave BMV",
+		"tpValor": "TEXT",
+		"valor": "NA"
+	}],
+	"resumenClientes": [{
+		"nuOrden": 3,
+		"nbEtiqueta": "Clave Bancomer/Indeval",
+		"tpValor": "TEXT",
+		"valor": "S1717"
+	}, {
+		"nuOrden": 6,
+		"nbEtiqueta": "Fecha de Emisión",
+		"tpValor": "DATE",
+		"valor": "21-mayo-2017"
+	}, {
+		"nuOrden": 9,
+		"nbEtiqueta": "Monto",
+		"tpValor": "CURRENCY",
+		"valor": "25700000"
+	}, {
+		"nuOrden": 10,
+		"nbEtiqueta": "Moneda de Emisión",
+		"tpValor": "SELECT",
+		"valor": "NEW_ISSUANCE_CURRENCY"
+	}, {
+		"nuOrden": 14,
+		"nbEtiqueta": "Activo de Referencia",
+		"tpValor": "MODAL",
+		"valor": "0"
+	}, {
+		"nuOrden": 15,
+		"nbEtiqueta": "Pay-off",
+		"tpValor": "TEXT",
+		"valor": "Remains on Hold"
+	}, {
+		"nuOrden": 22,
+		"nbEtiqueta": "Vehículo",
+		"tpValor": "TEXT",
+		"valor": "JBACOMERS 17"
+	}, {
+		"nuOrden": 28,
+		"nbEtiqueta": "Valor Nominal ",
+		"tpValor": "CURRENCY",
+		"valor": "100"
+	}, {
+		"nuOrden": 29,
+		"nbEtiqueta": "Capital Protegido a Vencimiento",
+		"tpValor": "PORCENT",
+		"valor": "100"
+	}, {
+		"nuOrden": 34,
+		"nbEtiqueta": "Número de Títulos",
+		"tpValor": "CURRENCY",
+		"valor": "257000"
+	}, {
+		"nuOrden": 38,
+		"nbEtiqueta": "Precio de Colocación",
+		"tpValor": "CURRENCY",
+		"valor": "100"
+	}, {
+		"nuOrden": 61,
+		"nbEtiqueta": "Fecha de Vencimiento",
+		"tpValor": "DATE",
+		"valor": "22-noviembre-2017"
+	}, {
+		"nuOrden": 47,
+		"nbEtiqueta": "Clave BMV",
+		"tpValor": "TEXT",
+		"valor": "NA"
+	}]
+}

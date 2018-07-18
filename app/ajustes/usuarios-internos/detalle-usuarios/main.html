@@ -1,0 +1,37 @@
+
+<div class="animated fadeIn" ng-controller="detalleUsuariosController as main">
+  <div class="breadcrumb"><a nav="#!/">Home  &sol;</a><a nav="#!/usuarios-internos">Usuarios Internos &sol;</a><span class="selected">Área Especialistas</span>
+  </div>
+  <h1>
+  </h1>
+  <div class="col-12 mb-20">
+    <div class="col-8">
+      <button class="btn btn-large" ng-click="main.addUser.open()">Nuevo usuario</button>
+    </div>
+    <div class="col-4 pr-0">
+      <div class="row">
+        <input class="search mr-10" ng-model="main.searchByuser" type="search"/>
+      </div>
+    </div>
+  </div>
+  <div class="col-3" ng-repeat="user in main.users | filter:main.searchByuser">
+    <div class="uCard">
+      <div class="col-4">
+        <div class="circleProf"><i class="xl-user"></i>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row"><span class="txt14 mt-10">{{user.name}}</span></div>
+        <div class="row"><span class="txt13 mt-5 txtGray">{{user.area}}</span></div>
+      </div>
+      <div class="col-1"><i class="edit iconEdit" ng-click="main.editUser.open(); main.getDetail(user.ID);"></i>
+      </div>
+    </div>
+  </div>
+  <modal name="main.addUser" size="'medium'" on-close="main.userDetail = {}">
+    <ng-include src="'app/ajustes/usuarios-internos/modal/new-user.html'"></ng-include>
+  </modal>
+  <modal name="main.editUser" size="'medium'" on-close="main.userDetail = {}">
+    <ng-include src="'app/ajustes/usuarios-internos/modal/edit-user.html'"></ng-include>
+  </modal>
+</div>

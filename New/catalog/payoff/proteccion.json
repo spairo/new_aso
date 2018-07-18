@@ -1,0 +1,23 @@
+[
+	{
+		"nuCatalogo": 1,
+		"cdCatalogo": null,
+		"txCatalogo": "Opción 1",
+		"txComentario": null,
+		"stActivo": null
+	},
+	{
+		"nuCatalogo": 2,
+		"cdCatalogo": null,
+		"txCatalogo": "Opción 2",
+		"txComentario": null,
+		"stActivo": null
+	},
+	{
+		"nuCatalogo": 73,
+		"cdCatalogo": null,
+		"txCatalogo": "-",
+		"txComentario": null,
+		"stActivo": null
+	}
+]

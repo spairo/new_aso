@@ -1,0 +1,49 @@
+{
+  "code": 400,
+  "message": "0 amortizaciones fueron registradas exitosamente. <br> Las amortizaciones no pudieron ser registradas.",
+  "title": "Alerta",
+  "listaErrores": [
+    {
+      "code": 901,
+      "message": "Archivo incorrecto, archivo de tipo CSV.",
+      "title": "Alerta",
+      "listaErrores": null
+    },
+    {
+      "code": 901,
+      "message": "Archivo incorrecto, archivo de tipo CSV.",
+      "title": "Alerta",
+      "listaErrores": null
+    },
+    {
+      "code": 901,
+      "message": "Archivo incorrecto, archivo de tipo CSV.",
+      "title": "Alerta",
+      "listaErrores": null
+    },
+    {
+      "code": 901,
+      "message": "Archivo incorrecto, archivo de tipo CSV.",
+      "title": "Alerta",
+      "listaErrores": null
+    },
+    {
+      "code": 901,
+      "message": "Archivo incorrecto, archivo de tipo CSV.",
+      "title": "Alerta",
+      "listaErrores": null
+    },
+    {
+      "code": 901,
+      "message": "Archivo incorrecto, archivo de tipo CSV.",
+      "title": "Alerta",
+      "listaErrores": null
+    },
+    {
+      "code": 901,
+      "message": "Archivo incorrecto, archivo de tipo CSV.",
+      "title": "Alerta",
+      "listaErrores": null
+    }
+  ]
+}

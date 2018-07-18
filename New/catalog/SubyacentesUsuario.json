@@ -1,0 +1,23 @@
+[
+	{
+		"nuCatalogo": 1,
+		"cdCatalogo": "TGRM005_SUBYACENTE",
+		"txCatalogo": "FX PA",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 2,
+		"cdCatalogo": "TGRM005_SUBYACENTE",
+		"txCatalogo": "RATES"
+	},
+	{
+		"nuCatalogo": 3,
+		"cdCatalogo": "TGRM005_SUBYACENTE",
+		"txCatalogo": "EQUITY"
+	},
+	{
+		"nuCatalogo": 4,
+		"cdCatalogo": "TGRM005_SUBYACENTE",
+		"txCatalogo": "Hybrid"
+	}
+]

@@ -1,0 +1,20 @@
+
+<h1>Historial de Cupones</h1>
+<div class="scroll-vertical-small size-350 mt-20">
+  <table>
+    <thead>
+      <tr>
+        <th>Número de cupón</th>
+        <th>Fecha de cupón</th>
+        <th>Cupón pagado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="field in main.couponsHistory">
+        <td>{{ field.activeCouponNumber }}</td>
+        <td>{{ field.executionDate}}</td>
+        <td>{{ field.priceAmount.amount }}%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

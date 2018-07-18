@@ -1,0 +1,44 @@
+
+<div class="instruction">Escribe el nombre de la nueva área y selecciona su ávatar</div>
+<div class="col-1">
+  <label>Ávatar</label>
+  <div class="circleAvatar bgBlueP"><i class="sales tooltip iconAvatar">
+      <div class="content avatarToolt">
+        <div class="row">
+          <div class="avaTooltip bgGreen"><i class="structuring avaIcon"></i>
+          </div>
+          <div class="avaTooltip bgBlueB"><i class="values avaIcon"></i>
+          </div>
+          <div class="avaTooltip bgBlueP"><i class="sales avaIcon"></i>
+          </div>
+          <div class="avaTooltip bgOrange"><i class="specialist avaIcon"></i>
+          </div>
+        </div>
+      </div></i>
+  </div>
+</div>
+<div class="col-6">
+  <label>Nombre del área</label>
+  <input ng-model="main.newAreaRegister.namearea" name="areaName" required="required"/>
+  <div class="input-error" ng-if="main.newArea.$submitted" ng-messages="main.newArea.areaName.$error"><span ng-message="required">Este campo es requerido</span>
+  </div>
+</div>
+<div class="col-5">
+  <label>Permisos de usuario</label>
+  <div class="row">
+    <input ng-click="$event.stopPropagation();" id="adminChk" name="adminChk" ng-model="main.newAreaRegister.admin" txt="Administrador" type="checkbox"/>
+    <label class="checkbox" for="adminChk" ng-click="$event.stopPropagation();"></label>
+    <label class="txt" for="adminChk">Administrador</label>
+  </div>
+</div>
+<div class="col-12 border-top">
+  <div class="col-3">
+    <label>Basado en área</label>
+    <dropdown name="area" label="txCatalogo" model="main.newAreaRegister.area" options="main.areas"></dropdown>
+    <div class="input-error" ng-if="main.historicalStatus.$submitted" ng-messages="main.historicalStatus.area.$error"><span ng-message="required">Este campo es requerido</span>
+    </div>
+  </div>
+</div>
+<div class="col-12 align-center mt-20">
+  <button class="btn" ng-click="main.activeStep = 1; main.nextStep = 1">Siguiente</button>
+</div>

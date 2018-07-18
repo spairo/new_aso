@@ -1,0 +1,62 @@
+[
+	{
+		"nuCatalogo": 1,
+		"cdCatalogo": "NEW_CALENDARIOS",
+		"txCatalogo": "Fecha de inicio de intereses",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 2,
+		"cdCatalogo": "NEW_CALENDARIOS",
+		"txCatalogo": "Fecha de término de intereses",
+		"stActivo": false
+	},
+	{
+		"nuCatalogo": 3,
+		"cdCatalogo": "NEW_CALENDARIOS",
+		"txCatalogo": "Fecha de pago de intereses",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 4,
+		"cdCatalogo": "NEW_CALENDARIOS",
+		"txCatalogo": "Fecha de determinación",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 5,
+		"cdCatalogo": "NEW_CALENDARIOS",
+		"txCatalogo": "Fecha de Cancelación",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 6,
+		"cdCatalogo": "NEW_CALENDARIOS",
+		"txCatalogo": "Fecha 6",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 7,
+		"cdCatalogo": "NEW_CALENDARIOS",
+		"txCatalogo": "Fecha 7",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 8,
+		"cdCatalogo": "NEW_CALENDARIOS",
+		"txCatalogo": "Fecha 8",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 9,
+		"cdCatalogo": "NEW_CALENDARIOS",
+		"txCatalogo": "Fecha 9",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 10,
+		"cdCatalogo": "NEW_CALENDARIOS",
+		"txCatalogo": "Fecha 10",
+		"stActivo": true
+	}
+]

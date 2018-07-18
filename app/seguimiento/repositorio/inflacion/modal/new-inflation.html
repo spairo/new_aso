@@ -1,0 +1,15 @@
+
+<form name="main.uploadInflation" ng-submit="main.uploadInflation.$valid &amp;&amp; main.registerInflation();" novalidate="novalidate">
+  <h1>Actualizar Inflaci&oacute;n</h1>
+  <div class="row mt-25">
+    <div class="col-12">
+      <label>Archivo csv</label>
+      <input-file model="main.request.file"></input-file>
+    </div>
+  </div>
+  <div class="row align-center">
+    <div class="col-12 mt-30">
+      <button class="btn" ng-disabled="!main.request.file">Cargar</button>
+    </div>
+  </div>
+</form>

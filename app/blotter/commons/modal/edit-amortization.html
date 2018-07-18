@@ -1,0 +1,68 @@
+
+<form name="main.editAmortizations" ng-submit="main.editAmortizations.$valid &amp;&amp; main.submitAmortization()" novalidate="novalidate">
+  <h1>{{ main.modalMeta.detailAmortizacion.title }}</h1>
+  <div class="strip mt-10 mb-15">
+    <div class="col-6 align-right">
+      <label>ST</label><span class="medium">{{ main.amortizacion.cdEstrategia }}</span>
+    </div>
+    <div class="col-6">
+      <label>Serie</label><span class="medium">{{ main.serie }}</span>
+    </div>
+  </div>
+  <div class="row mt-15">
+    <div class="col-4">
+      <label>Fecha de amortización</label>
+      <div>
+        <div class="col-10">
+          <input date-input="date-input" ng-model="main.amortizacion.fhAmortizacion" type="date"/>
+        </div>
+        <div class="col-2"><i class="calendar date-picker" ng-model="main.amortizacion.fhAmortizacion"></i>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <label for="price">Precio</label>
+      <input ng-model="main.amortizacion.imPrecio" placeholder="$" type="text" id="price"/>
+    </div>
+    <div class="col-4">
+      <label for="titles">T&iacute;tulos</label>
+      <input currency-input="currency-input" field="main.amortizacion.nuTitulos" placeholder="$" type="text" id="titles"/>
+    </div>
+  </div>
+  <div class="row mt-15">
+    <div class="col-4">
+      <label>Fecha de liquidaci&oacute;n</label>
+      <div>
+        <div class="col-10">
+          <input date-input="date-input" ng-model="main.amortizacion.fhLiquidacion" type="date"/>
+        </div>
+        <div class="col-2"><i class="calendar date-picker" ng-model="main.amortizacion.fhLiquidacion"></i>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <label for="frAmortization">Franquicia por amortización</label>
+      <input currency-input="currency-input" field="main.amortizacion.imMontoFranquicia" placeholder="$" type="text" id="frAmortization"/>
+    </div>
+    <div class="col-4">
+      <label>Mesa</label>
+      <dropdown label="txCatalogo" model="main.amortizacion.mesa" ng-if="main.mesas" options="main.mesas"></dropdown>
+    </div>
+  </div>
+  <div class="row mt-15">
+    <div class="col-4">
+      <label for="dealMurex">Deal MUREX</label>
+      <input ng-model="main.amortizacion.cdDealMurex" type="number" id="frAmortization"/>
+    </div>
+    <div class="col-4">
+      <label for="vendedor">Vendedor</label>
+      <input ng-model="main.amortizacion.txVendedor" type="text" id="vendedor"/>
+    </div>
+  </div>
+  <div class="row mt-20 align-center">
+    <div class="col-12">
+      <button class="btn-delete mr-10" ng-click="main.amortizacion.stActivo = 0; main.submitAmortization();">Eliminar</button>
+      <button class="btn" ng-click="main.submitAmortization();">Guardar</button>
+    </div>
+  </div>
+</form>

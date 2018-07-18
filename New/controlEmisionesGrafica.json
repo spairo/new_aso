@@ -1,0 +1,74 @@
+[
+    {
+        "vehiculo": "Bono 44",
+        "emisonesEmitidas": 0,
+        "emisonesDisponibles": null,
+        "montoEmitido": 22,
+        "montoDisponible": 1000000000,
+        "montoAutorizado": 1000000000,
+        "label": [
+            "%",
+            "%"
+        ],
+        "porcentajes": [
+            100,
+            0
+        ],
+        "colores": [
+            "#338BCD",
+            "#F6891E"
+        ],
+        "porcentajeEmitido": "0",
+        "porcentajeDisponible": "100",
+        "estatus": null,
+        "divisa": "MXN"
+    },
+    {
+        "vehiculo": "Warrant",
+        "emisonesEmitidas": 0,
+        "emisonesDisponibles": 10000,
+        "montoEmitido": 0,
+        "montoDisponible": 100000000,
+        "montoAutorizado": 100000000,
+        "label": [
+            "%",
+            "%"
+        ],
+        "porcentajes": [
+            100,
+            0
+        ],
+        "colores": [
+            "#338BCD",
+            "#F6891E"
+        ],
+        "porcentajeEmitido": "0",
+        "porcentajeDisponible": "100",
+        "estatus": null,
+        "divisa": "MXN"
+    },
+    {
+        "vehiculo": "Bono",
+        "emisonesEmitidas": 0,
+        "emisonesDisponibles": null,
+        "montoEmitido": 0,
+        "montoDisponible": 10000000,
+        "montoAutorizado": 10000000,
+        "label": [
+            "%",
+            "%"
+        ],
+        "porcentajes": [
+            100,
+            0
+        ],
+        "colores": [
+            "#338BCD",
+            "#F6891E"
+        ],
+        "porcentajeEmitido": "0",
+        "porcentajeDisponible": "100",
+        "estatus": null,
+        "divisa": "MXN"
+    }
+]

@@ -1,0 +1,31 @@
+
+<form name="main.addDate" ng-submit="main.addDate.$valid &amp;&amp; main.addRowCal(main.addrowcalendary)" novalidate="novalidate">
+  <h1>Agregar fecha</h1>
+  <div class="row mt-15">
+    <div class="col-6">
+      <label>Fecha</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div>
+        <div class="col-10">
+          <input date-input="date-input" ng-model="main.addrowcalendary.fhDiaInhabil" type="date"/>
+        </div>
+        <div class="col-2"><i class="calendar date-picker" ng-model="main.addrowcalendary.fhDiaInhabil"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-10">
+    <div class="col-12">
+      <label for="comment">Comentario</label>
+      <textarea class="_60" id="comment" ng-model="main.addrowcalendary.txComentario"></textarea>
+    </div>
+  </div>
+  <div class="row mt-15 align-center">
+    <div class="col-12">
+      <button class="btn" ng-disabled="!main.addrowcalendary.fhDiaInhabil">Agregar</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,280 @@
+{
+	"resumenAreasInternas": [{
+		"nuBloque": 18,
+		"nuOrden": 2,
+		"nbEtiqueta": "Estrategia",
+		"tpValor": "TEXT",
+		"valor": "ST-51338"
+	}, {
+		"nuBloque": 18,
+		"nuOrden": 3,
+		"nbEtiqueta": "Clave Bancomer/Indeval",
+		"tpValor": "TEXT",
+		"valor": "C11-85"
+	}, {
+		"nuBloque": 18,
+		"nuOrden": 22,
+		"nbEtiqueta": "Vehículo",
+		"tpValor": "TEXT",
+		"valor": "JBACOMERC 12"
+	}, {
+		"nuBloque": 19,
+		"nuOrden": 6,
+		"nbEtiqueta": "Fecha de Emisión",
+		"tpValor": "DATE",
+		"valor": "17-febrero-2012"
+	}, {
+		"nuBloque": 19,
+		"nuOrden": 61,
+		"nbEtiqueta": "Fecha de Vencimiento",
+		"tpValor": "DATE",
+		"valor": "15-febrero-2013"
+	}, {
+		"nuBloque": 20,
+		"nuOrden": 9,
+		"nbEtiqueta": "Monto",
+		"tpValor": "CURRENCY",
+		"valor": "498800000"
+	}, {
+		"nuBloque": 20,
+		"nuOrden": 10,
+		"nbEtiqueta": "Moneda de Emisión",
+		"tpValor": "TEXT",
+		"valor": "MXN"
+	}, {
+		"nuBloque": 20,
+		"nuOrden": 14,
+		"nbEtiqueta": "Activo de Referencia",
+		"tpValor": "TEXT",
+		"valor": "Hang Seng Index \\ Índice Eurostoxx 50® \\ Índice IBEX 35® \\ Índice S&P 500®"
+	}, {
+		"nuBloque": 20,
+		"nuOrden": 15,
+		"nbEtiqueta": "Pay-off",
+		"tpValor": "TEXT",
+		"valor": "MT Autocall"
+	}, {
+		"nuBloque": 20,
+		"nuOrden": 25,
+		"nbEtiqueta": "Tasa para cálculo GAT",
+		"tpValor": "PORCENT",
+		"valor": null
+	}, {
+		"nuBloque": 20,
+		"nuOrden": 28,
+		"nbEtiqueta": "Valor Nominal ",
+		"tpValor": "CURRENCY",
+		"valor": "100"
+	}, {
+		"nuBloque": 20,
+		"nuOrden": 29,
+		"nbEtiqueta": "Capital Protegido a Vencimiento",
+		"tpValor": "PORCENT",
+		"valor": "0"
+	}, {
+		"nuBloque": 20,
+		"nuOrden": 31,
+		"nbEtiqueta": "SIVA",
+		"tpValor": "TEXT",
+		"valor": null
+	}, {
+		"nuBloque": 20,
+		"nuOrden": 32,
+		"nbEtiqueta": "ID VALMER",
+		"tpValor": "TEXT",
+		"valor": null
+	}, {
+		"nuBloque": 20,
+		"nuOrden": 57,
+		"nbEtiqueta": "Perfil Riesgo",
+		"tpValor": "NUMBER",
+		"valor": null
+	}, {
+		"nuBloque": 23,
+		"nuOrden": 44,
+		"nbEtiqueta": "Tasa GAT Real",
+		"tpValor": "PORCENT",
+		"valor": null
+	}, {
+		"nuBloque": 23,
+		"nuOrden": 48,
+		"nbEtiqueta": "Tasa GAT Nominal",
+		"tpValor": "PORCENT",
+		"valor": null
+	}, {
+		"nuBloque": 35,
+		"nuOrden": 34,
+		"nbEtiqueta": "Número de Títulos",
+		"tpValor": "NUMBER",
+		"valor": "4988000"
+	}, {
+		"nuBloque": 35,
+		"nuOrden": 45,
+		"nbEtiqueta": "Plazo (días) ",
+		"tpValor": "TEXT",
+		"valor": "364"
+	}],
+	"resumenClientes": [{
+		"nuBloque": 18,
+		"nuOrden": 3,
+		"nbEtiqueta": "Clave Bancomer/Indeval",
+		"tpValor": "TEXT",
+		"valor": "C11-85"
+	}, {
+		"nuBloque": 18,
+		"nuOrden": 22,
+		"nbEtiqueta": "Vehículo",
+		"tpValor": "TEXT",
+		"valor": "JBACOMERC 12"
+	}, {
+		"nuBloque": 19,
+		"nuOrden": 6,
+		"nbEtiqueta": "Fecha de Emisión",
+		"tpValor": "DATE",
+		"valor": "17-febrero-2012"
+	}, {
+		"nuBloque": 19,
+		"nuOrden": 61,
+		"nbEtiqueta": "Fecha de Vencimiento",
+		"tpValor": "DATE",
+		"valor": "15-febrero-2013"
+	}, {
+		"nuBloque": 20,
+		"nuOrden": 9,
+		"nbEtiqueta": "Monto",
+		"tpValor": "CURRENCY",
+		"valor": "498800000"
+	}, {
+		"nuBloque": 20,
+		"nuOrden": 10,
+		"nbEtiqueta": "Moneda de Emisión",
+		"tpValor": "TEXT",
+		"valor": "MXN"
+	}, {
+		"nuBloque": 20,
+		"nuOrden": 14,
+		"nbEtiqueta": "Activo de Referencia",
+		"tpValor": "TEXT",
+		"valor": "Hang Seng Index \\ Índice Eurostoxx 50® \\ Índice IBEX 35® \\ Índice S&P 500®"
+	}, {
+		"nuBloque": 20,
+		"nuOrden": 15,
+		"nbEtiqueta": "Pay-off",
+		"tpValor": "TEXT",
+		"valor": "MT Autocall"
+	}, {
+		"nuBloque": 20,
+		"nuOrden": 28,
+		"nbEtiqueta": "Valor Nominal ",
+		"tpValor": "CURRENCY",
+		"valor": "100"
+	}, {
+		"nuBloque": 20,
+		"nuOrden": 29,
+		"nbEtiqueta": "Capital Protegido a Vencimiento",
+		"tpValor": "PORCENT",
+		"valor": "0"
+	}, {
+		"nuBloque": 35,
+		"nuOrden": 34,
+		"nbEtiqueta": "Número de Títulos",
+		"tpValor": "CURRENCY",
+		"valor": "4988000"
+	}, {
+		"nuBloque": 35,
+		"nuOrden": 45,
+		"nbEtiqueta": "Plazo (días) ",
+		"tpValor": "TEXT",
+		"valor": "364"
+	}],
+	"activos": [{
+		"cdUsuario": null,
+		"nuPermisoUsuario": null,
+		"cdPermisoUsuario": null,
+		"idActivoST": 1,
+		"idActivoHST": null,
+		"nuActivo": 57,
+		"nbActivo": "Índice IBEX 35®",
+		"idEstrategia": 2884,
+		"nbEstrategia": null,
+		"nuEvento": 4,
+		"nbEvento": "Split",
+		"imFactor": 0.5,
+		"imStrike": 4091.6,
+		"imStrikeNew": null,
+		"fhActualizacion": 1516687200000,
+		"user": "XMZ4160",
+		"status": 1,
+		"fhEvento": null,
+		"bandera": null,
+		"original": null,
+		"historico": null
+	}, {
+		"cdUsuario": null,
+		"nuPermisoUsuario": null,
+		"cdPermisoUsuario": null,
+		"idActivoST": 1,
+		"idActivoHST": null,
+		"nuActivo": 59,
+		"nbActivo": "Índice S&P 500®",
+		"idEstrategia": 2884,
+		"nbEstrategia": null,
+		"nuEvento": 0,
+		"nbEvento": "Original",
+		"imFactor": 1,
+		"imStrike": 1462.06,
+		"imStrikeNew": null,
+		"fhActualizacion": 1329458400000,
+		"user": "MB02050",
+		"status": 1,
+		"fhEvento": null,
+		"bandera": null,
+		"original": null,
+		"historico": null
+	}, {
+		"cdUsuario": null,
+		"nuPermisoUsuario": null,
+		"cdPermisoUsuario": null,
+		"idActivoST": 1,
+		"idActivoHST": null,
+		"nuActivo": 45,
+		"nbActivo": "Índice Eurostoxx 50®",
+		"idEstrategia": 2884,
+		"nbEstrategia": null,
+		"nuEvento": 0,
+		"nbEvento": "Original",
+		"imFactor": 1,
+		"imStrike": 2566,
+		"imStrikeNew": null,
+		"fhActualizacion": 1329458400000,
+		"user": "MB02050",
+		"status": 1,
+		"fhEvento": null,
+		"bandera": null,
+		"original": null,
+		"historico": null
+	}, {
+		"cdUsuario": null,
+		"nuPermisoUsuario": null,
+		"cdPermisoUsuario": null,
+		"idActivoST": 1,
+		"idActivoHST": null,
+		"nuActivo": 40,
+		"nbActivo": "Hang Seng Index",
+		"idEstrategia": 2884,
+		"nbEstrategia": null,
+		"nuEvento": 0,
+		"nbEvento": "Original",
+		"imFactor": 1,
+		"imStrike": 20698.68,
+		"imStrikeNew": null,
+		"fhActualizacion": 1329458400000,
+		"user": "MB02050",
+		"status": 1,
+		"fhEvento": null,
+		"bandera": null,
+		"original": null,
+		"historico": null
+	}]
+}
+

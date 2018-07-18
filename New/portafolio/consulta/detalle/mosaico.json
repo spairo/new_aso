@@ -1,0 +1,258 @@
+{
+	"detallePayOff": {
+			"cdComplejidad": "-",
+			"nbComplejidad": "-",
+			"capitalProtegido": 0.0,
+			"volatilidad": false,
+			"liquidez": false,
+			"cdCaracteristicaBpp": "null",
+			"nbCaracteristicaBpp": "null",
+			"grupoSubyacente": null,
+			"plazo": "LP"
+	},
+	"detalleSubyacente": {
+			"nuCatalogo": 0,
+			"cdCatalogo": "DIV",
+			"txCatalogo": "Divisa",
+			"txComentario": "Divisa",
+			"stActivo": true,
+			"nuNivel": null
+	},
+	"detalleEstrategia": {
+			"cdUsuario": null,
+			"nuPermisoUsuario": null,
+			"cdPermisoUsuario": null,
+			"encabezados": [{
+					"id": 90,
+					"etiqueta": "TX_DESCRIPCION",
+					"longitud": 200,
+					"ordenAlta": 0,
+					"ordenConsulta": 0,
+					"propiedad": "Descripción",
+					"required": false,
+					"seccion": 18,
+					"tipo": "AREA",
+					"visibleInterfaz": true,
+					"visibleUsuario": true,
+					"txCatalogo": null
+			}, {
+					"id": 19,
+					"etiqueta": "NU_VEHICULO",
+					"longitud": 15,
+					"ordenAlta": 1,
+					"ordenConsulta": 1,
+					"propiedad": "Vehículo",
+					"required": false,
+					"seccion": 18,
+					"tipo": "SELECT",
+					"visibleInterfaz": true,
+					"visibleUsuario": true,
+					"txCatalogo": null
+			}, {
+					"id": 3,
+					"etiqueta": "CD_SERIE",
+					"longitud": 15,
+					"ordenAlta": 2,
+					"ordenConsulta": 2,
+					"propiedad": "Serie/Cve. pizarra",
+					"required": false,
+					"seccion": 18,
+					"tipo": "TEXT",
+					"visibleInterfaz": true,
+					"visibleUsuario": true,
+					"txCatalogo": null
+			}, {
+					"id": 7,
+					"etiqueta": "FH_EMISION",
+					"longitud": 15,
+					"ordenAlta": 3,
+					"ordenConsulta": 3,
+					"propiedad": "Fecha Emisión",
+					"required": false,
+					"seccion": 19,
+					"tipo": "DATE",
+					"visibleInterfaz": true,
+					"visibleUsuario": true,
+					"txCatalogo": null
+			}, {
+					"id": 8,
+					"etiqueta": "FH_VENCIMIENTO",
+					"longitud": 15,
+					"ordenAlta": 4,
+					"ordenConsulta": 4,
+					"propiedad": "Fecha Vencimiento",
+					"required": false,
+					"seccion": 19,
+					"tipo": "DATE",
+					"visibleInterfaz": true,
+					"visibleUsuario": true,
+					"txCatalogo": null
+			}, {
+					"id": 48,
+					"etiqueta": "FH_LIQVENCIMIENTO",
+					"longitud": 15,
+					"ordenAlta": 5,
+					"ordenConsulta": 5,
+					"propiedad": "Fecha Liquidación",
+					"required": false,
+					"seccion": 19,
+					"tipo": "DATE",
+					"visibleInterfaz": true,
+					"visibleUsuario": true,
+					"txCatalogo": null
+			}, {
+					"id": 52,
+					"etiqueta": "TP_PLAZO",
+					"longitud": 15,
+					"ordenAlta": 6,
+					"ordenConsulta": 6,
+					"propiedad": "Plazo",
+					"required": false,
+					"seccion": 35,
+					"tipo": "TEXT",
+					"visibleInterfaz": true,
+					"visibleUsuario": true,
+					"txCatalogo": null
+			}, {
+					"id": 83,
+					"etiqueta": "NU_PROTECCIONCAPITAL",
+					"longitud": 10,
+					"ordenAlta": 7,
+					"ordenConsulta": 7,
+					"propiedad": "Protección Capital",
+					"required": false,
+					"seccion": 78,
+					"tipo": "TEXT",
+					"visibleInterfaz": true,
+					"visibleUsuario": true,
+					"txCatalogo": null
+			}, {
+					"id": 31,
+					"etiqueta": "IM_RENDMAX",
+					"longitud": 15,
+					"ordenAlta": 8,
+					"ordenConsulta": 8,
+					"propiedad": "Rendimiento Maximo",
+					"required": false,
+					"seccion": 20,
+					"tipo": "PORCENT",
+					"visibleInterfaz": true,
+					"visibleUsuario": true,
+					"txCatalogo": null
+			}, {
+					"id": 23,
+					"etiqueta": "NU_RIESGO",
+					"longitud": 15,
+					"ordenAlta": 9,
+					"ordenConsulta": 9,
+					"propiedad": "Clasificación Riesgo",
+					"required": false,
+					"seccion": 20,
+					"tipo": "NUMBER",
+					"visibleInterfaz": true,
+					"visibleUsuario": true,
+					"txCatalogo": null
+			}, {
+					"id": 11,
+					"etiqueta": "CD_DIVISA",
+					"longitud": 15,
+					"ordenAlta": 10,
+					"ordenConsulta": 10,
+					"propiedad": "Divisa",
+					"required": false,
+					"seccion": 20,
+					"tipo": "SELECT",
+					"visibleInterfaz": true,
+					"visibleUsuario": true,
+					"txCatalogo": null
+			}, {
+					"id": 13,
+					"etiqueta": "CT_MXN",
+					"longitud": 25,
+					"ordenAlta": 12,
+					"ordenConsulta": 12,
+					"propiedad": "Monto MXN",
+					"required": false,
+					"seccion": 20,
+					"tipo": "CURRENCY",
+					"visibleInterfaz": true,
+					"visibleUsuario": true,
+					"txCatalogo": null
+			}, {
+					"id": 89,
+					"etiqueta": "IM_BENCHMARK",
+					"longitud": 15,
+					"ordenAlta": 13,
+					"ordenConsulta": 13,
+					"propiedad": "Benchmark",
+					"required": false,
+					"seccion": 20,
+					"tipo": "TEXT",
+					"visibleInterfaz": true,
+					"visibleUsuario": true,
+					"txCatalogo": null
+			}],
+			"datos": {
+					"19": {
+							"nuCatalogo": 2,
+							"cdCatalogo": " ",
+							"txCatalogo": "WA Prog. 2014",
+							"txComentario": ""
+					},
+					"48": 1524114000000,
+					"3": "EUE804L DC014",
+					"83": 0.0,
+					"23": 6,
+					"52": "LP",
+					"7": 1429592400000,
+					"8": 1523854800000,
+					"11": {
+							"nuCatalogo": 5,
+							"cdCatalogo": "NEW_ISSUANCE_CURRENCY",
+							"txCatalogo": "MXN",
+							"txComentario": ""
+					},
+					"13": 173330000,
+					"31": 31.5
+			},
+			"vendedor": null,
+			"franquicias": null,
+			"activos": null,
+			"semaforo": {
+					"color": "#86C82D",
+					"comentario": "null",
+					"nombreSemaforo": "Conservación"
+			}
+	},
+	"graficaCupones": {
+			"datos": [25, 25, 23, 0],
+			"titulos": ["Cupones totales", "Cupones observados", "Cupones pagados", ""],
+			"colores": ["#89D1F3", "#009EE5", "#094fa4", ""]
+	},
+	"detalleResumenRendimientos": {
+			"sumaCupones": 247.142208,
+			"valmer": 94.855996,
+			"rendimientoTotal": 341.998204,
+			"benchmark": null,
+			"rendimientoDia": null,
+			"comentarioRendimientoDia": null,
+			"fhRendimiento": null
+	},
+	"detalleCupon": {
+			"plazoCupon": 234,
+			"cuponActual": 98.7919,
+			"fhCuponActual": 1512972000000,
+			"fhSigCupon": 1516341600000,
+			"cuponPromedio": 91.258184
+	},
+	"detallePrecio": {
+			"imPrecio": 93.8033,
+			"fhPrecio": 1496120400000,
+			"rendimiento": 1.89,
+			"cdDivisa": "MXN",
+			"imMontoVivo": 95420000,
+			"cdSerie": "S6089",
+			"txVehiculo" : "WA Prog. 2014"
+	},
+	"disclaimer": "La información contenida en el presente documento y, en su caso, en sus anexos (en adelante, el ''Documento'') tiene carácter puramente ilustrativo y ha sido elaborada por BBVA Bancomer S.A., Institución de Banca Múltiple, Grupo Financiero BBVA Bancomer (''BBVA Bancomer''). Este Documento contiene información general a la fecha del mismo. BBVA Bancomer no asume compromiso alguno de comunicar cambios ni de actualizar el contenido del presente Documento. Los precios y niveles presentados son indicativos y están sujetos a los movimientos del mercado, se refieren al pasado sin considerarse como indicadores fidedignos de resultados futuros, constando las condiciones finales de la operación en el contrato. El receptor deberá remitirse a los estados de cuenta y/o documentos de venta para conocer a detalle la operación. Las estimaciones aquí presentadas sugieren el comportamiento del producto al vencimiento y distan de las condiciones a las que estaría sujeta la operación en caso de una amortización anticipada. <br> El receptor de este Documento debe ser consciente de que: <br> (i) Con carácter previo a la toma de una decisión de inversión, debe ser plenamente consciente y no albergar duda alguna sobre el funcionamiento del producto o instrumento objeto de este Documento, así como de las obligaciones y riesgos que asumiría con su contratación. Si el receptor tuviera alguna duda de cualquiera de estos aspectos, no deberá contratar la operación hasta que dichas dudas hayan sido resueltas. <br> (ii) Las transacciones en productos o instrumentos financieros como el presentado en este Documento pueden implicar grandes riesgos y no son adecuados para todos los inversores. De hecho, el precio de los valores o instrumentos o los resultados de las inversiones pueden fluctuar en contra del interés del inversor, pudiendo dar lugar a pérdidas de importe muy elevado (superiores incluso a la inversión inicial si dicho desembolso ha existido), siendo necesario en estos casos hacer aportaciones adicionales para cubrir la totalidad de dichas pérdidas. BBVA Bancomer no asume responsabilidad alguna por cualquier pérdida, directa o indirecta, que pudiera resultar del uso de este Documento o de su contenido. <br> (iii) Ni el presente Documento ni su contenido constituyen por parte de BBVA Bancomer una oferta o invitación de venta susceptible de aceptación o adhesión por parte del receptor, ni de realización o cancelación de inversiones. <br> (iv) El envío de este Documento no debe en ningún caso entenderse como un servicio de asesoramiento en materia de servicios de inversión, puesto que no contiene una recomendación personalizada para invertir, ni para hacer ninguna operación como la descrita en este Documento. En ningún caso puede considerarse que por la recepción del presente Documento BBVA Bancomer esté calificando o presentando el producto como idóneo para el receptor, puesto que no ha tenido en cuenta las circunstancias personales de éste (sus objetivos específicos de inversión, su posición financiera o su perfil de riesgo) en su elaboración. <br> (v) BBVA Bancomer o cualquier otra entidad del Grupo BBVA, así como sus respectivos directores o empleados, pueden tener una posición en cualquiera de los valores o instrumentos a los que se refiere el presente Documento, directa o indirectamente, o en cualesquiera otros relacionados con los mismos; pueden negociar con dichos valores o instrumentos, por cuenta propia o ajena, proporcionar servicios de asesoramiento u otros servicios al emisor de dichos valores o instrumentos, a empresas relacionadas con los mismos o a sus accionistas, directivos o empleados y pueden tener intereses o llevar a cabo cualesquiera transacciones en dichos valores o instrumentos o inversiones relacionadas con los mismos, con carácter previo o posterior a la elaboración del presente Documento, en la medida permitida por la ley aplicable. <br> (vi) Los empleados de otros departamentos de BBVA Bancomer u otra entidad del Grupo BBVA pueden proporcionar comentarios de mercado, verbalmente o por escrito, o estrategias de inversión a los receptores que reflejen opiniones contrarias a las expresadas en el presente Documento; asimismo BBVA Bancomer o cualquier otra entidad del Grupo BBVA puede adoptar decisiones de inversión por cuenta propia que sean inconsistentes con lo contenido en el presente Documento. <br> (vii) Ninguna parte de este Documento puede ser (a) copiada, fotocopiada o duplicada en ningún modo, forma o medio, (b) redistribuida, (c) divulgada, citada, comunicada (d) ni entregada a ninguna otra persona o entidad sujeta a la legislación o jurisdicción de aquellos países en que la misma pudiera estar prohibida, limitada o sujeta a requisitos de autorización, registro o comunicación de cualquier tipo. <br> (viii) Además de los pagos inherentes al producto descrito en el Documento, existe la posibilidad de que surjan otros costos para el cliente, incluido el pago de impuestos, como consecuencia de transacciones vinculadas al instrumento sobre el que versa este Documento y que no se paguen a través de BBVA Bancomer ni sean estipulados por BBVA Bancomer. <br> Fuente: Grupo Financiero BBVA Bancomer, Valuación Operativa y Referencias de Mercado S.A. de C.V. <br> Las cifras que se presentan en esta gráfica se refieren al pasado sin que pueda considerarse que los resultados pasados sean un indicador fidedigno de resultados futuros. <br> Sin perjuicio de la importancia que pueda tener el conocimiento y análisis de estos informes, el Cliente debe ser consciente al revisarlos de que estas previsiones no son un indicador fidedigno de resultados futuros y, por tanto, la evolución del producto estructurado y activos de referencia sea finalmente distinta a la prevista en los referidos informes."
+}

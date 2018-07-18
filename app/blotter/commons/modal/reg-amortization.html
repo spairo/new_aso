@@ -1,0 +1,13 @@
+
+<h1>{{ main.modalMeta.regAmortizacion.title }}</h1>
+<div class="row mt-40">
+  <div class="col-12">
+    <label>Archivo .csv</label>
+    <input-file model="main.file.file"></input-file>
+  </div>
+</div>
+<div class="row mt-45 align-center">
+  <div class="col-12">
+    <button class="btn" ng-click="main.recordAmortization()" ng-disabled="!main.file.file">Cargar</button>
+  </div>
+</div>

@@ -1,0 +1,164 @@
+
+<h1>Catálogo de propiedades</h1>
+<div class="catalog mt-20">
+  <ul class="tabs">
+    <li ng-class="{current: main.activeCatalog === &quot;PAY-OFF&quot;}" ng-click="main.activeCatalog = &quot;PAY-OFF&quot;"><span>PAY-OFF</span></li>
+    <li ng-class="{current: main.activeCatalog === &quot;ACTIVOS DE REFERENCIA&quot;}" ng-click="main.activeCatalog = &quot;ACTIVOS DE REFERENCIA&quot;"><span>ACTIVOS DE REFERENCIA</span></li>
+    <li class="last" style="width: calc(100% - (150 * 2px));">
+    </li>
+  </ul>
+  <div class="content-tab accordion" ng-show="main.activeCatalog === 'PAY-OFF'">
+    <div class="accordion">
+      <div class="title-accordion {less: accordionC.opened }" ng-click="accordionC.opened = !accordionC.opened">
+        <h2>Características</h2><i class="plus" ng-class="{less: accordionC.opened }"></i>
+      </div>
+      <ul class="datalist auto" ng-show="accordionC.opened">
+        <li class="hover" ng-if="item.nuCatalogo !== 0" ng-repeat="item in main.char">
+          <div class="mr-5" ng-show="!editChar">
+            <input ng-click="main.characteristicsOn = true; main.geographyOn = false; main.optionsOn = false; main.protectionOn = false; main.typePayOffOn = false;  main.editCatalogs(item);" id="char_{{ item.txCatalogo }}" name="char_{{ item.txCatalogo }}" ng-model="item.stActivo" type="checkbox" value="char_{{ item.txCatalogo }}"/>
+            <label class="checkbox" for="char_{{ item.txCatalogo }}" ng-click="$event.stopPropagation();"></label>
+          </div><span ng-if="!editChar">{{ item.txCatalogo }}</span><i class="edit" ng-click="editChar = !editChar;" ng-show="!editChar"></i>
+          <div class="edit-container" ng-if="editChar">
+            <div class="col-10 pr-0">
+              <input ng-model="item.txCatalogo" placeholder="Editar campo" type="text" maxlength="50"/>
+            </div>
+            <div class="col-2"><i class="delete red" ng-click="main.characteristicsOn = true; main.geographyOn = false; main.optionsOn = false; main.protectionOn = false; main.typePayOffOn = false; main.request.nuCatalogo = item.nuCatalogo; main.request.cdCatalogo = item.cdCatalogo; main.propertyCatalog.close(); main.deleteCatalog.open();"></i><i class="add" ng-click="main.characteristicsOn = true; main.geographyOn = false; main.optionsOn = false; main.protectionOn = false; main.typePayOffOn = false;  main.editCatalogs(item)"></i>
+            </div>
+          </div>
+        </li>
+        <div class="row mt-5 mb-5">
+          <div class="add-new" ng-click="main.addChar = !main.addChar" ng-show="!main.addChar">Agregar nuevo</div>
+          <div class="add-container ml-15 mt-5 mb-10" ng-if="main.addChar">
+            <div class="col-10">
+              <input ng-model="main.textChar" placeholder="Agregar nuevo" type="text" maxlength="50" ng-class="{error: main.errorChar}" ng-keyup="main.errorChar = false"/>
+            </div>
+            <div class="col-2 mt-10 pr-25"><i class="void ml-10" ng-click="main.addChar = !main.addChar; main.errorChar = false;"></i><i class="add" ng-click="main.characteristicsOn = true; main.geographyOn = false; main.optionsOn = false; main.protectionOn = false; main.typePayOffOn = false;  main.addCatalog(main.nameChar, 5, 'textChar', 'errorChar');"></i>
+            </div>
+          </div>
+        </div>
+      </ul>
+    </div>
+    <div class="accordion">
+      <div class="title-accordion {less: accordionP.opened }" ng-click="accordionP.opened = !accordionP.opened">
+        <h2>Protección</h2><i class="plus" ng-class="{less: accordionP.opened }"></i>
+      </div>
+      <ul class="datalist auto" ng-show="accordionP.opened">
+        <li class="hover" ng-if="item.nuCatalogo !== 0" ng-repeat="item in main.protection">
+          <div class="mr-5" ng-show="!editProt">
+            <input ng-click="main.characteristicsOn = false; main.geographyOn = false; main.optionsOn = false; main.protectionOn = true; main.typePayOffOn = false; main.editCatalogs(item);" id="prot_{{ item.txCatalogo }}" name="prot_{{ item.txCatalogo }}" ng-model="item.stActivo" type="checkbox" value="prot_{{ item.txCatalogo }}"/>
+            <label class="checkbox" for="prot_{{ item.txCatalogo }}" ng-click="$event.stopPropagation();"></label>
+          </div><span ng-if="!editProt">{{ item.txCatalogo }}</span><i class="edit" ng-click="editProt = !editProt;" ng-show="!editProt"></i>
+          <div class="edit-container" ng-if="editProt">
+            <div class="col-10 pr-0">
+              <input ng-model="item.txCatalogo" placeholder="Editar campo" type="text" maxlength="50"/>
+            </div>
+            <div class="col-2"><i class="delete red" ng-click="main.characteristicsOn = false; main.geographyOn = false; main.optionsOn = false; main.protectionOn = true; main.typePayOffOn = false; main.request.nuCatalogo = item.nuCatalogo; main.request.cdCatalogo = item.cdCatalogo; main.propertyCatalog.close(); main.deleteCatalog.open();"></i><i class="add" ng-click="main.characteristicsOn = false; main.geographyOn = false; main.optionsOn = false; main.protectionOn = true; main.typePayOffOn = false; main.editCatalogs(item)"></i>
+            </div>
+          </div>
+        </li>
+        <div class="row mt-5 mb-5">
+          <div class="add-new" ng-click="main.addProt = !main.addProt" ng-show="!main.addProt">Agregar nuevo</div>
+          <div class="add-container ml-15 mt-5 mb-10" ng-if="main.addProt">
+            <div class="col-10">
+              <input ng-model="main.textProt" placeholder="Agregar nuevo" type="text" maxlength="50" ng-class="{error: main.errorProt}" ng-keyup="main.errorProt = false"/>
+            </div>
+            <div class="col-2 mt-10 pr-25"><i class="void ml-10" ng-click="main.addProt = !main.addProt; main.errorProt = false;"></i><i class="add" ng-click="main.characteristicsOn = false; main.geographyOn = false; main.optionsOn = false; main.protectionOn = true; main.typePayOffOn = false; main.addCatalog(main.nameProt, 5, 'textProt', 'errorProt');"></i>
+            </div>
+          </div>
+        </div>
+      </ul>
+    </div>
+    <div class="accordion">
+      <div class="title-accordion {less: accordionO.opened }" ng-click="accordionO.opened = !accordionO.opened">
+        <h2>Tipo de opción</h2><i class="plus" ng-class="{less: accordionO.opened }"></i>
+      </div>
+      <ul class="datalist auto" ng-show="accordionO.opened">
+        <li class="hover" ng-if="item.nuCatalogo !== 0" ng-repeat="item in main.options">
+          <div class="mr-5" ng-show="!editOption">
+            <input ng-click="main.characteristicsOn = false; main.geographyOn = false; main.optionsOn = true; main.protectionOn = false; main.typePayOffOn = false; main.editCatalogs(item);" id="opt_{{ item.txCatalogo }}" name="opt_{{ item.txCatalogo }}" ng-model="item.stActivo" type="checkbox" value="prot_{{ item.txCatalogo }}"/>
+            <label class="checkbox" for="opt_{{ item.txCatalogo }}" ng-click="$event.stopPropagation();"></label>
+          </div><span ng-if="!editOption">{{ item.txCatalogo }}</span><i class="edit" ng-click="editOption = !editOption;" ng-show="!editOption"></i>
+          <div class="edit-container" ng-if="editOption">
+            <div class="col-10 pr-0">
+              <input ng-model="item.txCatalogo" placeholder="Editar campo" type="text" maxlength="50"/>
+            </div>
+            <div class="col-2"><i class="delete red" ng-click="main.characteristicsOn = false; main.geographyOn = false; main.optionsOn = true; main.protectionOn = false; main.typePayOffOn = false; main.request.nuCatalogo = item.nuCatalogo; main.request.cdCatalogo = item.cdCatalogo; main.propertyCatalog.close(); main.deleteCatalog.open();"></i><i class="add" ng-click="main.characteristicsOn = false; main.geographyOn = false; main.optionsOn = true; main.protectionOn = false; main.typePayOffOn = false; main.editCatalogs(item)"></i>
+            </div>
+          </div>
+        </li>
+        <div class="row mt-5 mb-5">
+          <div class="add-new" ng-click="main.addOption = !main.addOption" ng-show="!main.addOption">Agregar nuevo</div>
+          <div class="add-container ml-15 mt-5 mb-10" ng-if="main.addOption">
+            <div class="col-10">
+              <input ng-model="main.textOption" placeholder="Agregar nuevo" type="text" maxlength="50" ng-class="{error: main.errorOption}" ng-keyup="main.errorOption = false"/>
+            </div>
+            <div class="col-2 mt-10 pr-25"><i class="void ml-10" ng-click="main.addOption = !main.addOption; main.errorOption = false;"></i><i class="add" ng-click="main.characteristicsOn = false; main.geographyOn = false; main.optionsOn = true; main.protectionOn = false; main.typePayOffOn = false; main.addCatalog(main.nameOption, 5, 'textOption', 'errorOption');"></i>
+            </div>
+          </div>
+        </div>
+      </ul>
+    </div>
+    <div class="accordion">
+      <div class="title-accordion {less: accordionT.opened }" ng-click="accordionT.opened = !accordionT.opened">
+        <h2>Tipo de Pay-off</h2><i class="plus" ng-class="{less: accordionT.opened }"></i>
+      </div>
+      <ul class="datalist auto" ng-show="accordionT.opened">
+        <li class="hover" ng-if="item.nuCatalogo !== 0" ng-repeat="item in main.type">
+          <div class="mr-5" ng-show="!editType">
+            <input ng-click="main.characteristicsOn = false; main.geographyOn = false; main.optionsOn = false; main.protectionOn = false; main.typePayOffOn = true; main.editCatalogs(item);" id="tipo_{{ item.txCatalogo }}" name="tipo_{{ item.txCatalogo }}" ng-model="item.stActivo" type="checkbox" value="tipo_{{ item.txCatalogo }}"/>
+            <label class="checkbox" for="tipo_{{ item.txCatalogo }}" ng-click="$event.stopPropagation();"></label>
+          </div><span ng-if="!editType">{{ item.txCatalogo }}</span><i class="edit" ng-click="editType = !editType;" ng-show="!editType"></i>
+          <div class="edit-container" ng-if="editType">
+            <div class="col-10 pr-0">
+              <input ng-model="item.txCatalogo" placeholder="Editar campo" type="text" maxlength="50"/>
+            </div>
+            <div class="col-2"><i class="delete red" ng-click="main.characteristicsOn = false; main.geographyOn = false; main.optionsOn = false; main.protectionOn = false; main.typePayOffOn = true; main.request.nuCatalogo = item.nuCatalogo; main.request.cdCatalogo = item.cdCatalogo; main.propertyCatalog.close(); main.deleteCatalog.open();"></i><i class="add" ng-click="main.characteristicsOn = false; main.geographyOn = false; main.optionsOn = false; main.protectionOn = false; main.typePayOffOn = true; main.editCatalogs(item)"></i>
+            </div>
+          </div>
+        </li>
+        <div class="row mt-5 mb-5">
+          <div class="add-new" ng-click="main.addType = !main.addType" ng-show="!main.addType">Agregar nuevo</div>
+          <div class="add-container ml-15 mt-5 mb-10" ng-if="main.addType">
+            <div class="col-10">
+              <input ng-model="main.textType" placeholder="Agregar nuevo" type="text" maxlength="50" ng-class="{error: main.errorType}" ng-keyup="main.errorType = false"/>
+            </div>
+            <div class="col-2 mt-10 pr-25"><i class="void ml-10" ng-click="main.addType = !main.addType; main.errorType = false;"></i><i class="add" ng-click="main.characteristicsOn = false; main.geographyOn = false; main.optionsOn = false; main.protectionOn = false; main.typePayOffOn = true; main.addCatalog(main.nameType, 5, 'textType', 'errorType');"></i>
+            </div>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+  <div class="content-tab accordion" ng-show="main.activeCatalog === 'ACTIVOS DE REFERENCIA'">
+    <div class="accordion border">
+      <div class="title-accordion {less: accordionG.opened }" ng-click="accordionG.opened = !accordionG.opened">
+        <h2>Geografía</h2><i class="plus" ng-class="{less: accordionG.opened }"></i>
+      </div>
+      <ul class="datalist auto" ng-show="accordionG.opened">
+        <li class="hover" ng-if="item.nuCatalogo !== 0" ng-repeat="item in main.geo">
+          <div class="mr-5" ng-show="!editGeog">
+            <input ng-click="main.characteristicsOn = false; main.geographyOn = true; main.optionsOn = false; main.protectionOn = false; main.typePayOffOn = false; main.editCatalogs(item);" id="geo_{{ item.txCatalogo }}" name="geo_{{ item.txCatalogo }}" ng-model="item.stActivo" type="checkbox" value="geo_{{ item.txCatalogo }}"/>
+            <label class="checkbox" for="geo_{{ item.txCatalogo }}" ng-click="$event.stopPropagation();"></label>
+          </div><span ng-if="!editGeog">{{ item.txCatalogo }}</span><i class="edit" ng-click="editGeog = !editGeog;" ng-show="!editGeog"></i>
+          <div class="edit-container" ng-if="editGeog">
+            <div class="col-10 pr-0">
+              <input ng-model="item.txCatalogo" placeholder="Editar campo" type="text" maxlength="50"/>
+            </div>
+            <div class="col-2"><i class="delete red" ng-click="main.characteristicsOn = false; main.geographyOn = true; main.optionsOn = false; main.protectionOn = false; main.typePayOffOn = false; main.request.nuCatalogo = item.nuCatalogo; main.request.cdCatalogo = item.cdCatalogo; main.propertyCatalog.close(); main.deleteCatalog.open();"></i><i class="add" ng-click="main.characteristicsOn = false; main.geographyOn = true; main.optionsOn = false; main.protectionOn = false; main.typePayOffOn = false; main.editCatalogs(item)"></i>
+            </div>
+          </div>
+        </li>
+        <div class="row mt-5 mb-5">
+          <div class="add-new" ng-click="main.addGeog = !main.addGeog" ng-show="!main.addGeog">Agregar nuevo</div>
+          <div class="add-container ml-15 mt-5 mb-10" ng-if="main.addGeog">
+            <div class="col-10">
+              <input ng-model="main.textGeog" placeholder="Agregar nuevo" type="text" maxlength="50" ng-class="{error: main.errorGeog}" ng-keyup="main.errorGeog = false"/>
+            </div>
+            <div class="col-2 mt-10 pr-25"><i class="void ml-10" ng-click="main.addGeog = !main.addGeog; main.errorGeog = false;"></i><i class="add" ng-click="main.characteristicsOn = false; main.geographyOn = true; main.optionsOn = false; main.protectionOn = false; main.typePayOffOn = false; main.addCatalog(main.nameGeog, 5, 'textGeog', 'errorGeog');"></i>
+            </div>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>

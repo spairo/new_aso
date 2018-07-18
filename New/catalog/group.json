@@ -1,0 +1,68 @@
+[
+    {
+        "nuCatalogo": 23,
+        "cdCatalogo": "NEW_BLOTTER_BLOQUES",
+        "txCatalogo": "CALCULADOS",
+        "txComentario": "N/A"
+    },
+    {
+        "nuCatalogo": 34,
+        "cdCatalogo": "NEW_BLOTTER_BLOQUES",
+        "txCatalogo": "CALENDARIOS",
+        "txComentario": "TAB"
+    },
+    {
+        "nuCatalogo": 18,
+        "cdCatalogo": "NEW_BLOTTER_BLOQUES",
+        "txCatalogo": "CLAVES",
+        "txComentario": "BOX"
+    },
+    {
+        "nuCatalogo": 25,
+        "cdCatalogo": "NEW_BLOTTER_BLOQUES",
+        "txCatalogo": "COSTOS",
+        "txComentario": "TAB"
+    },
+    {
+        "nuCatalogo": 20,
+        "cdCatalogo": "NEW_BLOTTER_BLOQUES",
+        "txCatalogo": "DETALLE",
+        "txComentario": "BOX"
+    },
+    {
+        "nuCatalogo": 35,
+        "cdCatalogo": "NEW_BLOTTER_BLOQUES",
+        "txCatalogo": "DETALLE-RO",
+        "txComentario": "BOX"
+    },
+    {
+        "nuCatalogo": 19,
+        "cdCatalogo": "NEW_BLOTTER_BLOQUES",
+        "txCatalogo": "FECHAS",
+        "txComentario": "BOX"
+    },
+    {
+        "nuCatalogo": 22,
+        "cdCatalogo": "NEW_BLOTTER_BLOQUES",
+        "txCatalogo": "FRANQUICIA",
+        "txComentario": "TAB"
+    },
+    {
+        "nuCatalogo": 21,
+        "cdCatalogo": "NEW_BLOTTER_BLOQUES",
+        "txCatalogo": "NEGOCIACIÓN",
+        "txComentario": "TAB"
+    },
+    {
+        "nuCatalogo": 36,
+        "cdCatalogo": "NEW_BLOTTER_BLOQUES",
+        "txCatalogo": "TABLA ESTRUCTURA",
+        "txComentario": "N/A"
+    },
+		{
+        "nuCatalogo": 78,
+        "cdCatalogo": "NEW_BLOTTER_BLOQUES",
+        "txCatalogo": "ÍCONOS",
+        "txComentario": "TAB"
+    }
+]

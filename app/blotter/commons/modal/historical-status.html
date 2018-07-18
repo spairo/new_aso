@@ -1,0 +1,23 @@
+
+<h1>Historial de estatus</h1>
+<div class="scroll-vertical-small mt-20">
+  <p ng-if="!main.historico.length">No existe histórico.</p>
+  <table ng-if="main.historico.length">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Estatus</th>
+        <th>Comentario</th>
+        <th>Usuario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="no-hover" ng-repeat="estatus in main.historico">
+        <td>{{ estatus.dtCambioEstatusUsuario | date:'dd/MM/yyyy'}}</td>
+        <td>{{ estatus.nbEstatus }}</td>
+        <td>{{ estatus.txComentario }}</td>
+        <td>{{ estatus.nombreUsuario }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

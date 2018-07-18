@@ -1,0 +1,12 @@
+{
+		"idActivoST": 51,
+		"nbActivo": "Original",
+		"nbEvento": "USD/BRL",
+		"fhActualizacion": 1484840259000,
+		"imFactor": 1,
+		"estrategiasEvento": [{
+			"nbEstrategia": "ST-DVSC07",
+			"imStrikePrevio": 0,
+			"imStrike": 0
+		}]
+}

@@ -1,0 +1,38 @@
+[
+	{
+		"area": "home",
+		"permission": [{
+				"name": "dashboard",
+				"dashboard": false
+			},
+			{
+				"name": "programas",
+				"dashboard": true
+			}
+		]
+	},
+	{
+		"area": "Blotter",
+		"permission": [{
+				"name": "consulta",
+				"dashboard": true
+			},
+			{
+				"name": "amartizar",
+				"dashboard": true
+			}
+		]
+	},
+	{
+		"area": "Portafolio",
+		"permission": [{
+				"name": "consulta",
+				"dashboard": true
+			},
+			{
+				"name": "Detalle",
+				"dashboard": true
+			}
+		]
+	}
+]

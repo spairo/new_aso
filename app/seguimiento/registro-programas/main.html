@@ -1,0 +1,29 @@
+
+<div ng-controller="RecordingProgramsController as main">
+  <div class="breadcrumb"><a nav="#!/">Home  &sol;</a><span class="selected">Registro de programas</span>
+  </div>
+  <h1>Registro y edici&oacute;n de programas
+  </h1>
+  <div class="box-programs animated zoomIn">
+    <div class="content-add">
+      <pre>Registrar
+nuevo programa</pre>
+      <button class="btn-add" ng-click="main.registerModal.meta = main.modalMeta.create; main.request = global.copy(main.newProgram); main.registerModal.open();">+</button>
+    </div>
+  </div>
+  <div class="box-programs animated zoomIn" ng-class=" {'inactive': program.stActivo === false}" ng-repeat="program in main.program | orderBy:'-stActivo' track by $index" ng-style="{'border-color': program.nbColor}">
+    <div class="title-program" ng-style="{'background-color': program.nbColor}"><span>{{ program.nbVehiculo }}</span><span ng-if="program.ctMontoAutorizado !== null">{{ program.ctMontoAutorizado  | currency:undefined:0 }}
+        <div class="code">{{ program.cdMoneda.txCatalogo }}</div></span><i class="edit-bco" ng-click="main.registerModal.meta = main.modalMeta.edit; main.request = global.copy(program); main.registerModal.open();"></i>
+    </div>
+    <div class="content-program"><span ng-if="program.ctEmsnAutorizada">Número autorizado</span><span class="result" ng-if="program.ctEmsnAutorizada" ng-style="{'color': program.nbColor}">{{ program.ctEmsnAutorizada }}</span><span ng-if="program.dtFinColocacion &amp;&amp; program.ctEmsnAutorizada === null">Vencimiento de colocaci&oacute;n</span><span class="result" ng-if="program.dtFinColocacion &amp;&amp; program.ctEmsnAutorizada === null" ng-style="{'color': program.nbColor}">{{ program.dtFinColocacion | date:"dd/MM/yyyy" }}</span><span>Vencimiento del acta</span><span class="result" ng-style="{'color': program.nbColor}">{{ program.dtVencimiento | date:"dd/MM/yyyy" }}</span></div>
+  </div>
+  <div class="disclaimer">
+    <div class="txt">
+      <p class="strong">Disclaimer:</p>
+      <p ng-bind-html="global.sysDisclaimer"></p>
+    </div>
+  </div>
+  <modal name="main.registerModal" on-success="global.reload()" size="'large'">
+    <ng-include src="'app/seguimiento/registro-programas/modal/register-program.html'"></ng-include>
+  </modal>
+</div>

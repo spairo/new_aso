@@ -1,0 +1,37 @@
+
+<h1>Personalizaci&oacute;n vista {{ main.customizeView.meta.tag }}</h1>
+<div class="title">Campos del {{ main.customizeView.meta.tag }}</div>
+<div class="row mb-15">
+  <div class="col-7">
+    <input ng-click="$event.stopPropagation();" id="{{main.customizeView.meta.tag}}SelectAll" name="{{main.customizeView.meta.tag}}SelectAll" ng-change="main.updateAll(main.customizeView.meta.tag)" ng-model="main.selectAll" txt="Seleccionar todas" type="checkbox" value="{{main.customizeView.meta.tag}}SelectAll"/>
+    <label class="checkbox" for="{{main.customizeView.meta.tag}}SelectAll" ng-click="$event.stopPropagation();"></label>
+    <label class="txt" for="{{main.customizeView.meta.tag}}SelectAll">Seleccionar todas</label>
+  </div>
+  <div class="col-5 pr-0">
+    <input class="search" ng-model="main[main.customizeView.meta.tag].filterSearch" type="search"/><i class="search"></i>
+    <div class="filter-search" ng-show="main[main.customizeView.meta.tag].filterSearch">
+      <ul>
+        <li ng-if="item.visibleInterfaz" ng-repeat="item in main[main.customizeView.meta.tag].encabezados | filter:{ propiedad:main[main.customizeView.meta.tag].filterSearch }:false | orderBy:'propiedad' track by $index">
+          <input ng-click="$event.stopPropagation();" id="{{main.customizeView.meta.tag}}_{{ item.etiqueta }}" name="{{main.customizeView.meta.tag}}_{{ item.etiqueta }}" ng-model="item.visibleUsuario" txt="{{ item.propiedad }}" type="checkbox" value="{{main.customizeView.meta.tag}}_{{ item.etiqueta }}"/>
+          <label class="checkbox" for="{{main.customizeView.meta.tag}}_{{ item.etiqueta }}" ng-click="$event.stopPropagation();"></label>
+          <label class="txt" for="{{main.customizeView.meta.tag}}_{{ item.etiqueta }}">{{ item.propiedad }}</label>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="scroll views">
+  <div class="box-header" ng-if="encabezado.visibleInterfaz" ng-model="main[main.customizeView.meta.tag].encabezados" ng-repeat="encabezado in main[main.customizeView.meta.tag].encabezados | orderBy:'-visibleUsuario' track by $index">
+    <div>
+      <input ng-click="$event.stopPropagation();" id="{{main.customizeView.meta.tag}}_{{ encabezado.etiqueta }}" name="{{main.customizeView.meta.tag}}_{{ encabezado.etiqueta }}" ng-model="encabezado.visibleUsuario" txt="{{ encabezado.propiedad }}" type="checkbox" value="{{main.customizeView.meta.tag}}_{{ encabezado.etiqueta }}"/>
+      <label class="checkbox" for="{{main.customizeView.meta.tag}}_{{ encabezado.etiqueta }}" ng-click="$event.stopPropagation();"></label>
+      <label class="txt" for="{{main.customizeView.meta.tag}}_{{ encabezado.etiqueta }}">{{ encabezado.propiedad }}</label>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 align-center mt-5">
+    <button class="btn-large mr-15" ng-click="main.restoring = true; main.customizeView.close();">Continuar sin guardar</button>
+    <button class="btn" ng-click="main.saveCustomize()">Guardar vista</button>
+  </div>
+</div>

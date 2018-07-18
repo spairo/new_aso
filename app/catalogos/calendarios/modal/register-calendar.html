@@ -1,0 +1,21 @@
+
+<form name="main.registerCal" ng-submit="main.registerCal.$valid &amp;&amp; main.submitCal(); main.calendario.id = 0;" novalidate="novalidate">
+  <h1>Nuevo calendario</h1>
+  <div class="row mt-20">
+    <div class="col-12">
+      <label for="nameCal">Nombre del calendario</label>
+      <input ng-model="main.calendario.cadena" type="text" id="nameCal" maxlength="30"/>
+    </div>
+  </div>
+  <div class="row mt-15">
+    <div class="col-6">
+      <label>Archivo csv</label>
+      <input-file model="main.calendario.file"></input-file>
+    </div>
+  </div>
+  <div class="row mt-30 align-center">
+    <div class="col-12">
+      <button class="btn" ng-disabled="!main.calendario.file &amp;&amp; !main.calendario.cadena">Cargar</button>
+    </div>
+  </div>
+</form>

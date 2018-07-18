@@ -1,0 +1,34 @@
+[
+  {
+    "nuCatalogo": 0,
+    "cdCatalogo": "MB",
+    "txCatalogo": "Muy Baja",
+    "txComentario": "Alta0",
+    "stActivo": true,
+    "nuNivel": null
+  },
+  {
+    "nuCatalogo": 2,
+    "cdCatalogo": "B",
+    "txCatalogo": "Baja",
+    "txComentario": "Alta1",
+    "stActivo": true,
+    "nuNivel": null
+  },
+  {
+    "nuCatalogo": 3,
+    "cdCatalogo": "M",
+    "txCatalogo": "Media",
+    "txComentario": "Alta2",
+    "stActivo": true,
+    "nuNivel": null
+  },
+  {
+    "nuCatalogo": 4,
+    "cdCatalogo": "A",
+    "txCatalogo": "Alta",
+    "txComentario": "Alta3",
+    "stActivo": true,
+    "nuNivel": null
+  }
+]

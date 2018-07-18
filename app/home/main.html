@@ -1,0 +1,39 @@
+
+<div ng-controller="HomeController as main">
+  <div class="arrows">
+    <div class="arrow-right" scroll-To="scroll-To" ng-show="main.charts.length &gt; 4"></div>
+    <div class="arrow-left" scroll-To="scroll-To" ng-show="main.charts.length &gt; 4"></div>
+    <div class="offer-pg-cont">
+      <div class="offer-pg" ng-style="{'width': main.widthGraphic}">
+        <div class="box-chart" ng-repeat="chart in main.charts track by $index">
+          <div class="header"><span>{{ chart.vehiculo }}</span></div>
+          <div class="container">
+            <div class="block-top" ng-class="{emissions : chart.emisonesDisponibles != null}">
+              <div class="graphic">
+                <canvas class="chart chart-doughnut" chart-data="chart.porcentajes" chart-labels="chart.label" chart-colors="chart.colores"></canvas>
+              </div>
+              <div class="mount">
+                <label>Monto emitido</label><span ng-style="{'color': chart.colores[1]}">{{ chart.montoEmitido | currency:undefined:0 }} {{chart.divisa}}</span>
+                <label>Monto disponible</label><span class="available" ng-if="chart.montoAutorizado &gt; 0">{{ chart.montoDisponible | currency:undefined:0 }} {{chart.divisa}}</span><span class="available" ng-if="chart.montoAutorizado &lt; 0">N/A</span>
+                <label>Monto autorizado</label><span ng-if="chart.montoAutorizado &gt; 0">{{ chart.montoAutorizado | currency:undefined:0 }} {{chart.divisa}}</span><span ng-if="chart.montoAutorizado &lt; 0">N/A</span>
+              </div>
+            </div>
+            <div class="block-bottom" ng-show="chart.emisonesDisponibles != null">
+              <label>Total de emisiones</label>
+              <total-progress total="chart.emisonesDisponibles"></total-progress>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="disclaimer">
+    <div class="txt">
+      <p class="strong">Disclaimer:</p>
+      <p ng-bind-html="global.sysDisclaimer"></p>
+    </div>
+  </div>
+  <modal name="main.discModal" size="'medium'">
+    <ng-include src="'app/home/modal/disclaimer.html'"></ng-include>
+  </modal>
+</div>

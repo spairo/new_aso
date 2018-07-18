@@ -1,0 +1,44 @@
+[
+	{
+		"nuEstrategia": 1,
+		"cdEstrategia": "ST-235689",
+		"nuAmortizacion": 2,
+		"fhAmortizacion": 1479621600000,
+		"fhLiquidacion": 1582178400000,
+		"imPrecio": 50,
+		"nuTitulos": 50,
+		"ctAmortizado": 500000,
+		"ctVivo": -10490000,
+		"ctEmitido": 10000,
+		"ctLiquidado": 2500,
+		"frAmortizacion": 100,
+		"mesas": {
+			"nuCatalogo": 1,
+			"cdCatalogo": "NEW_GRUPO_MESAS",
+			"txCatalogo": "Vol FX"
+		},
+		"dealMurex": 30000,
+		"vendedor": "Nombre A.Materno A.Paterno"
+	},
+	{
+		"nuEstrategia": 1,
+		"cdEstrategia": "ST-235689",
+		"nuAmortizacion": 1,
+		"fhAmortizacion": 1476939600000,
+		"fhLiquidacion": 1550642400000,
+		"imPrecio": 100,
+		"nuTitulos": 1000,
+		"ctAmortizado": 10000000,
+		"ctVivo": -9990000,
+		"ctEmitido": 10000,
+		"ctLiquidado": 100000,
+		"frAmortizacion": 100,
+		"mesas": {
+			"nuCatalogo": 2,
+			"cdCatalogo": "NEW_GRUPO_MESAS",
+			"txCatalogo": "Vol tasas"
+		},
+		"dealMurex": 30000,
+		"vendedor": "Nombre A.Materno A.Paterno"
+	}
+]

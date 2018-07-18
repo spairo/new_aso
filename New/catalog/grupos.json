@@ -1,0 +1,32 @@
+[
+	{
+		"nuCatalogo": 1,
+		"cdCatalogo": "TGRM021_GRUPO",
+		"txCatalogo": "Aseguradoras"
+	},
+	{
+		"nuCatalogo": 2,
+		"cdCatalogo": "TGRM021_GRUPO",
+		"txCatalogo": "Fondos"
+	},
+	{
+		"nuCatalogo": 3,
+		"cdCatalogo": "TGRM021_GRUPO",
+		"txCatalogo": "Otros bancos y asesores"
+	},
+	{
+		"nuCatalogo": 4,
+		"cdCatalogo": "TGRM021_GRUPO",
+		"txCatalogo": "Banca empresarial y gobierno"
+	},
+	{
+		"nuCatalogo": 5,
+		"cdCatalogo": "TGRM021_GRUPO",
+		"txCatalogo": "Banca patrimonial"
+	},
+	{
+		"nuCatalogo": 6,
+		"cdCatalogo": "TGRM021_GRUPO",
+		"txCatalogo": "Elementia"
+	}
+]

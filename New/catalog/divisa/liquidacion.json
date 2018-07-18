@@ -1,0 +1,22 @@
+[
+	{
+		"nuCatalogo": 7,
+		"cdCatalogo": "NEW_ISSUANCE_CURRENCY",
+		"txCatalogo": "COP"
+	},
+	{
+		"nuCatalogo": 8,
+		"cdCatalogo": "NEW_ISSUANCE_CURRENCY",
+		"txCatalogo": "EUR"
+	},
+	{
+		"nuCatalogo": 5,
+		"cdCatalogo": "NEW_ISSUANCE_CURRENCY",
+		"txCatalogo": "MXN"
+	},
+	{
+		"nuCatalogo": 6,
+		"cdCatalogo": "NEW_ISSUANCE_CURRENCY",
+		"txCatalogo": "USD"
+	}
+]

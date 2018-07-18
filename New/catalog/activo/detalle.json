@@ -1,0 +1,18 @@
+{
+  "nuCatalogo": 5,
+  "cdCatalogo": "BRL/MXN",
+  "txCatalogo": "BRL/MXN",
+  "txComentario": "BRL/MXN",
+  "stActivo": false,
+	"nodoA": null,
+  "geografia": {
+		"nuevos": [],
+    "actuales": [{
+      "nuCatalogo": 3,
+      "cdCatalogo": null,
+      "txCatalogo": "Brasil",
+      "txComentario": "Brasil",
+      "stActivo": null
+    }]
+  }
+}

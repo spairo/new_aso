@@ -1,0 +1,104 @@
+{
+	"fhCarga": 1495465620000,
+	"amortizpactadas": 40,
+	"monto": 33456798,
+	"amortizaciones": [
+		{
+			"Id": 6786,
+			"nombre": "Esteban García",
+			"banca": "Patrimonial",
+			"ubicacion": "norte",
+			"monto": 8000034,
+			"estrategias": 3,
+			"clientes": 4
+		},{
+			"Id": 6786,
+			"nombre": "Nestor Hernandez",
+			"banca": "Patrimonial",
+			"ubicacion": "sur",
+			"monto": 8000034,
+			"estrategias": 6,
+			"clientes": 2
+		},{
+			"Id": 6786,
+			"nombre": "David Alenjandro F",
+			"banca": "Privada",
+			"ubicacion": "sur",
+			"monto": 8000034,
+			"estrategias": 9,
+			"clientes": 2
+		},{
+			"Id": 6786,
+			"nombre": "Patricia Romero",
+			"banca": "Patrimonial",
+			"ubicacion": "norte",
+			"monto": 8000034,
+			"estrategias": 6,
+			"clientes": 5
+		},{
+			"Id": 6786,
+			"nombre": "Patricia Romero",
+			"banca": "Patrimonial",
+			"ubicacion": "norte",
+			"monto": 8000034,
+			"estrategias": 6,
+			"clientes": 5
+		},{
+			"Id": 6786,
+			"nombre": "Patricia Romero",
+			"banca": "Patrimonial",
+			"ubicacion": "norte",
+			"monto": 8000034,
+			"estrategias": 6,
+			"clientes": 5
+		},{
+			"Id": 6786,
+			"nombre": "Patricia Romero",
+			"banca": "Patrimonial",
+			"ubicacion": "norte",
+			"monto": 8000034,
+			"estrategias": 6,
+			"clientes": 5
+		},{
+			"Id": 6786,
+			"nombre": "Patricia Romero",
+			"banca": "Patrimonial",
+			"ubicacion": "norte",
+			"monto": 8000034,
+			"estrategias": 6,
+			"clientes": 5
+		},{
+			"Id": 6786,
+			"nombre": "Patricia Romero",
+			"banca": "Patrimonial",
+			"ubicacion": "norte",
+			"monto": 8000034,
+			"estrategias": 6,
+			"clientes": 5
+		},{
+			"Id": 6786,
+			"nombre": "Patricia Romero",
+			"banca": "Patrimonial",
+			"ubicacion": "norte",
+			"monto": 8000034,
+			"estrategias": 6,
+			"clientes": 5
+		},{
+			"Id": 6786,
+			"nombre": "Patricia Romero",
+			"banca": "Patrimonial",
+			"ubicacion": "norte",
+			"monto": 8000034,
+			"estrategias": 6,
+			"clientes": 5
+		},{
+			"Id": 6786,
+			"nombre": "Patricia Romero",
+			"banca": "Patrimonial",
+			"ubicacion": "norte",
+			"monto": 8000034,
+			"estrategias": 6,
+			"clientes": 5
+		}
+	]
+}

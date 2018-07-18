@@ -1,0 +1,89 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" 
+	xmlns:ctx="http://ArqSpring/UtilidadesContexto"  
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions" 
+	xmlns:jsp="http://java.sun.com/JSP/Page" 
+	xmlns:spring="http://www.springframework.org/tags" version="2.0">
+	
+	<!--  js de contexto -->
+	<spring:url value="/resources/jsArquitectura/contexto/conversorContexto.js" var="cv_ctxjs_url" />
+	<script src="${cv_ctxjs_url}" type="text/javascript">;</script>
+	
+	<!--  recursos para resolutor de operaciones -->
+	<spring:url value="/operationresolver" var="operationUrlResolver" />
+	<spring:url value="/resources/jsArquitectura/nacar/app2app.html" var="urlIntermediateResource" />
+	
+	 
+	<jsp:output omit-xml-declaration="yes" />
+
+	
+	<script type="text/javascript">
+	//<![CDATA[
+		
+		// Variable de tipo objeto Contexto Interoperable con el mapeo del contenido del contexto recibido
+		var contextoJS = null;
+		
+		// Variable temporal donde se recupera el contexto en formato json para la funcion que lo mapea
+		var contextoJson = null; 
+		
+		// Variable de tipo string donde se almacena el contexto en formato json SERIALIZADO
+		var strJsonSerializado = null; 
+		
+		// Variable de tipo string para almacenar el contexto y tenerlo disponible en el cliente
+		var strJson = null;
+		
+		// Variable de tipo String para almacenar la url de consulta de operaciones
+		var nombreServlet= "${operationUrlResolver}";
+		
+		// Variable que contiene la url y nombre del recurso web intermedio (HTML) usada para lanzar la operacion
+		var urlRelativaRecursoIntermedio= "${urlIntermediateResource}";
+		
+		
+		try{  
+			contextoJson = ${ctx:getContexto()};
+			
+		} catch ( exc )  {
+			if ("console" in window && typeof console != 'undefined'){
+			   console.log("Mapeo json contexto - ERROR : NO EXISTE EL CONTEXTO O NO SE PUDO RECUPERAR CORRECTAMENTE - " + exc.message);
+			}
+		} 
+		
+		if(contextoJson == null || typeof contextoJson == 'undefined'){
+		if ("console" in window && typeof console != 'undefined'){
+				console.log("Mapeo json contexto - ERROR : NO EXISTE EL CONTEXTO O NO SE PUDO RECUPERAR CORRECTAMENTE");
+			}
+		}else{
+		 
+			try{  
+				strJsonSerializado = "${ctx:getContextoSerializado()}";
+				
+			} catch ( exc )  {
+				if ("console" in window && typeof console != 'undefined'){
+				   console.log("Recuperar json contexto serializado - ERROR: " + exc.message);
+				}
+			} 
+			
+			try{
+			
+				strJson = JSON.stringify(contextoJson);
+			
+				// Realizamos el mapeo al objeto Javascript de contexto
+				contextoJS = mapeaContexto(contextoJson);
+				
+				if ("console" in window && typeof console != 'undefined'){
+					console.log("Fin mapeo json contexto - CORRECTO");
+				}
+				
+			} catch ( exc )  {
+				if ("console" in window && typeof console != 'undefined'){
+					console.log("Fin mapeo json contexto - ERROR : " + exc.message);
+				}
+			} 
+			
+		} // Fin existe json contexto
+		
+	  //]]>
+	</script>
+  
+ </jsp:root>
+
+ 

@@ -1,0 +1,1541 @@
+{
+	"fhCarga": 1495465620000,
+	"rendimientos": [
+		{
+			"cdEstrategia": "ST-M7864",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 103.763,
+			"txComentario": "Notas adicionales referentes al rendimiento. The quick, brown fox jumps over a lazy dog. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox."
+		},
+		{
+			"cdEstrategia": "ST-M7865",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 104.911,
+			"txComentario": "Notas adicionales referentes al rendimiento. The quick, brown fox jumps over a lazy dog. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox."
+		},
+		{
+			"cdEstrategia": "ST-M7866",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 125.7096,
+			"txComentario": "Notas adicionales referentes al rendimiento. The quick, brown fox jumps over a lazy dog. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox."
+		},
+		{
+			"cdEstrategia": "ST-100076",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 93.8459,
+			"txComentario": "Notas adicionales referentes al rendimiento. The quick, brown fox jumps over a lazy dog. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox."
+		},
+		{
+			"cdEstrategia": "ST-100513",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 96.1533,
+			"txComentario": "Notas adicionales referentes al rendimiento. The quick, brown fox jumps over a lazy dog. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox."
+		},
+		{
+			"cdEstrategia": "ST-100576",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 82.5867,
+			"txComentario": "Notas adicionales referentes al rendimiento. The quick, brown fox jumps over a lazy dog. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox."
+		},
+		{
+			"cdEstrategia": "ST-100579",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 101.6111
+		},
+		{
+			"cdEstrategia": "ST-100587",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 89.8333
+		},
+		{
+			"cdEstrategia": "ST-100588",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.3169
+		},
+		{
+			"cdEstrategia": "ST-100589",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 99.6947
+		},
+		{
+			"cdEstrategia": "ST-100595",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 89.7342
+		},
+		{
+			"cdEstrategia": "ST-100600",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 96.3495
+		},
+		{
+			"cdEstrategia": "ST-100601",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 104.1669
+		},
+		{
+			"cdEstrategia": "ST-100602",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.2682
+		},
+		{
+			"cdEstrategia": "ST-100606",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.1903
+		},
+		{
+			"cdEstrategia": "ST-100607",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 97.6657
+		},
+		{
+			"cdEstrategia": "ST-100608",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 89.4351
+		},
+		{
+			"cdEstrategia": "ST-100609",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.3645
+		},
+		{
+			"cdEstrategia": "ST-100610",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 89.0925
+		},
+		{
+			"cdEstrategia": "ST-100611",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 89.7347
+		},
+		{
+			"cdEstrategia": "ST-100899",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 93.3689
+		},
+		{
+			"cdEstrategia": "ST-100899",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 90.4416
+		},
+		{
+			"cdEstrategia": "ST-101523",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 108.6706
+		},
+		{
+			"cdEstrategia": "ST-101543",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 105.1339
+		},
+		{
+			"cdEstrategia": "ST-101587",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 105.2598
+		},
+		{
+			"cdEstrategia": "ST-101608",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 106.2717
+		},
+		{
+			"cdEstrategia": "ST-101609",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 96.0154
+		},
+		{
+			"cdEstrategia": "ST-101629",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.8839
+		},
+		{
+			"cdEstrategia": "ST-101830",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 96.0158
+		},
+		{
+			"cdEstrategia": "ST-102200",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 87.0733
+		},
+		{
+			"cdEstrategia": "ST-102559",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.7732
+		},
+		{
+			"cdEstrategia": "ST-102560",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 84.6807
+		},
+		{
+			"cdEstrategia": "ST-102561",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 97.5745
+		},
+		{
+			"cdEstrategia": "ST-103020",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 97.6544
+		},
+		{
+			"cdEstrategia": "ST-45049",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 121.0525
+		},
+		{
+			"cdEstrategia": "ST-47122",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 107.7931
+		},
+		{
+			"cdEstrategia": "ST-47123",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 110.2778
+		},
+		{
+			"cdEstrategia": "ST-58217",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 96.5125
+		},
+		{
+			"cdEstrategia": "ST-58218",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 99.0059
+		},
+		{
+			"cdEstrategia": "ST-58599",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 87.593
+		},
+		{
+			"cdEstrategia": "ST-58741",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 97.5335
+		},
+		{
+			"cdEstrategia": "ST-58826",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 99.2559
+		},
+		{
+			"cdEstrategia": "ST-61662",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 96.9854
+		},
+		{
+			"cdEstrategia": "ST-61663",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 96.6517
+		},
+		{
+			"cdEstrategia": "ST-61802",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 99.2948
+		},
+		{
+			"cdEstrategia": "ST-62189",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.8479
+		},
+		{
+			"cdEstrategia": "ST-62355",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 109.485
+		},
+		{
+			"cdEstrategia": "ST-62746",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 108.2434
+		},
+		{
+			"cdEstrategia": "ST-62827",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 89.4998
+		},
+		{
+			"cdEstrategia": "ST-63033",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 86.7017
+		},
+		{
+			"cdEstrategia": "ST-63034",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 86.4003
+		},
+		{
+			"cdEstrategia": "ST-65907",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 43.9617
+		},
+		{
+			"cdEstrategia": "ST-65910",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 44.0203
+		},
+		{
+			"cdEstrategia": "ST-66179",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 113.5126
+		},
+		{
+			"cdEstrategia": "ST-66180",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 112.3595
+		},
+		{
+			"cdEstrategia": "ST-68867",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 92.4215
+		},
+		{
+			"cdEstrategia": "ST-68868",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 92.9933
+		},
+		{
+			"cdEstrategia": "ST-69270",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 91.9578
+		},
+		{
+			"cdEstrategia": "ST-69923",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 92.784
+		},
+		{
+			"cdEstrategia": "ST-72483",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 88.4147
+		},
+		{
+			"cdEstrategia": "ST-73528",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 100.0527
+		},
+		{
+			"cdEstrategia": "ST-73533",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.8351
+		},
+		{
+			"cdEstrategia": "ST-74088",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 83.1416
+		},
+		{
+			"cdEstrategia": "ST-74219",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 97.122
+		},
+		{
+			"cdEstrategia": "ST-74220",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.9833
+		},
+		{
+			"cdEstrategia": "ST-74221",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.1702
+		},
+		{
+			"cdEstrategia": "ST-74222",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.8082
+		},
+		{
+			"cdEstrategia": "ST-74223",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 102.1002
+		},
+		{
+			"cdEstrategia": "ST-74224",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 96.971
+		},
+		{
+			"cdEstrategia": "ST-74225",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 90.1925
+		},
+		{
+			"cdEstrategia": "ST-74227",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 90.3484
+		},
+		{
+			"cdEstrategia": "ST-74318",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.52
+		},
+		{
+			"cdEstrategia": "ST-74912",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.1097
+		},
+		{
+			"cdEstrategia": "ST-74913",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 92.5089
+		},
+		{
+			"cdEstrategia": "ST-75145",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 105.3161
+		},
+		{
+			"cdEstrategia": "ST-75282",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.587
+		},
+		{
+			"cdEstrategia": "ST-75283",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 90.2362
+		},
+		{
+			"cdEstrategia": "ST-75375",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.7093
+		},
+		{
+			"cdEstrategia": "ST-75459",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 86.1758
+		},
+		{
+			"cdEstrategia": "ST-75462",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 90.9148
+		},
+		{
+			"cdEstrategia": "ST-75899",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 90.9358
+		},
+		{
+			"cdEstrategia": "ST-78713",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.815
+		},
+		{
+			"cdEstrategia": "ST-80078",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 90.7518
+		},
+		{
+			"cdEstrategia": "ST-80079",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 90.8939
+		},
+		{
+			"cdEstrategia": "ST-80081",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 100.2605
+		},
+		{
+			"cdEstrategia": "ST-80082",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 100.8144
+		},
+		{
+			"cdEstrategia": "ST-80088",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 93.2853
+		},
+		{
+			"cdEstrategia": "ST-80798",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 75.6847
+		},
+		{
+			"cdEstrategia": "ST-81204",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.8232
+		},
+		{
+			"cdEstrategia": "ST-81615",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 90.6788
+		},
+		{
+			"cdEstrategia": "ST-81624",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 102.473
+		},
+		{
+			"cdEstrategia": "ST-81627",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 92.0688
+		},
+		{
+			"cdEstrategia": "ST-81973",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 90.7124
+		},
+		{
+			"cdEstrategia": "ST-82050",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 90.7124
+		},
+		{
+			"cdEstrategia": "ST-82293",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 102.3771
+		},
+		{
+			"cdEstrategia": "ST-82323",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 93.643
+		},
+		{
+			"cdEstrategia": "ST-82329",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 86.3935
+		},
+		{
+			"cdEstrategia": "ST-82337",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 104.1346
+		},
+		{
+			"cdEstrategia": "ST-82454",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 102.3771
+		},
+		{
+			"cdEstrategia": "ST-82694",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 103.7603
+		},
+		{
+			"cdEstrategia": "ST-82695",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.3006
+		},
+		{
+			"cdEstrategia": "ST-82819",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 96.0893
+		},
+		{
+			"cdEstrategia": "ST-82823",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.3225
+		},
+		{
+			"cdEstrategia": "ST-82825",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 105.7394
+		},
+		{
+			"cdEstrategia": "ST-82828",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.6324
+		},
+		{
+			"cdEstrategia": "ST-82829",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 85.7381
+		},
+		{
+			"cdEstrategia": "ST-82991",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 102.2048
+		},
+		{
+			"cdEstrategia": "ST-82992",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 93.4073
+		},
+		{
+			"cdEstrategia": "ST-83217",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 91.7809
+		},
+		{
+			"cdEstrategia": "ST-83464",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.8612
+		},
+		{
+			"cdEstrategia": "ST-83959",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 110.1285
+		},
+		{
+			"cdEstrategia": "ST-84773",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 86.4223
+		},
+		{
+			"cdEstrategia": "ST-84774",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 90.3008
+		},
+		{
+			"cdEstrategia": "ST-84840",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 89.381
+		},
+		{
+			"cdEstrategia": "ST-84842",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.2203
+		},
+		{
+			"cdEstrategia": "ST-84844",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 102.9444
+		},
+		{
+			"cdEstrategia": "ST-84845",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 104.3517
+		},
+		{
+			"cdEstrategia": "ST-84851",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.9605
+		},
+		{
+			"cdEstrategia": "ST-84901",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 101.0512
+		},
+		{
+			"cdEstrategia": "ST-85032",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.3891
+		},
+		{
+			"cdEstrategia": "ST-85035",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 90.2932
+		},
+		{
+			"cdEstrategia": "ST-85155",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 89.0632
+		},
+		{
+			"cdEstrategia": "ST-85204",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.2646
+		},
+		{
+			"cdEstrategia": "ST-85207",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 97.8041
+		},
+		{
+			"cdEstrategia": "ST-85990",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.5329
+		},
+		{
+			"cdEstrategia": "ST-85994",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 97.8006
+		},
+		{
+			"cdEstrategia": "ST-86153",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 89.3294
+		},
+		{
+			"cdEstrategia": "ST-86187",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 101.3875
+		},
+		{
+			"cdEstrategia": "ST-86211",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 118.6963
+		},
+		{
+			"cdEstrategia": "ST-86212",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 101.5515
+		},
+		{
+			"cdEstrategia": "ST-86227",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 100.8993
+		},
+		{
+			"cdEstrategia": "ST-86408",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.4724
+		},
+		{
+			"cdEstrategia": "ST-86410",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 80.4871
+		},
+		{
+			"cdEstrategia": "ST-86544",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 96.8748
+		},
+		{
+			"cdEstrategia": "ST-86569",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.2767
+		},
+		{
+			"cdEstrategia": "ST-86570",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.4725
+		},
+		{
+			"cdEstrategia": "ST-86571",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.2767
+		},
+		{
+			"cdEstrategia": "ST-86871",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 97.8494
+		},
+		{
+			"cdEstrategia": "ST-86909",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.4398
+		},
+		{
+			"cdEstrategia": "ST-87062",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.2151
+		},
+		{
+			"cdEstrategia": "ST-87063",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.7523
+		},
+		{
+			"cdEstrategia": "ST-87239",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.5456
+		},
+		{
+			"cdEstrategia": "ST-87240",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 91.4977
+		},
+		{
+			"cdEstrategia": "ST-87324",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 96.5148
+		},
+		{
+			"cdEstrategia": "ST-87407",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.2601
+		},
+		{
+			"cdEstrategia": "ST-87582",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 99.5545
+		},
+		{
+			"cdEstrategia": "ST-87586",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 97.8082
+		},
+		{
+			"cdEstrategia": "ST-87653",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.2978
+		},
+		{
+			"cdEstrategia": "ST-87657",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.4914
+		},
+		{
+			"cdEstrategia": "ST-87658",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.8314
+		},
+		{
+			"cdEstrategia": "ST-87659",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 99.41
+		},
+		{
+			"cdEstrategia": "ST-87660",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.6574
+		},
+		{
+			"cdEstrategia": "ST-87661",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.3367
+		},
+		{
+			"cdEstrategia": "ST-87666",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 99.9645
+		},
+		{
+			"cdEstrategia": "ST-87668",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.9451
+		},
+		{
+			"cdEstrategia": "ST-87669",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.4746
+		},
+		{
+			"cdEstrategia": "ST-87927",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.1991
+		},
+		{
+			"cdEstrategia": "ST-88056",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 96.5323
+		},
+		{
+			"cdEstrategia": "ST-88131",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.8837
+		},
+		{
+			"cdEstrategia": "ST-88133",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.5202
+		},
+		{
+			"cdEstrategia": "ST-88139",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.4569
+		},
+		{
+			"cdEstrategia": "ST-88260",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 91.1928
+		},
+		{
+			"cdEstrategia": "ST-88263",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.7319
+		},
+		{
+			"cdEstrategia": "ST-88399",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 101.7529
+		},
+		{
+			"cdEstrategia": "ST-88700",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.7919
+		},
+		{
+			"cdEstrategia": "ST-88701",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 106.0669
+		},
+		{
+			"cdEstrategia": "ST-89305",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.7997
+		},
+		{
+			"cdEstrategia": "ST-89323",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.2116
+		},
+		{
+			"cdEstrategia": "ST-89555",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.3705
+		},
+		{
+			"cdEstrategia": "ST-89556",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.9875
+		},
+		{
+			"cdEstrategia": "ST-89825",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.7919
+		},
+		{
+			"cdEstrategia": "ST-89826",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.6531
+		},
+		{
+			"cdEstrategia": "ST-90188",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 100.9212
+		},
+		{
+			"cdEstrategia": "ST-90189",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 100.4173
+		},
+		{
+			"cdEstrategia": "ST-90195",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 99.5232
+		},
+		{
+			"cdEstrategia": "ST-90203",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 99.1569
+		},
+		{
+			"cdEstrategia": "ST-90868",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 96.9948
+		},
+		{
+			"cdEstrategia": "ST-90889",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.52
+		},
+		{
+			"cdEstrategia": "ST-91075",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.4104
+		},
+		{
+			"cdEstrategia": "ST-91089",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.7009
+		},
+		{
+			"cdEstrategia": "ST-91090",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.4222
+		},
+		{
+			"cdEstrategia": "ST-91182",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.1097
+		},
+		{
+			"cdEstrategia": "ST-91625",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 91.1736
+		},
+		{
+			"cdEstrategia": "ST-91794",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 90.9987
+		},
+		{
+			"cdEstrategia": "ST-92026",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 86.6868
+		},
+		{
+			"cdEstrategia": "ST-92028",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 97.5673
+		},
+		{
+			"cdEstrategia": "ST-92029",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.9013
+		},
+		{
+			"cdEstrategia": "ST-92030",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 97.2951
+		},
+		{
+			"cdEstrategia": "ST-92031",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 105.1624
+		},
+		{
+			"cdEstrategia": "ST-92032",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 107.2407
+		},
+		{
+			"cdEstrategia": "ST-92033",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 103.4361
+		},
+		{
+			"cdEstrategia": "ST-92034",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 100.5863
+		},
+		{
+			"cdEstrategia": "ST-92045",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 104.8644
+		},
+		{
+			"cdEstrategia": "ST-92145",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.772
+		},
+		{
+			"cdEstrategia": "ST-92150",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.8663
+		},
+		{
+			"cdEstrategia": "ST-92157",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 92.3206
+		},
+		{
+			"cdEstrategia": "ST-92473",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 92.5089
+		},
+		{
+			"cdEstrategia": "ST-92716",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 92.9773
+		},
+		{
+			"cdEstrategia": "ST-92895",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 105.3614
+		},
+		{
+			"cdEstrategia": "ST-92912",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 92.379
+		},
+		{
+			"cdEstrategia": "ST-92981",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 99.2722
+		},
+		{
+			"cdEstrategia": "ST-92986",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 105.9864
+		},
+		{
+			"cdEstrategia": "ST-92988",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 93.1219
+		},
+		{
+			"cdEstrategia": "ST-92989",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 105.1654
+		},
+		{
+			"cdEstrategia": "ST-92991",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 103.5668
+		},
+		{
+			"cdEstrategia": "ST-92993",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 0.0861
+		},
+		{
+			"cdEstrategia": "ST-92996",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 100.2237
+		},
+		{
+			"cdEstrategia": "ST-93341",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 87.0297
+		},
+		{
+			"cdEstrategia": "ST-94248",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 99.077
+		},
+		{
+			"cdEstrategia": "ST-94249",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 87.0509
+		},
+		{
+			"cdEstrategia": "ST-94469",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 93.761
+		},
+		{
+			"cdEstrategia": "ST-94529",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 96.3416
+		},
+		{
+			"cdEstrategia": "ST-95144",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 99.1512
+		},
+		{
+			"cdEstrategia": "ST-95145",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 99.6412
+		},
+		{
+			"cdEstrategia": "ST-95149",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 80.7805
+		},
+		{
+			"cdEstrategia": "ST-95151",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.808
+		},
+		{
+			"cdEstrategia": "ST-95155",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 105.6376
+		},
+		{
+			"cdEstrategia": "ST-95156",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 101.881
+		},
+		{
+			"cdEstrategia": "ST-95157",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.4651
+		},
+		{
+			"cdEstrategia": "ST-95158",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 110.2907
+		},
+		{
+			"cdEstrategia": "ST-95159",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 100.4892
+		},
+		{
+			"cdEstrategia": "ST-95161",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 99.4572
+		},
+		{
+			"cdEstrategia": "ST-95164",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 97.4561
+		},
+		{
+			"cdEstrategia": "ST-95165",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 101.8388
+		},
+		{
+			"cdEstrategia": "ST-95220",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 92.0914
+		},
+		{
+			"cdEstrategia": "ST-95903",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 96.6037
+		},
+		{
+			"cdEstrategia": "ST-95904",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.0984
+		},
+		{
+			"cdEstrategia": "ST-96026",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.8339
+		},
+		{
+			"cdEstrategia": "ST-96027",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.6787
+		},
+		{
+			"cdEstrategia": "ST-96135",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 101.2384
+		},
+		{
+			"cdEstrategia": "ST-96199",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.9199
+		},
+		{
+			"cdEstrategia": "ST-96200",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.9884
+		},
+		{
+			"cdEstrategia": "ST-96206",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 103.998
+		},
+		{
+			"cdEstrategia": "ST-96207",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 97.2383
+		},
+		{
+			"cdEstrategia": "ST-96209",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 93.9355
+		},
+		{
+			"cdEstrategia": "ST-96210",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 10.4143
+		},
+		{
+			"cdEstrategia": "ST-96213",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 100.6826
+		},
+		{
+			"cdEstrategia": "ST-96214",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 99.0694
+		},
+		{
+			"cdEstrategia": "ST-96215",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 99.2025
+		},
+		{
+			"cdEstrategia": "ST-96216",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 99.1966
+		},
+		{
+			"cdEstrategia": "ST-96217",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 97.2994
+		},
+		{
+			"cdEstrategia": "ST-96218",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 101.3978
+		},
+		{
+			"cdEstrategia": "ST-96759",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 97.3517
+		},
+		{
+			"cdEstrategia": "ST-96779",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 97.3255
+		},
+		{
+			"cdEstrategia": "ST-96799",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 104.6039
+		},
+		{
+			"cdEstrategia": "ST-97226",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 90.6231
+		},
+		{
+			"cdEstrategia": "ST-97392",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.9225
+		},
+		{
+			"cdEstrategia": "ST-97630",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 100.8557
+		},
+		{
+			"cdEstrategia": "ST-97651",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 131.1925
+		},
+		{
+			"cdEstrategia": "ST-97698",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 87.4475
+		},
+		{
+			"cdEstrategia": "ST-97718",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 96.3718
+		},
+		{
+			"cdEstrategia": "ST-97846",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 99.4973
+		},
+		{
+			"cdEstrategia": "ST-97853",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 102.7084
+		},
+		{
+			"cdEstrategia": "ST-97962",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.8944
+		},
+		{
+			"cdEstrategia": "ST-97963",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.4017
+		},
+		{
+			"cdEstrategia": "ST-98110",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 99.3146
+		},
+		{
+			"cdEstrategia": "ST-98111",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 104.8034
+		},
+		{
+			"cdEstrategia": "ST-98113",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 95.4891
+		},
+		{
+			"cdEstrategia": "ST-98119",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 93.7277
+		},
+		{
+			"cdEstrategia": "ST-98120",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 97.9793
+		},
+		{
+			"cdEstrategia": "ST-98197",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 103.4079
+		},
+		{
+			"cdEstrategia": "ST-98198",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 91.7486
+		},
+		{
+			"cdEstrategia": "ST-98199",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 103.2133
+		},
+		{
+			"cdEstrategia": "ST-98200",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 105.1847
+		},
+		{
+			"cdEstrategia": "ST-98229",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 100.7997
+		},
+		{
+			"cdEstrategia": "ST-98234",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 103.4044
+		},
+		{
+			"cdEstrategia": "ST-98235",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 71.8593
+		},
+		{
+			"cdEstrategia": "ST-98236",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 103.7471
+		},
+		{
+			"cdEstrategia": "ST-98237",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 110.1835
+		},
+		{
+			"cdEstrategia": "ST-98266",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 107.9382
+		},
+		{
+			"cdEstrategia": "ST-98268",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 104.2917
+		},
+		{
+			"cdEstrategia": "ST-98269",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 96.2231
+		},
+		{
+			"cdEstrategia": "ST-98269",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.9425
+		},
+		{
+			"cdEstrategia": "ST-98270",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 103.8419
+		},
+		{
+			"cdEstrategia": "ST-98272",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 91.4782
+		},
+		{
+			"cdEstrategia": "ST-98273",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.2832
+		},
+		{
+			"cdEstrategia": "ST-98309",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 94.3121
+		},
+		{
+			"cdEstrategia": "ST-98310",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.6763
+		},
+		{
+			"cdEstrategia": "ST-98311",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 108.2946
+		},
+		{
+			"cdEstrategia": "ST-98330",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 103.0783
+		},
+		{
+			"cdEstrategia": "ST-98331",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.7488
+		},
+		{
+			"cdEstrategia": "ST-98332",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 91.4257
+		},
+		{
+			"cdEstrategia": "ST-98353",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 100.0035
+		},
+		{
+			"cdEstrategia": "ST-98440",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 89.3884
+		},
+		{
+			"cdEstrategia": "ST-98466",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 92.7373
+		},
+		{
+			"cdEstrategia": "ST-98610",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 85.1416
+		},
+		{
+			"cdEstrategia": "ST-98611",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 97.7241
+		},
+		{
+			"cdEstrategia": "ST-98612",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.2441
+		},
+		{
+			"cdEstrategia": "ST-98613",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.2303
+		},
+		{
+			"cdEstrategia": "ST-98614",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 98.4528
+		},
+		{
+			"cdEstrategia": "ST-98649",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 107.9353
+		},
+		{
+			"cdEstrategia": "ST-98935",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 93.0276
+		},
+		{
+			"cdEstrategia": "ST-99110",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 87.4015
+		},
+		{
+			"cdEstrategia": "ST-99114",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 91.2783
+		},
+		{
+			"cdEstrategia": "ST-99120",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 96.7725
+		},
+		{
+			"cdEstrategia": "ST-99121",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 91.0289
+		},
+		{
+			"cdEstrategia": "ST-99144",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 92.865
+		},
+		{
+			"cdEstrategia": "ST-99430",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 92.6754
+		},
+		{
+			"cdEstrategia": "ST-99622",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 108.3556
+		},
+		{
+			"cdEstrategia": "ST-99745",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 93.3983
+		},
+		{
+			"cdEstrategia": "ST-99834",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 99.8072
+		},
+		{
+			"cdEstrategia": "ST-99835",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 96.4759
+		},
+		{
+			"cdEstrategia": "ST-99836",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 89.5594
+		},
+		{
+			"cdEstrategia": "ST-99837",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 86.795
+		},
+		{
+			"cdEstrategia": "ST-99838",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 97.9443
+		},
+		{
+			"cdEstrategia": "ST-99839",
+			"fhRendimiento": 1495083600000,
+			"imRendimiento": 97.9249
+		}
+	]
+}

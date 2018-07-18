@@ -1,0 +1,30 @@
+
+<form name="main.uploadPrices" ng-submit="main.uploadPrices.$valid &amp;&amp; main.registerPrices();" novalidate="novalidate">
+  <h1>Actualizar precios</h1>
+  <div class="row mt-15">
+    <div class="col-4">
+      <input ng-model="main.request.fecha" type="hidden" name="fecha" required="required"/>
+      <label>Fecha</label>
+      <div>
+        <div class="col-10">
+          <input date-input="date-input" ng-model="main.request.fecha" type="date"/>
+        </div>
+        <div class="col-2"><i class="calendar date-picker" ng-model="main.request.fecha"></i>
+        </div>
+      </div>
+      <div class="input-error" ng-if="main.uploadPrices.$submitted" ng-messages="main.uploadPricesfecha.$error"><span ng-message="required">Este campo es requerido</span>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-15">
+    <div class="col-7">
+      <label>Archivo csv</label>
+      <input-file model="main.request.file"></input-file>
+    </div>
+  </div>
+  <div class="row align-center">
+    <div class="col-12 mt-30">
+      <button class="btn" ng-disabled="!main.request.fecha || !main.request.file">Cargar</button>
+    </div>
+  </div>
+</form>

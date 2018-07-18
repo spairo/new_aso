@@ -1,0 +1,100 @@
+{
+    "cdUsuario": "XMZ4163",
+    "tabs": [{
+        "codigo": "ytwk",
+        "nombrePortafolio": "Edicion"
+    }],
+    "portafolios": [{
+        "idEstrategia": 2940,
+        "cdSerie": "IPC704R DV053",
+        "subyacente": null,
+        "tpPayoff": "Put Digital - Call Spread",
+        "imPrecio": null,
+        "fhVencimiento": null,
+        "cdDivisa": null,
+        "diferencia": null,
+        "fhPrecio": null,
+        "stActivo": null,
+        "detallePayOff": null,
+        "activos": [{
+            "nbActivo": "Índice de Precios y Cotizaciones®",
+            "precioActivo": 0,
+            "diferencia": null
+        }],
+        "precios": null,
+        "semaforo": null,
+        "estatusEdicion": null,
+        "selectEmission": true,
+        "activosString": "Índice de Precios y Cotizaciones®",
+        "pricesString": "0"
+    }, {
+        "idEstrategia": 2179,
+        "cdSerie": "C6351D",
+        "subyacente": null,
+        "tpPayoff": "Dual",
+        "imPrecio": null,
+        "fhVencimiento": null,
+        "cdDivisa": null,
+        "diferencia": null,
+        "fhPrecio": null,
+        "stActivo": null,
+        "detallePayOff": null,
+        "activos": [{
+            "nbActivo": "USD/MXN",
+            "precioActivo": 0,
+            "diferencia": null
+        }],
+        "precios": null,
+        "semaforo": null,
+        "estatusEdicion": null,
+        "selectEmission": true,
+        "activosString": "USD/MXN",
+        "pricesString": "0"
+    }, {
+        "idEstrategia": 2168,
+        "cdSerie": "C6340",
+        "subyacente": null,
+        "tpPayoff": "Put Corto",
+        "imPrecio": null,
+        "fhVencimiento": null,
+        "cdDivisa": null,
+        "diferencia": null,
+        "fhPrecio": null,
+        "stActivo": null,
+        "detallePayOff": null,
+        "activos": [{
+            "nbActivo": "USD/MXN",
+            "precioActivo": 0,
+            "diferencia": null
+        }],
+        "precios": null,
+        "semaforo": null,
+        "estatusEdicion": null,
+        "selectEmission": true,
+        "activosString": "USD/MXN",
+        "pricesString": "0"
+    }, {
+        "idEstrategia": 119,
+        "cdSerie": "FBK711L DC026",
+        "subyacente": null,
+        "tpPayoff": "Phoenix Autocall Memory",
+        "imPrecio": null,
+        "fhVencimiento": null,
+        "cdDivisa": null,
+        "diferencia": null,
+        "fhPrecio": null,
+        "stActivo": null,
+        "detallePayOff": null,
+        "activos": [{
+            "nbActivo": "Facebook, Inc.",
+            "precioActivo": 0,
+            "diferencia": null
+        }],
+        "precios": null,
+        "semaforo": null,
+        "estatusEdicion": null,
+        "selectEmission": true,
+        "activosString": "Facebook, Inc.",
+        "pricesString": "0"
+    }]
+}

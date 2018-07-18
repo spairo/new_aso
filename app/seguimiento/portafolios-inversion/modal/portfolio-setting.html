@@ -1,0 +1,23 @@
+
+<h1>Configuración de portafolios</h1>
+<div class="mt-10">
+  <div class="content-briefcases">
+    <h4>Cierres recientes</h4>
+    <div class="overflow"><span ng-repeat="brief in main.default.portafolios">{{ brief.cdSerie }}</span></div>
+  </div>
+  <div class="content-briefcases" ng-repeat="(key, briefcase) in main.briefcases track by $index">
+    <h4><span>{{ briefcase.nombrePortafolio }}</span><i class="edit tooltip" ng-click="main.goEdition(briefcase.codigoPortafolio)">
+        <div class="content">
+          <div class="txt">Editar</div>
+        </div></i><i class="copy tooltip" ng-click="main.clonePortfolio(briefcase.codigoPortafolio)" ng-if="main.briefcases.length &lt; 5">
+        <div class="content">
+          <div class="txt">Copiar</div>
+        </div></i>
+    </h4>
+    <div class="overflow"><span ng-repeat="brief in main.briefcases[key].estrategias track by $index">{{ brief }}</span></div>
+  </div>
+  <div class="content-briefcases" ng-if="main.briefcases.length &lt; 5"><a nav="#!/portafolios-inversion/nuevo-portafolio">
+      <button class="btn-add">+</button></a>
+    <div class="txt-button">Nuevo portafolio</div>
+  </div>
+</div>

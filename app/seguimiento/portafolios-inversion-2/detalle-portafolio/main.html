@@ -1,0 +1,281 @@
+
+<div class="animated fadeIn" ng-controller="DetailPortfolioController as main">
+  <div class="breadcrumb"><a nav="#!/">Home  &sol;</a><a nav="#!/portafolios-inversion">Portafolios de inversi&oacute;n &sol;</a><span class="selected">Seguimiento de emisi&oacute;n</span>
+  </div>
+  <h1>
+  </h1>
+  <h1 class="superTitle">Detalle de Emisión Serie {{main.detail.detallePrecio.cdSerie}}</h1>
+  <div class="col-12 supBar">
+    <div class="row">
+      <div class="col-3 mr-25 h65">
+        <div class="row m-t-10">
+          <h1 class="barTitle txt-15">{{main.detail.detallePrecio.txVehiculo}} / Serie {{main.detail.detallePrecio.cdSerie}}</h1>
+        </div>
+        <div class="row m-t-20"><span class="txt11">Monto  vivo</span></div>
+        <div class="row"><span class="txtGray txt13">{{ main.detail.detallePrecio.imMontoVivo | currency:undefined:0 }} {{ main.detail.detallePrecio.cdDivisa }}</span></div>
+      </div>
+      <div class="col-2 h65 mt-5"><span class="txt11">Precio VALMER al {{ main.detail.detallePrecio.fhPrecio | date:"dd/MM/yyyy" }}</span>
+        <div class="content-prices mt-10">
+          <div class="block"><i class="performance" ng-class="{down: main.detail.detallePrecio.rendimiento &lt; 0}" ng-if="main.detail.detallePrecio.rendimiento"></i><span class="price txt22" ng-class="{down: main.detail.detallePrecio.rendimiento &lt; 0, up: main.detail.detallePrecio.rendimiento &gt; 0}">{{ main.detail.detallePrecio.imPrecio }}</span><span class="currency txt11" ng-class="{down: main.detail.detallePrecio.rendimiento &lt; 0, up: main.detail.detallePrecio.rendimiento &gt; 0}">&nbsp; {{ main.detail.detallePrecio.cdDivisa }}</span><span class="performance" ng-class="{down: main.detail.detallePrecio.rendimiento &lt; 0, up: main.detail.detallePrecio.rendimiento &gt; 0}"><span ng-if="main.detail.detallePrecio.rendimiento &gt; 0">&nbsp; +</span><span ng-if="main.detail.detallePrecio.rendimiento &lt; 0">&nbsp;</span><span class="txt13">{{ main.detail.detallePrecio.rendimiento }}%</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-2" style="display:none;">
+        <div class="row"><span class="txt11 txtCenter">Tiempo restante para solicitar Amortización</span></div>
+        <div class="row txtCount ml-45"><span class="mt-10" countdown="2900512812895"></span></div>
+        <div class="row ml-45 txt11 mb-15 txtHour"><span>hrs  min  seg</span></div>
+      </div>
+      <div class="col-2" style="display:none;">
+        <div class="row">
+          <button class="btn btn-large mb-5 fullWidth">Amortización Anticipada</button>
+        </div>
+        <div class="row">
+          <button class="btn btn-copy fullWidth">Anunciar Cruce</button>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row mr-15 pt-15 floatR h65">
+          <div class="iconography txtIcon mt-10"></div>
+          <div class="icons-mosaic iconPos"><img alt="Deuda / Alta complejidad / Largo Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'DEU' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'A' &amp;&amp; main.detail.detallePayOff.plazo === 'LP'" src="./assets/icons/caracteristicas/ico_lp_alta_deuda.svg"/><img alt="Deuda / Alta complejidad / Corto Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'DEU' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'A' &amp;&amp; main.detail.detallePayOff.plazo === 'CP'" src="./assets/icons/caracteristicas/ico_cp_alta_deuda.svg"/><img alt="Divisas / Alta complejidad / Largo Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'DIV' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'A' &amp;&amp; main.detail.detallePayOff.plazo === 'LP'" src="./assets/icons/caracteristicas/ico_lp_alta_divisas.svg"/><img alt="Divisas / Alta complejidad / Corto Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'DIV' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'A' &amp;&amp; main.detail.detallePayOff.plazo === 'CP'" src="./assets/icons/caracteristicas/ico_cp_alta_divisas.svg"/><img alt="Renta / Alta complejidad / Largo Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'RV' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'A' &amp;&amp; main.detail.detallePayOff.plazo === 'LP'" src="./assets/icons/caracteristicas/ico_lp_alta_renta.svg"/><img alt="Renta / Alta complejidad / Corto Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'RV' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'A' &amp;&amp; main.detail.detallePayOff.plazo === 'CP'" src="./assets/icons/caracteristicas/ico_cp_alta_renta.svg"/><img alt="Deuda / Mediana complejidad / Largo Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'DEU' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'M' &amp;&amp; main.detail.detallePayOff.plazo === 'LP'" src="./assets/icons/caracteristicas/ico_lp_media_deuda.svg"/><img alt="Deuda / Mediana complejidad / Corto Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'DEU' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'M' &amp;&amp; main.detail.detallePayOff.plazo === 'CP'" src="./assets/icons/caracteristicas/ico_cp_media_deuda.svg"/><img alt="Divisas / Mediana complejidad / Largo Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'DIV' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'M' &amp;&amp; main.detail.detallePayOff.plazo === 'LP'" src="./assets/icons/caracteristicas/ico_lp_media_divisas.svg"/><img alt="Divisas / Mediana complejidad / Corto Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'DIV' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'M' &amp;&amp; main.detail.detallePayOff.plazo === 'CP'" src="./assets/icons/caracteristicas/ico_cp_media_divisas.svg"/><img alt="Renta / Mediana complejidad / Largo Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'RV' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'M' &amp;&amp; main.detail.detallePayOff.plazo === 'LP'" src="./assets/icons/caracteristicas/ico_lp_media_renta.svg"/><img alt="Renta / Mediana complejidad / Corto Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'RV' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'M' &amp;&amp; main.detail.detallePayOff.plazo === 'CP'" src="./assets/icons/caracteristicas/ico_cp_media_renta.svg"/><img alt="Deuda / Baja complejidad / Largo Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'DEU' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'B' &amp;&amp; main.detail.detallePayOff.plazo === 'LP'" src="./assets/icons/caracteristicas/ico_lp_baja_deuda.svg"/><img alt="Deuda / Baja complejidad / Corto Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'DEU' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'B' &amp;&amp; main.detail.detallePayOff.plazo === 'CP'" src="./assets/icons/caracteristicas/ico_cp_baja_deuda.svg"/><img alt="Divisas / Baja complejidad / Largo Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'DIV' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'B' &amp;&amp; main.detail.detallePayOff.plazo === 'LP'" src="./assets/icons/caracteristicas/ico_lp_baja_divisas.svg"/><img alt="Divisas / Baja complejidad / Corto Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'DIV' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'B' &amp;&amp; main.detail.detallePayOff.plazo === 'CP'" src="./assets/icons/caracteristicas/ico_cp_baja_divisas.svg"/><img alt="Renta / Baja complejidad / Largo Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'RV' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'B' &amp;&amp; main.detail.detallePayOff.plazo === 'LP'" src="./assets/icons/caracteristicas/ico_lp_baja_renta.svg"/><img alt="Renta / Baja complejidad / Corto Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'RV' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'B' &amp;&amp; main.detail.detallePayOff.plazo === 'CP'" src="./assets/icons/caracteristicas/ico_cp_baja_renta.svg"/><img alt="Deuda / Muy baja complejidad / Largo Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'DEU' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'MB' &amp;&amp; main.detail.detallePayOff.plazo === 'LP'" src="./assets/icons/caracteristicas/ico_lp_muybaja_deuda.svg"/><img alt="Deuda / Muy baja complejidad / Corto Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'DEU' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'MB' &amp;&amp; main.detail.detallePayOff.plazo === 'CP'" src="./assets/icons/caracteristicas/ico_cp_muybaja_deuda.svg"/><img alt="Divisas / Muy baja complejidad / Largo Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'DIV' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'MB' &amp;&amp; main.detail.detallePayOff.plazo === 'LP'" src="./assets/icons/caracteristicas/ico_lp_muybaja_divisas.svg"/><img alt="Divisas / Muy baja complejidad / Corto Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'DIV' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'MB' &amp;&amp; main.detail.detallePayOff.plazo === 'CP'" src="./assets/icons/caracteristicas/ico_cp_muybaja_divisas.svg"/><img alt="Renta / Muy baja complejidad / Largo Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'RV' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'MB' &amp;&amp; main.detail.detallePayOff.plazo === 'LP'" src="./assets/icons/caracteristicas/ico_lp_muybaja_renta.svg"/><img alt="Renta / Muy baja complejidad / Corto Plazo" ng-if="main.detail.detalleSubyacente.cdCatalogo === 'RV' &amp;&amp; main.detail.detallePayOff.cdComplejidad === 'MB' &amp;&amp; main.detail.detallePayOff.plazo === 'CP'" src="./assets/icons/caracteristicas/ico_cp_muybaja_renta.svg"/><img alt="Protección Capital" ng-if="main.detail.detallePayOff.capitalProtegido === 100" src="./assets/icons/caracteristicas/ico_capitalvencimiento.svg"/><img alt="Protección Capital" ng-if="main.detail.detallePayOff.capitalProtegido &lt; 100" src="./assets/icons/caracteristicas/ico_capitalprotegido.svg"/><img alt="Volatilidad" ng-if="main.detail.detallePayOff.volatilidad" src="./assets/icons/caracteristicas/ico_volatilidad.svg"/><img alt="Liquidez" ng-if="main.detail.detallePayOff.liquidez" src="./assets/icons/caracteristicas/ico_liquidez.svg"/><span class="bpp" ng-if="main.detail.detallePayOff.cdCaracteristicaBpp === 'GF'">GF</span><span class="bpp" ng-if="main.detail.detallePayOff.cdCaracteristicaBpp === 'C'">C</span><span class="bpp" ng-if="main.detail.detallePayOff.cdCaracteristicaBpp === 'PC'">PC</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="panel detail">
+      <h1 class="detail">Información general</h1>
+      <p class="description">{{ main.detail.detalleEstrategia.datos[90] }}</p>
+      <div class="traffic-light tooltip" ng-style="{'background-color': main.detail.detalleEstrategia.semaforo.color}">
+        <div class="content"><span>{{ main.detail.detalleEstrategia.semaforo.comentario }}</span></div>
+      </div><span ng-style="{'color': main.detail.detalleEstrategia.semaforo.color }">Sugerencia de {{ main.detail.detalleEstrategia.semaforo.nombreSemaforo }}</span>
+      <div class="mt-40">
+        <div class="field" ng-hide="key &gt; 7" ng-if="field.id !== 90" ng-repeat="(key, field) in main.detail.detalleEstrategia.encabezados | orderBy:'ordenAlta'">
+          <div class="row">
+            <div class="col-6 pr-5">
+              <label for="{{ field.etiqueta }}">{{ field.propiedad }}:</label>
+            </div>
+            <div class="col-6 pr-0"><span ng-if="field.tipo === 'AREA' || field.tipo === 'TEXT' || field.tipo === 'NUMBER'">{{ main.detail.detalleEstrategia.datos[field.id] || "-" }}</span>
+              <div ng-if="field.tipo === 'SELECT'"><span ng-if="main.detail.detalleEstrategia.datos[field.id].txCatalogo === ''">-</span><span ng-if="main.detail.detalleEstrategia.datos[field.id].txCatalogo !== ''">{{ main.detail.detalleEstrategia.datos[field.id].txCatalogo || "-" }}</span></div><span ng-if="field.tipo === 'DATE'">{{ main.detail.detalleEstrategia.datos[field.id] || "-" | date:"dd/MM/yyyy" }}</span><span ng-if="field.tipo === 'CURRENCY'">{{ main.detail.detalleEstrategia.datos[field.id] | currency:undefined:main.detail.detalleEstrategia.datos[field.id].countDecimals() }}</span><span ng-if="field.tipo === 'PORCENT'">{{ main.detail.detalleEstrategia.datos[field.id] }}%</span>
+              <div ng-if="field.tipo === 'SWITCH'">
+                <div class="toggle">
+                  <input id="{{ main.detail.detalleEstrategia.datos[field.id] }}" type="checkbox" disabled="disabled" ng-model="main.detail.detalleEstrategia.datos[field.id]"/>
+                  <label for="{{ main.detail.detalleEstrategia.datos[field.id] }}">
+                    <div class="toggle-switch" data-checked="Sí" data-unchecked="No"></div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field" ng-show="key === 7">
+            <div class="row mt-10">
+              <div class="col-6 pr-5">
+                <label class="mt-10" for="termsheet">Termsheet/DICI:</label>
+              </div>
+              <div class="col-6 pr-0"><a class="file" href="{{global.server}}/archivo?id={{main.id}}&amp;categoria=53" target="_blank"><i class="pdf"></i></a></div>
+            </div>
+            <div class="row mt-10" ng-show="!main.showInvisible">
+              <div class="col-12 align-center pr-0"><a class="see-more" ng-click="main.showInvisible = true;">Ver más</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="field mt-5" ng-class="{'mt-40': key === 8}" ng-show="key &gt; 7 &amp;&amp; main.showInvisible" ng-if="field.id !== 90" ng-repeat="(key, field) in main.detail.detalleEstrategia.encabezados | orderBy:'ordenAlta'">
+          <div class="row">
+            <div class="col-6 pr-0">
+              <label for="{{ field.etiqueta }}">{{ field.propiedad }}:</label>
+            </div>
+            <div class="col-6 pr-0"><span ng-if="field.tipo === 'AREA' || field.tipo === 'TEXT' || field.tipo === 'NUMBER'">{{ main.detail.detalleEstrategia.datos[field.id] || "-" }}</span>
+              <div ng-if="field.tipo === 'SELECT'"><span ng-if="main.detail.detalleEstrategia.datos[field.id].txCatalogo === ''">-</span><span ng-if="main.detail.detalleEstrategia.datos[field.id].txCatalogo !== ''">{{ main.detail.detalleEstrategia.datos[field.id].txCatalogo || "-" }}</span></div><span ng-if="field.tipo === 'DATE'">{{ main.detail.detalleEstrategia.datos[field.id] || "-" | date:"dd/MM/yyyy" }}</span><span ng-if="field.tipo === 'CURRENCY'">{{ main.detail.detalleEstrategia.datos[field.id] | currency:undefined:main.detail.detalleEstrategia.datos[field.id].countDecimals() }}</span><span ng-if="field.tipo === 'PORCENT'">{{ main.detail.detalleEstrategia.datos[field.id] }}%</span>
+              <div ng-if="field.tipo === 'SWITCH'">
+                <div class="toggle">
+                  <input id="{{ main.detail.detalleEstrategia.datos[field.id] }}" type="checkbox" disabled="disabled" ng-model="main.detail.detalleEstrategia.datos[field.id]"/>
+                  <label for="{{ main.detail.detalleEstrategia.datos[field.id] }}">
+                    <div class="toggle-switch" data-checked="Sí" data-unchecked="No"></div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field" ng-show="main.showInvisible">
+          <div class="row mt-5">
+            <div class="col-12 align-center pr-0"><a class="see-more" ng-click="main.showInvisible = false;">Ver menos</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-9 pr-0">
+    <div class="panel active overflowH tracing">
+      <h1>Rendimientos</h1>
+      <div class="row">
+        <div class="col-4">
+          <div class="row">
+            <div class="col-7">
+              <label>Suma de cupones pagados</label>
+            </div>
+            <div class="col-5"><span class="amount" ng-if="main.detail.detalleResumenRendimientos.sumaCupones === null">-</span><span class="amount" ng-if="main.detail.detalleResumenRendimientos.sumaCupones !== null">{{ main.detail.detalleResumenRendimientos.sumaCupones | currency }}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-7">
+              <label>Precio VALMER</label>
+            </div>
+            <div class="col-5"><span class="amount" ng-if="main.detail.detalleResumenRendimientos.valmer === null">-</span><span class="amount" ng-if="main.detail.detalleResumenRendimientos.valmer !== null">{{ main.detail.detalleResumenRendimientos.valmer | currency }}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-7"></div>
+            <div class="col-5"></div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="total-performance">
+            <label>Retorno total</label><span ng-if="main.detail.detalleResumenRendimientos.rendimientoTotal === null">-</span><span ng-if="main.detail.detalleResumenRendimientos.rendimientoTotal !== null">{{ main.detail.detalleResumenRendimientos.rendimientoTotal | currency }} MXN</span>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="performance-to">
+            <label>Rendimiento al {{ main.detail.detalleResumenRendimientos.fhRendimiento | date:'dd/MM/yyyy' }}</label><span ng-if="main.detail.detalleResumenRendimientos.rendimientoDia === null">-</span><span ng-if="main.detail.detalleResumenRendimientos.rendimientoDia !== null">{{ main.detail.detalleResumenRendimientos.rendimientoDia }}%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-9 pr-0">
+    <div class="panel active overflowH">
+      <div class="content-graphic-detail pt-35">
+        <nvd3 options="options" data="data" api="api"></nvd3>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 pr-0">
+    <div class="panel active overflowH cupones">
+      <div class="col-4 mb-20">
+        <h1 class="detail">Cupones</h1>
+        <canvas class="chart-bar" id="bar" chart-colors="main.detail.graficaCupones.colores" chart-data="main.detail.graficaCupones.datos" chart-labels="main.detail.graficaCupones.titulos" chart-options="main.optionsCoupons" height="150" width="350"></canvas>
+      </div>
+      <div class="col-2">
+        <div class="row">
+          <div class="col-12 mt-50">
+            <div class="categories">
+              <div class="grid" ng-repeat="item in main.detail.graficaCupones.colores  | limitTo:3">
+                <div class="square" ng-style="{'background-color': item}"></div><span style="color: #999;">{{ main.detail.graficaCupones.titulos[$index] }}</span><span class="coupnum">{{ main.detail.graficaCupones.datos[$index] }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="row">
+          <div class="col-12 mt-50 pl-50 cupones">
+            <div class="row">
+              <div class="col-6">
+                <label>Plazo de cupón</label>
+              </div>
+              <div class="col-6"><span ng-if="main.detail.detalleCupon.plazoCupon === null">-</span><span ng-if="main.detail.detalleCupon.plazoCupon !== null">{{ main.detail.detalleCupon.plazoCupon }} días</span></div>
+            </div>
+            <div class="row">
+              <div class="col-6X">
+                <label>Cupón actual</label>
+              </div>
+              <div class="col-6"><span ng-if="main.detail.detalleCupon.cuponActual === null">-</span><span ng-if="main.detail.detalleCupon.cuponActual !== null">{{ main.detail.detalleCupon.cuponActual }}%</span></div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <label>Fecha de cupón actual</label>
+              </div>
+              <div class="col-6"><span ng-if="main.detail.detalleCupon.fhCuponActual === null">-</span><span ng-if="main.detail.detalleCupon.fhCuponActual !== null">{{ main.detail.detalleCupon.fhCuponActual | date:'dd/MM/yyyy' }}</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="row mt-50">
+          <div class="col-6">
+            <label>Siguiente fecha cupón</label>
+          </div>
+          <div class="col-6"><span ng-if="main.detail.detalleCupon.fhSigCupon === null">-</span><span ng-if="main.detail.detalleCupon.fhSigCupon !== null">{{ main.detail.detalleCupon.fhSigCupon | date:'dd/MM/yyyy' }}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label>Cupón promedio</label>
+          </div>
+          <div class="col-6"><span ng-if="main.detail.detalleCupon.cuponPromedio === null">-</span><span ng-if="main.detail.detalleCupon.cuponPromedio !== null">{{ main.detail.detalleCupon.cuponPromedio }}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-12 align-center pr-0"><a class="link" ng-click="main.showDataModal(1); main.couponsHistoryModal.open();">Ver calendario de cupones</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 pr-0">
+    <div class="panel active overflowH">
+      <h1 class="detail">Activos</h1>
+      <div class="col-4">
+        <div class="col-6">
+          <div class="row">
+            <label>Precio inicial</label>
+          </div>
+          <div class="row">
+            <label>Precio actual</label>
+          </div>
+          <div class="row">
+            <label>Rendimiento</label>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="row">
+            <label class="amount" ng-if="!field.esIndice">{{ main.actives["0"].precioInicial | currency:undefined:registro[encabezado.id].countDecimals() }}</label>
+            <label class="amount" ng-if="field.esIndice">{{ main.actives["0"].precioInicial | number : 1 }}</label>
+          </div>
+          <div class="row">
+            <label class="amount" ng-if="!field.esIndice">{{ main.actives["0"].precioFinal | currency:undefined:registro[encabezado.id].countDecimals() }}</label>
+            <label class="amount" ng-if="field.esIndice">{{ main.actives["0"].precioFinal | number : 1 }}</label>
+          </div>
+          <div class="row">
+            <label>{{ main.actives["0"].rendimiento }} %</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="table-wrap-border mb-20">
+          <table>
+            <thead>
+              <tr class="no-hover">
+                <th>Activo</th>
+                <th>Geografía</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="no-hover" ng-if="$index === 0" ng-repeat="field in main.actives track by $index">
+                <td>{{ field.nombre }}</td>
+                <td>{{ field.geografia }}</td>
+              </tr>
+              <tr class="no-hover" ng-if="$index &gt; 0 &amp;&amp; main.showMoreTable" ng-repeat="field in main.actives track by $index">
+                <td>{{ field.nombre }}</td>
+                <td>{{ field.geografia }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="show-more-table" ng-if="main.actives.length &gt; 1"><span class="down" ng-class="{up: main.showMoreTable}" ng-click="main.showMoreTable = !main.showMoreTable;"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="disclaimer">
+    <div class="txt">
+      <p class="strong">Disclaimer:</p>
+      <p></p>
+    </div>
+  </div>
+  <modal name="main.meaningIcons" size="'medium-large'">
+    <ng-include src="'app/seguimiento/portafolios-inversion/modal/meaning-icons.html'"></ng-include>
+  </modal>
+  <modal name="main.couponsHistoryModal" size="'medium-small'" on-close="main.couponsHistory = []">
+    <ng-include src="'app/seguimiento/portafolios-inversion/modal/coupons-history.html'"></ng-include>
+  </modal>
+  <modal name="main.yieldsHistoryModal" size="'medium-small'" on-close="main.couponsHistory = []">
+    <ng-include src="'app/seguimiento/portafolios-inversion/modal/yields-history.html'"></ng-include>
+  </modal>
+  <modal name="main.printModal" size="'small'" on-close="main.viewPrint();">
+    <ng-include src="'app/seguimiento/portafolios-inversion/modal/print.html'"></ng-include>
+  </modal>
+</div>

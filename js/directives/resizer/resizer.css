@@ -1,0 +1,1 @@
+table.resizer{border:0;margin-bottom:15px;}table.resizer tr{border-top:0}table.resizer td{border:0;height:400px;text-align:left;vertical-align:top;white-space:normal}.grip{background-color:$color('gray','whiteSmoke');cursor:col-resize;height:410px;margin-left:2px;position:relative;width:2px;z-index:88;}.grip:hover{background-color:$color('gray','degraded2')}

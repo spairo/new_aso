@@ -1,0 +1,18 @@
+{
+	"fhCarga": 1495465620000,
+	"amortizpactadas": 40,
+	"monto": 33456798,
+	"amortizaciones": [
+		{
+			"Id": 6786,
+			"bono": "J1722",
+			"titulo": "JBACOMERS 176",
+			"indeval": "C0123456",
+			"titulos": 5000,
+			"precio": 89.34,
+			"liquida": 5,
+			"fLiquidacion": 1569560400000,
+			"clientes": 8
+		}
+	]
+}

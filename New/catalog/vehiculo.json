@@ -1,0 +1,22 @@
+[
+	{
+		"nuCatalogo": 1,
+		"cdCatalogo": "NEW_VEHICULO",
+		"txCatalogo": "Warrants"
+	},
+	{
+		"nuCatalogo": 2,
+		"cdCatalogo": "NEW_VEHICULO",
+		"txCatalogo": "Bonos J con Pérdidas"
+	},
+	{
+		"nuCatalogo": 3,
+		"cdCatalogo": "NEW_VEHICULO",
+		"txCatalogo": "Bonos J sin Pérdidas"
+	},
+	{
+		"nuCatalogo": 4,
+		"cdCatalogo": "NEW_VEHICULO",
+		"txCatalogo": "Bonos 99"
+	}
+]

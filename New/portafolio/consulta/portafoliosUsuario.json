@@ -1,0 +1,52 @@
+[
+	{
+		"nombrePortafolio": "Prueba 1",
+		"codigoPortafolio": "0001",
+		"estrategias": [
+			"ST-DVSCCLON",
+			"st-pruebaL1",
+			"ST-DVSC888",
+			"ST-PRUEBAl2",
+			"ST-PRUEBAl2",
+			"ST-DVSCCLON",
+			"st-pruebaL1",
+			"ST-DVSC888",
+			"ST-PRUEBAl2",
+			"ST-PRUEBAl2",
+			"ST-PRUEBAl2",
+			"ST-PRUEBAl2",
+			"ST-PRUEBAl2"
+		]
+	},
+	{
+		"nombrePortafolio": "Prueba 2",
+		"codigoPortafolio": "0002",
+		"estrategias": [
+			"ST-DVSCCLON",
+			"st-pruebaL1",
+			"ST-DVSC888",
+			"ST-PRUEBAl2"
+		]
+	},
+	{
+		"nombrePortafolio": "Prueba 3",
+		"codigoPortafolio": "0003",
+		"estrategias": [
+			"ST-DVSCCLON"
+		]
+	},
+	{
+		"nombrePortafolio": "Prueba 4",
+		"codigoPortafolio": "0003",
+		"estrategias": [
+			"ST-DVSCCLON",
+			"st-pruebaL1",
+			"ST-DVSC888",
+			"ST-PRUEBAl2",
+			"ST-DVSCCLON",
+			"st-pruebaL1",
+			"ST-DVSC888",
+			"ST-PRUEBAl2"
+		]
+	}
+]

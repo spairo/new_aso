@@ -1,0 +1,19 @@
+[
+	{
+		"nuCatalogo": 1,
+		"cdCatalogo": "TGRM019_REA",
+		"txCatalogo": "GIN",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 2,
+		"cdCatalogo": "TGRM019_REA",
+		"txCatalogo": "Institucional",
+		"stActivo": true
+	},
+	{
+		"nuCatalogo": 3,
+		"cdCatalogo": "TGRM019_REA",
+		"txCatalogo": "Corporativo"
+	}
+]

@@ -1,0 +1,44 @@
+[
+	{
+		"nuCatalogo": 1,
+		"cdCatalogo": null,
+		"txCatalogo": "Opción 1",
+		"txComentario": null,
+		"stActivo": null
+	},
+	{
+		"nuCatalogo": 2,
+		"cdCatalogo": null,
+		"txCatalogo": "Opción 2",
+		"txComentario": null,
+		"stActivo": null
+	},
+	{
+		"nuCatalogo": 3,
+		"cdCatalogo": null,
+		"txCatalogo": "Opción 3",
+		"txComentario": null,
+		"stActivo": null
+	},
+	{
+		"nuCatalogo": 4,
+		"cdCatalogo": null,
+		"txCatalogo": "Opción 4",
+		"txComentario": null,
+		"stActivo": null
+	},
+	{
+		"nuCatalogo": 5,
+		"cdCatalogo": null,
+		"txCatalogo": "Opción 5",
+		"txComentario": null,
+		"stActivo": null
+	},
+	{
+		"nuCatalogo": 72,
+		"cdCatalogo": null,
+		"txCatalogo": "-",
+		"txComentario": null,
+		"stActivo": null
+	}
+]

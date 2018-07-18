@@ -1,0 +1,44 @@
+[
+	{
+		"ID": 123,
+		"userID" : "M12345",
+		"name": "Esteban Garcia Galindo",
+		"area": "Institucionales",
+		"class" : "Equity"
+	},
+	{
+		"ID": 456,
+		"userID" : "M12345",
+		"name": "Javier Ruiz López",
+		"area": "Institucionales",
+		"class" : "RCC"
+	},
+	{
+		"ID": 789,
+		"userID" : "M12345",
+		"name": "María Fernanda Rodríguez",
+		"area": "Institucionales",
+		"class" : "RCC"
+	},
+	{
+		"ID": 123,
+		"userID" : "M12345",
+		"name": "Alejandra Perez Perez",
+		"area": "Institucionales",
+		"class" : "Equity"
+	},
+	{
+		"ID": 456,
+		"userID" : "M12345",
+		"name": "Cesar Medrano",
+		"area": "Institucionales",
+		"class" : "RCC"
+	},
+	{
+		"ID": 789,
+		"userID" : "M12345",
+		"name": "Patricia Juárez Márquez",
+		"area": "Institucionales",
+		"class" : "RCC"
+	}
+]

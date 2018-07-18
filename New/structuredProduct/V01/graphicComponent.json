@@ -1,0 +1,90 @@
+{
+	"disclaimer": {
+		"description": "La informacion contenida en el presente documento y, en su caso, en sus anexos (en adelante, el ''Documento'') tiene caracter puramente ilustrativo y ha sido elaborada por BBVA Bancomer S.A."
+	},
+	"headers": [
+		{
+			"code": "8",
+			"name": "Distribución de vencimiento",
+			"description": "FH_VENCIMIENTO",
+			"orderId": "1",
+			"visibilityIndicator": {
+				"activeField": "1",
+				"selectedField": "1"
+			}
+		},
+		{
+			"code": "88",
+			"name": "Precio",
+			"description": "Precio Temporal",
+			"orderId": "2",
+			"visibilityIndicator": {
+				"activeField": "1",
+				"selectedField": "1"
+			}
+		},
+		{
+			"code": "14",
+			"name": "Subyacente",
+			"description": "NU_SUBYACENTE",
+			"orderId": "3",
+			"visibilityIndicator": {
+				"activeField": "1",
+				"selectedField": "1"
+			}
+		},
+		{
+			"code": "86",
+			"name": "Distribución por perfil",
+			"description": "CD_BPYP",
+			"orderId": "4",
+			"visibilityIndicator": {
+				"activeField": "0",
+				"selectedField": "0"
+			}
+		},
+		{
+			"code": "65",
+			"name": "Geografía",
+			"description": "CD_GEOGRAFIA",
+			"orderId": "5",
+			"visibilityIndicator": {
+				"activeField": "0",
+				"selectedField": "0"
+			}
+		},
+		{
+			"code": "52",
+			"name": "Plazo",
+			"description": "TP_PLAZO",
+			"orderId": "6",
+			"visibilityIndicator": {
+				"activeField": "0",
+				"selectedField": "0"
+			}
+		},
+		{
+			"code": "32",
+			"name": "Activo de referencia",
+			"description": "NU_ACTREF",
+			"orderId": "7",
+			"visibilityIndicator": {
+				"activeField": "0",
+				"selectedField": "0"
+			}
+		},
+		{
+			"code": "42",
+			"name": "Tailor-made vs Campaña",
+			"description": "CD_COMER",
+			"orderId": "8",
+			"visibilityIndicator": {
+				"activeField": "0",
+				"selectedField": "0"
+			}
+		}
+	],
+	"messageNotifications": [{
+		"id": "00"
+	}]
+}

@@ -1,0 +1,28 @@
+
+<div class="login" ng-controller="LoginController as main">
+  <form name="main.login" ng-submit="main.login.$valid &amp;&amp; main.submitLogin()" novalidate="novalidate">
+    <h1>Log In</h1>
+    <div class="row">
+      <div class="col-12">
+        <div class="alert error" ng-if="main.loginData.error"><span>Datos incorrectos</span></div>
+        <label for="user">Usuario</label>
+        <input ng-model="main.login.cdUsuario" type="text" id="user" maxlength="50" name="user" required="required"/>
+        <div class="input-error" ng-if="main.login.$submitted" ng-messages="main.login.user.$error"><span ng-message="required">Este campo es requerido</span>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-20">
+      <div class="col-12">
+        <label for="passw">Password</label>
+        <input ng-model="main.login.cdPass" type="password" id="passw" maxlength="50" name="passw" required="required"/>
+        <div class="input-error" ng-if="main.login.$submitted" ng-messages="main.login.passw.$error"><span ng-message="required">Este campo es requerido</span>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-15 align-center">
+      <div class="col-12">
+        <button class="btn-large ml-10 mt-10">LogIn</button>
+      </div>
+    </div>
+  </form>
+</div>

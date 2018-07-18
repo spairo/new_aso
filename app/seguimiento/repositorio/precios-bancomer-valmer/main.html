@@ -1,0 +1,107 @@
+
+<div class="animated fadeIn" ng-controller="ComparativePricesController as main">
+  <div class="breadcrumb"><a nav="#!/">Home  &sol;</a><span class="selected">Precios Bancomer/Valmer</span>
+  </div>
+  <h1>Precios al {{ main.today | date:'dd/MM/yyyy' }}
+  </h1>
+  <div class="row align-right mb-20 m-t-40">
+    <div class="col-10"></div>
+    <div class="col-1 mr-20 m-t-5 animated" ng-class="{slideInRight: riskNumber, zoomOutRight: !riskNumber}" ng-show="riskNumber">
+      <label class="valmer">Diferencia vs Valmer</label>
+      <input ng-model="main.riesgo" type="number" min="0" restrict-input="numbers"/>
+    </div><i class="range tooltip double m-b-10 mr-15" ng-click="riskNumber = !riskNumber;">
+      <div class="content">
+        <div class="txt">Ajustar diferencia vs Valmer</div>
+      </div></i><a href="http://150.100.196.115:9191/SaikuVisual/" target="_blank"><i class="analytics tooltip m-b-10 mr-15">
+        <div class="content">
+          <div class="txt">Ir a Analytics</div>
+        </div></i></a><i class="filter tooltip m-b-10 mr-15" ng-class="{on: historico.filterHistorical}" ng-click="historico.filterHistorical = !historico.filterHistorical;">
+      <div class="content">
+        <div class="txt">Filtrar columnas</div>
+      </div></i>
+    <button class="btn-large" ng-click="main.newPrice.open();">Actualizar precios</button>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'cdEstrategia'">Estrategia<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'cdEstrategia'"></span></th>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'cdSerie'">Serie<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'cdSerie'"></span></th>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'fhVencimiento'">Vencimiento<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'fhVencimiento'"></span></th>
+          <th class="show-cols" ng-class="{ hide: showColumns }" ng-click="showColumns = !showColumns"><i class="show-columns" ng-class="{ hide: showColumns }"></i>
+          </th>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'imCompra'" ng-show="showColumns">Bid Price<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'imCompra'"></span></th>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'imVenta'" ng-show="showColumns">Offer Price<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'imVenta'"></span></th>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'imPromedio'">Mid Price<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'imPromedio'"></span></th>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'imValmer'">Precio de Valmer<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'imValmer'"></span></th>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'pcDiferencia'">Diferencia vs Valmer<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'pcDiferencia'"></span></th>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'imSpot'">Spot<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'imSpot'"></span></th>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'cdActivoReferenciado'">Activo de Referencia<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'cdActivoReferenciado'"></span></th>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'cdSubyacente'">Subyacente<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'cdSubyacente'"></span></th>
+        </tr>
+        <tr class="search" ng-show="historico.filterHistorical">
+          <td>
+            <input ng-model="main.searchHistorical.cdEstrategia" type="search"/>
+          </td>
+          <td>
+            <input ng-model="main.searchHistorical.cdSerie" type="search"/>
+          </td>
+          <td>
+            <input ng-model="main.searchHistorical.fhVencimiento" type="date" date-input="date-input"/>
+          </td>
+          <td></td>
+          <td ng-show="showColumns">
+            <input ng-model="main.searchHistorical.imCompra" type="search"/>
+          </td>
+          <td ng-show="showColumns">
+            <input ng-model="main.searchHistorical.imVenta" type="search"/>
+          </td>
+          <td>
+            <input ng-model="main.searchHistorical.imPromedio" type="search"/>
+          </td>
+          <td>
+            <input ng-model="main.searchHistorical.imValmer" type="search"/>
+          </td>
+          <td>
+            <input ng-model="main.searchHistorical.pcDiferencia" type="search"/>
+          </td>
+          <td>
+            <input ng-model="main.searchHistorical.imSpot" type="search"/>
+          </td>
+          <td>
+            <input ng-model="main.searchHistorical.cdActivoReferenciado" type="search"/>
+          </td>
+          <td>
+            <input ng-model="main.searchHistorical.cdSubyacente" type="search"/>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="no-hover" dir-paginate="historico in main.prices | orderBy:main.property:main.reverse | filter:main.searchHistorical | itemsPerPage: 10">
+          <td class="size-120">{{ historico.cdEstrategia }}</td>
+          <td class="size-120">{{ historico.cdSerie }}</td>
+          <td class="size-120">{{ historico.fhVencimiento | date:'dd/MM/yyyy' }}</td>
+          <td class="show-cols"></td>
+          <td ng-show="showColumns">{{ historico.imCompra }}</td>
+          <td ng-show="showColumns">{{ historico.imVenta }}</td>
+          <td>{{ historico.imPromedio }}</td>
+          <td>{{ historico.imValmer }}</td>
+          <td><span ng-class="{magenta: historico.pcDiferencia &gt;= main.riesgo }">{{ historico.pcDiferencia }}%</span></td>
+          <td>{{ historico.imSpot }}</td>
+          <td>{{ historico.cdActivoReferenciado }}</td>
+          <td>{{ historico.cdSubyacente }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <dir-pagination-controls boundary-links="true"></dir-pagination-controls><span class="count">{{ (main.prices | filter:main.searchHistorical).length }} elementos</span>
+  <div class="disclaimer">
+    <div class="txt">
+      <p class="strong">Disclaimer:</p>
+      <p ng-bind-html="global.sysDisclaimer"></p>
+    </div>
+  </div>
+  <modal name="main.newPrice" on-close="main.request = {}" on-success="global.reload();" size="'small-medium'">
+    <ng-include src="'app/seguimiento/repositorio/precios-bancomer-valmer/modal/new-price.html'"></ng-include>
+  </modal>
+</div>

@@ -1,0 +1,305 @@
+{
+	"fhCarga": 1495558740000,
+	"cupones": [
+		{
+			"cdEstrategia": "ST-98332",
+			"fhCupon": 1514440800000,
+			"imCupon": 92.0688
+		},
+		{
+			"cdEstrategia": "ST-98332",
+			"fhCupon": 1506488400000,
+			"imCupon": 75.6847
+		},
+		{
+			"cdEstrategia": "ST-98332",
+			"fhCupon": 1569560400000,
+			"imCupon": 95.7319
+		},
+		{
+			"cdEstrategia": "ST-98332",
+			"fhCupon": 1561525200000,
+			"imCupon": 96.5148
+		},
+		{
+			"cdEstrategia": "ST-98332",
+			"fhCupon": 1553666400000,
+			"imCupon": 97.8494
+		},
+		{
+			"cdEstrategia": "ST-98332",
+			"fhCupon": 1545890400000,
+			"imCupon": 118.6963
+		},
+		{
+			"cdEstrategia": "ST-98332",
+			"fhCupon": 1537938000000,
+			"imCupon": 101.0512
+		},
+		{
+			"cdEstrategia": "ST-98332",
+			"fhCupon": 1530075600000,
+			"imCupon": 110.1285
+		},
+		{
+			"cdEstrategia": "ST-98332",
+			"fhCupon": 1522216800000,
+			"imCupon": 91.7809
+		},
+		{
+			"cdEstrategia": "ST-98332",
+			"fhCupon": 1482904800000,
+			"imCupon": 105.2598
+		},
+		{
+			"cdEstrategia": "ST-98332",
+			"fhCupon": 1490767200000,
+			"imCupon": 106.2717
+		},
+		{
+			"cdEstrategia": "ST-98332",
+			"fhCupon": 1498626000000,
+			"imCupon": 98.815
+		},
+		{
+			"cdEstrategia": "ST-98466",
+			"fhCupon": 1483509600000,
+			"imCupon": 101.7529
+		},
+		{
+			"cdEstrategia": "ST-98466",
+			"fhCupon": 1562562000000,
+			"imCupon": 96.3416
+		},
+		{
+			"cdEstrategia": "ST-98466",
+			"fhCupon": 1554699600000,
+			"imCupon": 93.761
+		},
+		{
+			"cdEstrategia": "ST-98466",
+			"fhCupon": 1546840800000,
+			"imCupon": 99.077
+		},
+		{
+			"cdEstrategia": "ST-98466",
+			"fhCupon": 1538629200000,
+			"imCupon": 105.3614
+		},
+		{
+			"cdEstrategia": "ST-98466",
+			"fhCupon": 1570165200000,
+			"imCupon": 101.2384
+		},
+		{
+			"cdEstrategia": "ST-98466",
+			"fhCupon": 1522904400000,
+			"imCupon": 92.5089
+		},
+		{
+			"cdEstrategia": "ST-98466",
+			"fhCupon": 1515045600000,
+			"imCupon": 94.1097
+		},
+		{
+			"cdEstrategia": "ST-98466",
+			"fhCupon": 1507093200000,
+			"imCupon": 94.52
+		},
+		{
+			"cdEstrategia": "ST-98466",
+			"fhCupon": 1499230800000,
+			"imCupon": 94.7919
+		},
+		{
+			"cdEstrategia": "ST-98466",
+			"fhCupon": 1491368400000,
+			"imCupon": 106.0669
+		},
+		{
+			"cdEstrategia": "ST-98466",
+			"fhCupon": 1530766800000,
+			"imCupon": 105.3161
+		},
+		{
+			"cdEstrategia": "ST-98935",
+			"fhCupon": 1515564000000,
+			"imCupon": 100.8557
+		},
+		{
+			"cdEstrategia": "ST-98935",
+			"fhCupon": 1507698000000,
+			"imCupon": 90.6231
+		},
+		{
+			"cdEstrategia": "ST-98935",
+			"fhCupon": 1499835600000,
+			"imCupon": 104.6039
+		},
+		{
+			"cdEstrategia": "ST-98935",
+			"fhCupon": 1491973200000,
+			"imCupon": 97.3255
+		},
+		{
+			"cdEstrategia": "ST-98935",
+			"fhCupon": 1484114400000,
+			"imCupon": 101.3978
+		},
+		{
+			"cdEstrategia": "ST-98935",
+			"fhCupon": 1523422800000,
+			"imCupon": 131.1925
+		},
+		{
+			"cdEstrategia": "ST-98935",
+			"fhCupon": 1570770000000,
+			"imCupon": 91.7486
+		},
+		{
+			"cdEstrategia": "ST-98935",
+			"fhCupon": 1562734800000,
+			"imCupon": 103.4079
+		},
+		{
+			"cdEstrategia": "ST-98935",
+			"fhCupon": 1554872400000,
+			"imCupon": 95.4017
+		},
+		{
+			"cdEstrategia": "ST-98935",
+			"fhCupon": 1547013600000,
+			"imCupon": 95.8944
+		},
+		{
+			"cdEstrategia": "ST-98935",
+			"fhCupon": 1539147600000,
+			"imCupon": 102.7084
+		},
+		{
+			"cdEstrategia": "ST-98935",
+			"fhCupon": 1531285200000,
+			"imCupon": 96.3718
+		},
+		{
+			"cdEstrategia": "ST-99144",
+			"fhCupon": 1484114400000,
+			"imCupon": 103.2133
+		},
+		{
+			"cdEstrategia": "ST-99144",
+			"fhCupon": 1491973200000,
+			"imCupon": 105.1847
+		},
+		{
+			"cdEstrategia": "ST-99144",
+			"fhCupon": 1570770000000,
+			"imCupon": 94.2832
+		},
+		{
+			"cdEstrategia": "ST-99144",
+			"fhCupon": 1562734800000,
+			"imCupon": 103.8419
+		},
+		{
+			"cdEstrategia": "ST-99144",
+			"fhCupon": 1554872400000,
+			"imCupon": 96.2231
+		},
+		{
+			"cdEstrategia": "ST-99144",
+			"fhCupon": 1547013600000,
+			"imCupon": 94.9425
+		},
+		{
+			"cdEstrategia": "ST-99144",
+			"fhCupon": 1539147600000,
+			"imCupon": 104.2917
+		},
+		{
+			"cdEstrategia": "ST-99144",
+			"fhCupon": 1531285200000,
+			"imCupon": 110.1835
+		},
+		{
+			"cdEstrategia": "ST-99144",
+			"fhCupon": 1523422800000,
+			"imCupon": 103.7471
+		},
+		{
+			"cdEstrategia": "ST-99144",
+			"fhCupon": 1515564000000,
+			"imCupon": 71.8593
+		},
+		{
+			"cdEstrategia": "ST-99144",
+			"fhCupon": 1507698000000,
+			"imCupon": 103.4044
+		},
+		{
+			"cdEstrategia": "ST-99144",
+			"fhCupon": 1499835600000,
+			"imCupon": 100.7997
+		},
+		{
+			"cdEstrategia": "ST-99430",
+			"fhCupon": 1484114400000,
+			"imCupon": 94.3121
+		},
+		{
+			"cdEstrategia": "ST-99430",
+			"fhCupon": 1523422800000,
+			"imCupon": 100.0035
+		},
+		{
+			"cdEstrategia": "ST-99430",
+			"fhCupon": 1531285200000,
+			"imCupon": 89.3884
+		},
+		{
+			"cdEstrategia": "ST-99430",
+			"fhCupon": 1539147600000,
+			"imCupon": 107.9353
+		},
+		{
+			"cdEstrategia": "ST-99430",
+			"fhCupon": 1547013600000,
+			"imCupon": 108.3556
+		},
+		{
+			"cdEstrategia": "ST-99430",
+			"fhCupon": 1570770000000,
+			"imCupon": 93.3689
+		},
+		{
+			"cdEstrategia": "ST-99430",
+			"fhCupon": 1562734800000,
+			"imCupon": 90.4416
+		},
+		{
+			"cdEstrategia": "ST-99430",
+			"fhCupon": 1515564000000,
+			"imCupon": 98.7488
+		},
+		{
+			"cdEstrategia": "ST-99430",
+			"fhCupon": 1507698000000,
+			"imCupon": 103.0783
+		},
+		{
+			"cdEstrategia": "ST-99430",
+			"fhCupon": 1499835600000,
+			"imCupon": 108.2946
+		},
+		{
+			"cdEstrategia": "ST-99430",
+			"fhCupon": 1491973200000,
+			"imCupon": 98.6763
+		},
+		{
+			"cdEstrategia": "ST-99430",
+			"fhCupon": 1554872400000,
+			"imCupon": 93.8459
+		}
+	]
+}

@@ -1,0 +1,2219 @@
+{
+	"portfolio": {
+		"underlyingAssets": [{
+				"code": "5",
+				"name": "MIX"
+			},
+			{
+				"code": "6",
+				"name": "HYBRID"
+			},
+			{
+				"code": "1",
+				"name": "CURR"
+			},
+			{
+				"code": "2",
+				"name": "EQD"
+			},
+			{
+				"code": "3",
+				"name": "IRD"
+			},
+			{
+				"code": "4",
+				"name": "BOND"
+			},
+			{
+				"code": "0",
+				"name": "-"
+			}
+		],
+		"productTabs": [],
+		"relatedContracts": [
+			"705381",
+			"3230112",
+			"4320328",
+			"6286585",
+			"6427502",
+			"7170750",
+			"7376634"
+		],
+		"structuredProductInformation": [{
+				"id": "3756",
+				"series": "USS910L DC004",
+				"underlyingAssociates": [{
+					"name": "EQD"
+				}],
+				"paymentType": "Phoenix Autocall Memory",
+				"productPrice": {
+					"amount": 98.9694
+				},
+				"dueDate": "14-01-2019",
+				"currency": {
+					"code": "MXN"
+				},
+				"priceDifference": {
+					"amount": 0.52
+				},
+				"priceDate": "15-01-2018",
+				"status": "1",
+				"listPayOff": [{
+					"complexity": {
+						"id": "A",
+						"name": "Alta"
+					},
+					"protectedCapital": {
+						"amount": 100
+					},
+					"volatilityIndicator": "1",
+					"liquidityIndicator": "0",
+					"paymentTypeFeature": {
+						"id": "NA",
+						"name": "--"
+					},
+					"underlyingGroup": {
+						"id": "RV",
+						"name": "Renta Variable"
+					},
+					"term": "LP"
+				}],
+				"referenceAssets": [{
+					"priceAmount": {
+						"amount": 37.62
+					},
+					"amountYield": {
+						"amount": 0.64
+					}
+				}],
+				"prices": [{
+						"priceDate": "07-01-2018",
+						"priceAmountDate": {
+							"amount": 97.8049
+						}
+					},
+					{
+						"priceDate": "08-01-2018",
+						"priceAmountDate": {
+							"amount": 97.8253
+						}
+					},
+					{
+						"priceDate": "09-01-2018",
+						"priceAmountDate": {
+							"amount": 97.8463
+						}
+					},
+					{
+						"priceDate": "10-01-2018",
+						"priceAmountDate": {
+							"amount": 97.8669
+						}
+					},
+					{
+						"priceDate": "11-01-2018",
+						"priceAmountDate": {
+							"amount": 97.8871
+						}
+					},
+					{
+						"priceDate": "14-01-2018",
+						"priceAmountDate": {
+							"amount": 98.4487
+						}
+					},
+					{
+						"priceDate": "15-01-2018",
+						"priceAmountDate": {
+							"amount": 98.9694
+						}
+					}
+				],
+				"productIndicators": [{
+					"associatedColor": "#86C82D",
+					"name": "Conservación",
+					"status": "Vivo"
+				}],
+				"detailStructuredProducts": [{
+					"customerId": 0,
+					"issueId": "3756",
+					"custodyTitles": 0,
+					"warrantyTitles": 0,
+					"issueTitles": 0,
+					"amountIssued": {
+						"amount": 0
+					},
+					"percentageAmount": {
+						"amount": 0
+					},
+					"contractNumber": "0"
+				}]
+			},
+			{
+				"id": "3730",
+				"series": "S8033",
+				"underlyingAssociates": [{
+					"name": "IRD"
+				}],
+				"paymentType": "Tasa Flotante",
+				"productPrice": {
+					"amount": 101.6378
+				},
+				"dueDate": "15-01-2019",
+				"currency": {
+					"code": "MXN"
+				},
+				"priceDifference": {
+					"amount": 0.02
+				},
+				"priceDate": "15-01-2018",
+				"status": "1",
+				"listPayOff": [{
+					"complexity": {
+						"id": "B",
+						"name": "Baja"
+					},
+					"protectedCapital": {
+						"amount": 100
+					},
+					"volatilityIndicator": "0",
+					"liquidityIndicator": "0",
+					"paymentTypeFeature": {
+						"id": "NA",
+						"name": "--"
+					},
+					"underlyingGroup": {
+						"id": "DEU",
+						"name": "Deuda"
+					},
+					"term": "LP"
+				}],
+				"referenceAssets": [{
+					"name": "TIIE 91d",
+					"priceAmount": {
+						"amount": 8.02
+					},
+					"amountYield": {
+						"amount": 0.3
+					}
+				}],
+				"prices": [{
+						"priceDate": "07-01-2018",
+						"priceAmountDate": {
+							"amount": 101.516
+						}
+					},
+					{
+						"priceDate": "08-01-2018",
+						"priceAmountDate": {
+							"amount": 101.5256
+						}
+					},
+					{
+						"priceDate": "09-01-2018",
+						"priceAmountDate": {
+							"amount": 101.5125
+						}
+					},
+					{
+						"priceDate": "10-01-2018",
+						"priceAmountDate": {
+							"amount": 101.4844
+						}
+					},
+					{
+						"priceDate": "11-01-2018",
+						"priceAmountDate": {
+							"amount": 101.5258
+						}
+					},
+					{
+						"priceDate": "14-01-2018",
+						"priceAmountDate": {
+							"amount": 101.6094
+						}
+					},
+					{
+						"priceDate": "15-01-2018",
+						"priceAmountDate": {
+							"amount": 101.6378
+						}
+					}
+				],
+				"productIndicators": [{
+					"associatedColor": "#86C82D",
+					"name": "Conservación",
+					"status": "Vivo"
+				}],
+				"detailStructuredProducts": [{
+					"customerId": 16,
+					"issueId": "3730",
+					"custodyTitles": 33856711,
+					"warrantyTitles": 0,
+					"issueTitles": 0,
+					"amountIssued": {
+						"amount": 3385671100
+					},
+					"percentageAmount": {
+						"amount": 93.1524
+					},
+					"contractNumber": "0"
+				}]
+			},
+			{
+				"id": "3724",
+				"series": "BMW903L DC008",
+				"underlyingAssociates": [{
+					"name": "EQD"
+				}],
+				"paymentType": "MT Autocall",
+				"productPrice": {
+					"amount": 105.4231
+				},
+				"dueDate": "29-01-2019",
+				"currency": {
+					"code": "MXN"
+				},
+				"priceDifference": {
+					"amount": 0.74
+				},
+				"priceDate": "15-01-2018",
+				"status": "1",
+				"listPayOff": [{
+					"complexity": {
+						"id": "A",
+						"name": "Alta"
+					},
+					"protectedCapital": {
+						"amount": 0
+					},
+					"volatilityIndicator": "1",
+					"liquidityIndicator": "0",
+					"paymentTypeFeature": {
+						"id": "NA",
+						"name": "--"
+					},
+					"underlyingGroup": {
+						"id": "RV",
+						"name": "Renta Variable"
+					},
+					"term": "LP"
+				}],
+				"referenceAssets": [{
+					"name": "Bayerische Motoren Werke Ag",
+					"priceAmount": {
+						"amount": 86.27
+					},
+					"amountYield": {
+						"amount": 1.87
+					}
+				}],
+				"prices": [{
+						"priceDate": "07-01-2018",
+						"priceAmountDate": {
+							"amount": 102.4742
+						}
+					},
+					{
+						"priceDate": "08-01-2018",
+						"priceAmountDate": {
+							"amount": 103.043
+						}
+					},
+					{
+						"priceDate": "09-01-2018",
+						"priceAmountDate": {
+							"amount": 104.5508
+						}
+					},
+					{
+						"priceDate": "10-01-2018",
+						"priceAmountDate": {
+							"amount": 104.4637
+						}
+					},
+					{
+						"priceDate": "11-01-2018",
+						"priceAmountDate": {
+							"amount": 103.063
+						}
+					},
+					{
+						"priceDate": "14-01-2018",
+						"priceAmountDate": {
+							"amount": 104.6358
+						}
+					},
+					{
+						"priceDate": "15-01-2018",
+						"priceAmountDate": {
+							"amount": 105.4231
+						}
+					}
+				],
+				"productIndicators": [{
+					"associatedColor": "#86C82D",
+					"name": "Conservación",
+					"status": "Vivo"
+				}],
+				"detailStructuredProducts": [{
+					"customerId": 0,
+					"issueId": "3724",
+					"custodyTitles": 0,
+					"warrantyTitles": 0,
+					"issueTitles": 0,
+					"amountIssued": {
+						"amount": 0
+					},
+					"percentageAmount": {
+						"amount": 0
+					},
+					"contractNumber": "0"
+				}]
+			},
+			{
+				"id": "3725",
+				"series": "USS909L DC003",
+				"underlyingAssociates": [{
+					"name": "EQD"
+				}],
+				"paymentType": "Phoenix Autocall Memory",
+				"productPrice": {
+					"amount": 97.796
+				},
+				"dueDate": "27-01-2019",
+				"currency": {
+					"code": "MXN"
+				},
+				"priceDifference": {
+					"amount": 0.02
+				},
+				"priceDate": "15-01-2018",
+				"status": "1",
+				"listPayOff": [{
+					"complexity": {
+						"id": "A",
+						"name": "Alta"
+					},
+					"protectedCapital": {
+						"amount": 0
+					},
+					"volatilityIndicator": "1",
+					"liquidityIndicator": "0",
+					"paymentTypeFeature": {
+						"id": "NA",
+						"name": "--"
+					},
+					"underlyingGroup": {
+						"id": "RV",
+						"name": "Renta Variable"
+					},
+					"term": "LP"
+				}],
+				"referenceAssets": [{
+					"name": "United States Steel Corp",
+					"priceAmount": {
+						"amount": 37.62
+					},
+					"amountYield": {
+						"amount": 0.64
+					}
+				}],
+				"prices": [{
+						"priceDate": "07-01-2018",
+						"priceAmountDate": {
+							"amount": 97.6316
+						}
+					},
+					{
+						"priceDate": "08-01-2018",
+						"priceAmountDate": {
+							"amount": 97.6514
+						}
+					},
+					{
+						"priceDate": "09-01-2018",
+						"priceAmountDate": {
+							"amount": 97.6735
+						}
+					},
+					{
+						"priceDate": "10-01-2018",
+						"priceAmountDate": {
+							"amount": 97.695
+						}
+					},
+					{
+						"priceDate": "11-01-2018",
+						"priceAmountDate": {
+							"amount": 97.7141
+						}
+					},
+					{
+						"priceDate": "14-01-2018",
+						"priceAmountDate": {
+							"amount": 97.7748
+						}
+					},
+					{
+						"priceDate": "15-01-2018",
+						"priceAmountDate": {
+							"amount": 97.796
+						}
+					}
+				],
+				"productIndicators": [{
+					"associatedColor": "#86C82D",
+					"name": "Conservación",
+					"status": "Vivo"
+				}],
+				"detailStructuredProducts": [{
+					"customerId": 0,
+					"issueId": "3725",
+					"custodyTitles": 0,
+					"warrantyTitles": 0,
+					"issueTitles": 0,
+					"amountIssued": {
+						"amount": 0
+					},
+					"percentageAmount": {
+						"amount": 0
+					},
+					"contractNumber": "0"
+				}]
+			},
+			{
+				"id": "3723",
+				"series": "SXE903L DC055",
+				"underlyingAssociates": [{
+					"name": "EQD"
+				}],
+				"paymentType": "MT Autocall",
+				"dueDate": "29-01-2019",
+				"currency": {
+					"code": "MXN"
+				},
+				"status": "1",
+				"listPayOff": [{
+					"complexity": {
+						"id": "A",
+						"name": "Alta"
+					},
+					"protectedCapital": {
+						"amount": 100
+					},
+					"volatilityIndicator": "1",
+					"liquidityIndicator": "0",
+					"paymentTypeFeature": {
+						"id": "NA",
+						"name": "--"
+					},
+					"underlyingGroup": {
+						"id": "RV",
+						"name": "Renta Variable"
+					},
+					"term": "LP"
+				}],
+				"referenceAssets": [{
+					"name": "Índice Eurostoxx 50®",
+					"priceAmount": {
+						"amount": 3527.11
+					},
+					"amountYield": {
+						"amount": 1.36
+					}
+				}],
+				"prices": [],
+				"productIndicators": [{
+					"associatedColor": "#86C82D",
+					"name": "Conservación",
+					"status": "Vivo"
+				}],
+				"detailStructuredProducts": [{
+					"customerId": 0,
+					"issueId": "3723",
+					"custodyTitles": 0,
+					"warrantyTitles": 0,
+					"issueTitles": 0,
+					"amountIssued": {
+						"amount": 0
+					},
+					"percentageAmount": {
+						"amount": 0
+					},
+					"contractNumber": "0"
+				}]
+			},
+			{
+				"id": "3720",
+				"series": "LST003R DC060",
+				"underlyingAssociates": [{
+					"name": "EQD"
+				}],
+				"paymentType": "Strip Digitales",
+				"productPrice": {
+					"amount": 93.2203
+				},
+				"dueDate": "20-01-2020",
+				"currency": {
+					"code": "MXN"
+				},
+				"priceDifference": {
+					"amount": -0.82
+				},
+				"priceDate": "15-01-2018",
+				"status": "1",
+				"listPayOff": [{
+					"complexity": {
+						"id": "A",
+						"name": "Alta"
+					},
+					"protectedCapital": {
+						"amount": 100
+					},
+					"volatilityIndicator": "0",
+					"liquidityIndicator": "0",
+					"paymentTypeFeature": {
+						"id": "NA",
+						"name": "--"
+					},
+					"underlyingGroup": {
+						"id": "RV",
+						"name": "Renta Variable"
+					},
+					"term": "LP"
+				}],
+				"referenceAssets": [{
+						"name": "Gruma, S.A.B. de C.V.",
+						"priceAmount": {
+							"amount": 105.527891
+						},
+						"amountYield": {
+							"amount": -0.06
+						}
+					},
+					{
+						"name": "Fomento Económico Mexicano, S.A.B. de C.V.",
+						"priceAmount": {
+							"amount": 105.527891
+						},
+						"amountYield": {
+							"amount": -0.06
+						}
+					},
+					{
+						"name": "Arca Continental, S.A.B. de C.V.",
+						"priceAmount": {
+							"amount": 105.527891
+						},
+						"amountYield": {
+							"amount": -0.06
+						}
+					}
+				],
+				"prices": [{
+						"priceDate": "07-01-2018",
+						"priceAmountDate": {
+							"amount": 94.7234
+						}
+					},
+					{
+						"priceDate": "08-01-2018",
+						"priceAmountDate": {
+							"amount": 94.6285
+						}
+					},
+					{
+						"priceDate": "09-01-2018",
+						"priceAmountDate": {
+							"amount": 93.4768
+						}
+					},
+					{
+						"priceDate": "10-01-2018",
+						"priceAmountDate": {
+							"amount": 94.3728
+						}
+					},
+					{
+						"priceDate": "11-01-2018",
+						"priceAmountDate": {
+							"amount": 94.4381
+						}
+					},
+					{
+						"priceDate": "14-01-2018",
+						"priceAmountDate": {
+							"amount": 93.9831
+						}
+					},
+					{
+						"priceDate": "15-01-2018",
+						"priceAmountDate": {
+							"amount": 93.2203
+						}
+					}
+				],
+				"productIndicators": [{
+					"associatedColor": "#86C82D",
+					"name": "Conservación",
+					"status": "Vivo"
+				}],
+				"detailStructuredProducts": [{
+					"customerId": 0,
+					"issueId": "3720",
+					"custodyTitles": 0,
+					"warrantyTitles": 0,
+					"issueTitles": 0,
+					"amountIssued": {
+						"amount": 0
+					},
+					"percentageAmount": {
+						"amount": 0
+					},
+					"contractNumber": "0"
+				}]
+			},
+			{
+				"id": "3705",
+				"series": "FXI909L DC016",
+				"underlyingAssociates": [{
+					"name": "EQD"
+				}],
+				"paymentType": "Phoenix Autocall",
+				"productPrice": {
+					"amount": 95.5988
+				},
+				"dueDate": "11-01-2019",
+				"currency": {
+					"code": "MXN"
+				},
+				"priceDifference": {
+					"amount": -1.03
+				},
+				"priceDate": "15-01-2018",
+				"status": "1",
+				"listPayOff": [{
+					"complexity": {
+						"id": "A",
+						"name": "Alta"
+					},
+					"protectedCapital": {
+						"amount": 10
+					},
+					"volatilityIndicator": "1",
+					"liquidityIndicator": "0",
+					"paymentTypeFeature": {
+						"id": "NA",
+						"name": "--"
+					},
+					"underlyingGroup": {
+						"id": "RV",
+						"name": "Renta Variable"
+					},
+					"term": "LP"
+				}],
+				"referenceAssets": [{
+					"name": "iShares China Large-Cap ETF",
+					"priceAmount": {
+						"amount": 47.07
+					},
+					"amountYield": {
+						"amount": -0.32
+					}
+				}],
+				"prices": [{
+						"priceDate": "07-01-2018",
+						"priceAmountDate": {
+							"amount": 91.1341
+						}
+					},
+					{
+						"priceDate": "08-01-2018",
+						"priceAmountDate": {
+							"amount": 92.4189
+						}
+					},
+					{
+						"priceDate": "09-01-2018",
+						"priceAmountDate": {
+							"amount": 93.6313
+						}
+					},
+					{
+						"priceDate": "10-01-2018",
+						"priceAmountDate": {
+							"amount": 95.0982
+						}
+					},
+					{
+						"priceDate": "11-01-2018",
+						"priceAmountDate": {
+							"amount": 95.497
+						}
+					},
+					{
+						"priceDate": "14-01-2018",
+						"priceAmountDate": {
+							"amount": 96.583
+						}
+					},
+					{
+						"priceDate": "15-01-2018",
+						"priceAmountDate": {
+							"amount": 95.5988
+						}
+					}
+				],
+				"productIndicators": [{
+					"associatedColor": "#86C82D",
+					"name": "Conservación",
+					"status": "Vivo"
+				}],
+				"detailStructuredProducts": [{
+					"customerId": 0,
+					"issueId": "3705",
+					"custodyTitles": 0,
+					"warrantyTitles": 0,
+					"issueTitles": 0,
+					"amountIssued": {
+						"amount": 0
+					},
+					"percentageAmount": {
+						"amount": 0
+					},
+					"contractNumber": "0"
+				}]
+			},
+			{
+				"id": "3691",
+				"series": "SXE908E DC054",
+				"underlyingAssociates": [{
+					"name": "EQD"
+				}],
+				"paymentType": "Call",
+				"dueDate": "29-01-2019",
+				"currency": {
+					"code": "MXN"
+				},
+				"status": "1",
+				"listPayOff": [{
+					"complexity": {
+						"id": "M",
+						"name": "Media"
+					},
+					"protectedCapital": {
+						"amount": 100
+					},
+					"volatilityIndicator": "0",
+					"liquidityIndicator": "0",
+					"paymentTypeFeature": {
+						"id": "NA",
+						"name": "--"
+					},
+					"underlyingGroup": {
+						"id": "RV",
+						"name": "Renta Variable"
+					},
+					"term": "LP"
+				}],
+				"referenceAssets": [{
+					"name": "Índice Eurostoxx 50®",
+					"priceAmount": {
+						"amount": 3527.11
+					},
+					"amountYield": {
+						"amount": 1.36
+					}
+				}],
+				"prices": [],
+				"productIndicators": [{
+					"associatedColor": "#86C82D",
+					"name": "Conservación",
+					"status": "Vivo"
+				}],
+				"detailStructuredProducts": [{
+					"customerId": 0,
+					"issueId": "3691",
+					"custodyTitles": 0,
+					"warrantyTitles": 0,
+					"issueTitles": 0,
+					"amountIssued": {
+						"amount": 0
+					},
+					"percentageAmount": {
+						"amount": 0
+					},
+					"contractNumber": "0"
+				}]
+			},
+			{
+				"id": "3689",
+				"series": "WMT002L DC001",
+				"underlyingAssociates": [{
+					"name": "EQD"
+				}],
+				"paymentType": "MT Autocall",
+				"productPrice": {
+					"amount": 89.0665
+				},
+				"dueDate": "24-01-2020",
+				"currency": {
+					"code": "MXN"
+				},
+				"priceDifference": {
+					"amount": 0.04
+				},
+				"priceDate": "15-01-2018",
+				"status": "1",
+				"listPayOff": [{
+					"complexity": {
+						"id": "A",
+						"name": "Alta"
+					},
+					"protectedCapital": {
+						"amount": 10
+					},
+					"volatilityIndicator": "1",
+					"liquidityIndicator": "0",
+					"paymentTypeFeature": {
+						"id": "NA",
+						"name": "--"
+					},
+					"underlyingGroup": {
+						"id": "RV",
+						"name": "Renta Variable"
+					},
+					"term": "LP"
+				}],
+				"referenceAssets": [{
+					"name": "Wal ¿ Mart Stores Inc.",
+					"priceAmount": {
+						"amount": 83.79
+					},
+					"amountYield": {
+						"amount": -0.36
+					}
+				}],
+				"prices": [{
+						"priceDate": "07-01-2018",
+						"priceAmountDate": {
+							"amount": 90.9781
+						}
+					},
+					{
+						"priceDate": "08-01-2018",
+						"priceAmountDate": {
+							"amount": 91.5821
+						}
+					},
+					{
+						"priceDate": "09-01-2018",
+						"priceAmountDate": {
+							"amount": 89.8901
+						}
+					},
+					{
+						"priceDate": "10-01-2018",
+						"priceAmountDate": {
+							"amount": 88.5029
+						}
+					},
+					{
+						"priceDate": "11-01-2018",
+						"priceAmountDate": {
+							"amount": 88.2552
+						}
+					},
+					{
+						"priceDate": "14-01-2018",
+						"priceAmountDate": {
+							"amount": 89.0283
+						}
+					},
+					{
+						"priceDate": "15-01-2018",
+						"priceAmountDate": {
+							"amount": 89.0665
+						}
+					}
+				],
+				"productIndicators": [{
+					"associatedColor": "#86C82D",
+					"name": "Conservación",
+					"status": "Vivo"
+				}],
+				"detailStructuredProducts": [{
+					"customerId": 0,
+					"issueId": "3689",
+					"custodyTitles": 0,
+					"warrantyTitles": 0,
+					"issueTitles": 0,
+					"amountIssued": {
+						"amount": 0
+					},
+					"percentageAmount": {
+						"amount": 0
+					},
+					"contractNumber": "0"
+				}]
+			},
+			{
+				"id": "3664",
+				"series": "S8019",
+				"underlyingAssociates": [{
+					"name": "EQD"
+				}],
+				"paymentType": "Range Accrual",
+				"productPrice": {
+					"amount": 100.286
+				},
+				"dueDate": "22-01-2019",
+				"currency": {
+					"code": "MXN"
+				},
+				"priceDifference": {
+					"amount": -0.09
+				},
+				"priceDate": "15-01-2018",
+				"status": "1",
+				"listPayOff": [{
+					"complexity": {
+						"id": "MB",
+						"name": "Muy baja"
+					},
+					"protectedCapital": {
+						"amount": 100
+					},
+					"volatilityIndicator": "0",
+					"liquidityIndicator": "0",
+					"paymentTypeFeature": {
+						"id": "GF",
+						"name": "Generación Flujo"
+					},
+					"underlyingGroup": {
+						"id": "RV",
+						"name": "Renta Variable"
+					},
+					"term": "LP"
+				}],
+				"referenceAssets": [{
+					"name": "Índice de Precios y Cotizaciones®",
+					"priceAmount": {
+						"amount": 47197.24
+					},
+					"amountYield": {
+						"amount": 0.93
+					}
+				}],
+				"prices": [{
+						"priceDate": "07-01-2018",
+						"priceAmountDate": {
+							"amount": 100.1869
+						}
+					},
+					{
+						"priceDate": "08-01-2018",
+						"priceAmountDate": {
+							"amount": 100.2105
+						}
+					},
+					{
+						"priceDate": "09-01-2018",
+						"priceAmountDate": {
+							"amount": 100.147
+						}
+					},
+					{
+						"priceDate": "10-01-2018",
+						"priceAmountDate": {
+							"amount": 100.2958
+						}
+					},
+					{
+						"priceDate": "11-01-2018",
+						"priceAmountDate": {
+							"amount": 100.3635
+						}
+					},
+					{
+						"priceDate": "14-01-2018",
+						"priceAmountDate": {
+							"amount": 100.3676
+						}
+					},
+					{
+						"priceDate": "15-01-2018",
+						"priceAmountDate": {
+							"amount": 100.286
+						}
+					}
+				],
+				"productIndicators": [{
+					"associatedColor": "#86C82D",
+					"name": "Conservación",
+					"status": "Vivo"
+				}],
+				"detailStructuredProducts": [{
+					"customerId": 0,
+					"issueId": "3664",
+					"custodyTitles": 0,
+					"warrantyTitles": 0,
+					"issueTitles": 0,
+					"amountIssued": {
+						"amount": 0
+					},
+					"percentageAmount": {
+						"amount": 0
+					},
+					"contractNumber": "0"
+				}]
+			},
+			{
+				"id": "3699",
+				"series": "ALC908L DC002",
+				"underlyingAssociates": [{
+					"name": "EQD"
+				}],
+				"paymentType": "Phoenix Autocall",
+				"productPrice": {
+					"amount": 101.05
+				},
+				"dueDate": "12-01-2019",
+				"currency": {
+					"code": "MXN"
+				},
+				"priceDifference": {
+					"amount": 0.02
+				},
+				"priceDate": "11-01-2018",
+				"status": "1",
+				"listPayOff": [{
+					"complexity": {
+						"id": "A",
+						"name": "Alta"
+					},
+					"protectedCapital": {
+						"amount": 20
+					},
+					"volatilityIndicator": "1",
+					"liquidityIndicator": "0",
+					"paymentTypeFeature": {
+						"id": "NA",
+						"name": "--"
+					},
+					"underlyingGroup": {
+						"id": "RV",
+						"name": "Renta Variable"
+					},
+					"term": "LP"
+				}],
+				"referenceAssets": [{
+					"name": "Alcoa Corporation",
+					"priceAmount": {
+						"amount": 53.97
+					},
+					"amountYield": {
+						"amount": -0.21
+					}
+				}],
+				"prices": [{
+						"priceDate": "03-01-2018",
+						"priceAmountDate": {
+							"amount": 96.1482
+						}
+					},
+					{
+						"priceDate": "04-01-2018",
+						"priceAmountDate": {
+							"amount": 98.4744
+						}
+					},
+					{
+						"priceDate": "05-01-2018",
+						"priceAmountDate": {
+							"amount": 99.3892
+						}
+					},
+					{
+						"priceDate": "06-01-2018",
+						"priceAmountDate": {
+							"amount": 99.9917
+						}
+					},
+					{
+						"priceDate": "09-01-2018",
+						"priceAmountDate": {
+							"amount": 101.008
+						}
+					},
+					{
+						"priceDate": "10-01-2018",
+						"priceAmountDate": {
+							"amount": 101.0291
+						}
+					},
+					{
+						"priceDate": "11-01-2018",
+						"priceAmountDate": {
+							"amount": 101.05
+						}
+					}
+				],
+				"productIndicators": [{
+					"associatedColor": "#86C82D",
+					"name": "Conservación",
+					"status": "Vivo"
+				}],
+				"detailStructuredProducts": [{
+					"customerId": 0,
+					"issueId": "3699",
+					"custodyTitles": 0,
+					"warrantyTitles": 0,
+					"issueTitles": 0,
+					"amountIssued": {
+						"amount": 0
+					},
+					"percentageAmount": {
+						"amount": 0
+					},
+					"contractNumber": "0"
+				}]
+			},
+			{
+				"id": "3700",
+				"series": "SBX908L DC016",
+				"underlyingAssociates": [{
+					"name": "EQD"
+				}],
+				"paymentType": "Phoenix Autocall",
+				"productPrice": {
+					"amount": 103.3
+				},
+				"dueDate": "13-01-2019",
+				"currency": {
+					"code": "MXN"
+				},
+				"priceDifference": {
+					"amount": 0.02
+				},
+				"priceDate": "11-01-2018",
+				"status": "1",
+				"listPayOff": [{
+					"complexity": {
+						"id": "A",
+						"name": "Alta"
+					},
+					"protectedCapital": {
+						"amount": 0
+					},
+					"volatilityIndicator": "1",
+					"liquidityIndicator": "0",
+					"paymentTypeFeature": {
+						"id": "NA",
+						"name": "--"
+					},
+					"underlyingGroup": {
+						"id": "RV",
+						"name": "Renta Variable"
+					},
+					"term": "LP"
+				}],
+				"referenceAssets": [{
+					"name": "Starbucks Corp.",
+					"priceAmount": {
+						"amount": 57.27
+					},
+					"amountYield": {
+						"amount": -0.68
+					}
+				}],
+				"prices": [{
+						"priceDate": "03-01-2018",
+						"priceAmountDate": {
+							"amount": 101.2085
+						}
+					},
+					{
+						"priceDate": "04-01-2018",
+						"priceAmountDate": {
+							"amount": 102.8163
+						}
+					},
+					{
+						"priceDate": "07-01-2018",
+						"priceAmountDate": {
+							"amount": 103.1094
+						}
+					},
+					{
+						"priceDate": "08-01-2018",
+						"priceAmountDate": {
+							"amount": 103.217
+						}
+					},
+					{
+						"priceDate": "09-01-2018",
+						"priceAmountDate": {
+							"amount": 103.2272
+						}
+					},
+					{
+						"priceDate": "10-01-2018",
+						"priceAmountDate": {
+							"amount": 103.2786
+						}
+					},
+					{
+						"priceDate": "11-01-2018",
+						"priceAmountDate": {
+							"amount": 103.3
+						}
+					}
+				],
+				"productIndicators": [{
+					"associatedColor": "#86C82D",
+					"name": "Conservación",
+					"status": "Vivo"
+				}],
+				"detailStructuredProducts": [{
+					"customerId": 0,
+					"issueId": "3700",
+					"custodyTitles": 0,
+					"warrantyTitles": 0,
+					"issueTitles": 0,
+					"amountIssued": {
+						"amount": 0
+					},
+					"percentageAmount": {
+						"amount": 0
+					},
+					"contractNumber": "0"
+				}]
+			},
+			{
+				"id": "3674",
+				"series": "S8014",
+				"underlyingAssociates": [{
+					"name": "EQD"
+				}],
+				"paymentType": "Call Spread",
+				"productPrice": {
+					"amount": 99.1282
+				},
+				"dueDate": "08-01-2019",
+				"currency": {
+					"code": "MXN"
+				},
+				"priceDifference": {
+					"amount": -0.11
+				},
+				"priceDate": "15-01-2018",
+				"status": "1",
+				"listPayOff": [{
+					"complexity": {
+						"id": "M",
+						"name": "Media"
+					},
+					"protectedCapital": {
+						"amount": 100
+					},
+					"volatilityIndicator": "0",
+					"liquidityIndicator": "0",
+					"paymentTypeFeature": {
+						"id": "NA",
+						"name": "--"
+					},
+					"underlyingGroup": {
+						"id": "RV",
+						"name": "Renta Variable"
+					},
+					"term": "LP"
+				}],
+				"referenceAssets": [{
+					"name": "Índice Eurostoxx 50®",
+					"priceAmount": {
+						"amount": 3527.11
+					},
+					"amountYield": {
+						"amount": 1.36
+					}
+				}],
+				"prices": [{
+						"priceDate": "07-01-2018",
+						"priceAmountDate": {
+							"amount": 99.0707
+						}
+					},
+					{
+						"priceDate": "08-01-2018",
+						"priceAmountDate": {
+							"amount": 98.9808
+						}
+					},
+					{
+						"priceDate": "09-01-2018",
+						"priceAmountDate": {
+							"amount": 99.1752
+						}
+					},
+					{
+						"priceDate": "10-01-2018",
+						"priceAmountDate": {
+							"amount": 99.2696
+						}
+					},
+					{
+						"priceDate": "11-01-2018",
+						"priceAmountDate": {
+							"amount": 99.2202
+						}
+					},
+					{
+						"priceDate": "14-01-2018",
+						"priceAmountDate": {
+							"amount": 99.2281
+						}
+					},
+					{
+						"priceDate": "15-01-2018",
+						"priceAmountDate": {
+							"amount": 99.1282
+						}
+					}
+				],
+				"productIndicators": [{
+					"associatedColor": "#86C82D",
+					"name": "Conservación",
+					"status": "Vivo"
+				}],
+				"detailStructuredProducts": [{
+					"customerId": 13,
+					"issueId": "3674",
+					"custodyTitles": 119500,
+					"warrantyTitles": 0,
+					"issueTitles": 0,
+					"amountIssued": {
+						"amount": 11950000
+					},
+					"percentageAmount": {
+						"amount": 0.3288
+					},
+					"contractNumber": "0"
+				}]
+			},
+			{
+				"id": "3675",
+				"series": "S8015",
+				"underlyingAssociates": [{
+					"name": "EQD"
+				}],
+				"paymentType": "Call Spread",
+				"productPrice": {
+					"amount": 95.4765
+				},
+				"dueDate": "08-01-2019",
+				"currency": {
+					"code": "MXN"
+				},
+				"priceDifference": {
+					"amount": -0.28
+				},
+				"priceDate": "15-01-2018",
+				"status": "1",
+				"listPayOff": [{
+					"complexity": {
+						"id": "M",
+						"name": "Media"
+					},
+					"protectedCapital": {
+						"amount": 100
+					},
+					"volatilityIndicator": "0",
+					"liquidityIndicator": "0",
+					"paymentTypeFeature": {
+						"id": "NA",
+						"name": "--"
+					},
+					"underlyingGroup": {
+						"id": "RV",
+						"name": "Renta Variable"
+					},
+					"term": "LP"
+				}],
+				"referenceAssets": [{
+						"name": "Índice SP 500®",
+						"priceAmount": {
+							"amount": 98.586307
+						},
+						"amountYield": {
+							"amount": 0.29
+						}
+					},
+					{
+						"name": "Índice Eurostoxx 50®",
+						"priceAmount": {
+							"amount": 98.586307
+						},
+						"amountYield": {
+							"amount": 0.29
+						}
+					}
+				],
+				"prices": [{
+						"priceDate": "07-01-2018",
+						"priceAmountDate": {
+							"amount": 94.9934
+						}
+					},
+					{
+						"priceDate": "08-01-2018",
+						"priceAmountDate": {
+							"amount": 94.8258
+						}
+					},
+					{
+						"priceDate": "09-01-2018",
+						"priceAmountDate": {
+							"amount": 95.2932
+						}
+					},
+					{
+						"priceDate": "10-01-2018",
+						"priceAmountDate": {
+							"amount": 95.7368
+						}
+					},
+					{
+						"priceDate": "11-01-2018",
+						"priceAmountDate": {
+							"amount": 95.7992
+						}
+					},
+					{
+						"priceDate": "14-01-2018",
+						"priceAmountDate": {
+							"amount": 95.7351
+						}
+					},
+					{
+						"priceDate": "15-01-2018",
+						"priceAmountDate": {
+							"amount": 95.4765
+						}
+					}
+				],
+				"productIndicators": [{
+					"associatedColor": "#86C82D",
+					"name": "Conservación",
+					"status": "Vivo"
+				}],
+				"detailStructuredProducts": [{
+					"customerId": 10,
+					"issueId": "3675",
+					"custodyTitles": 126500,
+					"warrantyTitles": 0,
+					"issueTitles": 0,
+					"amountIssued": {
+						"amount": 12650000
+					},
+					"percentageAmount": {
+						"amount": 0.3481
+					},
+					"contractNumber": "0"
+				}]
+			},
+			{
+				"id": "3672",
+				"series": "APL908L DC073",
+				"underlyingAssociates": [{
+					"name": "EQD"
+				}],
+				"paymentType": "Phoenix Autocall",
+				"productPrice": {
+					"amount": 100.95
+				},
+				"dueDate": "02-01-2019",
+				"currency": {
+					"code": "MXN"
+				},
+				"priceDifference": {
+					"amount": 4.49
+				},
+				"priceDate": "02-01-2018",
+				"status": "1",
+				"listPayOff": [{
+					"complexity": {
+						"id": "A",
+						"name": "Alta"
+					},
+					"protectedCapital": {
+						"amount": 13
+					},
+					"volatilityIndicator": "1",
+					"liquidityIndicator": "0",
+					"paymentTypeFeature": {
+						"id": "NA",
+						"name": "--"
+					},
+					"underlyingGroup": {
+						"id": "RV",
+						"name": "Renta Variable"
+					},
+					"term": "LP"
+				}],
+				"referenceAssets": [{
+					"name": "Apple Computer Inc.",
+					"priceAmount": {
+						"amount": 176.57
+					},
+					"amountYield": {
+						"amount": -100
+					}
+				}],
+				"prices": [{
+						"priceDate": "23-01-2018",
+						"priceAmountDate": {
+							"amount": 96.4098
+						}
+					},
+					{
+						"priceDate": "24-01-2018",
+						"priceAmountDate": {
+							"amount": 95.0228
+						}
+					},
+					{
+						"priceDate": "25-01-2018",
+						"priceAmountDate": {
+							"amount": 95.4402
+						}
+					},
+					{
+						"priceDate": "26-01-2018",
+						"priceAmountDate": {
+							"amount": 95.829
+						}
+					},
+					{
+						"priceDate": "27-01-2018",
+						"priceAmountDate": {
+							"amount": 94.3529
+						}
+					},
+					{
+						"priceDate": "30-01-2018",
+						"priceAmountDate": {
+							"amount": 96.4124
+						}
+					},
+					{
+						"priceDate": "02-01-2018",
+						"priceAmountDate": {
+							"amount": 100.95
+						}
+					}
+				],
+				"productIndicators": [{
+					"associatedColor": "#86C82D",
+					"name": "Conservación",
+					"status": "Vivo"
+				}],
+				"detailStructuredProducts": [{
+					"customerId": 0,
+					"issueId": "3672",
+					"custodyTitles": 0,
+					"warrantyTitles": 0,
+					"issueTitles": 0,
+					"amountIssued": {
+						"amount": 0
+					},
+					"percentageAmount": {
+						"amount": 0
+					},
+					"contractNumber": "0"
+				}]
+			},
+			{
+				"id": "3668",
+				"series": "S8012",
+				"underlyingAssociates": [{
+					"name": "EQD"
+				}],
+				"paymentType": "Call Spread",
+				"productPrice": {
+					"amount": 98.6725
+				},
+				"dueDate": "02-01-2019",
+				"currency": {
+					"code": "MXN"
+				},
+				"priceDifference": {
+					"amount": -0.1
+				},
+				"priceDate": "15-01-2018",
+				"status": "1",
+				"listPayOff": [{
+					"complexity": {
+						"id": "M",
+						"name": "Media"
+					},
+					"protectedCapital": {
+						"amount": 100
+					},
+					"volatilityIndicator": "0",
+					"liquidityIndicator": "0",
+					"paymentTypeFeature": {
+						"id": "NA",
+						"name": "--"
+					},
+					"underlyingGroup": {
+						"id": "RV",
+						"name": "Renta Variable"
+					},
+					"term": "LP"
+				}],
+				"referenceAssets": [{
+					"name": "Índice Eurostoxx 50®",
+					"priceAmount": {
+						"amount": 3527.11
+					},
+					"amountYield": {
+						"amount": 1.36
+					}
+				}],
+				"prices": [{
+						"priceDate": "07-01-2018",
+						"priceAmountDate": {
+							"amount": 98.6283
+						}
+					},
+					{
+						"priceDate": "08-01-2018",
+						"priceAmountDate": {
+							"amount": 98.5405
+						}
+					},
+					{
+						"priceDate": "09-01-2018",
+						"priceAmountDate": {
+							"amount": 98.7281
+						}
+					},
+					{
+						"priceDate": "10-01-2018",
+						"priceAmountDate": {
+							"amount": 98.8204
+						}
+					},
+					{
+						"priceDate": "11-01-2018",
+						"priceAmountDate": {
+							"amount": 98.7702
+						}
+					},
+					{
+						"priceDate": "14-01-2018",
+						"priceAmountDate": {
+							"amount": 98.7699
+						}
+					},
+					{
+						"priceDate": "15-01-2018",
+						"priceAmountDate": {
+							"amount": 98.6725
+						}
+					}
+				],
+				"productIndicators": [{
+					"associatedColor": "#86C82D",
+					"name": "Conservación",
+					"status": "Vivo"
+				}],
+				"detailStructuredProducts": [{
+					"customerId": 57,
+					"issueId": "3668",
+					"custodyTitles": 571800,
+					"warrantyTitles": 0,
+					"issueTitles": 0,
+					"amountIssued": {
+						"amount": 57180000
+					},
+					"percentageAmount": {
+						"amount": 1.5733
+					},
+					"contractNumber": "0"
+				}]
+			},
+			{
+				"id": "3667",
+				"series": "S8013",
+				"underlyingAssociates": [{
+					"name": "EQD"
+				}],
+				"paymentType": "Call Spread",
+				"productPrice": {
+					"amount": 94.6559
+				},
+				"dueDate": "02-01-2019",
+				"currency": {
+					"code": "MXN"
+				},
+				"priceDifference": {
+					"amount": -0.26
+				},
+				"priceDate": "15-01-2018",
+				"status": "1",
+				"listPayOff": [{
+					"complexity": {
+						"id": "M",
+						"name": "Media"
+					},
+					"protectedCapital": {
+						"amount": 100
+					},
+					"volatilityIndicator": "0",
+					"liquidityIndicator": "0",
+					"paymentTypeFeature": {
+						"id": "NA",
+						"name": "--"
+					},
+					"underlyingGroup": {
+						"id": "RV",
+						"name": "Renta Variable"
+					},
+					"term": "LP"
+				}],
+				"referenceAssets": [{
+						"name": "Índice SP 500®",
+						"priceAmount": {
+							"amount": 96.902749
+						},
+						"amountYield": {
+							"amount": 0.29
+						}
+					},
+					{
+						"name": "Índice Eurostoxx 50®",
+						"priceAmount": {
+							"amount": 96.902749
+						},
+						"amountYield": {
+							"amount": 0.29
+						}
+					}
+				],
+				"prices": [{
+						"priceDate": "07-01-2018",
+						"priceAmountDate": {
+							"amount": 94.2101
+						}
+					},
+					{
+						"priceDate": "08-01-2018",
+						"priceAmountDate": {
+							"amount": 94.04
+						}
+					},
+					{
+						"priceDate": "09-01-2018",
+						"priceAmountDate": {
+							"amount": 94.4532
+						}
+					},
+					{
+						"priceDate": "10-01-2018",
+						"priceAmountDate": {
+							"amount": 94.8301
+						}
+					},
+					{
+						"priceDate": "11-01-2018",
+						"priceAmountDate": {
+							"amount": 94.8854
+						}
+					},
+					{
+						"priceDate": "14-01-2018",
+						"priceAmountDate": {
+							"amount": 94.8943
+						}
+					},
+					{
+						"priceDate": "15-01-2018",
+						"priceAmountDate": {
+							"amount": 94.6559
+						}
+					}
+				],
+				"productIndicators": [{
+					"associatedColor": "#86C82D",
+					"name": "Conservación",
+					"status": "Vivo"
+				}],
+				"detailStructuredProducts": [{
+					"customerId": 24,
+					"issueId": "3667",
+					"custodyTitles": 477300,
+					"warrantyTitles": 0,
+					"issueTitles": 0,
+					"amountIssued": {
+						"amount": 47730000
+					},
+					"percentageAmount": {
+						"amount": 1.3133
+					},
+					"contractNumber": "0"
+				}]
+			},
+			{
+				"id": "3601",
+				"series": "S8007",
+				"underlyingAssociates": [{
+					"name": "EQD"
+				}],
+				"paymentType": "Call Spread",
+				"productPrice": {
+					"amount": 95.8629
+				},
+				"dueDate": "26-01-2019",
+				"currency": {
+					"code": "MXN"
+				},
+				"priceDifference": {
+					"amount": -0.29
+				},
+				"priceDate": "15-01-2018",
+				"status": "1",
+				"listPayOff": [{
+					"complexity": {
+						"id": "M",
+						"name": "Media"
+					},
+					"protectedCapital": {
+						"amount": 100
+					},
+					"volatilityIndicator": "0",
+					"liquidityIndicator": "0",
+					"paymentTypeFeature": {
+						"id": "NA",
+						"name": "--"
+					},
+					"underlyingGroup": {
+						"id": "RV",
+						"name": "Renta Variable"
+					},
+					"term": "LP"
+				}],
+				"referenceAssets": [{
+						"name": "Índice SP 500®",
+						"priceAmount": {
+							"amount": 99.060243
+						},
+						"amountYield": {
+							"amount": 0.29
+						}
+					},
+					{
+						"name": "Índice Eurostoxx 50®",
+						"priceAmount": {
+							"amount": 99.060243
+						},
+						"amountYield": {
+							"amount": 0.29
+						}
+					}
+				],
+				"prices": [{
+						"priceDate": "07-01-2018",
+						"priceAmountDate": {
+							"amount": 95.3716
+						}
+					},
+					{
+						"priceDate": "08-01-2018",
+						"priceAmountDate": {
+							"amount": 95.2058
+						}
+					},
+					{
+						"priceDate": "09-01-2018",
+						"priceAmountDate": {
+							"amount": 95.6844
+						}
+					},
+					{
+						"priceDate": "10-01-2018",
+						"priceAmountDate": {
+							"amount": 96.1377
+						}
+					},
+					{
+						"priceDate": "11-01-2018",
+						"priceAmountDate": {
+							"amount": 96.2021
+						}
+					},
+					{
+						"priceDate": "14-01-2018",
+						"priceAmountDate": {
+							"amount": 96.1341
+						}
+					},
+					{
+						"priceDate": "15-01-2018",
+						"priceAmountDate": {
+							"amount": 95.8629
+						}
+					}
+				],
+				"productIndicators": [{
+					"associatedColor": "#86C82D",
+					"name": "Conservación",
+					"status": "Vivo"
+				}],
+				"detailStructuredProducts": [{
+					"customerId": 24,
+					"issueId": "3601",
+					"custodyTitles": 560000,
+					"warrantyTitles": 0,
+					"issueTitles": 0,
+					"amountIssued": {
+						"amount": 56000000
+					},
+					"percentageAmount": {
+						"amount": 1.5408
+					},
+					"contractNumber": "0"
+				}]
+			},
+			{
+				"id": "3600",
+				"series": "S8006",
+				"underlyingAssociates": [{
+					"name": "EQD"
+				}],
+				"paymentType": "Call Spread",
+				"productPrice": {
+					"amount": 98.7947
+				},
+				"dueDate": "26-01-2019",
+				"currency": {
+					"code": "MXN"
+				},
+				"priceDifference": {
+					"amount": -0.1
+				},
+				"priceDate": "15-01-2018",
+				"status": "1",
+				"listPayOff": [{
+					"complexity": {
+						"id": "M",
+						"name": "Media"
+					},
+					"protectedCapital": {
+						"amount": 100
+					},
+					"volatilityIndicator": "0",
+					"liquidityIndicator": "0",
+					"paymentTypeFeature": {
+						"id": "NA",
+						"name": "--"
+					},
+					"underlyingGroup": {
+						"id": "RV",
+						"name": "Renta Variable"
+					},
+					"term": "LP"
+				}],
+				"referenceAssets": [{
+					"name": "Índice Eurostoxx 50®",
+					"priceAmount": {
+						"amount": 3527.11
+					},
+					"amountYield": {
+						"amount": 1.36
+					}
+				}],
+				"prices": [{
+						"priceDate": "07-01-2018",
+						"priceAmountDate": {
+							"amount": 98.7518
+						}
+					},
+					{
+						"priceDate": "08-01-2018",
+						"priceAmountDate": {
+							"amount": 98.6647
+						}
+					},
+					{
+						"priceDate": "09-01-2018",
+						"priceAmountDate": {
+							"amount": 98.8519
+						}
+					},
+					{
+						"priceDate": "10-01-2018",
+						"priceAmountDate": {
+							"amount": 98.9432
+						}
+					},
+					{
+						"priceDate": "11-01-2018",
+						"priceAmountDate": {
+							"amount": 98.8918
+						}
+					},
+					{
+						"priceDate": "14-01-2018",
+						"priceAmountDate": {
+							"amount": 98.89
+						}
+					},
+					{
+						"priceDate": "15-01-2018",
+						"priceAmountDate": {
+							"amount": 98.7947
+						}
+					}
+				],
+				"productIndicators": [{
+					"associatedColor": "#86C82D",
+					"name": "Conservación",
+					"status": "Vivo"
+				}],
+				"detailStructuredProducts": [{
+					"customerId": 54,
+					"issueId": "3600",
+					"custodyTitles": 633700,
+					"warrantyTitles": 0,
+					"issueTitles": 0,
+					"amountIssued": {
+						"amount": 63370000
+					},
+					"percentageAmount": {
+						"amount": 1.7436
+					},
+					"contractNumber": "0"
+				}]
+			},
+			{
+				"id": "3598",
+				"series": "GDC001L DC001",
+				"underlyingAssociates": [{
+					"name": "EQD"
+				}],
+				"paymentType": "MT Autocall",
+				"productPrice": {
+					"amount": 99.4983
+				},
+				"dueDate": "22-01-2020",
+				"currency": {
+					"code": "MXN"
+				},
+				"priceDifference": {
+					"amount": -0.77
+				},
+				"priceDate": "15-01-2018",
+				"status": "1",
+				"listPayOff": [{
+					"complexity": {
+						"id": "A",
+						"name": "Alta"
+					},
+					"protectedCapital": {
+						"amount": 15
+					},
+					"volatilityIndicator": "1",
+					"liquidityIndicator": "0",
+					"paymentTypeFeature": {
+						"id": "NA",
+						"name": "--"
+					},
+					"underlyingGroup": {
+						"id": "RV",
+						"name": "Renta Variable"
+					},
+					"term": "LP"
+				}],
+				"referenceAssets": [{
+					"name": "General Dynamics Corporation",
+					"priceAmount": {
+						"amount": 195.82
+					},
+					"amountYield": {
+						"amount": -2.01
+					}
+				}],
+				"prices": [{
+						"priceDate": "07-01-2018",
+						"priceAmountDate": {
+							"amount": 97.9767
+						}
+					},
+					{
+						"priceDate": "08-01-2018",
+						"priceAmountDate": {
+							"amount": 99.0772
+						}
+					},
+					{
+						"priceDate": "09-01-2018",
+						"priceAmountDate": {
+							"amount": 99.4717
+						}
+					},
+					{
+						"priceDate": "10-01-2018",
+						"priceAmountDate": {
+							"amount": 99.7449
+						}
+					},
+					{
+						"priceDate": "11-01-2018",
+						"priceAmountDate": {
+							"amount": 100.1576
+						}
+					},
+					{
+						"priceDate": "14-01-2018",
+						"priceAmountDate": {
+							"amount": 100.264
+						}
+					},
+					{
+						"priceDate": "15-01-2018",
+						"priceAmountDate": {
+							"amount": 99.4983
+						}
+					}
+				],
+				"productIndicators": [{
+					"associatedColor": "#86C82D",
+					"name": "Conservación",
+					"status": "Vivo"
+				}],
+				"detailStructuredProducts": [{
+					"customerId": 0,
+					"issueId": "3598",
+					"custodyTitles": 0,
+					"warrantyTitles": 0,
+					"issueTitles": 0,
+					"amountIssued": {
+						"amount": 0
+					},
+					"percentageAmount": {
+						"amount": 0
+					},
+					"contractNumber": "0"
+				}]
+			}
+		]
+	},
+	"pagination": {
+		"page": 1,
+		"totalPages": 5,
+		"pageSize": 100
+	}
+}

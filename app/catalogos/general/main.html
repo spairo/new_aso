@@ -1,0 +1,249 @@
+
+<div class="animated fadeIn" ng-controller="CatalogGeneralController as main">
+  <div class="breadcrumb"><a nav="#!/">Home  &sol;</a><span class="selected">Catálogos</span>
+  </div>
+  <h1>
+  </h1>
+  <table class="resizer" resizer="resizer">
+    <tr class="no-hover">
+      <td>
+        <ul class="datalist mt-20">
+          <li ng-class="{active: main.activeLi1 === $index}" ng-click="main.activeLi1 = $index; main.activeLi2 = false; main.activeLi3 = false; main.areaFlag = false; main.level3 = []; main.level4 = []; main.level5 = []; main.salesGroup = false; main.showLevel5 = false; main.onGetCatalog(item.nuCatalogo, item.cdCatalogo);" ng-if="item.nuNivel === 1" ng-repeat="item in main.level1"><span ng-if="!editLevel1">{{ item.txCatalogo }}</span><i class="edit" ng-click="$event.stopPropagation(); editLevel1 = !editLevel1;" ng-show="!editLevel1"></i>
+            <div ng-if="editLevel1">
+              <div class="col-11">
+                <input ng-model="item.txCatalogo" placeholder="Editar campo" type="text" ng-click="$event.stopPropagation();"/>
+              </div>
+              <div class="col-1 mt-8"><i class="add" ng-click="$event.stopPropagation(); main.areaFlag = false; main.catalog = null; main.calendariosOn = false; main.customersOn = false; main.eventosOn = false; main.groupsOn = false; main.salesAreaOn = false; main.showModal = false; main.editCatalogs(item)"></i>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <button class="btn-catalog" ng-click="main.showModal = true; main.propertyCatalog.open()">Catálogo de propiedades</button>
+      </td>
+      <td>
+        <div class="mb-20 pl-20 pr-20">
+          <input ng-model="main.searchLevel2" placeholder="Buscar..." type="search" ng-if="main.level2.length &gt; 9"/>
+        </div>
+        <ul class="datalist animated fadeIn" ng-show="main.level2.length">
+          <li ng-class="{active: item.stActivo &amp;&amp; main.activeLi2 === $index, 'not-cursor': !main.showLevel3 || !item.stActivo }" ng-click="main.activeLi2 = $index; main.activeLi3 = false; main.activeLi4 = false; main.activeOn = false; main.customersOn = false; main.level3 = []; main.level4 = []; main.level5 = []; main.payoffOn = false; main.salesGroup = false; main.showLevel5 = false; item.stActivo &amp;&amp; main.onGetCatalog(item.nuCatalogo, item.cdCatalogo);" ng-if="item.nuCatalogo !== 0" ng-repeat="item in main.level2 | filter:main.searchLevel2">
+            <div class="mr-5" ng-show="!editLevel2">
+              <input ng-click="$event.stopPropagation(); main.catalog = null; main.customersOn = false; main.groupsOn = false; main.salesAreaOn = true; main.showModal = false; main.editCatalogs(item);" id="level2_{{ item.txCatalogo }}" name="level2_{{ item.txCatalogo }}" ng-model="item.stActivo" type="checkbox" value="level2_{{ item.txCatalogo }}"/>
+              <label class="checkbox" for="level2_{{ item.txCatalogo }}" ng-click="$event.stopPropagation();"></label>
+            </div><span ng-if="!editLevel2">{{ item.txCatalogo }}</span><i class="edit" ng-click="$event.stopPropagation(); editLevel2 = !editLevel2;" ng-show="!editLevel2"></i>
+            <div ng-if="editLevel2">
+              <div class="col-9">
+                <input ng-model="item.txCatalogo" placeholder="Editar campo" type="text" maxlength="50" ng-click="$event.stopPropagation();"/>
+              </div>
+              <div class="col-3"><i class="add" ng-click="$event.stopPropagation(); main.catalog = null; main.customersOn = false; main.groupsOn = false; main.salesAreaOn = true; main.showModal = false; main.editCatalogs(item)"></i><i class="delete red" ng-click="$event.stopPropagation(); main.catalog = null; main.customersOn = false; main.groupsOn = false; main.salesAreaOn = true; main.showModal = false; main.request.nuCatalogo = item.nuCatalogo; main.request.cdCatalogo = item.cdCatalogo; main.deleteCatalog.open();"></i>
+              </div>
+            </div>
+          </li>
+          <div class="add-new" ng-click="main.addLevel2 = !main.addLevel2" ng-show="!main.addLevel2">Agregar nuevo</div>
+          <div class="ml-15 mt-5 mb-10" ng-show="main.addLevel2">
+            <div class="col-9">
+              <input ng-model="main.textLevel2" placeholder="Agregar nuevo" type="text" maxlength="50" ng-class="{error: main.error2}" ng-keyup="main.error2 = false"/>
+            </div>
+            <div class="col-3 mt-10"><i class="add" ng-click="main.catalog = null; main.customersOn = false; main.groupsOn = false; main.salesAreaOn = true; main.showModal = false; main.addCatalog(main.nameCatalog2, 2, 'textLevel2', 'error2');"></i><i class="void ml-10" ng-click="main.addLevel2 = !main.addLevel2; main.error2 = false;"></i>
+            </div>
+          </div>
+        </ul>
+      </td>
+      <td>
+        <div class="mb-20 pl-20 pr-20">
+          <input ng-model="main.searchLevel3" placeholder="Buscar..." type="search" ng-if="main.level3.length &gt; 13"/>
+        </div>
+        <ul class="datalist animated fadeIn">
+          <li ng-class="{active: item.stActivo &amp;&amp; main.activeLi3 === $index, 'not-cursor': !item.stActivo }" ng-click="main.activeLi3 = $index; main.activeLi4 = false; main.level4 = []; main.level5 = []; main.showLevel5 = false; item.stActivo &amp;&amp; main.onGetCatalog(item.nuCatalogo, item.cdCatalogo);" ng-if="(item.nuNivel === 3 || main.salesGroup) &amp;&amp; item.nuCatalogo !== 0" ng-repeat="item in main.level3 | filter:main.searchLevel3" ng-show="main.level3.length">
+            <div class="mr-5" ng-show="!editLevel3">
+              <input ng-click="$event.stopPropagation(); main.activeOn = false; main.customersOn = false; main.payoffOn = false; main.salesAreaOn = false; main.showModal = false; main.editCatalogs(item);" id="level3_{{ item.txCatalogo }}" name="level3_{{ item.txCatalogo }}" ng-if="main.salesGroup" ng-model="item.stActivo" type="checkbox" value="level3_{{ item.txCatalogo }}"/>
+              <label class="checkbox" for="level3_{{ item.txCatalogo }}" ng-click="$event.stopPropagation();"></label>
+            </div><span ng-if="!editLevel3">{{ item.txCatalogo }}</span><i class="edit" ng-click="$event.stopPropagation(); editLevel3 = !editLevel3;" ng-show="!editLevel3"></i>
+            <div ng-if="editLevel3">
+              <div ng-class="{'col-9': main.salesGroup, 'col-11': !main.salesGroup}">
+                <input ng-model="item.txCatalogo" placeholder="Editar campo" type="text" maxlength="50" ng-click="$event.stopPropagation();"/>
+              </div>
+              <div ng-class="{'col-3': main.salesGroup, 'col-1 mt-8': !main.salesGroup}"><i class="add" ng-click="$event.stopPropagation(); main.activeOn = false; main.customersOn = false; main.payoffOn = false; main.salesAreaOn = false; main.showModal = false; main.editCatalogs(item)"></i><i class="delete red" ng-click="$event.stopPropagation(); main.customersOn = false; main.groupsOn = true; main.salesAreaOn = false; main.showModal = false; main.request.nuCatalogo = item.nuCatalogo; main.request.cdCatalogo = item.cdCatalogo; main.deleteCatalog.open();" ng-if="main.salesGroup"></i>
+              </div>
+            </div>
+          </li>
+          <div class="add-new" ng-click="main.addLevel3 = !main.addLevel3" ng-show="main.salesGroup &amp;&amp; !main.addLevel3">Agregar nuevo</div>
+          <div class="ml-15 mt-5 mb-10" ng-show="main.salesGroup &amp;&amp; main.addLevel3">
+            <div class="col-9">
+              <input ng-model="main.textLevel3" placeholder="Agregar nuevo" type="text" maxlength="50" ng-class="{error: main.error3}" ng-keyup="main.error3 = false"/>
+            </div>
+            <div class="col-3 mt-10"><i class="add" ng-click="main.customersOn = false; main.groupsOn = true; main.salesAreaOn = false; main.showModal = false; main.addCatalog(main.nameCatalog3, 3, 'textLevel3', 'error3');"></i><i class="void ml-10" ng-click="main.addLevel3 = !main.addLevel3; main.error3 = false;"></i>
+            </div>
+          </div>
+        </ul>
+      </td>
+      <td>
+        <div class="mb-20 pl-20 pr-20">
+          <input ng-model="main.searchLevel4" placeholder="Buscar..." type="search" ng-if="main.level4.length &gt; 9"/>
+        </div>
+        <ul class="datalist animated fadeIn">
+          <li ng-class="{'active': item.stActivo &amp;&amp; main.activeLi4 === $index,'not-cursor': main.stopPropagation}" ng-click="main.activeLi4 = $index; main.showLevel5 = false; item.stActivo &amp;&amp; main.onGetDetail(item.nuCatalogo);" ng-if="item.nuCatalogo !== 0" ng-repeat="item in main.level4 | filter:main.searchLevel4" ng-show="main.level4.length">
+            <div class="mr-5" ng-show="!editLevel4">
+              <input ng-click="$event.stopPropagation(); main.customersOn = true; main.groupsOn = false; main.salesAreaOn = false; main.showModal = false; main.editCatalogs(item);" id="level4_{{ item.txCatalogo }}" name="level4_{{ item.txCatalogo }}" ng-model="item.stActivo" type="checkbox" value="level4_{{ item.txCatalogo }}"/>
+              <label class="checkbox" for="level4_{{ item.txCatalogo }}" ng-click="$event.stopPropagation();"></label>
+            </div><span ng-if="!editLevel4">{{ item.txCatalogo }}</span><i class="edit" ng-click="$event.stopPropagation(); editLevel4 = !editLevel4;" ng-show="!editLevel4"></i>
+            <div ng-if="editLevel4">
+              <div class="col-9">
+                <input ng-model="item.txCatalogo" placeholder="Editar campo" type="text" ng-click="$event.stopPropagation();" maxlength="100"/>
+              </div>
+              <div class="col-3"><i class="add" ng-click="$event.stopPropagation(); main.customersOn = true; main.groupsOn = false; main.salesAreaOn = false; main.showModal = false; main.editCatalogs(item)"></i><i class="delete red" ng-click="$event.stopPropagation(); main.customersOn = true; main.groupsOn = false; main.salesAreaOn = false; main.showModal = false; main.request.nuCatalogo = item.nuCatalogo; main.request.cdCatalogo = item.cdCatalogo; main.deleteCatalog.open();"></i>
+              </div>
+            </div>
+          </li>
+          <div class="add-new" ng-click="main.addLevel4 = !main.addLevel4" ng-show="(main.activeOn || main.customersOn || main.payoffOn) &amp;&amp; !main.addLevel4">Agregar nuevo</div>
+          <div class="ml-15 mt-5 mb-10" ng-show="main.addLevel4">
+            <div class="col-9">
+              <input ng-model="main.textLevel4" placeholder="Agregar nuevo" type="text" maxlength="100" ng-class="{error: main.error4}" ng-keyup="main.error4 = false"/>
+            </div>
+            <div class="col-3 mt-10"><i class="add" ng-click="main.customersOn = true; main.groupsOn = false; main.salesAreaOn = false; main.showModal = false; main.addCatalog(main.nameCatalog4, 4, 'textLevel4', 'error4');"></i><i class="void ml-10" ng-click="main.addLevel4 = !main.addLevel4; main.error4 = false;"></i>
+            </div>
+          </div>
+        </ul>
+      </td>
+      <td>
+        <div class="align-right mr-15" ng-if="(main.catalog === 'payoff' || main.catalog === 'activo') &amp;&amp; main.showLevel5"><i class="edit tooltip double" ng-click="main.propertyCatalog.open();">
+            <div class="content">
+              <div class="txt">Editar Catálogo de Propiedades</div>
+            </div></i>
+        </div>
+        <ul class="datalist _336" ng-if="main.showLevel5 &amp;&amp; main.catalog === 'payoff'">
+          <ul ng-if="main.char.length">
+            <div class="title-ul">Características</div>
+            <li class="not-cursor" ng-if="item.nuCatalogo !== 0" ng-repeat="item in main.char">
+              <div class="col-9"><span>{{ item.txCatalogo }}</span></div>
+              <div class="col-3 pr-0">
+                <div class="toggle">
+                  <input id="car5_{{ item.nuCatalogo }}" type="checkbox" ng-checked="main.checkDetail(item, 'caracteristicas')" ng-click="main.updateProperty(item, 'caracteristicas'); main.changeOptions = true;"/>
+                  <label for="car5_{{ item.nuCatalogo }}">
+                    <div class="toggle-switch" data-checked="Sí" data-unchecked="No"></div>
+                  </label>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <ul ng-if="main.protection.length">
+            <div class="title-ul">Protección</div>
+            <li class="not-cursor" ng-if="item.nuCatalogo !== 0" ng-repeat="item in main.protection">
+              <div class="col-9"><span>{{ item.txCatalogo }}</span></div>
+              <div class="col-3 pr-0">
+                <div class="toggle">
+                  <input id="prot_5{{ item.nuCatalogo }}" type="checkbox" ng-checked="main.checkDetail(item, 'proteccion')" ng-click="main.updateProperty(item, 'proteccion'); main.changeOptions = true;"/>
+                  <label for="prot_5{{ item.nuCatalogo }}">
+                    <div class="toggle-switch" data-checked="Sí" data-unchecked="No"></div>
+                  </label>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div ng-if="main.options.length">
+            <div class="title-ul">Tipo de opción</div>
+            <div class="col-12 pl-10 mb-15">
+              <dropdown label="txCatalogo" model="main.level5.opciones" ng-click="main.changeOptions = true;" ng-if="main.options" options="main.options"></dropdown>
+            </div>
+          </div>
+          <div ng-if="main.type.length">
+            <div class="title-ul">Tipo de Pay-off</div>
+            <div class="col-12 pl-10 mb-15">
+              <dropdown label="txCatalogo" model="main.level5.tipos" ng-click="main.changeOptions = true;" ng-if="main.type" options="main.type"></dropdown>
+            </div>
+          </div>
+          <ul ng-if="main.payoff.length">
+            <div class="title-ul">Pay-off Docs</div>
+            <li class="not-cursor mb-10 mt-10" ng-if="item.nuCatalogo !== 0" ng-repeat="item in main.payoff">
+              <div class="col-9"><span>{{ item.txCatalogo }}</span></div>
+              <div class="col-3 pr-0">
+                <div class="toggle">
+                  <input id="pdoc_5{{ item.nuCatalogo }}" type="checkbox" ng-checked="main.checkDetail(item, 'payOffDocs')" ng-click="main.updateProperty(item, 'payOffDocs'); main.changeOptions = true;"/>
+                  <label for="pdoc_5{{ item.nuCatalogo }}">
+                    <div class="toggle-switch" data-checked="Sí" data-unchecked="No"></div>
+                  </label>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div>
+            <div class="title-ul">Ejemplo TS / DICI</div>
+            <div class="col-12 pl-10 mb-15">
+              <div ng-if="main.docPayoff.name">
+                <div class="col-11"><a class="file" href="{{global.server}}/archivo?id={{main.docPayoff.id}}&amp;categoria=documentoPayOff" target="_blank">{{ main.docPayoff.name }}</a></div>
+                <div class="col-1">
+                  <input-file class="icon" model="main.file.file"></input-file>
+                </div>
+              </div>
+              <input-file model="main.file.file" ng-if="!main.docPayoff.name"></input-file>
+            </div>
+          </div>
+          <div>
+            <div class="title-ul">Iconos de Pay-Off</div>
+            <div class="col-12 pl-10">
+              <div class="col-5">
+                <p>Complejidad</p>
+              </div>
+              <div class="col-2 mt-8"><i class="complex mbaja" ng-show="main.level5.detallePayOff.complejidad.cdCatalogo === 'MB'"></i><i class="complex baja" ng-show="main.level5.detallePayOff.complejidad.cdCatalogo === 'B'"></i><i class="complex media" ng-show="main.level5.detallePayOff.complejidad.cdCatalogo === 'M'"></i><i class="complex alta" ng-show="main.level5.detallePayOff.complejidad.cdCatalogo === 'A'"></i>
+              </div>
+              <div class="col-5 pr-0 mt-5">
+                <dropdown label="txCatalogo" model="main.level5.detallePayOff.complejidad" ng-click="main.changeOptions = true;" ng-if="main.complex" options="main.complex" selected="0"></dropdown>
+              </div>
+            </div>
+            <div class="col-12 pl-10">
+              <div class="col-5">
+                <p>Volatilidad</p>
+              </div>
+              <div class="col-2 mt-8"><i class="volatility" ng-class="{visibility: !main.level5.detallePayOff.volatilidad}"></i>
+              </div>
+              <div class="col-5 pr-0 mt-10">
+                <div class="toggle">
+                  <input id="icon_volatilidad" type="checkbox" ng-model="main.level5.detallePayOff.volatilidad" ng-click="main.changeOptions = true;"/>
+                  <label for="icon_volatilidad">
+                    <div class="toggle-switch" data-checked="Sí" data-unchecked="No"></div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 pl-10">
+              <div class="col-5">
+                <p>Liquidez</p>
+              </div>
+              <div class="col-2 mt-8"><i class="liquidity" ng-class="{visibility: !main.level5.detallePayOff.liquidez}"></i>
+              </div>
+              <div class="col-5 pr-0 mt-10">
+                <div class="toggle">
+                  <input id="icon_liquidez" type="checkbox" ng-model="main.level5.detallePayOff.liquidez" ng-click="main.changeOptions = true;"/>
+                  <label for="icon_liquidez">
+                    <div class="toggle-switch" data-checked="Sí" data-unchecked="No"></div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ul>
+        <ul class="datalist _336" ng-if="main.showLevel5 &amp;&amp; main.catalog === 'activo'">
+          <ul ng-if="main.geo.length">
+            <div class="title-ul">Geografía</div>
+            <li class="not-cursor" ng-if="item.nuCatalogo !== 0" ng-repeat="item in main.geo">
+              <div class="mr-5">
+                <input ng-click="main.updateProperty(item, 'geografia'); main.changeOptions = true;" id="geo5_{{ item.txCatalogo }}" name="geografia_catalogo" ng-checked="main.checkDetail(item, 'geografia')" type="radio"/>
+                <label class="radio" for="geo5_{{ item.txCatalogo }}" ng-click="$event.stopPropagation();"></label>
+              </div><span>{{ item.txCatalogo }}</span>
+            </li>
+          </ul>
+        </ul>
+        <div class="row align-center mt-15" ng-if="(main.catalog === 'payoff' || main.catalog === 'activo') &amp;&amp; main.showLevel5">
+          <div class="col-12">
+            <button class="btn" ng-click="main.submitOptions();" ng-disabled="!main.file.file &amp;&amp; !main.changeOptions">Guardar</button>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <modal name="main.deleteCatalog" on-close="main.request = {};" on-success="global.reload()" size="'small'">
+    <ng-include src="'app/catalogos/general/modal/delete-catalog.html'"></ng-include>
+  </modal>
+  <modal name="main.propertyCatalog" on-success="global.reload()" size="'large-medium'">
+    <ng-include src="'app/catalogos/general/modal/property-catalog.html'"></ng-include>
+  </modal>
+</div>

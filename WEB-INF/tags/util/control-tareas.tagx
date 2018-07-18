@@ -1,0 +1,84 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" 
+xmlns:controlTareas="http://ArqSpring/controlTareas"  
+xmlns:fn="http://java.sun.com/jsp/jstl/functions" 
+xmlns:jsp="http://java.sun.com/JSP/Page" 
+xmlns:spring="http://www.springframework.org/tags" version="2.0">
+
+  <jsp:output omit-xml-declaration="yes" />
+  
+<script type="text/javascript">
+	//<![CDATA[
+	           
+	     var inicioSesion = "${controlTareas:getEstadoControlTarea()}";
+	     var controlTareasActivo =  "${controlTareas:isControlTareasActivo()}";
+	     var windowNameActivo =  "${controlTareas:isWindowNameActivo()}";
+	     
+	     var ajaxTimeout = "${controlTareas:getAjaxTimeout()}";
+	     
+	     function guidGenerator() {
+		    var S4 = function() {
+		       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+		    };
+		    return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+		 }  
+	     
+	     function getURLParameter(name) {
+	    	 return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+	     }
+	   
+	     var idTarea =  getURLParameter("ArqSpring.idTarea");
+	     
+	     if(inicioSesion.indexOf("nuevaTarea")!=-1){
+	    	 idTarea = guidGenerator();
+	     }
+	     
+   		 $(document).ready(function(){
+   			 
+   			 if(controlTareasActivo.indexOf("true")!=-1){
+   				
+   			 	if(windowNameActivo.indexOf("true")!=-1){
+   			 		
+	   				if (window.name.indexOf("#ArqSpring") == -1){
+	   					
+	      				 if(inicioSesion.indexOf("nuevaSesion")!=-1){
+	      		    		idTarea= "${controlTareas:getIdTarea()}";
+	      		    	 }else{
+	      		    	 	idTarea = guidGenerator();
+	      		    	 }
+	      				 
+	      	    		 window.name = window.name + "#ArqSpring";
+	      	    	 }
+	   				
+   			 	}else{
+   			 		
+			 		idTarea= "${controlTareas:getIdTarea()}";
+   			 	}
+       	
+      			$('<input></input>').attr({
+      			    type: 'hidden',
+      			    id: 'ArqSpring.idTarea',
+      			    name: 'ArqSpring.idTarea',
+      			    value:idTarea
+      			}).appendTo('form');
+       	 
+				  $('a[href]').each(function(){
+				      var currHref = $(this).attr("href");
+				      var isAfunction = currHref.substring(0,10);              
+				         if (currHref.charAt(currHref.length - 1) === '?')                           
+				             $(this).attr("href",currHref);
+				         else if (currHref.indexOf('?') >= 0)                
+				             $(this).attr("href",currHref+"&ArqSpring.idTarea=" + idTarea); 
+				         else                  
+				             $(this).attr("href",currHref+"?ArqSpring.idTarea=" + idTarea);
+				      
+				});         
+   	         
+   			 } // fin controlTareasActivo
+   			       
+         
+  });
+   		 
+   //]]>
+</script>
+  
+ </jsp:root>

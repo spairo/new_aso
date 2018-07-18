@@ -1,0 +1,56 @@
+
+<div class="animated fadeIn" ng-controller="ComparativeCouponController as main">
+  <div class="breadcrumb"><a nav="#!/">Home  &sol;</a><span class="selected">Cupones</span>
+  </div>
+  <h1>Cupones al {{ main.today | date:'dd/MM/yyyy' }}
+  </h1>
+  <div class="row align-right mb-20 m-t-40">
+    <div class="col-10"></div><a href="http://150.100.196.115:9191/SaikuVisual/" target="_blank"><i class="analytics tooltip m-b-10 mr-15">
+        <div class="content">
+          <div class="txt">Ir a Analytics</div>
+        </div></i></a><i class="filter tooltip m-b-10 mr-15" ng-class="{on: historico.filterHistorical}" ng-click="historico.filterHistorical = !historico.filterHistorical;">
+      <div class="content">
+        <div class="txt">Filtrar columnas</div>
+      </div></i>
+    <button class="btn-large" ng-click="main.newCoupon.open();">Actualizar cupones</button>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'cdEstrategia'">Estrategia<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'cdEstrategia'"></span></th>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'fhVencimiento'">Fecha<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'fhCupon'"></span></th>
+          <th ng-click="main.reverse = !main.reverse; main.property = 'cdSerie'">Cupón<span class="sortorder" ng-class="{ reverse: main.reverse }" ng-show="main.property === 'imCupon'"></span></th>
+        </tr>
+        <tr class="search" ng-show="historico.filterHistorical">
+          <td>
+            <input ng-model="main.searchHistorical.cdEstrategia" type="search"/>
+          </td>
+          <td>
+            <input ng-model="main.searchHistorical.fhCupon" type="date" date-input="date-input"/>
+          </td>
+          <td>
+            <input ng-model="main.searchHistorical.imCupon" type="search"/>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="no-hover" dir-paginate="historico in main.cupones | orderBy:main.property:main.reverse | filter:main.searchHistorical | itemsPerPage: 10">
+          <td>{{ historico.cdEstrategia }}</td>
+          <td>{{ historico.fhCupon | date:'dd/MM/yyyy' }}</td>
+          <td>{{ historico.imCupon }} %</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <dir-pagination-controls boundary-links="true"></dir-pagination-controls><span class="count">{{ (main.cupones | filter:main.searchHistorical).length }} elementos</span>
+  <div class="disclaimer">
+    <div class="txt">
+      <p class="strong">Disclaimer:</p>
+      <p ng-bind-html="global.sysDisclaimer"></p>
+    </div>
+  </div>
+  <modal name="main.newCoupon" on-close="main.requestCoupon = {}" on-success="global.reload();" size="'small'">
+    <ng-include src="'app/seguimiento/repositorio/cupones/modal/new-coupon.html'"></ng-include>
+  </modal>
+</div>

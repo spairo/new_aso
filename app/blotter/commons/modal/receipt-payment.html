@@ -1,0 +1,94 @@
+
+<h1>Comprobante de pago</h1>
+<div class="strip mt-15 mb-15">
+  <div class="col-6 align-right">
+    <label>ST</label><span class="medium">{{ main.details.datos[2] }}</span>
+  </div>
+  <div class="col-6">
+    <label>Serie</label><span class="medium">{{ main.details.datos[3] }}</span>
+  </div>
+</div>
+<div class="panel small">
+  <div class="row">
+    <div class="col-5 pr-0">
+      <ul class="sidebar small">
+        <li ng-class="{active: main.activeBill === 'Facturas'}" ng-click="main.activeBill = 'Facturas'"><a><i class="traffic-light" ng-class="{on: main.successUpload}"></i><span>Facturas</span></a></li>
+        <li ng-if="main.successUpload" ng-class="{active: main.activeBill === 'Comprobante'}" ng-click="main.activeBill = 'Comprobante'"><a><i class="traffic-light" ng-class="{off: main.activeBill !== 'Comprobante', on: main.successUpload}"></i><span>Comprobante de pago</span></a></li>
+        <li ng-if="!main.successUpload" ng-class="{active: main.activeBill === 'Comprobante'}"><a><i class="traffic-light" ng-class="{off: main.activeBill !== 'Comprobante', on: main.successUpload}"></i><span>Comprobante de pago</span></a></li>
+        <li ng-if="main.successUpload" ng-class="{active: main.activeBill === 'Orden'}" ng-click="main.activeBill = 'Orden'; main.uploadOrder = true"><a><i class="traffic-light" ng-class="{off: main.activeBill !== 'Orden', on: main.successUpload}"></i><span>Orden de pago</span></a></li>
+        <li ng-if="!main.successUpload" ng-class="{active: main.activeBill === 'Orden'}"><a><i class="traffic-light" ng-class="{off: main.activeBill !== 'Orden', on: main.successUpload &amp;&amp; main.successOrder}"></i><span>Orden de pago</span></a></li>
+      </ul>
+    </div>
+    <div class="col-7 pt-10 pb-10 pl-10">
+      <div ng-show="main.activeBill === 'Facturas'">
+        <div class="docs-title">Subir facturas</div>
+        <div class="row" ng-if="main.successUpload">
+          <div class="col-11"><a class="file" href="{{global.server}}/archivo?id={{main.DocFacXml.nuEstrategia}}&amp;categoria={{main.DocFacXml.nuDocumento}}" target="_blank">{{ main.DocFacXml.name }}</a></div>
+          <div class="col-1">
+            <input-file class="icon" model="main.file.xml"></input-file>
+          </div>
+        </div>
+        <div class="row" ng-if="main.successUpload">
+          <div class="col-11"><a class="file" href="{{global.server}}/archivo?id={{main.DocFacPdf.nuEstrategia}}&amp;categoria={{main.DocFacPdf.nuDocumento}}" target="_blank">{{ main.DocFacPdf.name }}</a></div>
+          <div class="col-1">
+            <input-file class="icon" model="main.file.pdf"></input-file>
+          </div>
+        </div>
+        <div ng-if="!main.successUpload">
+          <div class="row mt-10">
+            <div class="col-12 pr-0">
+              <label>Archivo XML</label>
+              <input-file model="main.file.xml"></input-file>
+            </div>
+          </div>
+          <div class="row mt-10">
+            <div class="col-12 pr-0">
+              <label>Archivo PDF</label>
+              <input-file model="main.file.pdf"></input-file>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-15">
+          <div class="col-12 align-right">
+            <button class="btn" ng-click="main.generatePayment()" ng-disabled="!main.file.xml || !main.file.pdf" ng-if="!main.successUpload">Cargar</button>
+            <button class="btn" ng-click="main.generatePayment()" ng-if="main.successUpload">Reemplazar</button>
+          </div>
+        </div>
+      </div>
+      <div ng-show="main.activeBill === 'Comprobante'">
+        <div class="docs-title">Descargar comprobante de pago</div>
+        <div class="row mt-10">
+          <div class="col-8">
+            <label>Orden de pago.xls</label>
+          </div>
+          <div class="col-1"><i class="excel default"></i>
+          </div>
+          <div class="col-3 pr-0 mt-5 ml-5">
+            <label>(244 Kb)</label>
+          </div>
+        </div>
+        <div class="row mt-25">
+          <div class="col-12 align-right" ng-if="main.successUpload"><a href="{{global.server}}/archivo?id={{main.id}}&amp;categoria=ordenDePago&amp;usuario={{main.usuario}}" target="_blank">
+              <button class="btn">Descargar</button></a></div>
+        </div>
+      </div>
+      <div ng-show="main.activeBill === 'Orden'">
+        <div class="docs-title">Subir orden de pago</div>
+        <div ng-if="main.successUpload">
+          <div class="row mt-10">
+            <div class="col-12 pr-0">
+              <label>Archivo</label>
+              <input-file model="main.arch.xls"></input-file>
+            </div>
+          </div>
+          <div class="row mt-15">
+            <div class="col-12 align-right">
+              <button class="btn" ng-click="main.generateReceipt(); main.successOrder = true" ng-disabled="!main.arch.xls" ng-if="!main.successOrder">Cargar</button>
+              <button class="btn" ng-click="main.generateReceipt()" ng-if="main.successOrder">Reemplazar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

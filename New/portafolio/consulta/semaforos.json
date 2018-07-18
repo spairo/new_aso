@@ -1,0 +1,18 @@
+[
+	{
+		"color": "#C8175E",
+		"comentario": "Venta"
+	},
+	{
+		"color": "#F6891E",
+		"comentario": "Observación"
+	},
+	{
+		"color": "#86C82D",
+		"comentario": "Conservación"
+	},
+	{
+		"color": "#009EE5",
+		"comentario": "Toma de utilidades"
+	}
+]

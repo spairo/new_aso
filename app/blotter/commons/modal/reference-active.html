@@ -1,0 +1,90 @@
+
+<h1>Activo de referencia</h1>
+<div ng-if="!main.detailReference">
+  <div class="row mt-20">
+    <div class="col-6 pr-0">
+      <label>Activo de referencia:</label>
+      <input class="search" ng-model="main.filterActive" placeholder="Buscar" type="search" ng-click="main.showListActive = true"/><i class="search"></i>
+      <div class="filter-search" ng-show="main.showListActive">
+        <ul>
+          <li ng-click="current = current || {status: 1, original: {nuActivo: item.nuCatalogo, nbActivo: item.txCatalogo, imStrike: null, status: 1 }}; main.request.activos.indexOf(current) &lt; 0 &amp;&amp; main.request.activos.push(current); main.showListActive = false;" ng-repeat="item in main[32] | filter:{ txCatalogo:main.filterActive }:false">
+            <label>{{ item.txCatalogo }}</label>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-vertical-small mt-20">
+    <p ng-if="!main.request.activos.length">No se ha seleccionado ningún activo.</p>
+    <table ng-if="main.request.activos.length">
+      <thead>
+        <tr>
+          <th>Activo de referencia</th>
+          <th>Strike original</th>
+          <th class="delete"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="no-hover" ng-repeat="activo in main.request.activos | filter:{'status': 1} track by $index">
+          <td>{{ activo.original.nbActivo }}</td>
+          <td>
+            <input ng-model="activo.original.imStrike" type="number"/>
+          </td>
+          <td><i class="delete" ng-click="main.request.activos.splice($index, 1);" ng-if="!activo.idActivoST"></i><i class="delete" ng-click="activo.original.status = 0; activo.status = 0;" ng-if="activo.original.idActivoST"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div ng-if="main.detailReference">
+  <div class="scroll-vertical-small size-350 mt-20">
+    <p ng-if="!main.details.activos.length">No existen activos.</p>
+    <table ng-if="main.details.activos.length">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Activo de referencia</th>
+          <th>Spot</th>
+        </tr>
+      </thead>
+      <tbody ng-repeat="activo in main.details.activos | filter:{'status': 1} track by $index">
+        <tr class="no-hover">
+          <td class="icons"><i class="plus" ng-class="{less: activo.opened}" ng-click="activo.opened = !activo.opened;"></i>
+          </td>
+          <td>{{ activo.nbActivo }}</td>
+          <td>{{ activo.imStrike }}</td>
+        </tr>
+        <tr class="drop" ng-show="activo.opened">
+          <td class="drop" colspan="3"><span ng-show="!activo.historico.length">No existe histórico.</span>
+            <div class="table-wrap small" ng-show="activo.historico.length">
+              <table>
+                <thead>
+                  <tr>
+                    <th class="default">Fecha</th>
+                    <th class="default">Evento</th>
+                    <th class="default">Factor</th>
+                    <th class="default">Spot</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="no-hover" ng-repeat="strike in activo.historico">
+                    <td>{{ strike.fhEvento | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ strike.nbEvento }}</td>
+                    <td>{{ strike.imFactor }}</td>
+                    <td>{{ strike.imStrike }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row align-center">
+  <div class="col-12">
+    <button class="btn" ng-click="main.referenceActiveModal.close()">Aceptar</button>
+  </div>
+</div>

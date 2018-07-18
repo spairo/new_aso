@@ -1,0 +1,58 @@
+<html>
+<head>
+<script language="JavaScript">
+	  /**
+	   * Función que realiza la carga 
+	   */     
+	  function onLoad() {
+
+		if (parent.app2app!=null && parent.app2app!="null" && parent.app2app!=undefined){
+			//Se envia por POST el BBVAContext
+			if (parent.app2app.utils.CONTEXTO!=null && parent.app2app.utils.CONTEXTO!="null" && parent.app2app.utils.CONTEXTO!=undefined && parent.app2app.utils.CONTEXTO!="")
+			{
+				crearInputHidden("CONTEXTO",parent.app2app.utils.CONTEXTO);
+			}
+			
+			//Se envia por POST los datos de Entrada
+			if (parent.app2app.utils.DatosEntrada!=null && parent.app2app.utils.DatosEntrada!="null" && parent.app2app.utils.DatosEntrada!=undefined && parent.app2app.utils.DatosEntrada!="")
+			{
+				crearInputHidden("DatosEntrada",parent.app2app.utils.DatosEntrada);
+			}
+			
+			//Se envia por POST los datos de Entrada
+			if (parent.app2app.utils.idTareaSpring!=null && parent.app2app.utils.idTareaSpring!="null" && parent.app2app.utils.idTareaSpring!=undefined && parent.app2app.utils.idTareaSpring!="")
+			{
+				crearInputHidden("ArqSpring.idTarea",parent.app2app.utils.idTareaSpring);
+			}
+		}
+		//Se descarta la cadena ?url= del parametro que viene por GET
+		var url = window.location.search.substr(5);
+		
+		//Se informa de la URL de la operacion
+		document.getElementById("app2appForm").action=url;
+		
+		//Se envía el formulario
+		document.getElementById("app2appForm").submit();
+		
+		if (parent.app2app.utils.tipoVentana==parent.app2app.utils.VENTANA_COMPLETA){
+			//Se mueve el scroll hacia arriba
+			parent.document.body.scrollTop="0";
+		}
+	  }
+  
+	/* Crea el campo de tipo hidden y le mete un valor*/
+	function crearInputHidden(nombre,valor){
+		var frm = document.getElementById("app2appForm");
+		var input = document.createElement("input");
+		input.setAttribute("type", "hidden");
+		input.setAttribute("name", nombre);
+		input.setAttribute("id", nombre);
+		input.setAttribute("value", valor);
+		frm.appendChild(input);
+	}
+</script>
+<body onload="onLoad()">
+<form name="app2appForm" id="app2appForm" action="" method="POST" scrolling="no">
+</form>
+</body>
+</html>

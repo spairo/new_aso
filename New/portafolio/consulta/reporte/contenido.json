@@ -1,0 +1,44 @@
+{
+  "idGrafica": null,
+  "nombreGrafica": null,
+  "encabezadosCanasta": [
+    "Multiregión",
+    "México",
+    "Europa",
+    "EUA",
+    "Japón",
+    "Corea del Sur"
+  ],
+  "valoresCanasta": [
+    "3.33",
+    "3.33",
+    "3.33",
+    "3.33",
+    "3.33",
+    "3.33"
+  ],
+  "monto": 11587500,
+  "encabezados": [
+    "Multiregión",
+    "México",
+    "Europa",
+    "_Multi_"
+  ],
+  "valores": [
+    "6.67",
+    "46.67",
+    "26.67",
+    20
+  ],
+  "colores": [
+    "#89D1F3",
+    "#009EE5",
+    "#094fa4",
+    "#86C82D"
+  ],
+  "nombrePortafolio": "Mi Portafolio",
+	"disclaimer": {
+		"cliente" : "Cliente: La información contenida en el presente documento y, en su caso, en sus anexos (en adelante, el “Documento”) tiene carácter puramente ilustrativo y ha sido elaborada por BBVA Bancomer S.A., Institución de Banca Múltiple, Grupo Financiero BBVA Bancomer (“BBVA Bancomer”)...",
+		"banquero": "Banquero: Comunicado interno, prohibida su reproducción o distribución fuera de BBVA Bancomer S.A., Institución de Banca Múltiple, Grupo Financiero BBVA Bancomer y/o Casa De Bolsa BBVA Bancomer, S.A. de C.V., Grupo Financiero BBVA Bancomer (en lo sucesivo, “BBVA Bancomer”)..."
+	}
+}

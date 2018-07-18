@@ -1,0 +1,162 @@
+[
+    {
+        "nbVehiculo": "Lorem ipsum dol sit amet",
+        "ctMontoAutorizado": 7000000000,
+        "stMontoAutorizado": false,
+        "ctEmsnAutorizada": 1000,
+        "stEmsnAutorizada": false,
+        "dtInicio": 1414648800000,
+        "dtVencimiento": 1730268000000,
+        "nuLagDias": 0,
+        "txCriterio": "null",
+        "pcPrimeraAlerta": 50,
+        "pcSegundaAlerta": 85,
+        "nuVehiculo": 4,
+        "dtInicioColocacion": 1414648800000,
+        "dtFinColocacion": 1730268000000,
+        "stSeguimientoDashboard": true,
+        "stActivo": true,
+        "cdColor": "NEW_COLOR",
+        "nuColor": 32,
+        "nbColor": "#3EB6BB",
+        "cdCatalogo": {
+            "nuCatalogo": 26,
+            "cdCatalogo": "NEW_BLOTTER_PRODUCTO",
+            "txCatalogo": "Nota Estructurada"
+        },
+        "cdMoneda": {
+            "nuCatalogo": 5,
+            "cdCatalogo": "NEW_ISSUANCE_CURRENCY",
+            "txCatalogo": "MXN"
+        },
+        "nbArchivo": ""
+    },
+    {
+        "nbVehiculo": "Bono J sin perdida",
+        "ctMontoAutorizado": 9000000000,
+        "stMontoAutorizado": false,
+        "ctEmsnAutorizada": 2000,
+        "stEmsnAutorizada": false,
+        "dtInicio": 1414648800000,
+        "dtVencimiento": 1730268000000,
+        "nuLagDias": -2,
+        "txCriterio": "Prueba",
+        "pcPrimeraAlerta": 52,
+        "pcSegundaAlerta": 50,
+        "nuVehiculo": 5,
+        "dtInicioColocacion": 1414648800000,
+        "dtFinColocacion": 1730268000000,
+        "stSeguimientoDashboard": true,
+        "stActivo": true,
+        "cdColor": "NEW_COLOR",
+        "nuColor": 24,
+        "nbColor": "#FDBD2C",
+        "cdCatalogo": {
+            "nuCatalogo": 26,
+            "cdCatalogo": "NEW_BLOTTER_PRODUCTO",
+            "txCatalogo": "Nota Estructurada"
+        },
+        "cdMoneda": {
+            "nuCatalogo": 5,
+            "cdCatalogo": "NEW_ISSUANCE_CURRENCY",
+            "txCatalogo": "MXN"
+        },
+        "nbArchivo": ""
+    },
+    {
+        "nbVehiculo": "Warrant",
+        "ctMontoAutorizado": 6000000,
+        "stMontoAutorizado": false,
+        "ctEmsnAutorizada": 10000,
+        "stEmsnAutorizada": false,
+        "dtInicio": 1414648800000,
+        "dtVencimiento": 1730268000000,
+        "nuLagDias": 0,
+        "txCriterio": "N/A",
+        "pcPrimeraAlerta": 50,
+        "pcSegundaAlerta": 85,
+        "nuVehiculo": 6,
+        "dtInicioColocacion": 1730268000000,
+        "dtFinColocacion": 1414648800000,
+        "stSeguimientoDashboard": true,
+        "stActivo": true,
+        "cdColor": "NEW_COLOR",
+        "nuColor": 30,
+        "nbColor": "#F6891E",
+        "cdCatalogo": {
+            "nuCatalogo": 27,
+            "cdCatalogo": "NEW_BLOTTER_PRODUCTO",
+            "txCatalogo": "Warrant"
+        },
+        "cdMoneda": {
+            "nuCatalogo": 6,
+            "cdCatalogo": "NEW_ISSUANCE_CURRENCY",
+            "txCatalogo": "USD"
+        },
+        "nbArchivo": ""
+    },
+    {
+        "nbVehiculo": "Bono 99",
+        "ctMontoAutorizado": 2000000,
+        "stMontoAutorizado": false,
+        "ctEmsnAutorizada": 0,
+        "stEmsnAutorizada": true,
+        "dtInicio": 1414648800000,
+        "dtVencimiento": 1730268000000,
+        "nuLagDias": -1,
+        "txCriterio": "N/A",
+        "pcPrimeraAlerta": 50,
+        "pcSegundaAlerta": 85,
+        "nuVehiculo": 7,
+        "dtInicioColocacion": 1414648800000,
+        "dtFinColocacion": 1730268000000,
+        "stSeguimientoDashboard": true,
+        "stActivo": true,
+        "cdColor": "NEW_COLOR",
+        "nuColor": 12,
+        "nbColor": "#006EC1",
+        "cdCatalogo": {
+            "nuCatalogo": 26,
+            "cdCatalogo": "NEW_BLOTTER_PRODUCTO",
+            "txCatalogo": "Nota Estructurada"
+        },
+        "cdMoneda": {
+            "nuCatalogo": 6,
+            "cdCatalogo": "NEW_ISSUANCE_CURRENCY",
+            "txCatalogo": "USD"
+        },
+        "nbArchivo": ""
+    },
+    {
+        "nbVehiculo": "F",
+        "ctMontoAutorizado": 0,
+        "stMontoAutorizado": true,
+        "ctEmsnAutorizada": 0,
+        "stEmsnAutorizada": true,
+        "dtInicio": 1475557200000,
+        "dtVencimiento": 1475298000000,
+        "nuLagDias": -1,
+        "txCriterio": "F",
+        "pcPrimeraAlerta": 50,
+        "pcSegundaAlerta": 85,
+        "nuVehiculo": 44,
+        "dtInicioColocacion": 1477630800000,
+        "dtFinColocacion": 1475643600000,
+        "stSeguimientoDashboard": true,
+        "stActivo": false,
+        "cdColor": "NEW_COLOR",
+        "nuColor": 11,
+        "nbColor": "#094FA4",
+        "cdCatalogo": {
+            "nuCatalogo": 33,
+            "cdCatalogo": "NEW_BLOTTER_PRODUCTO",
+            "txCatalogo": "CEDE"
+        },
+        "cdMoneda": {
+            "nuCatalogo": 5,
+            "cdCatalogo": "NEW_ISSUANCE_CURRENCY",
+            "txCatalogo": "MXN"
+        },
+        "nbArchivo": "file.pdf"
+    }
+]

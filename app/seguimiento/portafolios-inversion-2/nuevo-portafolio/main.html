@@ -1,0 +1,255 @@
+
+<div class="animated fadeIn" ng-controller="NewPortfolioController as main">
+  <div class="breadcrumb"><a nav="#!/">Home  &sol;</a><a nav="#!/portafolios-inversion">Portafolios de inversi&oacute;n &sol;</a><span class="selected">Crear portafolio</span>
+  </div>
+  <h1>Crea nuevo portafolio
+  </h1>
+  <div class="col-3 pr-20" ng-if="main.emissionsSearch">
+    <div class="filters-accordeon mb-15">
+      <div ng-if="!main.findEmissions">
+        <div class="title">Búsqueda de emisiones</div><i class="close" ng-click="main.emissionsSearch = false"></i>
+        <div class="erase" ng-click="main.deleteFilters();">Borrar todos los filtros</div>
+        <div class="accordion">
+          <div class="title-accordion {less: accordSerie.opened }" ng-click="accordSerie.opened = !accordSerie.opened">
+            <h2>Serie</h2><i class="plus" ng-class="{less: accordSerie.opened }"></i>
+          </div>
+          <div class="row portfolio" ng-show="accordSerie.opened">
+            <div class="col-12">
+              <label>Clave Indeval o Serie</label>
+              <input ng-model="main.request.datos[3].rangoInicial" type="text"/>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="title-accordion {less: accordGroup.opened }" ng-click="accordGroup.opened = !accordGroup.opened">
+            <h2>Área / Grupo / Cliente</h2><i class="plus" ng-class="{less: accordGroup.opened }"></i>
+          </div>
+          <div ng-show="accordGroup.opened">
+            <div class="row portfolio">
+              <div class="col-12">
+                <label>Área ventas</label>
+                <dropdown label="txCatalogo" model="main.request.datos[18].rangoInicial" on-update="main.salesAreaSelected(main.request.datos[18].rangoInicial.nuCatalogo)" ng-if="main[18]" options="main[18]" selected="0"></dropdown>
+              </div>
+            </div>
+            <div class="row portfolio">
+              <div class="col-12">
+                <label>Grupo ventas</label>
+                <dropdown label="txCatalogo" model="main.request.datos[40].rangoInicial" on-update="main.salesGroupSelected(main.request.datos[40].rangoInicial.nuCatalogo)" ng-if="main[40]" options="main[40]" selected="0"></dropdown>
+              </div>
+            </div>
+            <div class="row portfolio">
+              <div class="col-12">
+                <label>Cliente</label>
+                <dropdown label="txCatalogo" model="main.request.datos[17].rangoInicial" ng-if="main[17]" options="main[17]" selected="0"></dropdown>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="title-accordion {less: accordActive.opened }" ng-click="accordActive.opened = !accordActive.opened">
+            <h2>Activo de referencia</h2><i class="plus" ng-class="{less: accordActive.opened }"></i>
+          </div>
+          <div class="row portfolio" ng-show="accordActive.opened">
+            <div class="col-12">
+              <label>Activo de referencia</label>
+              <dropdown label="txCatalogo" model="main.request.datos[32].rangoInicial" ng-if="main[32]" options="main[32]" selected="0"></dropdown>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="title-accordion {less: accordSuby.opened }" ng-click="accordSuby.opened = !accordSuby.opened">
+            <h2>Subyacente / Pay-off</h2><i class="plus" ng-class="{less: accordSuby.opened }"></i>
+          </div>
+          <div ng-show="accordSuby.opened">
+            <div class="row portfolio">
+              <div class="col-12">
+                <label>Subyacente</label>
+                <dropdown label="txCatalogo" model="main.request.datos[14].rangoInicial" on-update="main.subyacenteSelected(main.request.datos[14].rangoInicial.nuCatalogo)" ng-if="main[14]" options="main[14]" selected="0"></dropdown>
+              </div>
+            </div>
+            <div class="row portfolio">
+              <div class="col-12">
+                <label>Pay-off</label>
+                <dropdown label="txCatalogo" model="main.request.datos[44].rangoInicial" ng-if="main[44]" on-update="main.payoffSelected(main.request.datos[44].rangoInicial.nuCatalogo)" options="main[44]" selected="0"></dropdown>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="title-accordion {less: accordExpire.opened }" ng-click="accordExpire.opened = !accordExpire.opened">
+            <h2>Vencimiento</h2><i class="plus" ng-class="{less: accordExpire.opened }"></i>
+          </div>
+          <div class="row portfolio" ng-show="accordExpire.opened">
+            <div class="col-12">
+              <label>Vencimiento</label>
+              <div class="mt-10 mb-10">
+                <div class="col-1 pr-0"><span>Del</span></div>
+                <div class="col-5">
+                  <input ng-model="main.request.datos[8].rangoInicial" type="date" date-input="date-input"/>
+                </div>
+                <div class="col-1 pr-0"><span>Al</span></div>
+                <div class="col-5 pr-0">
+                  <input ng-model="main.request.datos[8].rangoFinal" type="date" date-input="date-input"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="title-accordion {less: accordCapital.opened }" ng-click="accordCapital.opened = !accordCapital.opened; main.request.datos[30] = global.copy(main.request[30])">
+            <h2>Capital protegido</h2><i class="plus" ng-class="{less: accordCapital.opened }"></i>
+          </div>
+          <div class="ml-10 mr-10 mb-20" ng-if="accordCapital.opened">
+            <rzslider ng-click="main.request.datos[30] = global.copy(main.request[30])" rz-slider-model="main.request[30].rangoInicial" rz-slider-high="main.request[30].rangoFinal" rz-slider-options="main.options"></rzslider>
+          </div>
+        </div>
+        <div class="accordion">
+          <div class="title-accordion {less: accordMoreFilter.opened }" ng-click="accordMoreFilter.opened = !accordMoreFilter.opened">
+            <h2>Más filtros</h2><i class="plus" ng-class="{less: accordMoreFilter.opened }"></i>
+          </div>
+          <div ng-if="accordMoreFilter.opened">
+            <div class="row portfolio">
+              <div class="col-12">
+                <label>Otros filtros</label>
+                <div class="col-8">
+                  <dropdown label="txCatalogo" model="main.moreFilter" ng-if="main.more" options="main.more"></dropdown>
+                </div>
+                <div class="col-4">
+                  <button class="btn-copy" ng-click="main.others = true; main.optionsFilter.push(main.moreFilter);" ng-disabled="!main.moreFilter">Agregar</button>
+                </div>
+              </div>
+            </div>
+            <div ng-show="main.others">
+              <div class="row portfolio" ng-repeat="option in main.optionsFilter track by $index">
+                <div class="col-12"><i class="void-gray" ng-click="main.optionsFilter.splice($index, 1); main.request.datos[option.id] = null;"></i>
+                  <label>{{ option.propiedad }}</label>
+                  <div class="ml-10 mr-10 mb-20" ng-if="option.tipo === 'PORCENT'">
+                    <rzslider ng-click="main.request.datos[option.id] = global.copy(main.request[option.id])" rz-slider-model="main.request[option.id].rangoInicial" rz-slider-high="main.request[option.id].rangoFinal" rz-slider-options="main.slider.options"></rzslider>
+                  </div>
+                  <div class="mt-10 mb-10" ng-if="option.tipo === 'DATE'">
+                    <div class="col-1 pr-0"><span>Del</span></div>
+                    <div class="col-5">
+                      <input ng-model="main.request.datos[option.id].rangoInicial" type="date" date-input="date-input"/>
+                    </div>
+                    <div class="col-1 pr-0"><span>Al</span></div>
+                    <div class="col-5 pr-0">
+                      <input ng-model="main.request.datos[option.id].rangoFinal" type="date" date-input="date-input"/>
+                    </div>
+                  </div>
+                  <div class="ml-10 mr-10" ng-if="option.tipo === 'SELECT'">
+                    <dropdown label="txCatalogo" model="main.request[option.id]" ng-click="main.request.datos[option.id].rangoInicial = main.request[option.id]" ng-if="main[option.id]" options="main[option.id]"></dropdown>
+                  </div>
+                  <div class="ml-10 mr-10" ng-if="option.tipo === 'SWITCH'">
+                    <div class="toggle">
+                      <input id="{{ option.id }}" type="checkbox" name="{{ option.propiedad }}" ng-model="main.request.datos[option.id].rangoInicial"/>
+                      <label for="{{ option.id }}">
+                        <div class="toggle-switch" data-checked="Sí" data-unchecked="No"></div>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="ml-10 mr-10" ng-if="option.tipo === 'TEXT'">
+                    <input ng-model="main.request.datos[option.id].rangoInicial" type="text"/>
+                  </div>
+                  <div class="ml-10 mr-10" ng-if="option.tipo === 'CURRENCY' || option.tipo === 'NUMBER'">
+                    <div class="row">
+                      <div class="col-2"><span>Entre</span></div>
+                      <div class="col-4">
+                        <input ng-model="main.request.datos[option.id].rangoInicial" type="number"/>
+                      </div>
+                      <div class="col-1"><span>y</span></div>
+                      <div class="col-4 pr-0">
+                        <input ng-model="main.request.datos[option.id].rangoFinal" type="number"/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-15 mb-15">
+          <div class="col-12 align-center pr-0">
+            <button class="btn" ng-click="main.findEmissions = true; main.searchEmissions();">Buscar</button>
+          </div>
+        </div>
+      </div>
+      <div ng-if="main.findEmissions"><span class="back" ng-click="main.findEmissions = false;">Resultados de búsqueda</span>
+        <div class="row portfolio mt-0">
+          <div class="col-12 ml-10">
+            <label>{{ main.search.length }} Resultados</label>
+          </div>
+        </div>
+        <div class="scroll-vertical-filter">
+          <div class="follow"><span>Seguir todas</span>
+            <input ng-click="$event.stopPropagation();" id="followAll" name="followAll" ng-change="main.updateAllFilter()" ng-model="main.followAll" type="checkbox" value="followAll"/>
+            <label class="checkbox" for="followAll" ng-click="$event.stopPropagation();"></label>
+          </div>
+          <div class="alert" ng-if="!main.search.length"><span>No se encontraron resultados</span></div>
+          <div class="alert" ng-if="main.copyAllFilters"><span>Todos los datos fueron copiados</span></div>
+          <ul class="pl-10" ng-if="main.search.length">
+            <li class="mb-10" ng-if="!result.banderaFiltro" ng-repeat="result in main.search track by $index">
+              <input ng-click="$event.stopPropagation();" id="{{ result.cdSerie }}" name="{{ result.cdSerie }}" ng-change="main.evalEmission(result, $index);" ng-model="result.banderaFiltro" txt="{{ result.cdSerie }}" type="checkbox" value="{{ result.cdSerie }}"/>
+              <label class="checkbox" for="{{ result.cdSerie }}" ng-click="$event.stopPropagation();"></label>
+              <label class="txt" for="{{ result.cdSerie }}">{{ result.cdSerie }}</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-9">
+    <div class="title-portfolio">Información de portafolio</div>
+    <div class="row portfolio">
+      <div class="col-3">
+        <label>Nombre del portafolio</label>
+        <input ng-model="main.request.nombreCartera" type="text" maxlength="17"/>
+      </div>
+    </div>
+    <div class="row portfolio">
+      <div class="col-12">
+        <button class="btn-large float-right m-t-15 mr-5" ng-click="main.emissionsSearch = true" ng-disabled="main.emissionsSearch">Agregar emisión</button>
+        <label>Emisiones en portafolio</label>
+      </div>
+    </div>
+    <div class="table-scroll vertical border">
+      <table>
+        <thead>
+          <tr class="no-hover">
+            <th>
+              <input ng-click="$event.stopPropagation();" id="selectAll" name="selectAll" ng-change="main.updateAllTable()" ng-if="main.savedEmission.length" ng-model="main.selectAll" type="checkbox" value="selectAll"/>
+              <label class="checkbox" for="selectAll" ng-click="$event.stopPropagation();"></label>
+            </th>
+            <th>Serie</th>
+            <th>Pay-off</th>
+            <th>Activo</th>
+            <th>Precio inicial del activo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="no-hover" ng-init="item.activosString = main.getActivosConcat(item.activos); item.pricesString = main.getPricesConcat(item.activos)" ng-repeat="item in main.savedEmission track by $index">
+            <td>
+              <input ng-click="item.banderaFiltro = false; item.estatusEdicion &amp;&amp; main.savedEmission.splice($index, 1);" id="$index_{{ item.cdSerie }}" name="$index_{{ item.cdSerie }}" ng-model="item.bandera" type="checkbox"/>
+              <label class="checkbox" for="$index_{{ item.cdSerie }}" ng-click="$event.stopPropagation();"></label>
+            </td>
+            <td>{{ item.cdSerie }}</td>
+            <td>{{ item.tpPayoff }}</td>
+            <td>{{ item.activosString }}</td>
+            <td>{{ item.pricesString }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row align-center mt-20 mb-20">
+      <div class="col-12"><a nav="#!/portafolios-inversion">
+          <button class="btn-delete">Cancelar</button></a>
+        <button class="btn" style="margin-left: 10px;" ng-disabled="!main.request.nombreCartera" ng-click="main.saveBriefcase();">Guardar</button>
+      </div>
+    </div>
+  </div>
+  <div class="disclaimer">
+    <div class="txt">
+      <p class="strong">Disclaimer:</p>
+      <p ng-bind-html="global.sysDisclaimer"></p>
+    </div>
+  </div>
+</div>

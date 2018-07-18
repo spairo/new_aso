@@ -1,0 +1,45 @@
+
+<div class="animated fadeIn" ng-controller="CalendarsController as main">
+  <div class="breadcrumb"><a nav="#!/">Home  &sol;</a><span class="selected">Calendarios</span>
+  </div>
+  <h1>
+  </h1>
+  <div class="row">
+    <div class="col-3 pr-0">
+      <button class="btn-large mt-10" ng-click="main.registerModal.open()">Nuevo calendario</button>
+      <ul class="sidebar mt-20">
+        <li ng-class="{'active': main.activeLi === calendary.id}" ng-click="main.getInfoCal(calendary.id, calendary.etiqueta); main.activeLi = calendary.id" ng-repeat="calendary in main.calendaries track by $index"><a>{{calendary.etiqueta}}</a></li>
+      </ul>
+    </div>
+    <div class="col-9">
+      <div class="content-calendar">
+        <div ng-if="main.infoCal"><i class="replace-cal" title="Reemplazar calendario" ng-click="main.replaceCalendar.open()"></i><i class="add-date" title="Agregar fecha" ng-click="main.addDateCalendar.open()"></i>
+          <div class="title">{{main.infoCal.etiqueta}}</div>
+          <div class="table-scroll vertical ml-30 mr-30">
+            <table>
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Comentario</th>
+                </tr>
+              </thead>
+              <tbody ng-repeat="info in main.dataCal track by $index">
+                <td><span>{{ info.fhDiaInhabil | date:"dd/MM/yyyy" }}</span></td>
+                <td><span>{{ info.txComentario }}</span></td>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <modal name="main.addDateCalendar" size="'small-medium'" on-close="main.addrowcalendary = {};">
+    <ng-include src="'app/catalogos/calendarios/modal/add-date.html'"></ng-include>
+  </modal>
+  <modal name="main.registerModal" size="'small-medium'" on-close="main.calendario = {};">
+    <ng-include src="'app/catalogos/calendarios/modal/register-calendar.html'"></ng-include>
+  </modal>
+  <modal name="main.replaceCalendar" size="'small'" on-close="main.calendario = {};">
+    <ng-include src="'app/catalogos/calendarios/modal/replace-calendar.html'"></ng-include>
+  </modal>
+</div>

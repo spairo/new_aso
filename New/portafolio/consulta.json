@@ -1,0 +1,318 @@
+{
+	"cdUsuario": null,
+	"nuPermisoUsuario": null,
+	"cdPermisoUsuario": null,
+	"tabs": [{
+		"codigo": "tJuS",
+		"nombrePortafolio": "ASW"
+	}, {
+		"codigo": "KUYD",
+		"nombrePortafolio": "crear prueba"
+	}],
+	"subyacentes": ["EQD","foo"],
+	"contratos": [
+	{
+		"txCatalogo": 0
+	}, {
+		"txCatalogo": 974811
+	}, {
+		"txCatalogo": 1902105
+	}, {
+		"txCatalogo": 2549466
+	}, {
+		"txCatalogo": 5770945
+	}, {
+		"txCatalogo": 6116515
+	}, {
+		"txCatalogo": 6562132
+	}, {
+		"txCatalogo": 6840345
+	}],
+	"portafolios": [{
+		"idEstrategia": 2249,
+		"cdSerie": "S6064",
+		"subyacente": "EQD",
+		"tpPayoff": "Twin Win",
+		"imPrecio": 97.6927,
+		"fhVencimiento": 1625547600000,
+		"fhEstatus": 1468558800000,
+		"cdDivisa": "MXN",
+		"diferencia": -0.16,
+		"fhPrecio": 1519192800000,
+		"stActivo": true,
+		"estatus": 1,
+		"detallePayOff": {
+			"cdComplejidad": "-",
+			"nbComplejidad": "-",
+			"capitalProtegido": 100.0,
+			"volatilidad": false,
+			"liquidez": false,
+			"cdCaracteristicaBpp": "null",
+			"nbCaracteristicaBpp": "null",
+			"grupoSubyacente": {
+				"nuCatalogo": 0,
+				"cdCatalogo": "RV",
+				"txCatalogo": "Renta Variable",
+				"txComentario": "Renta Variable",
+				"stActivo": true,
+				"nuNivel": null
+			},
+			"plazo": "LP"
+		},
+		"activos": [{
+			"nbActivo": "Índice S&P 500®",
+			"precioActivo": 2853.53,
+			"diferencia": -100.0
+		}],
+		"precios": {
+			"fecha": ["1518501600000", "1518588000000", "1518674400000", "1518760800000", "1519020000000", "1519106400000", "1519192800000"],
+			"precio": [
+				["96.3524", "97.2183", "98.0187", "98.1177", "98.2497", "97.8418", "97.6927"]
+			]
+		},
+		"semaforo": {
+			"color": "#86C82D",
+			"comentario": null,
+			"nombreSemaforo": null
+		},
+		"estatusEdicion": null,
+		"contratos": [{
+			"totalClientes": 4,
+			"nuContrato": 974811,
+			"nuEstrategia": null,
+			"titulosC": 35420,
+			"titulosG": 9580,
+			"totalTitulos": 45000,
+			"montoVivo": 4500000.0,
+			"porcentajeMontoVivo": 52.6316
+		}, {
+			"totalClientes": 4,
+			"nuContrato": 1902105,
+			"nuEstrategia": null,
+			"titulosC": 35420,
+			"titulosG": 9580,
+			"totalTitulos": 45000,
+			"montoVivo": 4500000.0,
+			"porcentajeMontoVivo": 52.6316
+		}, {
+			"totalClientes": 4,
+			"nuContrato": 5770945,
+			"nuEstrategia": null,
+			"titulosC": 35420,
+			"titulosG": 9580,
+			"totalTitulos": 45000,
+			"montoVivo": 4500000.0,
+			"porcentajeMontoVivo": 52.6316
+		}, {
+			"totalClientes": 4,
+			"nuContrato": 6562132,
+			"nuEstrategia": null,
+			"titulosC": 35420,
+			"titulosG": 9580,
+			"totalTitulos": 45000,
+			"montoVivo": 4500000.0,
+			"porcentajeMontoVivo": 52.6316
+		}]
+	}, {
+		"idEstrategia": 2246,
+		"cdSerie": "S6035",
+		"subyacente": "EQD",
+		"tpPayoff": "Twin Win",
+		"imPrecio": 101.3523,
+		"fhVencimiento": 1555304400000,
+		"fhEstatus": 1461301200000,
+		"cdDivisa": "MXN",
+		"diferencia": -0.1,
+		"fhPrecio": 1519192800000,
+		"stActivo": true,
+		"estatus": 1,
+		"detallePayOff": {
+			"cdComplejidad": "-",
+			"nbComplejidad": "-",
+			"capitalProtegido": 100.0,
+			"volatilidad": false,
+			"liquidez": false,
+			"cdCaracteristicaBpp": "null",
+			"nbCaracteristicaBpp": "null",
+			"grupoSubyacente": {
+				"nuCatalogo": 0,
+				"cdCatalogo": "RV",
+				"txCatalogo": "Renta Variable",
+				"txComentario": "Renta Variable",
+				"stActivo": true,
+				"nuNivel": null
+			},
+			"plazo": "LP"
+		},
+		"activos": [{
+			"nbActivo": "Índice de Precios y Cotizaciones®",
+			"precioActivo": 50636.32,
+			"diferencia": -100.0
+		}],
+		"precios": {
+			"fecha": ["1518501600000", "1518588000000", "1518674400000", "1518760800000", "1519020000000", "1519106400000", "1519192800000"],
+			"precio": [
+				["101.0653", "101.5606", "101.9696", "101.8972", "101.675", "101.4464", "101.3523"]
+			]
+		},
+		"semaforo": {
+			"color": "#86C82D",
+			"comentario": null,
+			"nombreSemaforo": null
+		},
+		"estatusEdicion": null,
+		"contratos": [{
+			"totalClientes": 2,
+			"nuContrato": 2549466,
+			"nuEstrategia": null,
+			"titulosC": 18000,
+			"titulosG": 0,
+			"totalTitulos": 18000,
+			"montoVivo": 1800000.0,
+			"porcentajeMontoVivo": 21.0527
+		}, {
+			"totalClientes": 2,
+			"nuContrato": 6116515,
+			"nuEstrategia": null,
+			"titulosC": 18000,
+			"titulosG": 0,
+			"totalTitulos": 18000,
+			"montoVivo": 1800000.0,
+			"porcentajeMontoVivo": 21.0527
+		}]
+	}, {
+		"idEstrategia": 2232,
+		"cdSerie": "S5086",
+		"subyacente": "EQD",
+		"tpPayoff": "TARN",
+		"imPrecio": 90.8212,
+		"fhVencimiento": 1581487200000,
+		"fhEstatus": 1442984400000,
+		"cdDivisa": "MXN",
+		"diferencia": 0.07,
+		"fhPrecio": 1519192800000,
+		"stActivo": true,
+		"estatus": 1,
+		"detallePayOff": {
+			"cdComplejidad": "-",
+			"nbComplejidad": "-",
+			"capitalProtegido": 100.0,
+			"volatilidad": false,
+			"liquidez": false,
+			"cdCaracteristicaBpp": "null",
+			"nbCaracteristicaBpp": "null",
+			"grupoSubyacente": {
+				"nuCatalogo": 0,
+				"cdCatalogo": "RV",
+				"txCatalogo": "Renta Variable",
+				"txComentario": "Renta Variable",
+				"stActivo": true,
+				"nuNivel": null
+			},
+			"plazo": "LP"
+		},
+		"activos": [{
+			"nbActivo": "Índice Eurostoxx 50®",
+			"precioActivo": 3643.04,
+			"diferencia": -100.0
+		}],
+		"precios": {
+			"fecha": ["1518501600000", "1518588000000", "1518674400000", "1518760800000", "1519020000000", "1519106400000", "1519192800000"],
+			"precio": [
+				["92.2046", "96.0361", "96.2479", "96.6061", "90.5495", "90.7565", "90.8212"]
+			]
+		},
+		"semaforo": {
+			"color": "#86C82D",
+			"comentario": null,
+			"nombreSemaforo": null
+		},
+		"estatusEdicion": null,
+		"contratos": [{
+			"totalClientes": 1,
+			"nuContrato": 6840345,
+			"nuEstrategia": null,
+			"titulosC": 15000,
+			"titulosG": 0,
+			"totalTitulos": 15000,
+			"montoVivo": 1500000.0,
+			"porcentajeMontoVivo": 17.5439
+		}]
+	}, {
+		"idEstrategia": 2229,
+		"cdSerie": "S5079",
+		"subyacente": "EQD",
+		"tpPayoff": "Call Spread",
+		"imPrecio": 106.836,
+		"fhVencimiento": 1536037200000,
+		"fhEstatus": 1441947600000,
+		"cdDivisa": "MXN",
+		"diferencia": -0.11,
+		"fhPrecio": 1519192800000,
+		"stActivo": true,
+		"estatus": 1,
+		"detallePayOff": {
+			"cdComplejidad": "-",
+			"nbComplejidad": "-",
+			"capitalProtegido": 100.0,
+			"volatilidad": false,
+			"liquidez": false,
+			"cdCaracteristicaBpp": "null",
+			"nbCaracteristicaBpp": "null",
+			"grupoSubyacente": {
+				"nuCatalogo": 0,
+				"cdCatalogo": "RV",
+				"txCatalogo": "Renta Variable",
+				"txComentario": "Renta Variable",
+				"stActivo": true,
+				"nuNivel": null
+			},
+			"plazo": "LP"
+		},
+		"activos": [{
+			"nbActivo": "Índice Eurostoxx 50®",
+			"precioActivo": 3643.04,
+			"diferencia": -100.0
+		}],
+		"precios": {
+			"fecha": ["1518501600000", "1518588000000", "1518674400000", "1518760800000", "1519020000000", "1519106400000", "1519192800000"],
+			"precio": [
+				["105.1094", "105.2783", "105.7063", "106.5734", "106.1843", "106.9505", "106.836"]
+			]
+		},
+		"semaforo": {
+			"color": "#86C82D",
+			"comentario": "mensaje numero 15 de prueba para los semaforos",
+			"nombreSemaforo": null
+		},
+		"estatusEdicion": null,
+		"contratos": [{
+			"totalClientes": 3,
+			"nuContrato": 2549466,
+			"nuEstrategia": null,
+			"titulosC": 7500,
+			"titulosG": 0,
+			"totalTitulos": 7500,
+			"montoVivo": 750000.0,
+			"porcentajeMontoVivo": 8.772
+		}, {
+			"totalClientes": 3,
+			"nuContrato": 5770945,
+			"nuEstrategia": null,
+			"titulosC": 7500,
+			"titulosG": 0,
+			"totalTitulos": 7500,
+			"montoVivo": 750000.0,
+			"porcentajeMontoVivo": 8.772
+		}, {
+			"totalClientes": 3,
+			"nuContrato": 6562132,
+			"nuEstrategia": null,
+			"titulosC": 7500,
+			"titulosG": 0,
+			"totalTitulos": 7500,
+			"montoVivo": 750000.0,
+			"porcentajeMontoVivo": 8.772
+		}]
+	}]
+}

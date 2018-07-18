@@ -1,0 +1,19 @@
+
+<div class="prompt">{{ global.Messages.message["severity"]}}</div>
+<div>
+  <h1 class="tit-alert" ng-class="{ success: global.Messages.message.code === 1}">{{ global.Messages.message.title }} {{ global.Messages.message["error-code"]}}</h1>
+  <div class="row mt-20 align-center">
+    <div class="col-1 mt-10 ml-10"><i class="info" ng-if="global.Messages.message.code === 1"></i><i class="warning" ng-if="global.Messages.message.code !== 1"></i>
+    </div>
+    <div class="col-10 message">
+      <p>{{global.Messages.message["error-message"]}}</p>
+      <p ng-bind-html="global.Messages.message.message" ng-class="{'mt-20': !global.Messages.message.listaErrores}"></p>
+    </div>
+  </div>
+</div>
+<select class="mt-15" multiple="multiple" ng-if="global.Messages.message.listaErrores" ng-multiple="true">
+  <option ng-repeat="error in global.Messages.message.listaErrores">{{error.message}}</option>
+</select>
+<div class="row">
+  <button class="btn btn-alert" ng-click="global.Messages.ui.close()">Aceptar</button>
+</div>
